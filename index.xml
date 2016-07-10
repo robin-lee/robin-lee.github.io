@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Robin Lee</title>
+    <link>http://replace-this-with-your-hugo-site.com/</link>
+    <description>Recent content on Robin Lee</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    <lastBuildDate>Sun, 10 Jul 2016 14:29:34 +0200</lastBuildDate>
+    <atom:link href="http://replace-this-with-your-hugo-site.com/index.xml" rel="self" type="application/rss+xml" />
+    
+    <item>
+      <title>Hello World</title>
+      <link>http://replace-this-with-your-hugo-site.com/blog/hello-world/</link>
+      <pubDate>Sun, 10 Jul 2016 14:29:34 +0200</pubDate>
+      
+      <guid>http://replace-this-with-your-hugo-site.com/blog/hello-world/</guid>
+      <description>&lt;p&gt;Whoopee! Hugo, with the cocoa theme!&lt;/p&gt;
+
+&lt;p&gt;Furthermore, some old posts have been shifted over from pelican!&lt;/p&gt;
+
+&lt;p&gt;&lt;a href=&#34;https://gohugo.io/overview/quickstart/&#34;&gt;Check out how to use hugo here&lt;/a&gt;&lt;/p&gt;
+</description>
+    </item>
+    
+  </channel>
+</rss>
