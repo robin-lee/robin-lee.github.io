@@ -23,5 +23,85 @@
 </description>
     </item>
     
+    <item>
+      <title>Virtual Box Shared Folder</title>
+      <link>https://robin-lee.github.io/blog/virtual-box-shared-folder/</link>
+      <pubDate>Sat, 06 Feb 2016 21:41:18 +0800</pubDate>
+      
+      <guid>https://robin-lee.github.io/blog/virtual-box-shared-folder/</guid>
+      <description>&lt;p&gt;For some projects I need to share files between my virtual machine and my host machine. VirtualBox allows for shared folders between the VM and the host after install Guest Additions. However, there is always a bit of configuration involved.&lt;/p&gt;
+
+&lt;p&gt;I installed Ubuntu 14.04 LTS and then installed Guest Additions. After I added a shared folder in the settings, I discovered that I did not have permission to access the folder. According to VirtualBox&amp;rsquo;s &lt;a href=&#34;https://www.virtualbox.org/manual/ch04.html#sf_mount_auto&#34;&gt;documentation&lt;/a&gt; you need to add guest users to the vboxsf group. I tend to forget the command to do so as I do not need to change user properties frequency.&lt;/p&gt;
+
+&lt;p&gt;If you happen to need the command here it is:&lt;/p&gt;
+
+&lt;pre&gt;&lt;code class=&#34;language-language-bash&#34;&gt;sudo usermod -aG vboxsf &amp;lt;your username&amp;gt;
+&lt;/code&gt;&lt;/pre&gt;
+</description>
+    </item>
+    
+    <item>
+      <title>Forcing Display Edid</title>
+      <link>https://robin-lee.github.io/blog/forcing-display-edid/</link>
+      <pubDate>Fri, 05 Feb 2016 22:02:00 +0800</pubDate>
+      
+      <guid>https://robin-lee.github.io/blog/forcing-display-edid/</guid>
+      <description>&lt;p&gt;I bought a 2 port VGA Switcher off Taobao so that I could switch my main display between my desktop and laptop. However, when I connected my Macbook through the VGA adapter to the VGA Switcher my screen was not appearing correctly. It was shifted off screen to the right.&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&#34;https://robin-lee.github.io/images/mtviki-vga-switch.jpg&#34; alt=&#34;VGA Switcher&#34; /&gt;&lt;/p&gt;
+
+&lt;p&gt;This is the 2 port VGA Switcher I bought off Taobao. It is a nice compact device with tacty buttons you can press to switch the the video input.&lt;/p&gt;
+
+&lt;p&gt;If I connect it up like Macbook - VGA Adapter - VGA Cable - Display, it works fine. However, the setup I need is Macbook - VGA Adapter - VGA Cable - VGA Switcher - Display. When connected up in this manner, the output from my Macbook is cutoff and shifted to the right. Faced with this problem I contemplated getting another KVM Switch that is known to work with Macbooks.&lt;/p&gt;
+
+&lt;p&gt;Knowing that it would still take at least 2-3 weeks to get a KVM Switch purchased from Amazon to my doorstep, I looked for software or configuration based solutions. The SwitchResX plugin was able to get the full HD resolution to show but that produced the cutoff issue. Smaller resolutions from 1400x1050 downwards was working fine but it wasn&amp;rsquo;t HDPI and it is such a waste for a 23 inch screen.&lt;/p&gt;
+
+&lt;p&gt;I observed that the display was being detected as a generic VGA/SVGA display with Vendor as &amp;ldquo;unkn - 756E6B6E&amp;rdquo; and Product as &amp;ldquo;717&amp;rdquo;. So I made a guess that my laptop was unable to tell what device we are being hooked up to through the VGA cable. When it comes to identifying something we usually do it through IDs. There had to be some file or ID that could be spoofed right?&lt;/p&gt;
+
+&lt;p&gt;After Googling a bit it seems like other people have had the similar problems. There were a number of threads where people indicated failure in producing the right output on an external display connected to their Macbook. Changing some files relating to EDID solved their problem. According to wikipedia: &lt;code&gt;Extended display identification data (EDID) is a data structure provided by a digital display to describe its capabilities to a video source (e.g. graphics card or set-top box). It is what enables a modern personal computer to know what kinds of monitors are connected to it.&lt;/code&gt;&lt;/p&gt;
+
+&lt;p&gt;Going to the folder &lt;code&gt;/DisplayVendorID-756e6b6e&lt;/code&gt;, I had to replace &lt;code&gt;DisplayProductID-717&lt;/code&gt; with a customized configuration.
+It is better explained &lt;a href=&#34;http://www.insanelymac.com/forum/topic/208410-fixing-scrambledstretched-or-wrong-resolution-laptop-display-problems/&#34;&gt;here&lt;/a&gt;.&lt;/p&gt;
+</description>
+    </item>
+    
+    <item>
+      <title>Learning Regex</title>
+      <link>https://robin-lee.github.io/blog/learning-regex/</link>
+      <pubDate>Tue, 15 Sep 2015 23:21:45 +0800</pubDate>
+      
+      <guid>https://robin-lee.github.io/blog/learning-regex/</guid>
+      <description>&lt;p&gt;I think regular expressions are essential when it comes to extracting data from a source.&lt;/p&gt;
+
+&lt;p&gt;For example if you wanted the names of all the files in a folder without the extensio, using a regular expression could make the process easier and code more concise.&lt;/p&gt;
+
+&lt;p&gt;The difficulty is finding the material to practice on even with a cheatsheet for regex.&lt;/p&gt;
+
+&lt;p&gt;I found this site called &lt;a href=&#34;http://regexone.com/&#34;&gt;regexone&lt;/a&gt; and I felt the tutorial reflected certain real life situations. Not only did it teach me about the symbols it did so by sharing real life examples(where you might use a regular expression). Such as for checking for email validity or telephone number validity. Do check it out!&lt;/p&gt;
+
+&lt;p&gt;When crafting a regular expression for use you will definitely need to test it first, so here is an online tool you might want to use: &lt;a href=&#34;https://regex101.com/&#34;&gt;regex101&lt;/a&gt;&lt;/p&gt;
+
+&lt;p&gt;&lt;em&gt;Brief recap of what I went through&lt;/em&gt;&lt;/p&gt;
+
+&lt;ol&gt;
+&lt;li&gt;&lt;code&gt;^&lt;/code&gt;(hat) the hat character can be used to exclude or declare the start of a regular expression.&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;[abc]&lt;/code&gt; square brackets mean that it is a character set. In this case only a,b, or c are valid.&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;[^abc]&lt;/code&gt; this &lt;em&gt;inverts&lt;/em&gt; the logic in the previous point. Not a, b, nor c. Exclude a, b, and c.&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;[a-z]|[0-9]&lt;/code&gt; a to z or 0-9.&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;$&lt;/code&gt; end of regular expression&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;()&lt;/code&gt; capture group, can be nested. Jan 1988. &lt;code&gt;(\w+\s(\d+))&lt;/code&gt; gives &lt;code&gt;Jan 1988&lt;/code&gt; &lt;code&gt;1988&lt;/code&gt;.&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;.&lt;/code&gt; means any character. &lt;code&gt;\.&lt;/code&gt; with backslash means period.&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;+&lt;/code&gt; means ONE or many repetitions. &lt;code&gt;*&lt;/code&gt; ZERO or many repetitions.&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;\s&lt;/code&gt; any white space character &lt;code&gt;\t&lt;/code&gt;, , &lt;code&gt;r&lt;/code&gt;, &lt;code&gt;n&lt;/code&gt;.&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;{n}&lt;/code&gt;, &lt;code&gt;{a,b}&lt;/code&gt;. n repetitions. a to b repetitions.&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;\w&lt;/code&gt; means &lt;code&gt;[A-Za-z0-9_]&lt;/code&gt;&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;\d&lt;/code&gt; means [0-9]&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;ab?c&lt;/code&gt; means b is an optional. &lt;code&gt;abc&lt;/code&gt; and &lt;code&gt;ac&lt;/code&gt; are valid.&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;\w+\b&lt;/code&gt; is useful for getting entire words. boundary between word and non-word character.&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;\W+$&lt;/code&gt; would match any non-alphanumeric character up to the end of the line. Eg. &lt;code&gt;&amp;amp;$#*@!.&lt;/code&gt;.&lt;/li&gt;
+&lt;/ol&gt;
+</description>
+    </item>
+    
   </channel>
 </rss>

@@ -1,0 +1,165 @@
+<!DOCTYPE html>
+<html lang="en-us">
+
+<head>
+<meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="chrome=1">
+<meta name="HandheldFriendly" content="True">
+<meta name="MobileOptimized" content="320">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="description" content="random adventures">
+
+<base href="https://robin-lee.github.io/">
+<title>
+
+
+     Forcing Display Edid 
+
+</title>
+<link rel="canonical" href="https://robin-lee.github.io/blog/forcing-display-edid/">
+
+
+<script type="text/javascript">
+    var baseURL = 'https:\/\/robin-lee.github.io\/';
+    var host = baseURL.substring(0, baseURL.length - 1).replace(/\//g, '');
+    if ((host === window.location.host) && (window.location.protocol !== 'https:')) {
+        window.location.protocol = 'https:';
+    }
+</script>
+
+
+
+
+
+<link rel="stylesheet" href="https://robin-lee.github.io/css/reset.css">
+<link rel="stylesheet" href="https://robin-lee.github.io/css/pygments.css">
+<link rel="stylesheet" href="https://robin-lee.github.io/css/main.css">
+
+
+    <link rel="stylesheet" href="https://robin-lee.github.io/css/override.css">
+
+
+
+
+
+<link rel="shortcut icon"
+
+    href="https://robin-lee.github.io/favicon.ico"
+
+>
+
+
+
+</head>
+
+
+<body lang="en">
+
+<section class="header">
+    <div class="container">
+        <div class="content">
+            <a href="https://robin-lee.github.io/"><div class="name">Robin Lee</div></a>
+            <nav>
+                <ul>
+                    <a href="https://robin-lee.github.io/blog/"><li>Blog</li></a>
+                    <a href="https://robin-lee.github.io/about/"><li>About</li></a>
+                    
+                </ul>
+            </nav>
+        </div>
+    </div>
+</section>
+
+<section class="icons">
+    <div class="container">
+        <div class="content">
+
+        
+            <a href="//github.com/robin-lee" target="_blank">
+                <i class="icon ion-social-github"></i>
+            </a>
+        
+
+        
+
+        
+            <a href="//sg.linkedin.com/in/robin-lee-2b70818a" target="_blank">
+                <i class="icon ion-social-linkedin"></i>
+            </a>
+        
+
+        
+
+        
+
+        
+        </div>
+    </div>
+</section>
+
+
+<section class="main post non-narrow zero-top-spacing">
+    <div class="container">
+        <div class="content">
+            <div class="front-matter">
+                <div class="title-container">
+                    <div class="page-heading">
+
+    Forcing Display Edid
+
+</div>
+
+                    <div class="initials"><a href="https://robin-lee.github.io/">RL</a></div>
+                </div>
+                <div class="meta">
+                    <div class="date" title="Fri Feb 5 2016 22:02:00 &#43;0800">Feb 5, 2016</div>
+                    <div class="reading-time"><div class="middot"></div>2 minutes read</div>
+                </div>
+            </div>
+            <div class="markdown">
+                <p>I bought a 2 port VGA Switcher off Taobao so that I could switch my main display between my desktop and laptop. However, when I connected my Macbook through the VGA adapter to the VGA Switcher my screen was not appearing correctly. It was shifted off screen to the right.</p>
+
+<p><img src="https://robin-lee.github.io/images/mtviki-vga-switch.jpg" alt="VGA Switcher" /></p>
+
+<p>This is the 2 port VGA Switcher I bought off Taobao. It is a nice compact device with tacty buttons you can press to switch the the video input.</p>
+
+<p>If I connect it up like Macbook - VGA Adapter - VGA Cable - Display, it works fine. However, the setup I need is Macbook - VGA Adapter - VGA Cable - VGA Switcher - Display. When connected up in this manner, the output from my Macbook is cutoff and shifted to the right. Faced with this problem I contemplated getting another KVM Switch that is known to work with Macbooks.</p>
+
+<p>Knowing that it would still take at least 2-3 weeks to get a KVM Switch purchased from Amazon to my doorstep, I looked for software or configuration based solutions. The SwitchResX plugin was able to get the full HD resolution to show but that produced the cutoff issue. Smaller resolutions from 1400x1050 downwards was working fine but it wasn&rsquo;t HDPI and it is such a waste for a 23 inch screen.</p>
+
+<p>I observed that the display was being detected as a generic VGA/SVGA display with Vendor as &ldquo;unkn - 756E6B6E&rdquo; and Product as &ldquo;717&rdquo;. So I made a guess that my laptop was unable to tell what device we are being hooked up to through the VGA cable. When it comes to identifying something we usually do it through IDs. There had to be some file or ID that could be spoofed right?</p>
+
+<p>After Googling a bit it seems like other people have had the similar problems. There were a number of threads where people indicated failure in producing the right output on an external display connected to their Macbook. Changing some files relating to EDID solved their problem. According to wikipedia: <code>Extended display identification data (EDID) is a data structure provided by a digital display to describe its capabilities to a video source (e.g. graphics card or set-top box). It is what enables a modern personal computer to know what kinds of monitors are connected to it.</code></p>
+
+<p>Going to the folder <code>/DisplayVendorID-756e6b6e</code>, I had to replace <code>DisplayProductID-717</code> with a customized configuration.
+It is better explained <a href="http://www.insanelymac.com/forum/topic/208410-fixing-scrambledstretched-or-wrong-resolution-laptop-display-problems/">here</a>.</p>
+
+                <br>
+                <p><a href="https://robin-lee.github.io/blog/">Back to posts</a></p>
+            </div>
+            <br>
+            <div class="disqus">
+                
+            </div>
+        </div>
+    </div>
+</section>
+
+
+
+<script type="text/javascript">
+var gaJsHost = (("https:" == document.location.protocol) ? "https://ssl." : "http://www.");
+document.write(unescape("%3Cscript src='" + gaJsHost + "google-analytics.com/ga.js' type='text/javascript'%3E%3C/script%3E"));
+</script>
+<script type="text/javascript">
+try {
+    var pageTracker = _gat._getTracker("XYZ");
+    pageTracker._trackPageview();
+} catch(err) {}
+</script>
+
+
+
+</body>
+</html>
+
