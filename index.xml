@@ -22,7 +22,7 @@ You might not need all values from the JSON data.&lt;/p&gt;
 
 &lt;p&gt;Typically, you will retrieve the data using a HTTP client and then pass it on to a Object Relational Mapper.
 In my experience APIs return data based on models crafted for the database, however, for client side applications the model
-you design might be different from what the API returns you. Hence, you need to extract part of it, transform it or map it differently.&lt;/p&gt;
+you design might be different from what the API returns you (due to application needs/ease of development). Hence, you need to extract part of it, transform it or map it differently.&lt;/p&gt;
 
 &lt;p&gt;If you happen to use GSON and retrofit 2&amp;hellip; Perhaps this example will help you.&lt;/p&gt;
 
