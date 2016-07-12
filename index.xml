@@ -6,8 +6,104 @@
     <description>Recent content on Robin Lee</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <lastBuildDate>Sun, 10 Jul 2016 14:29:34 +0200</lastBuildDate>
+    <lastBuildDate>Tue, 12 Jul 2016 21:51:16 +0200</lastBuildDate>
     <atom:link href="https://robin-lee.github.io/index.xml" rel="self" type="application/rss+xml" />
+    
+    <item>
+      <title>Gson Custom Deserializer</title>
+      <link>https://robin-lee.github.io/blog/gson-custom-deserializer/</link>
+      <pubDate>Tue, 12 Jul 2016 21:51:16 +0200</pubDate>
+      
+      <guid>https://robin-lee.github.io/blog/gson-custom-deserializer/</guid>
+      <description>&lt;p&gt;When you develop an application, usually you will have to consume an API Service which might return some JSON data.
+You might not need all values from the JSON data.&lt;/p&gt;
+
+&lt;p&gt;The question is how do you process such data the &lt;em&gt;right&lt;/em&gt; way?&lt;/p&gt;
+
+&lt;p&gt;Typically, you will retrieve the data using a HTTP client and then pass it on to a Object Relational Mapper.
+In my experience APIs return data based on models crafted for the database, however, for client side applications the model
+you design might be different from what the API returns you. Hence, you need to extract part of it, transform it or map it differently.&lt;/p&gt;
+
+&lt;p&gt;If you happen to use GSON and retrofit 2&amp;hellip; Perhaps this example will help you.&lt;/p&gt;
+
+&lt;p&gt;Sample json data:&lt;/p&gt;
+
+&lt;pre&gt;&lt;code class=&#34;language-json&#34;&gt;{
+  &amp;quot;date&amp;quot;: &amp;quot;2016-01-01T21:23:00&amp;quot;,
+  &amp;quot;places&amp;quot;: [
+    {
+      &amp;quot;id&amp;quot;: 1,
+      &amp;quot;amount&amp;quot;: 25
+    },
+    {
+      &amp;quot;id&amp;quot;: 2,
+      &amp;quot;amount&amp;quot;: 59
+    },
+    {
+      &amp;quot;id&amp;quot;: 3,
+      &amp;quot;amount&amp;quot;: 28
+    },
+    {
+      &amp;quot;id&amp;quot;: 4,
+      &amp;quot;amount&amp;quot;: 11
+    }
+  ]
+}
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;Lets say you just want the &amp;ldquo;list&amp;rdquo; of places.&lt;/p&gt;
+
+&lt;p&gt;First define a model for each &amp;ldquo;Place&amp;rdquo;.&lt;/p&gt;
+
+&lt;pre&gt;&lt;code class=&#34;language-java&#34;&gt;
+private int id;
+private int amount;
+
+//Constructors, getters and setters
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;Define a custom deserializer for GSON with a main method for testing (or you could setup JUnit).&lt;/p&gt;
+
+&lt;pre&gt;&lt;code class=&#34;language-java&#34;&gt;class CustomPlaceDeserializer&amp;lt;T&amp;gt; implements JsonDeserializer&amp;lt;List&amp;lt;T&amp;gt;&amp;gt; {
+
+    public List&amp;lt;T&amp;gt; deserialize(JsonElement jsonElement, Type type, JsonDeserializationContext context)
+            throws JsonParseException {
+
+        JsonElement results = jsonElement.getAsJsonObject().get(&amp;quot;places&amp;quot;);
+
+        return new Gson().fromJson(results, type);
+    }
+
+    public static void main(String[] args) throws Exception {
+
+        //
+
+        // Configure Gson
+        GsonBuilder gsonBuilder = new GsonBuilder();
+        Type listType = new TypeToken&amp;lt;ArrayList&amp;lt;Place&amp;gt;&amp;gt;(){}.getType();
+        gsonBuilder.registerTypeAdapter(listType, new CustomPlaceDeserializer&amp;lt;Place&amp;gt;());
+        Gson gson = gsonBuilder.create();
+
+        // The JSON data
+        String jsonstring = &amp;quot;replace this with sample json string&amp;quot;;
+
+        // Parse JSON to Java
+        List&amp;lt;Place&amp;gt; places = gson.fromJson(jsonstring, listType);
+        System.out.println(places.size());
+    }
+
+}
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;If you are using retrofit 2, it might look something like this:&lt;/p&gt;
+
+&lt;pre&gt;&lt;code class=&#34;language-java&#34;&gt;Gson customGson =
+        new GsonBuilder()
+                .registerTypeAdapter(listType, new CustomPlaceDeserializer&amp;lt;Place&amp;gt;())
+                .create();
+&lt;/code&gt;&lt;/pre&gt;
+</description>
+    </item>
     
     <item>
       <title>Hello World</title>
