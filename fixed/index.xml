@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Fixed on Robin Lee</title>
+    <link>https://robin-lee.github.io/fixed/</link>
+    <description>Recent content in Fixed on Robin Lee</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    <lastBuildDate>Sun, 10 Jul 2016 15:04:30 +0200</lastBuildDate>
+    <atom:link href="https://robin-lee.github.io/fixed/index.xml" rel="self" type="application/rss+xml" />
+    
+    <item>
+      <title>About</title>
+      <link>https://robin-lee.github.io/about/</link>
+      <pubDate>Sun, 10 Jul 2016 15:04:30 +0200</pubDate>
+      
+      <guid>https://robin-lee.github.io/about/</guid>
+      <description>&lt;p&gt;Robin is an undergraduate at SUTD.&lt;/p&gt;
+
+&lt;p&gt;He likes reading epic fantasy, translated light novels and trying new technologies*.&lt;/p&gt;
+
+&lt;p&gt;Here he writes about his adventures with random things as well as shares his thoughts on various topics.&lt;/p&gt;
+</description>
+    </item>
+    
+  </channel>
+</rss>

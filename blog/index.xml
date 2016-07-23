@@ -6,8 +6,50 @@
     <description>Recent content in Blog on Robin Lee</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <lastBuildDate>Tue, 12 Jul 2016 21:51:16 +0200</lastBuildDate>
+    <lastBuildDate>Sat, 23 Jul 2016 14:46:47 +0200</lastBuildDate>
     <atom:link href="https://robin-lee.github.io/blog/index.xml" rel="self" type="application/rss+xml" />
+    
+    <item>
+      <title>SOLID Principles</title>
+      <link>https://robin-lee.github.io/blog/solid-principles/</link>
+      <pubDate>Sat, 23 Jul 2016 14:46:47 +0200</pubDate>
+      
+      <guid>https://robin-lee.github.io/blog/solid-principles/</guid>
+      <description>
+
+&lt;p&gt;A set of principles to design or write &lt;strong&gt;classes&lt;/strong&gt;.&lt;/p&gt;
+
+&lt;h1 id=&#34;single-responsibility-principle&#34;&gt;Single Responsibility Principle&lt;/h1&gt;
+
+&lt;blockquote&gt;
+&lt;p&gt;A class should have one, and only one, reason to change.&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;h1 id=&#34;open-closed-principle&#34;&gt;Open - Closed Principle&lt;/h1&gt;
+
+&lt;blockquote&gt;
+&lt;p&gt;You should be able to extend a classes behavior, without modifying it.&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;h1 id=&#34;liskov-substitution-principle&#34;&gt;Liskov Substitution Principle&lt;/h1&gt;
+
+&lt;blockquote&gt;
+&lt;p&gt;Derived classes must be substitutable for their base classes.&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;h1 id=&#34;interface-segregation-principle&#34;&gt;Interface Segregation Principle&lt;/h1&gt;
+
+&lt;blockquote&gt;
+&lt;p&gt;Make fine grained interfaces that are client specific.&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;h1 id=&#34;dependency-inversion-principle&#34;&gt;Dependency Inversion Principle&lt;/h1&gt;
+
+&lt;blockquote&gt;
+&lt;p&gt;Depend on abstractions, not on concretions.&lt;/p&gt;
+&lt;/blockquote&gt;
+</description>
+    </item>
     
     <item>
       <title>Gson Custom Deserializer</title>
