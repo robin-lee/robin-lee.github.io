@@ -6,8 +6,99 @@
     <description>Recent content in Blog on Robin Lee</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <lastBuildDate>Sat, 23 Jul 2016 14:46:47 +0200</lastBuildDate>
+    <lastBuildDate>Sun, 24 Jul 2016 22:10:37 +0200</lastBuildDate>
     <atom:link href="https://robin-lee.github.io/blog/index.xml" rel="self" type="application/rss+xml" />
+    
+    <item>
+      <title>Uncle Bob Said</title>
+      <link>https://robin-lee.github.io/blog/uncle-bob-said/</link>
+      <pubDate>Sun, 24 Jul 2016 22:10:37 +0200</pubDate>
+      
+      <guid>https://robin-lee.github.io/blog/uncle-bob-said/</guid>
+      <description>
+
+&lt;h1 id=&#34;inspirational-quotes&#34;&gt;Inspirational quotes&lt;/h1&gt;
+
+&lt;blockquote&gt;
+&lt;p&gt;&amp;ldquo;You dont go fast by writing crap”&lt;/p&gt;
+
+&lt;p&gt;&amp;ldquo;You want to go fast, you do a good job”&lt;/p&gt;
+
+&lt;p&gt;“Move deliberately, instead of rapidly&amp;rdquo;&lt;/p&gt;
+&lt;/blockquote&gt;
+</description>
+    </item>
+    
+    <item>
+      <title>Agile Software Development</title>
+      <link>https://robin-lee.github.io/blog/agile-software-development/</link>
+      <pubDate>Sat, 23 Jul 2016 16:29:59 +0200</pubDate>
+      
+      <guid>https://robin-lee.github.io/blog/agile-software-development/</guid>
+      <description>
+
+&lt;h1 id=&#34;what-is-agile-software-development&#34;&gt;What is Agile Software Development?&lt;/h1&gt;
+
+&lt;p&gt;It refers to adopting a set of practices or principles while developing software.&lt;/p&gt;
+
+&lt;blockquote&gt;
+&lt;p&gt;In early 2001, the Agile Alliance met to outine the values and principles that would allow software teams work together and respond to change.&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;p&gt;&lt;em&gt;Agile Software Development, Principles, Patterns and Practices.&lt;/em&gt;&lt;/p&gt;
+
+&lt;h1 id=&#34;things-that-got-my-attention&#34;&gt;Things that got my attention&lt;/h1&gt;
+
+&lt;p&gt;1.&lt;/p&gt;
+
+&lt;blockquote&gt;
+&lt;p&gt;Agiles processes promote sustainable development. The sponsors, developers and users should be able to maintain constant pace indefinitely.&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;p&gt;2.&lt;/p&gt;
+
+&lt;blockquote&gt;
+&lt;p&gt;An agile project is not run like a 50-yard dash; it is run like a marathon. They run at a fast, sustainable pace. Running too fast often leads to burnout, shortcuts and debacle. &amp;hellip; A team is not allowed to work overtime. The only exception is the last week in a release.&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;p&gt;3.&lt;/p&gt;
+
+&lt;blockquote&gt;
+&lt;p&gt;Splitting, Spiking and Velocity. Any story too big should be split in stories that aren&amp;rsquo;t too big. After splitting, it should be reestiamted.&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;p&gt;Velocity is something like &amp;ldquo;2 days per story point&amp;rdquo;.&lt;/p&gt;
+
+&lt;p&gt;Example:&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;-&amp;gt; Users can securely transfer money into, out of, and between their accounts.
+
+becomes
+
+-&amp;gt; Users can login
+-&amp;gt; Users can logout
+-&amp;gt; Users can deposit money into their account
+-&amp;gt; Users can withdraw money from their account
+-&amp;gt; Users can transfer money from their account to another account
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;4.&lt;/p&gt;
+
+&lt;blockquote&gt;
+&lt;p&gt;Intentional programming. You state your intent in a test before implementing it, making your intent as simple and readable as possible. The act of writing tests first is an act of discerning between design decisions. WumpusGame example: Integers instead of room object or game world?&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;p&gt;&lt;em&gt;White box test: A test that knows and depends on its internal structure. (unit)&lt;/em&gt;&lt;/p&gt;
+
+&lt;p&gt;&lt;em&gt;Black box test: A test that does&lt;/em&gt; &lt;strong&gt;&lt;em&gt;not&lt;/em&gt;&lt;/strong&gt; &lt;em&gt;know or depend on its internal structure. (acceptance)&lt;/em&gt;&lt;/p&gt;
+
+&lt;p&gt;5.&lt;/p&gt;
+
+&lt;blockquote&gt;
+&lt;p&gt;Always practice refactoring for every module you write and every module you maintain.&lt;/p&gt;
+&lt;/blockquote&gt;
+</description>
+    </item>
     
     <item>
       <title>SOLID Principles</title>
