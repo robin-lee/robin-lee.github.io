@@ -1,0 +1,182 @@
+<!DOCTYPE html>
+<html lang="en-us">
+
+<head>
+<meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="chrome=1">
+<meta name="HandheldFriendly" content="True">
+<meta name="MobileOptimized" content="320">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="description" content="random adventures">
+
+<base href="https://robin-lee.github.io/">
+<title>
+
+
+     Gradle and gradle init 
+
+</title>
+<link rel="canonical" href="https://robin-lee.github.io/blog/gradle-and-gradle-init/">
+
+
+<script type="text/javascript">
+    var baseURL = 'https:\/\/robin-lee.github.io\/';
+    var host = baseURL.substring(0, baseURL.length - 1).replace(/\//g, '');
+    if ((host === window.location.host) && (window.location.protocol !== 'https:')) {
+        window.location.protocol = 'https:';
+    }
+</script>
+
+
+
+
+
+<link rel="stylesheet" href="https://robin-lee.github.io/css/reset.css">
+<link rel="stylesheet" href="https://robin-lee.github.io/css/pygments.css">
+<link rel="stylesheet" href="https://robin-lee.github.io/css/main.css">
+
+
+    <link rel="stylesheet" href="https://robin-lee.github.io/css/override.css">
+
+
+
+
+
+<link rel="shortcut icon"
+
+    href="https://robin-lee.github.io/favicon.ico"
+
+>
+
+
+
+</head>
+
+
+<body lang="en">
+
+<section class="header">
+    <div class="container">
+        <div class="content">
+            <a href="https://robin-lee.github.io/"><div class="name">Robin Lee</div></a>
+            <nav>
+                <ul>
+                    <a href="https://robin-lee.github.io/blog/"><li>Blog</li></a>
+                    <a href="https://robin-lee.github.io/about/"><li>About</li></a>
+                    
+                </ul>
+            </nav>
+        </div>
+    </div>
+</section>
+
+<section class="icons">
+    <div class="container">
+        <div class="content">
+
+        
+            <a href="//github.com/robin-lee" target="_blank">
+                <i class="icon ion-social-github"></i>
+            </a>
+        
+
+        
+
+        
+            <a href="//sg.linkedin.com/in/robin-lee-2b70818a" target="_blank">
+                <i class="icon ion-social-linkedin"></i>
+            </a>
+        
+
+        
+
+        
+
+        
+        </div>
+    </div>
+</section>
+
+
+<section class="main post non-narrow zero-top-spacing">
+    <div class="container">
+        <div class="content">
+            <div class="front-matter">
+                <div class="title-container">
+                    <div class="page-heading">
+
+    Gradle and gradle init
+
+</div>
+
+                    <div class="initials"><a href="https://robin-lee.github.io/">RL</a></div>
+                </div>
+                <div class="meta">
+                    <div class="date" title="Wed Jul 27 2016 10:56:29 CEST">Jul 27, 2016</div>
+                    <div class="reading-time"><div class="middot"></div>2 minutes read</div>
+                </div>
+            </div>
+            <div class="markdown">
+                
+
+<h1 id="what-is-gradle">What is gradle?</h1>
+
+<p>Gradle is an open source <strong>build automation system</strong> that builds upon the concepts of Apache Ant and Apache Maven and introduces a Groovy-based domain-specific language (DSL) instead of the XML form used by Apache Maven of declaring the project configuration.
+(<a href="https://en.wikipedia.org/wiki/Gradle">wikipedia</a>)</p>
+
+<p>Here are more build tools from a stackoverflow post linked later:</p>
+
+<ul>
+<li>Apache Ant &amp; Apache Maven - Java</li>
+<li>sbt (Simple Build Tool) - for Scala</li>
+<li>A-A-P - Python based build tool</li>
+<li>Rake (Apache Builder) - Ruby</li>
+<li>Leiningen for Clojure</li>
+</ul>
+
+<p>There is gulpjs and gruntjs for Javascript too.</p>
+
+<h1 id="gradle-and-android-studio">Gradle and Android Studio</h1>
+
+<p>You used to use Eclipse to develop for Android. Later, the main IDE changed to Android Studio and together with it came gradle. Why?</p>
+
+<p>I would say build systems stay true to the way of using commandline programs to achieve some task. This stackoverflow <a href="http://stackoverflow.com/questions/16754643/what-is-gradle-in-android-studio">post</a> explains it nicely. Basically, it was difficult for you figure out how to build an apk without Eclipse. Google decided to make an Android plugin for gradle, thus, now its easier to make apks without an IDE. Furthermore, you can customize the way you want your package built. If you like to have resources put in a non-conventional folder, go ahead, just update the build script.</p>
+
+<h1 id="gradle-init">Gradle init</h1>
+
+<p>My motivation to use gradle came from the need to test some code or libraries without starting a fully fledged IDE. I discovered a useful plugin gradle has called the <code>Build Init Plugin</code>. (<a href="https://docs.gradle.org/current/userguide/build_init_plugin.html">link</a>)</p>
+
+<pre><code class="language-bash">gradle init --type java-library
+</code></pre>
+
+<p>With then one command I have a basic Java project setup and I can use something like Sublime Text and get going. As a bonus JUnit is included by default.</p>
+
+                <br>
+                <p><a href="https://robin-lee.github.io/blog/">Back to posts</a></p>
+            </div>
+            <br>
+            <div class="disqus">
+                
+            </div>
+        </div>
+    </div>
+</section>
+
+
+
+<script type="text/javascript">
+var gaJsHost = (("https:" == document.location.protocol) ? "https://ssl." : "http://www.");
+document.write(unescape("%3Cscript src='" + gaJsHost + "google-analytics.com/ga.js' type='text/javascript'%3E%3C/script%3E"));
+</script>
+<script type="text/javascript">
+try {
+    var pageTracker = _gat._getTracker("XYZ");
+    pageTracker._trackPageview();
+} catch(err) {}
+</script>
+
+
+
+</body>
+</html>
+

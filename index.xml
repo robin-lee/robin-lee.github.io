@@ -6,8 +6,50 @@
     <description>Recent content on Robin Lee</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <lastBuildDate>Sun, 24 Jul 2016 22:10:37 +0200</lastBuildDate>
+    <lastBuildDate>Wed, 27 Jul 2016 10:56:29 +0200</lastBuildDate>
     <atom:link href="https://robin-lee.github.io/index.xml" rel="self" type="application/rss+xml" />
+    
+    <item>
+      <title>Gradle and gradle init</title>
+      <link>https://robin-lee.github.io/blog/gradle-and-gradle-init/</link>
+      <pubDate>Wed, 27 Jul 2016 10:56:29 +0200</pubDate>
+      
+      <guid>https://robin-lee.github.io/blog/gradle-and-gradle-init/</guid>
+      <description>
+
+&lt;h1 id=&#34;what-is-gradle&#34;&gt;What is gradle?&lt;/h1&gt;
+
+&lt;p&gt;Gradle is an open source &lt;strong&gt;build automation system&lt;/strong&gt; that builds upon the concepts of Apache Ant and Apache Maven and introduces a Groovy-based domain-specific language (DSL) instead of the XML form used by Apache Maven of declaring the project configuration.
+(&lt;a href=&#34;https://en.wikipedia.org/wiki/Gradle&#34;&gt;wikipedia&lt;/a&gt;)&lt;/p&gt;
+
+&lt;p&gt;Here are more build tools from a stackoverflow post linked later:&lt;/p&gt;
+
+&lt;ul&gt;
+&lt;li&gt;Apache Ant &amp;amp; Apache Maven - Java&lt;/li&gt;
+&lt;li&gt;sbt (Simple Build Tool) - for Scala&lt;/li&gt;
+&lt;li&gt;A-A-P - Python based build tool&lt;/li&gt;
+&lt;li&gt;Rake (Apache Builder) - Ruby&lt;/li&gt;
+&lt;li&gt;Leiningen for Clojure&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;There is gulpjs and gruntjs for Javascript too.&lt;/p&gt;
+
+&lt;h1 id=&#34;gradle-and-android-studio&#34;&gt;Gradle and Android Studio&lt;/h1&gt;
+
+&lt;p&gt;You used to use Eclipse to develop for Android. Later, the main IDE changed to Android Studio and together with it came gradle. Why?&lt;/p&gt;
+
+&lt;p&gt;I would say build systems stay true to the way of using commandline programs to achieve some task. This stackoverflow &lt;a href=&#34;http://stackoverflow.com/questions/16754643/what-is-gradle-in-android-studio&#34;&gt;post&lt;/a&gt; explains it nicely. Basically, it was difficult for you figure out how to build an apk without Eclipse. Google decided to make an Android plugin for gradle, thus, now its easier to make apks without an IDE. Furthermore, you can customize the way you want your package built. If you like to have resources put in a non-conventional folder, go ahead, just update the build script.&lt;/p&gt;
+
+&lt;h1 id=&#34;gradle-init&#34;&gt;Gradle init&lt;/h1&gt;
+
+&lt;p&gt;My motivation to use gradle came from the need to test some code or libraries without starting a fully fledged IDE. I discovered a useful plugin gradle has called the &lt;code&gt;Build Init Plugin&lt;/code&gt;. (&lt;a href=&#34;https://docs.gradle.org/current/userguide/build_init_plugin.html&#34;&gt;link&lt;/a&gt;)&lt;/p&gt;
+
+&lt;pre&gt;&lt;code class=&#34;language-bash&#34;&gt;gradle init --type java-library
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;With then one command I have a basic Java project setup and I can use something like Sublime Text and get going. As a bonus JUnit is included by default.&lt;/p&gt;
+</description>
+    </item>
     
     <item>
       <title>Uncle Bob Said</title>
