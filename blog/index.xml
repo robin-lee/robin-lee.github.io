@@ -198,8 +198,9 @@ sudo upate-rc.d tomcat8 defaults
 sudo reboot
 &lt;/code&gt;&lt;/pre&gt;
 
-&lt;p&gt;Use like `service tomcat8 &lt;stop|start|restart&gt;.
-&lt;em&gt;If you wish may use a fancier &lt;a href=&#34;https://gist.github.com/miglen/5590986&#34;&gt;script&lt;/a&gt;.&lt;/em&gt;&lt;/p&gt;
+&lt;p&gt;Use like &lt;code&gt;service tomcat8 &amp;lt;stop|start|restart&amp;gt;&lt;/code&gt;.&lt;/p&gt;
+
+&lt;p&gt;&lt;em&gt;If you wish may use a fancier &lt;a href=&#34;https://gist.github.com/miglen/5590986&#34;&gt;script&lt;/a&gt;.&lt;/em&gt;&lt;/p&gt;
 
 &lt;h2 id=&#34;testing-setup&#34;&gt;Testing setup&lt;/h2&gt;
 
