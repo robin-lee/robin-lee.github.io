@@ -139,6 +139,14 @@ sudo chmod -R g+s /opt/tomcat/webapps
 sudo chmod -R g+s /opt/tomcat/work
 &lt;/code&gt;&lt;/pre&gt;
 
+&lt;p&gt;You might get a permission denied message when trying to &lt;code&gt;cd&lt;/code&gt; into logs or one of the folders&amp;hellip;&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;sudo usermod -a -G tomcat &amp;lt;your username&amp;gt;
+exit
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;&lt;code&gt;exit&lt;/code&gt; till you are logged out then relog for permission changes to take place. You need to be in the tomcat group to have access.&lt;/p&gt;
+
 &lt;p&gt;&lt;a href=&#34;http://superuser.com/questions/632618/best-practice-for-access-permission-to-users-for-apache-tomcat&#34;&gt;More on permissions&lt;/a&gt;&lt;/p&gt;
 
 &lt;p&gt;&lt;code&gt;/opt&lt;/code&gt; is for third-party applications that don&amp;rsquo;t rely on any dependencies outside the scope of said package. &lt;code&gt;/usr/local&lt;/code&gt; is for packages installed on this machine outside the scope of the distribution package manager. &lt;a href=&#34;http://askubuntu.com/questions/34880/use-of-opt-and-usr-local-directories-in-the-context-of-a-pc&#34;&gt;link&lt;/a&gt;&lt;/p&gt;
