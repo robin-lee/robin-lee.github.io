@@ -10,11 +10,11 @@
     <atom:link href="https://robin-lee.github.io/tags/java/index.xml" rel="self" type="application/rss+xml" />
     
     <item>
-      <title>Developing &amp; Deploying Java Servlet Webapp to Development VM</title>
-      <link>https://robin-lee.github.io/blog/developing--deploying-java-servlet-webapp-to-development-vm/</link>
+      <title>Developing and Deploying Java Servlet Webapp</title>
+      <link>https://robin-lee.github.io/blog/2016/08/developing-and-deploying-java-servlet-webapp/</link>
       <pubDate>Fri, 12 Aug 2016 16:23:07 +0200</pubDate>
       
-      <guid>https://robin-lee.github.io/blog/developing--deploying-java-servlet-webapp-to-development-vm/</guid>
+      <guid>https://robin-lee.github.io/blog/2016/08/developing-and-deploying-java-servlet-webapp/</guid>
       <description>
 
 &lt;h2 id=&#34;developing&#34;&gt;Developing&lt;/h2&gt;
@@ -77,10 +77,10 @@ You could change the URL by specifying configurations in a &lt;code&gt;web.xml&l
     
     <item>
       <title>Gradle and gradle init</title>
-      <link>https://robin-lee.github.io/blog/gradle-and-gradle-init/</link>
+      <link>https://robin-lee.github.io/blog/2016/07/gradle-and-gradle-init/</link>
       <pubDate>Wed, 27 Jul 2016 10:56:29 +0200</pubDate>
       
-      <guid>https://robin-lee.github.io/blog/gradle-and-gradle-init/</guid>
+      <guid>https://robin-lee.github.io/blog/2016/07/gradle-and-gradle-init/</guid>
       <description>
 
 &lt;h1 id=&#34;what-is-gradle&#34;&gt;What is gradle?&lt;/h1&gt;

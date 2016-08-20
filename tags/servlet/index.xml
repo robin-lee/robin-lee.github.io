@@ -10,11 +10,11 @@
     <atom:link href="https://robin-lee.github.io/tags/servlet/index.xml" rel="self" type="application/rss+xml" />
     
     <item>
-      <title>Developing &amp; Deploying Java Servlet Webapp to Development VM</title>
-      <link>https://robin-lee.github.io/blog/developing--deploying-java-servlet-webapp-to-development-vm/</link>
+      <title>Developing and Deploying Java Servlet Webapp</title>
+      <link>https://robin-lee.github.io/blog/2016/08/developing-and-deploying-java-servlet-webapp/</link>
       <pubDate>Fri, 12 Aug 2016 16:23:07 +0200</pubDate>
       
-      <guid>https://robin-lee.github.io/blog/developing--deploying-java-servlet-webapp-to-development-vm/</guid>
+      <guid>https://robin-lee.github.io/blog/2016/08/developing-and-deploying-java-servlet-webapp/</guid>
       <description>
 
 &lt;h2 id=&#34;developing&#34;&gt;Developing&lt;/h2&gt;

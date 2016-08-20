@@ -3,46 +3,51 @@
   
   <url>
     <loc>https://robin-lee.github.io/</loc>
+    <lastmod>2016-08-19T15:33:28+02:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://robin-lee.github.io/blog/2016/08/cpp-basics-1/</loc>
+    <lastmod>2016-08-19T15:33:28+02:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://robin-lee.github.io/blog/2016/08/developing-and-deploying-java-servlet-webapp/</loc>
     <lastmod>2016-08-12T16:23:07+02:00</lastmod>
   </url>
   
   <url>
-    <loc>https://robin-lee.github.io/blog/developing--deploying-java-servlet-webapp-to-development-vm/</loc>
-    <lastmod>2016-08-12T16:23:07+02:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>https://robin-lee.github.io/blog/tomcat-development-server/</loc>
+    <loc>https://robin-lee.github.io/blog/2016/08/tomcat-development-server/</loc>
     <lastmod>2016-08-11T23:13:48+02:00</lastmod>
   </url>
   
   <url>
-    <loc>https://robin-lee.github.io/blog/fundamentals-sockets/</loc>
+    <loc>https://robin-lee.github.io/blog/2016/08/fundamentals-sockets/</loc>
     <lastmod>2016-08-01T11:59:12+02:00</lastmod>
   </url>
   
   <url>
-    <loc>https://robin-lee.github.io/blog/gradle-and-gradle-init/</loc>
+    <loc>https://robin-lee.github.io/blog/2016/07/gradle-and-gradle-init/</loc>
     <lastmod>2016-07-27T10:56:29+02:00</lastmod>
   </url>
   
   <url>
-    <loc>https://robin-lee.github.io/blog/uncle-bob-said/</loc>
+    <loc>https://robin-lee.github.io/blog/2016/07/uncle-bob-said/</loc>
     <lastmod>2016-07-24T22:10:37+02:00</lastmod>
   </url>
   
   <url>
-    <loc>https://robin-lee.github.io/blog/agile-software-development/</loc>
+    <loc>https://robin-lee.github.io/blog/2016/07/agile-software-development/</loc>
     <lastmod>2016-07-23T16:29:59+02:00</lastmod>
   </url>
   
   <url>
-    <loc>https://robin-lee.github.io/blog/solid-principles/</loc>
+    <loc>https://robin-lee.github.io/blog/2016/07/solid-principles/</loc>
     <lastmod>2016-07-23T14:46:47+02:00</lastmod>
   </url>
   
   <url>
-    <loc>https://robin-lee.github.io/blog/gson-custom-deserializer/</loc>
+    <loc>https://robin-lee.github.io/blog/2016/07/gson-custom-deserializer/</loc>
     <lastmod>2016-07-12T21:51:16+02:00</lastmod>
   </url>
   
@@ -52,22 +57,22 @@
   </url>
   
   <url>
-    <loc>https://robin-lee.github.io/blog/hello-world/</loc>
+    <loc>https://robin-lee.github.io/blog/2016/07/hello-world/</loc>
     <lastmod>2016-07-10T14:29:34+02:00</lastmod>
   </url>
   
   <url>
-    <loc>https://robin-lee.github.io/blog/virtual-box-shared-folder/</loc>
+    <loc>https://robin-lee.github.io/blog/2016/02/virtual-box-shared-folder/</loc>
     <lastmod>2016-02-06T21:41:18+08:00</lastmod>
   </url>
   
   <url>
-    <loc>https://robin-lee.github.io/blog/forcing-display-edid/</loc>
+    <loc>https://robin-lee.github.io/blog/2016/02/forcing-display-edid/</loc>
     <lastmod>2016-02-05T22:02:00+08:00</lastmod>
   </url>
   
   <url>
-    <loc>https://robin-lee.github.io/blog/learning-regex/</loc>
+    <loc>https://robin-lee.github.io/blog/2015/09/learning-regex/</loc>
     <lastmod>2015-09-15T23:21:45+08:00</lastmod>
   </url>
   

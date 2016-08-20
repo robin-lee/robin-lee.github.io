@@ -1,0 +1,206 @@
+<!DOCTYPE html>
+<html lang="en-us">
+
+<head>
+<meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="chrome=1">
+<meta name="HandheldFriendly" content="True">
+<meta name="MobileOptimized" content="320">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="description" content="random adventures">
+
+<base href="https://robin-lee.github.io/">
+<title>
+
+
+     Developing and Deploying Java Servlet Webapp 
+
+</title>
+<link rel="canonical" href="https://robin-lee.github.io/blog/2016/08/developing-and-deploying-java-servlet-webapp/">
+
+
+<script type="text/javascript">
+    var baseURL = 'https:\/\/robin-lee.github.io\/';
+    var host = baseURL.substring(0, baseURL.length - 1).replace(/\//g, '');
+    if ((host === window.location.host) && (window.location.protocol !== 'https:')) {
+        window.location.protocol = 'https:';
+    }
+</script>
+
+
+
+
+
+<link rel="stylesheet" href="https://robin-lee.github.io/css/reset.css">
+<link rel="stylesheet" href="https://robin-lee.github.io/css/pygments.css">
+<link rel="stylesheet" href="https://robin-lee.github.io/css/main.css">
+
+
+    <link rel="stylesheet" href="https://robin-lee.github.io/css/override.css">
+
+
+
+
+
+<link rel="shortcut icon"
+
+    href="https://robin-lee.github.io/favicon.ico"
+
+>
+
+
+
+</head>
+
+
+<body lang="en">
+
+<section class="header">
+    <div class="container">
+        <div class="content">
+            <a href="https://robin-lee.github.io/"><div class="name">Robin Lee</div></a>
+            <nav>
+                <ul>
+                    <a href="https://robin-lee.github.io/blog/"><li>Blog</li></a>
+                    <a href="https://robin-lee.github.io/about/"><li>About</li></a>
+                    
+                </ul>
+            </nav>
+        </div>
+    </div>
+</section>
+
+<section class="icons">
+    <div class="container">
+        <div class="content">
+
+        
+            <a href="//github.com/robin-lee" target="_blank">
+                <i class="icon ion-social-github"></i>
+            </a>
+        
+
+        
+
+        
+            <a href="//sg.linkedin.com/in/robin-lee-2b70818a" target="_blank">
+                <i class="icon ion-social-linkedin"></i>
+            </a>
+        
+
+        
+
+        
+
+        
+        </div>
+    </div>
+</section>
+
+
+<section class="main post non-narrow zero-top-spacing">
+    <div class="container">
+        <div class="content">
+            <div class="front-matter">
+                <div class="title-container">
+                    <div class="page-heading">
+
+    Developing and Deploying Java Servlet Webapp
+
+</div>
+
+                    <div class="initials"><a href="https://robin-lee.github.io/">RL</a></div>
+                </div>
+                <div class="meta">
+                    <div class="date" title="Fri Aug 12 2016 16:23:07 CEST">Aug 12, 2016</div>
+                    <div class="reading-time"><div class="middot"></div>2 minutes read</div>
+                </div>
+            </div>
+            <div class="markdown">
+                
+
+<h2 id="developing">Developing</h2>
+
+<p>You can find a few tutorials on how to create a basic (hello world) webapp with java servlets in eclipse so it will not be included here.
+As always my experience differs from such tutorials. It is never smooth sailing. You always have to configure or troubleshoot something even if your setup is <em>exactly</em> the same. The last time I did something with Servlets or JSP was in 2013 or 2014. I don&rsquo;t think I have my notes from then.</p>
+
+<p>This time round I had to do some tweaking to get Eclipse to recognise the tomcat server installed on OSX (not the VM, thats working well). For some reason it didn&rsquo;t recognize tomcat 8.5.*.</p>
+
+<pre><code>You have to patch catalina.jar, as this is version number the WTP adapter looks at. It's a quite useless check, and the adapter should allow you to start the server anyway, but nobody has though of that yet.
+
+For years and with every version of Tomcat this is always a problem.
+
+To patch you can do the following:
+
+cd [tomcat or tomee home]/lib
+mkdir catalina
+cd catalina/
+unzip ../catalina.jar
+vim org/apache/catalina/util/ServerInfo.properties
+Make sure it looks like the following (the version numbers all need to start with 8.0):
+
+server.info=Apache Tomcat/8.0.0
+server.number=8.0.0
+server.built=May 11 2016 21:49:07 UTC
+Then:
+
+jar uf ../catalina.jar org/apache/catalina/util/ServerInfo.properties
+cd ..
+rm -rf catalina
+</code></pre>
+
+<p><a href="http://stackoverflow.com/questions/37024876/how-to-use-tomcat-8-5-x-and-tomee-7-x-with-eclipse">stack link</a></p>
+
+<p>Once this was done, I could develop and test my webapp in Eclipse.</p>
+
+<h2 id="deploying">Deploying</h2>
+
+<p>To me, running the webapp in the IDE is not deploying. There were a few tutorials with misleading titles.</p>
+
+<p>I was told that to deploy an webapp is bascially copying a war archive into a directory for tomcat. To have a 2nd opinion, I found this <a href="http://www.vogella.com/tutorials/EclipseWTP/article.html">vogella tutorial</a>. Vogella has been consistent in providing great tutorials to help you get started.</p>
+
+<p>In Eclipse, you just right click on the root package for your webapp and export as a <code>war archive</code> and save it somewhere.</p>
+
+<p>To transfer the file to the VM:</p>
+
+<pre><code>scp &lt;filename&gt;.war tomcatuser@192.168.56.101:/home/&lt;vm user&gt;
+</code></pre>
+
+<p>And via ssh in <code>/opt/tomcat</code> (assuming you set up tomcat here and service is called tomcat8):</p>
+
+<pre><code>cp ~/&lt;filename&gt;.war webapps/
+sudo service tomcat8 restart
+</code></pre>
+
+<p>Now going to <code>&lt;url&gt;:8080/&lt;filename&gt;/&lt;classname&gt;</code> should load your webpage or whatever response you made.
+You could change the URL by specifying configurations in a <code>web.xml</code> but that will not be covered here&hellip; for now?</p>
+
+                <br>
+                <p><a href="https://robin-lee.github.io/blog/">Back to posts</a></p>
+            </div>
+            <br>
+            <div class="disqus">
+                
+            </div>
+        </div>
+    </div>
+</section>
+
+
+
+<script type="text/javascript">
+var gaJsHost = (("https:" == document.location.protocol) ? "https://ssl." : "http://www.");
+document.write(unescape("%3Cscript src='" + gaJsHost + "google-analytics.com/ga.js' type='text/javascript'%3E%3C/script%3E"));
+</script>
+<script type="text/javascript">
+try {
+    var pageTracker = _gat._getTracker("XYZ");
+    pageTracker._trackPageview();
+} catch(err) {}
+</script>
+
+
+
+</body>
+</html>
+

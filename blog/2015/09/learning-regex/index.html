@@ -1,0 +1,178 @@
+<!DOCTYPE html>
+<html lang="en-us">
+
+<head>
+<meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="chrome=1">
+<meta name="HandheldFriendly" content="True">
+<meta name="MobileOptimized" content="320">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="description" content="random adventures">
+
+<base href="https://robin-lee.github.io/">
+<title>
+
+
+     Learning Regex 
+
+</title>
+<link rel="canonical" href="https://robin-lee.github.io/blog/2015/09/learning-regex/">
+
+
+<script type="text/javascript">
+    var baseURL = 'https:\/\/robin-lee.github.io\/';
+    var host = baseURL.substring(0, baseURL.length - 1).replace(/\//g, '');
+    if ((host === window.location.host) && (window.location.protocol !== 'https:')) {
+        window.location.protocol = 'https:';
+    }
+</script>
+
+
+
+
+
+<link rel="stylesheet" href="https://robin-lee.github.io/css/reset.css">
+<link rel="stylesheet" href="https://robin-lee.github.io/css/pygments.css">
+<link rel="stylesheet" href="https://robin-lee.github.io/css/main.css">
+
+
+    <link rel="stylesheet" href="https://robin-lee.github.io/css/override.css">
+
+
+
+
+
+<link rel="shortcut icon"
+
+    href="https://robin-lee.github.io/favicon.ico"
+
+>
+
+
+
+</head>
+
+
+<body lang="en">
+
+<section class="header">
+    <div class="container">
+        <div class="content">
+            <a href="https://robin-lee.github.io/"><div class="name">Robin Lee</div></a>
+            <nav>
+                <ul>
+                    <a href="https://robin-lee.github.io/blog/"><li>Blog</li></a>
+                    <a href="https://robin-lee.github.io/about/"><li>About</li></a>
+                    
+                </ul>
+            </nav>
+        </div>
+    </div>
+</section>
+
+<section class="icons">
+    <div class="container">
+        <div class="content">
+
+        
+            <a href="//github.com/robin-lee" target="_blank">
+                <i class="icon ion-social-github"></i>
+            </a>
+        
+
+        
+
+        
+            <a href="//sg.linkedin.com/in/robin-lee-2b70818a" target="_blank">
+                <i class="icon ion-social-linkedin"></i>
+            </a>
+        
+
+        
+
+        
+
+        
+        </div>
+    </div>
+</section>
+
+
+<section class="main post non-narrow zero-top-spacing">
+    <div class="container">
+        <div class="content">
+            <div class="front-matter">
+                <div class="title-container">
+                    <div class="page-heading">
+
+    Learning Regex
+
+</div>
+
+                    <div class="initials"><a href="https://robin-lee.github.io/">RL</a></div>
+                </div>
+                <div class="meta">
+                    <div class="date" title="Tue Sep 15 2015 23:21:45 &#43;0800">Sep 15, 2015</div>
+                    <div class="reading-time"><div class="middot"></div>2 minutes read</div>
+                </div>
+            </div>
+            <div class="markdown">
+                <p>I think regular expressions are essential when it comes to extracting data from a source.</p>
+
+<p>For example if you wanted the names of all the files in a folder without the extensio, using a regular expression could make the process easier and code more concise.</p>
+
+<p>The difficulty is finding the material to practice on even with a cheatsheet for regex.</p>
+
+<p>I found this site called <a href="http://regexone.com/">regexone</a> and I felt the tutorial reflected certain real life situations. Not only did it teach me about the symbols it did so by sharing real life examples(where you might use a regular expression). Such as for checking for email validity or telephone number validity. Do check it out!</p>
+
+<p>When crafting a regular expression for use you will definitely need to test it first, so here is an online tool you might want to use: <a href="https://regex101.com/">regex101</a></p>
+
+<p><em>Brief recap of what I went through</em></p>
+
+<ol>
+<li><code>^</code>(hat) the hat character can be used to exclude or declare the start of a regular expression.</li>
+<li><code>[abc]</code> square brackets mean that it is a character set. In this case only a,b, or c are valid.</li>
+<li><code>[^abc]</code> this <em>inverts</em> the logic in the previous point. Not a, b, nor c. Exclude a, b, and c.</li>
+<li><code>[a-z]|[0-9]</code> a to z or 0-9.</li>
+<li><code>$</code> end of regular expression</li>
+<li><code>()</code> capture group, can be nested. Jan 1988. <code>(\w+\s(\d+))</code> gives <code>Jan 1988</code> <code>1988</code>.</li>
+<li><code>.</code> means any character. <code>\.</code> with backslash means period.</li>
+<li><code>+</code> means ONE or many repetitions. <code>*</code> ZERO or many repetitions.</li>
+<li><code>\s</code> any white space character <code>\t</code>, , <code>r</code>, <code>n</code>.</li>
+<li><code>{n}</code>, <code>{a,b}</code>. n repetitions. a to b repetitions.</li>
+<li><code>\w</code> means <code>[A-Za-z0-9_]</code></li>
+<li><code>\d</code> means [0-9]</li>
+<li><code>ab?c</code> means b is an optional. <code>abc</code> and <code>ac</code> are valid.</li>
+<li><code>\w+\b</code> is useful for getting entire words. boundary between word and non-word character.</li>
+<li><code>\W+$</code> would match any non-alphanumeric character up to the end of the line. Eg. <code>&amp;$#*@!.</code>.</li>
+</ol>
+
+                <br>
+                <p><a href="https://robin-lee.github.io/blog/">Back to posts</a></p>
+            </div>
+            <br>
+            <div class="disqus">
+                
+            </div>
+        </div>
+    </div>
+</section>
+
+
+
+<script type="text/javascript">
+var gaJsHost = (("https:" == document.location.protocol) ? "https://ssl." : "http://www.");
+document.write(unescape("%3Cscript src='" + gaJsHost + "google-analytics.com/ga.js' type='text/javascript'%3E%3C/script%3E"));
+</script>
+<script type="text/javascript">
+try {
+    var pageTracker = _gat._getTracker("XYZ");
+    pageTracker._trackPageview();
+} catch(err) {}
+</script>
+
+
+
+</body>
+</html>
+

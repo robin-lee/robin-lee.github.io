@@ -6,15 +6,179 @@
     <description>Recent content in Blog on Robin Lee</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <lastBuildDate>Fri, 12 Aug 2016 16:23:07 +0200</lastBuildDate>
+    <lastBuildDate>Fri, 19 Aug 2016 15:33:28 +0200</lastBuildDate>
     <atom:link href="https://robin-lee.github.io/blog/index.xml" rel="self" type="application/rss+xml" />
     
     <item>
-      <title>Developing &amp; Deploying Java Servlet Webapp to Development VM</title>
-      <link>https://robin-lee.github.io/blog/developing--deploying-java-servlet-webapp-to-development-vm/</link>
+      <title>Cpp Basics 1</title>
+      <link>https://robin-lee.github.io/blog/2016/08/cpp-basics-1/</link>
+      <pubDate>Fri, 19 Aug 2016 15:33:28 +0200</pubDate>
+      
+      <guid>https://robin-lee.github.io/blog/2016/08/cpp-basics-1/</guid>
+      <description>
+
+&lt;p&gt;Algorithms and data structures are a central part of software development. I thought it would be reinforce the knowledge I have in this area.
+Competitions in this domain seem to favor cpp and knowing a variant of c better will certainly help when doing &lt;em&gt;hardware programming&lt;/em&gt;. Hence, we eplore the
+basics of cpp before we move on to data structures and then algorithms.&lt;/p&gt;
+
+&lt;p&gt;A series in cpp begins. Naturally, it involves more than just language.&lt;/p&gt;
+
+&lt;p&gt;Reference: Accelerated C++
+Note: This post is written largely in the context of using OSX (my laptop).&lt;/p&gt;
+
+&lt;h2 id=&#34;a-program&#34;&gt;A program&lt;/h2&gt;
+
+&lt;pre&gt;&lt;code class=&#34;language-c++&#34;&gt;#include &amp;lt;iostream&amp;gt;
+#include &amp;lt;string&amp;gt;
+
+int main() {
+    {
+        const std::string s = &amp;quot;Hot chocolate is nice.&amp;quot;;
+        std::cout &amp;lt;&amp;lt; s &amp;lt;&amp;lt; std::endl;
+    }
+    {
+        const std::string s = &amp;quot;COOP iced tea is nice!&amp;quot;;
+        std::cout &amp;lt;&amp;lt; s &amp;lt;&amp;lt; std::endl;
+    }
+    return 0;
+}
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;A basic program might look like something above. &lt;code&gt;#include&lt;/code&gt; libraries and send something to the output.&lt;/p&gt;
+
+&lt;p&gt;Things to note here would be:
+- &lt;code&gt;std&lt;/code&gt; namespace is used explicitly.
+- The first &lt;code&gt;::&lt;/code&gt; used may be called the scope operator.
+- &lt;code&gt;&amp;lt;&amp;lt;&lt;/code&gt; and its partner &lt;code&gt;&amp;gt;&amp;gt;&lt;/code&gt; are &lt;em&gt;redirection&lt;/em&gt; operators.
+- &lt;code&gt;{ }&lt;/code&gt; brackets create scopes. You may consider them as &lt;em&gt;units&lt;/em&gt;. The program runs here because there 2 units and they only access the variables within them.
+- &lt;code&gt;return 0&lt;/code&gt;: 0 return value implies the program executed fine. Any other return value means an error..&lt;/p&gt;
+
+&lt;h2 id=&#34;makefile&#34;&gt;Makefile&lt;/h2&gt;
+
+&lt;p&gt;To run a program coded in cpp, you need to first compile the cpp code and then execute the resulting executable file.
+It can get quite repetive. To make things simpler it useful to have a script to automate the &lt;em&gt;build&lt;/em&gt; process. Creating a Makefile for the &lt;code&gt;make&lt;/code&gt; tool is one
+way you can achieve such automation. Some call it a &lt;a href=&#34;https://www.cs.umd.edu/class/fall2002/cmsc214/Tutorial/makefile.html&#34;&gt;Macro&lt;/a&gt;.&lt;/p&gt;
+
+&lt;pre&gt;&lt;code class=&#34;language-makefile&#34;&gt;run: compile
+        ./play
+
+compile:
+        g++ play.cpp -o play
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;By default the tool &lt;code&gt;make&lt;/code&gt; process the first target. By convention, the first target is called &lt;code&gt;all&lt;/code&gt; (we are not following that here to be clear on how make works).
+The questions that arise now are: What is the format of a make file? What is target?&lt;/p&gt;
+
+&lt;p&gt;A makefile has a format like so:&lt;/p&gt;
+
+&lt;pre&gt;&lt;code class=&#34;language-makefile&#34;&gt;target: dependencies
+[tab character] system command
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;Another way you can specify the default target is &lt;a href=&#34;http://stackoverflow.com/a/30176470&#34;&gt;link&lt;/a&gt;:&lt;/p&gt;
+
+&lt;pre&gt;&lt;code class=&#34;language-makefile&#34;&gt;.DEFAULT_GOAL := mytarget
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;For a newer make &amp;gt; 3.80:&lt;/p&gt;
+
+&lt;pre&gt;&lt;code class=&#34;language-makefile&#34;&gt;.PHONY: default
+default: mytarget ;
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;h2 id=&#34;gcc-vs-g&#34;&gt;gcc vs g++&lt;/h2&gt;
+
+&lt;p&gt;You could just do &lt;code&gt;make&lt;/code&gt; in the same directory as your cpp code. An output file will be created which you can execute like &lt;code&gt;./the_output_file.out&lt;/code&gt;.
+What I &lt;strong&gt;&lt;em&gt;think&lt;/em&gt;&lt;/strong&gt; happens is that &lt;code&gt;make&lt;/code&gt; gets the default compiler for the cpp code. For OSX, in my case, it &lt;em&gt;should&lt;/em&gt; be gcc.&lt;/p&gt;
+
+&lt;p&gt;Anyway, whats important to know here is the difference between g++ and gcc as above we specified g++.&lt;/p&gt;
+
+&lt;p&gt;Quoting a stackoverflow &lt;a href=&#34;http://stackoverflow.com/a/173007&#34;&gt;post&lt;/a&gt;:&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;The main differences:
+
+1. gcc will compile: *.c/*.cpp files as C and C++ respectively.
+2. g++ will compile: *.c/*.cpp files but they will all be treated as C++ files.
+3. Also if you use g++ to link the object files it automatically links in the std C++ libraries (gcc does not do this).
+4. gcc compiling C files has less predefined macros.
+5. gcc compiling *.cpp and g++ compiling *.c/*.cpp files has a few extra macros.
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;Knowing the difference might just help you when you have one of those projects involving sensors or microcontrollers!&lt;/p&gt;
+
+&lt;p&gt;##C++ Strings&lt;/p&gt;
+
+&lt;p&gt;Frankly, at the moment I still do not understand enough about between strings and string literals. Being pragmatic,
+I will look at some practical use cases.&lt;/p&gt;
+
+&lt;pre&gt;&lt;code class=&#34;language-cpp&#34;&gt;#include &amp;lt;string&amp;gt;
+using std::string;
+
+string stringLiteral = &amp;quot;characters enclose in double quotes and cannot span lines&amp;quot;;
+
+//overloaded constructor to create a string with n of character.
+string repeatCharacter z(10, &#39;*&#39;);
+
+//a string
+string someString = string(&amp;quot;i am a string&amp;quot;);
+
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;A &lt;strong&gt;string literal&lt;/strong&gt; is a bunch of characters in doubles and they cannot span lines. Having some prior knowledge in C and C++, I would say that a string literal is &lt;em&gt;a series of characters in memory terminated by a null character &lt;code&gt;\0&lt;/code&gt;&lt;/em&gt;. Maybe it would be better to call them character literal arrays.&lt;/p&gt;
+
+&lt;p&gt;As for a &lt;strong&gt;string&lt;/strong&gt;, you use a contructor &lt;code&gt;string(&amp;quot;some text&amp;quot;)&lt;/code&gt;.&lt;/p&gt;
+
+&lt;p&gt;A common use case with strings is to join them just like creating a sentence where you want to join words or phrases together.
+This is where you can see a difference (&lt;a href=&#34;http://stackoverflow.com/questions/662918/how-do-i-concatenate-multiple-c-strings-on-one-line&#34;&gt;refence link&lt;/a&gt;):&lt;/p&gt;
+
+&lt;pre&gt;&lt;code class=&#34;language-cpp&#34;&gt;string stringLiteral1 = &amp;quot;hello&amp;quot;;
+string stringLiteral2 = &amp;quot; world&amp;quot;;
+
+//you cannot do because they are both string literals.
+string s = stringLiteral1 + stringLiteral2;
+
+//(A)convert them to strings
+string newstring = string(stringLiteral1) + string(stringLiteral2);
+
+//(B)or perhaps
+std::stringstream ss;
+ss &amp;lt;&amp;lt; &amp;quot;Hello, world, &amp;quot; &amp;lt;&amp;lt; myInt &amp;lt;&amp;lt; niceToSeeYouString;
+std::string s = ss.str();
+
+//(C)or using append; a little verbose?.
+std::string s;
+s.append(&amp;quot;Hello world, &amp;quot;);
+s.append(&amp;quot;nice to see you, &amp;quot;);
+s.append(&amp;quot;or not.&amp;quot;);
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;At a glance, I think I would prefer using method (A) or (B) to create dynamic strings. In a game prototype, NPCs could
+have a lengthly paragraph text to say depending on a player&amp;rsquo;s actions. What if there really was a lot to output because the NPC
+is such a great storyteller?&lt;/p&gt;
+
+&lt;p&gt;string::size_type could be useful if you have &amp;gt; 32767 characters. The book says that it is good practice to use size_type for the
+size of strings since it was created for the purpose of &lt;em&gt;sizing&lt;/em&gt; strings.&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;// size_type used intead of int
+const std::string::size_type cols = greeting.size() + pad * 2 + 2;
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;The last point for this post is off-topic from strings but it is relevant to cpp&amp;hellip;
+Quoting the book:&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;One reason to count from 0 is that doing so encourages us to use asymmetric ranges to express intervals. For example, it is natural to use the range [0, rows) to describe the first for statement, as it is to use the range [1, rows] to describe the second one.
+Asymmetric ranges are usually easier to use than symmetric ones because of an important property: A range of the form [m, n) has n - m elements, and a range of the form [m, n] has n - m + 1 elements. So, for example, the number of elements in [0, rows) is obvious (i.e., rows - 0, or rows) but the number in [1, rows] is less so.
+This behavioral difference between asymmetric and symmetric ranges is particularly evident in the case of empty ranges: If we use asymmetric ranges, we can express an empty range as [n, n), in contrast to [n, n-1] for symmetric ranges. The possibility that the end of a range could ever be less than the beginning can cause no end of trouble in designing programs.
+&lt;/code&gt;&lt;/pre&gt;
+</description>
+    </item>
+    
+    <item>
+      <title>Developing and Deploying Java Servlet Webapp</title>
+      <link>https://robin-lee.github.io/blog/2016/08/developing-and-deploying-java-servlet-webapp/</link>
       <pubDate>Fri, 12 Aug 2016 16:23:07 +0200</pubDate>
       
-      <guid>https://robin-lee.github.io/blog/developing--deploying-java-servlet-webapp-to-development-vm/</guid>
+      <guid>https://robin-lee.github.io/blog/2016/08/developing-and-deploying-java-servlet-webapp/</guid>
       <description>
 
 &lt;h2 id=&#34;developing&#34;&gt;Developing&lt;/h2&gt;
@@ -77,10 +241,10 @@ You could change the URL by specifying configurations in a &lt;code&gt;web.xml&l
     
     <item>
       <title>Tomcat Development Server</title>
-      <link>https://robin-lee.github.io/blog/tomcat-development-server/</link>
+      <link>https://robin-lee.github.io/blog/2016/08/tomcat-development-server/</link>
       <pubDate>Thu, 11 Aug 2016 23:13:48 +0200</pubDate>
       
-      <guid>https://robin-lee.github.io/blog/tomcat-development-server/</guid>
+      <guid>https://robin-lee.github.io/blog/2016/08/tomcat-development-server/</guid>
       <description>
 
 &lt;p&gt;I always wanted to learn some backend development seriously and finally I have the opportunity to do so. I have played around with server setup in the past but most of the information has been forgotten.&lt;/p&gt;
@@ -288,10 +452,10 @@ sudo reboot
     
     <item>
       <title>Fundamentals: Sockets</title>
-      <link>https://robin-lee.github.io/blog/fundamentals-sockets/</link>
+      <link>https://robin-lee.github.io/blog/2016/08/fundamentals-sockets/</link>
       <pubDate>Mon, 01 Aug 2016 11:59:12 +0200</pubDate>
       
-      <guid>https://robin-lee.github.io/blog/fundamentals-sockets/</guid>
+      <guid>https://robin-lee.github.io/blog/2016/08/fundamentals-sockets/</guid>
       <description>
 
 &lt;h1 id=&#34;what-is-a-socket&#34;&gt;What is a socket?&lt;/h1&gt;
@@ -346,10 +510,10 @@ For this post, we will continue with Intenet Sockets. I was in the midst of mess
     
     <item>
       <title>Gradle and gradle init</title>
-      <link>https://robin-lee.github.io/blog/gradle-and-gradle-init/</link>
+      <link>https://robin-lee.github.io/blog/2016/07/gradle-and-gradle-init/</link>
       <pubDate>Wed, 27 Jul 2016 10:56:29 +0200</pubDate>
       
-      <guid>https://robin-lee.github.io/blog/gradle-and-gradle-init/</guid>
+      <guid>https://robin-lee.github.io/blog/2016/07/gradle-and-gradle-init/</guid>
       <description>
 
 &lt;h1 id=&#34;what-is-gradle&#34;&gt;What is gradle?&lt;/h1&gt;
@@ -388,10 +552,10 @@ For this post, we will continue with Intenet Sockets. I was in the midst of mess
     
     <item>
       <title>Uncle Bob Said</title>
-      <link>https://robin-lee.github.io/blog/uncle-bob-said/</link>
+      <link>https://robin-lee.github.io/blog/2016/07/uncle-bob-said/</link>
       <pubDate>Sun, 24 Jul 2016 22:10:37 +0200</pubDate>
       
-      <guid>https://robin-lee.github.io/blog/uncle-bob-said/</guid>
+      <guid>https://robin-lee.github.io/blog/2016/07/uncle-bob-said/</guid>
       <description>
 
 &lt;h1 id=&#34;inspirational-quotes&#34;&gt;Inspirational quotes&lt;/h1&gt;
@@ -408,10 +572,10 @@ For this post, we will continue with Intenet Sockets. I was in the midst of mess
     
     <item>
       <title>Agile Software Development</title>
-      <link>https://robin-lee.github.io/blog/agile-software-development/</link>
+      <link>https://robin-lee.github.io/blog/2016/07/agile-software-development/</link>
       <pubDate>Sat, 23 Jul 2016 16:29:59 +0200</pubDate>
       
-      <guid>https://robin-lee.github.io/blog/agile-software-development/</guid>
+      <guid>https://robin-lee.github.io/blog/2016/07/agile-software-development/</guid>
       <description>
 
 &lt;h1 id=&#34;what-is-agile-software-development&#34;&gt;What is Agile Software Development?&lt;/h1&gt;
@@ -479,10 +643,10 @@ becomes
     
     <item>
       <title>SOLID Principles</title>
-      <link>https://robin-lee.github.io/blog/solid-principles/</link>
+      <link>https://robin-lee.github.io/blog/2016/07/solid-principles/</link>
       <pubDate>Sat, 23 Jul 2016 14:46:47 +0200</pubDate>
       
-      <guid>https://robin-lee.github.io/blog/solid-principles/</guid>
+      <guid>https://robin-lee.github.io/blog/2016/07/solid-principles/</guid>
       <description>
 
 &lt;p&gt;A set of principles to design or write &lt;strong&gt;classes&lt;/strong&gt;.&lt;/p&gt;
@@ -521,10 +685,10 @@ becomes
     
     <item>
       <title>Gson Custom Deserializer</title>
-      <link>https://robin-lee.github.io/blog/gson-custom-deserializer/</link>
+      <link>https://robin-lee.github.io/blog/2016/07/gson-custom-deserializer/</link>
       <pubDate>Tue, 12 Jul 2016 21:51:16 +0200</pubDate>
       
-      <guid>https://robin-lee.github.io/blog/gson-custom-deserializer/</guid>
+      <guid>https://robin-lee.github.io/blog/2016/07/gson-custom-deserializer/</guid>
       <description>&lt;p&gt;When you develop an application, usually you will have to consume an API Service which might return some JSON data.
 You might not need all values from the JSON data.&lt;/p&gt;
 
@@ -617,10 +781,10 @@ private int amount;
     
     <item>
       <title>Hello World</title>
-      <link>https://robin-lee.github.io/blog/hello-world/</link>
+      <link>https://robin-lee.github.io/blog/2016/07/hello-world/</link>
       <pubDate>Sun, 10 Jul 2016 14:29:34 +0200</pubDate>
       
-      <guid>https://robin-lee.github.io/blog/hello-world/</guid>
+      <guid>https://robin-lee.github.io/blog/2016/07/hello-world/</guid>
       <description>&lt;p&gt;Whoopee! Hugo, with the cocoa theme!&lt;/p&gt;
 
 &lt;p&gt;Furthermore, some old posts have been shifted over from pelican!&lt;/p&gt;
@@ -631,10 +795,10 @@ private int amount;
     
     <item>
       <title>Virtual Box Shared Folder</title>
-      <link>https://robin-lee.github.io/blog/virtual-box-shared-folder/</link>
+      <link>https://robin-lee.github.io/blog/2016/02/virtual-box-shared-folder/</link>
       <pubDate>Sat, 06 Feb 2016 21:41:18 +0800</pubDate>
       
-      <guid>https://robin-lee.github.io/blog/virtual-box-shared-folder/</guid>
+      <guid>https://robin-lee.github.io/blog/2016/02/virtual-box-shared-folder/</guid>
       <description>&lt;p&gt;For some projects I need to share files between my virtual machine and my host machine. VirtualBox allows for shared folders between the VM and the host after install Guest Additions. However, there is always a bit of configuration involved.&lt;/p&gt;
 
 &lt;p&gt;I installed Ubuntu 14.04 LTS and then installed Guest Additions. After I added a shared folder in the settings, I discovered that I did not have permission to access the folder. According to VirtualBox&amp;rsquo;s &lt;a href=&#34;https://www.virtualbox.org/manual/ch04.html#sf_mount_auto&#34;&gt;documentation&lt;/a&gt; you need to add guest users to the vboxsf group. I tend to forget the command to do so as I do not need to change user properties frequency.&lt;/p&gt;
@@ -648,10 +812,10 @@ private int amount;
     
     <item>
       <title>Forcing Display Edid</title>
-      <link>https://robin-lee.github.io/blog/forcing-display-edid/</link>
+      <link>https://robin-lee.github.io/blog/2016/02/forcing-display-edid/</link>
       <pubDate>Fri, 05 Feb 2016 22:02:00 +0800</pubDate>
       
-      <guid>https://robin-lee.github.io/blog/forcing-display-edid/</guid>
+      <guid>https://robin-lee.github.io/blog/2016/02/forcing-display-edid/</guid>
       <description>&lt;p&gt;I bought a 2 port VGA Switcher off Taobao so that I could switch my main display between my desktop and laptop. However, when I connected my Macbook through the VGA adapter to the VGA Switcher my screen was not appearing correctly. It was shifted off screen to the right.&lt;/p&gt;
 
 &lt;p&gt;&lt;img src=&#34;https://robin-lee.github.io/images/mtviki-vga-switch.jpg&#34; alt=&#34;VGA Switcher&#34; /&gt;&lt;/p&gt;
@@ -673,10 +837,10 @@ It is better explained &lt;a href=&#34;http://www.insanelymac.com/forum/topic/20
     
     <item>
       <title>Learning Regex</title>
-      <link>https://robin-lee.github.io/blog/learning-regex/</link>
+      <link>https://robin-lee.github.io/blog/2015/09/learning-regex/</link>
       <pubDate>Tue, 15 Sep 2015 23:21:45 +0800</pubDate>
       
-      <guid>https://robin-lee.github.io/blog/learning-regex/</guid>
+      <guid>https://robin-lee.github.io/blog/2015/09/learning-regex/</guid>
       <description>&lt;p&gt;I think regular expressions are essential when it comes to extracting data from a source.&lt;/p&gt;
 
 &lt;p&gt;For example if you wanted the names of all the files in a folder without the extensio, using a regular expression could make the process easier and code more concise.&lt;/p&gt;

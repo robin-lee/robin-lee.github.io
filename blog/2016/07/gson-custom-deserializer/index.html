@@ -1,0 +1,236 @@
+<!DOCTYPE html>
+<html lang="en-us">
+
+<head>
+<meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="chrome=1">
+<meta name="HandheldFriendly" content="True">
+<meta name="MobileOptimized" content="320">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="description" content="random adventures">
+
+<base href="https://robin-lee.github.io/">
+<title>
+
+
+     Gson Custom Deserializer 
+
+</title>
+<link rel="canonical" href="https://robin-lee.github.io/blog/2016/07/gson-custom-deserializer/">
+
+
+<script type="text/javascript">
+    var baseURL = 'https:\/\/robin-lee.github.io\/';
+    var host = baseURL.substring(0, baseURL.length - 1).replace(/\//g, '');
+    if ((host === window.location.host) && (window.location.protocol !== 'https:')) {
+        window.location.protocol = 'https:';
+    }
+</script>
+
+
+
+
+
+<link rel="stylesheet" href="https://robin-lee.github.io/css/reset.css">
+<link rel="stylesheet" href="https://robin-lee.github.io/css/pygments.css">
+<link rel="stylesheet" href="https://robin-lee.github.io/css/main.css">
+
+
+    <link rel="stylesheet" href="https://robin-lee.github.io/css/override.css">
+
+
+
+
+
+<link rel="shortcut icon"
+
+    href="https://robin-lee.github.io/favicon.ico"
+
+>
+
+
+
+</head>
+
+
+<body lang="en">
+
+<section class="header">
+    <div class="container">
+        <div class="content">
+            <a href="https://robin-lee.github.io/"><div class="name">Robin Lee</div></a>
+            <nav>
+                <ul>
+                    <a href="https://robin-lee.github.io/blog/"><li>Blog</li></a>
+                    <a href="https://robin-lee.github.io/about/"><li>About</li></a>
+                    
+                </ul>
+            </nav>
+        </div>
+    </div>
+</section>
+
+<section class="icons">
+    <div class="container">
+        <div class="content">
+
+        
+            <a href="//github.com/robin-lee" target="_blank">
+                <i class="icon ion-social-github"></i>
+            </a>
+        
+
+        
+
+        
+            <a href="//sg.linkedin.com/in/robin-lee-2b70818a" target="_blank">
+                <i class="icon ion-social-linkedin"></i>
+            </a>
+        
+
+        
+
+        
+
+        
+        </div>
+    </div>
+</section>
+
+
+<section class="main post non-narrow zero-top-spacing">
+    <div class="container">
+        <div class="content">
+            <div class="front-matter">
+                <div class="title-container">
+                    <div class="page-heading">
+
+    Gson Custom Deserializer
+
+</div>
+
+                    <div class="initials"><a href="https://robin-lee.github.io/">RL</a></div>
+                </div>
+                <div class="meta">
+                    <div class="date" title="Tue Jul 12 2016 21:51:16 CEST">Jul 12, 2016</div>
+                    <div class="reading-time"><div class="middot"></div>2 minutes read</div>
+                </div>
+            </div>
+            <div class="markdown">
+                <p>When you develop an application, usually you will have to consume an API Service which might return some JSON data.
+You might not need all values from the JSON data.</p>
+
+<p>The question is how do you process such data the <em>right</em> way?</p>
+
+<p>Typically, you will retrieve the data using a HTTP client and then pass it on to a Object Relational Mapper.
+In my experience APIs return data based on models crafted for the database, however, for client side applications the model
+you design might be different from what the API returns you (due to application needs/ease of development). Hence, you need to extract part of it, transform it or map it differently.</p>
+
+<p>If you happen to use GSON and retrofit 2&hellip; Perhaps this example will help you.</p>
+
+<p>Sample json data:</p>
+
+<pre><code class="language-json">{
+  &quot;date&quot;: &quot;2016-01-01T21:23:00&quot;,
+  &quot;places&quot;: [
+    {
+      &quot;id&quot;: 1,
+      &quot;amount&quot;: 25
+    },
+    {
+      &quot;id&quot;: 2,
+      &quot;amount&quot;: 59
+    },
+    {
+      &quot;id&quot;: 3,
+      &quot;amount&quot;: 28
+    },
+    {
+      &quot;id&quot;: 4,
+      &quot;amount&quot;: 11
+    }
+  ]
+}
+</code></pre>
+
+<p>Lets say you just want the &ldquo;list&rdquo; of places.</p>
+
+<p>First define a model for each &ldquo;Place&rdquo;.</p>
+
+<pre><code class="language-java">
+private int id;
+private int amount;
+
+//Constructors, getters and setters
+</code></pre>
+
+<p>Define a custom deserializer for GSON with a main method for testing (or you could setup JUnit).</p>
+
+<pre><code class="language-java">class CustomPlaceDeserializer&lt;T&gt; implements JsonDeserializer&lt;List&lt;T&gt;&gt; {
+
+    public List&lt;T&gt; deserialize(JsonElement jsonElement, Type type, JsonDeserializationContext context)
+            throws JsonParseException {
+
+        JsonElement results = jsonElement.getAsJsonObject().get(&quot;places&quot;);
+
+        return new Gson().fromJson(results, type);
+    }
+
+    public static void main(String[] args) throws Exception {
+
+        //
+
+        // Configure Gson
+        GsonBuilder gsonBuilder = new GsonBuilder();
+        Type listType = new TypeToken&lt;ArrayList&lt;Place&gt;&gt;(){}.getType();
+        gsonBuilder.registerTypeAdapter(listType, new CustomPlaceDeserializer&lt;Place&gt;());
+        Gson gson = gsonBuilder.create();
+
+        // The JSON data
+        String jsonstring = &quot;replace this with sample json string&quot;;
+
+        // Parse JSON to Java
+        List&lt;Place&gt; places = gson.fromJson(jsonstring, listType);
+        System.out.println(places.size());
+    }
+
+}
+</code></pre>
+
+<p>If you are using retrofit 2, it might look something like this:</p>
+
+<pre><code class="language-java">Gson customGson =
+        new GsonBuilder()
+                .registerTypeAdapter(listType, new CustomPlaceDeserializer&lt;Place&gt;())
+                .create();
+</code></pre>
+
+                <br>
+                <p><a href="https://robin-lee.github.io/blog/">Back to posts</a></p>
+            </div>
+            <br>
+            <div class="disqus">
+                
+            </div>
+        </div>
+    </div>
+</section>
+
+
+
+<script type="text/javascript">
+var gaJsHost = (("https:" == document.location.protocol) ? "https://ssl." : "http://www.");
+document.write(unescape("%3Cscript src='" + gaJsHost + "google-analytics.com/ga.js' type='text/javascript'%3E%3C/script%3E"));
+</script>
+<script type="text/javascript">
+try {
+    var pageTracker = _gat._getTracker("XYZ");
+    pageTracker._trackPageview();
+} catch(err) {}
+</script>
+
+
+
+</body>
+</html>
+
