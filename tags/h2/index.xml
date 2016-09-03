@@ -1,13 +1,13 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes" ?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
-    <title>Java on Robin Lee</title>
-    <link>https://robin-lee.github.io/tags/java/</link>
-    <description>Recent content in Java on Robin Lee</description>
+    <title>H2 on Robin Lee</title>
+    <link>https://robin-lee.github.io/tags/h2/</link>
+    <description>Recent content in H2 on Robin Lee</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
     <lastBuildDate>Fri, 26 Aug 2016 16:03:00 +0200</lastBuildDate>
-    <atom:link href="https://robin-lee.github.io/tags/java/index.xml" rel="self" type="application/rss+xml" />
+    <atom:link href="https://robin-lee.github.io/tags/h2/index.xml" rel="self" type="application/rss+xml" />
     
     <item>
       <title>Beginning Spring Boot with Gradle</title>
@@ -393,114 +393,6 @@ spring.datasource.url=jdbc:h2:/home/someuser/tomcat-data-directory/testdb;DB_CLO
 spring.datasource.testWhileIdle = true
 spring.datasource.validationQuery = SELECT 1
 &lt;/code&gt;&lt;/pre&gt;
-</description>
-    </item>
-    
-    <item>
-      <title>Developing and Deploying Java Servlet Webapp</title>
-      <link>https://robin-lee.github.io/blog/2016/08/developing-and-deploying-java-servlet-webapp/</link>
-      <pubDate>Fri, 12 Aug 2016 16:23:07 +0200</pubDate>
-      
-      <guid>https://robin-lee.github.io/blog/2016/08/developing-and-deploying-java-servlet-webapp/</guid>
-      <description>
-
-&lt;h2 id=&#34;developing&#34;&gt;Developing&lt;/h2&gt;
-
-&lt;p&gt;You can find a few tutorials on how to create a basic (hello world) webapp with java servlets in eclipse so it will not be included here.
-As always my experience differs from such tutorials. It is never smooth sailing. You always have to configure or troubleshoot something even if your setup is &lt;em&gt;exactly&lt;/em&gt; the same. The last time I did something with Servlets or JSP was in 2013 or 2014. I don&amp;rsquo;t think I have my notes from then.&lt;/p&gt;
-
-&lt;p&gt;This time round I had to do some tweaking to get Eclipse to recognise the tomcat server installed on OSX (not the VM, thats working well). For some reason it didn&amp;rsquo;t recognize tomcat 8.5.*.&lt;/p&gt;
-
-&lt;pre&gt;&lt;code&gt;You have to patch catalina.jar, as this is version number the WTP adapter looks at. It&#39;s a quite useless check, and the adapter should allow you to start the server anyway, but nobody has though of that yet.
-
-For years and with every version of Tomcat this is always a problem.
-
-To patch you can do the following:
-
-cd [tomcat or tomee home]/lib
-mkdir catalina
-cd catalina/
-unzip ../catalina.jar
-vim org/apache/catalina/util/ServerInfo.properties
-Make sure it looks like the following (the version numbers all need to start with 8.0):
-
-server.info=Apache Tomcat/8.0.0
-server.number=8.0.0
-server.built=May 11 2016 21:49:07 UTC
-Then:
-
-jar uf ../catalina.jar org/apache/catalina/util/ServerInfo.properties
-cd ..
-rm -rf catalina
-&lt;/code&gt;&lt;/pre&gt;
-
-&lt;p&gt;&lt;a href=&#34;http://stackoverflow.com/questions/37024876/how-to-use-tomcat-8-5-x-and-tomee-7-x-with-eclipse&#34;&gt;stack link&lt;/a&gt;&lt;/p&gt;
-
-&lt;p&gt;Once this was done, I could develop and test my webapp in Eclipse.&lt;/p&gt;
-
-&lt;h2 id=&#34;deploying&#34;&gt;Deploying&lt;/h2&gt;
-
-&lt;p&gt;To me, running the webapp in the IDE is not deploying. There were a few tutorials with misleading titles.&lt;/p&gt;
-
-&lt;p&gt;I was told that to deploy an webapp is bascially copying a war archive into a directory for tomcat. To have a 2nd opinion, I found this &lt;a href=&#34;http://www.vogella.com/tutorials/EclipseWTP/article.html&#34;&gt;vogella tutorial&lt;/a&gt;. Vogella has been consistent in providing great tutorials to help you get started.&lt;/p&gt;
-
-&lt;p&gt;In Eclipse, you just right click on the root package for your webapp and export as a &lt;code&gt;war archive&lt;/code&gt; and save it somewhere.&lt;/p&gt;
-
-&lt;p&gt;To transfer the file to the VM:&lt;/p&gt;
-
-&lt;pre&gt;&lt;code&gt;scp &amp;lt;filename&amp;gt;.war tomcatuser@192.168.56.101:/home/&amp;lt;vm user&amp;gt;
-&lt;/code&gt;&lt;/pre&gt;
-
-&lt;p&gt;And via ssh in &lt;code&gt;/opt/tomcat&lt;/code&gt; (assuming you set up tomcat here and service is called tomcat8):&lt;/p&gt;
-
-&lt;pre&gt;&lt;code&gt;cp ~/&amp;lt;filename&amp;gt;.war webapps/
-sudo service tomcat8 restart
-&lt;/code&gt;&lt;/pre&gt;
-
-&lt;p&gt;Now going to &lt;code&gt;&amp;lt;url&amp;gt;:8080/&amp;lt;filename&amp;gt;/&amp;lt;classname&amp;gt;&lt;/code&gt; should load your webpage or whatever response you made.
-You could change the URL by specifying configurations in a &lt;code&gt;web.xml&lt;/code&gt; but that will not be covered here&amp;hellip; for now?&lt;/p&gt;
-</description>
-    </item>
-    
-    <item>
-      <title>Gradle and gradle init</title>
-      <link>https://robin-lee.github.io/blog/2016/07/gradle-and-gradle-init/</link>
-      <pubDate>Wed, 27 Jul 2016 10:56:29 +0200</pubDate>
-      
-      <guid>https://robin-lee.github.io/blog/2016/07/gradle-and-gradle-init/</guid>
-      <description>
-
-&lt;h1 id=&#34;what-is-gradle&#34;&gt;What is gradle?&lt;/h1&gt;
-
-&lt;p&gt;Gradle is an open source &lt;strong&gt;build automation system&lt;/strong&gt; that builds upon the concepts of Apache Ant and Apache Maven and introduces a Groovy-based domain-specific language (DSL) instead of the XML form used by Apache Maven of declaring the project configuration.
-(&lt;a href=&#34;https://en.wikipedia.org/wiki/Gradle&#34;&gt;wikipedia&lt;/a&gt;)&lt;/p&gt;
-
-&lt;p&gt;Here are more build tools from a stackoverflow post linked later:&lt;/p&gt;
-
-&lt;ul&gt;
-&lt;li&gt;Apache Ant &amp;amp; Apache Maven - Java&lt;/li&gt;
-&lt;li&gt;sbt (Simple Build Tool) - for Scala&lt;/li&gt;
-&lt;li&gt;A-A-P - Python based build tool&lt;/li&gt;
-&lt;li&gt;Rake (Apache Builder) - Ruby&lt;/li&gt;
-&lt;li&gt;Leiningen for Clojure&lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;p&gt;There is gulpjs and gruntjs for Javascript too.&lt;/p&gt;
-
-&lt;h1 id=&#34;gradle-and-android-studio&#34;&gt;Gradle and Android Studio&lt;/h1&gt;
-
-&lt;p&gt;You used to use Eclipse to develop for Android. Later, the main IDE changed to Android Studio and together with it came gradle. Why?&lt;/p&gt;
-
-&lt;p&gt;I would say build systems stay true to the way of using commandline programs to achieve some task. This stackoverflow &lt;a href=&#34;http://stackoverflow.com/questions/16754643/what-is-gradle-in-android-studio&#34;&gt;post&lt;/a&gt; explains it nicely. Basically, it was difficult for you figure out how to build an apk without Eclipse. Google decided to make an Android plugin for gradle, thus, now its easier to make apks without an IDE. Furthermore, you can customize the way you want your package built. If you like to have resources put in a non-conventional folder, go ahead, just update the build script.&lt;/p&gt;
-
-&lt;h1 id=&#34;gradle-init&#34;&gt;Gradle init&lt;/h1&gt;
-
-&lt;p&gt;My motivation to use gradle came from the need to test some code or libraries without starting a fully fledged IDE. I discovered a useful plugin gradle has called the &lt;code&gt;Build Init Plugin&lt;/code&gt;. (&lt;a href=&#34;https://docs.gradle.org/current/userguide/build_init_plugin.html&#34;&gt;link&lt;/a&gt;)&lt;/p&gt;
-
-&lt;pre&gt;&lt;code class=&#34;language-bash&#34;&gt;gradle init --type java-library
-&lt;/code&gt;&lt;/pre&gt;
-
-&lt;p&gt;With then one command I have a basic Java project setup and I can use something like Sublime Text and get going. As a bonus JUnit is included by default.&lt;/p&gt;
 </description>
     </item>
     

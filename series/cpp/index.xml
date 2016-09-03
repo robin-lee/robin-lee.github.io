@@ -51,7 +51,7 @@ int main() {
 - The first &lt;code&gt;::&lt;/code&gt; used may be called the scope operator.
 - &lt;code&gt;&amp;lt;&amp;lt;&lt;/code&gt; and its partner &lt;code&gt;&amp;gt;&amp;gt;&lt;/code&gt; are &lt;em&gt;redirection&lt;/em&gt; operators.
 - &lt;code&gt;{ }&lt;/code&gt; brackets create scopes. You may consider them as &lt;em&gt;units&lt;/em&gt;. The program runs here because there 2 units and they only access the variables within them.
-- &lt;code&gt;return 0&lt;/code&gt;: 0 return value implies the program executed fine. Any other return value means an error..&lt;/p&gt;
+- &lt;code&gt;return 0&lt;/code&gt;: 0 return value implies the program executed fine. Any other non-zero return value means an &lt;strong&gt;&lt;em&gt;implementation&lt;/em&gt;&lt;/strong&gt; &lt;strong&gt;defined failure&lt;/strong&gt;..&lt;/p&gt;
 
 &lt;h2 id=&#34;makefile&#34;&gt;Makefile&lt;/h2&gt;
 

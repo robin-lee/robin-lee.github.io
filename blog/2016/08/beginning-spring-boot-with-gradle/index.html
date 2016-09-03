@@ -1,0 +1,527 @@
+<!DOCTYPE html>
+<html lang="en-us">
+
+<head>
+<meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="chrome=1">
+<meta name="HandheldFriendly" content="True">
+<meta name="MobileOptimized" content="320">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="description" content="random adventures">
+
+<base href="https://robin-lee.github.io/">
+<title>
+
+
+     Beginning Spring Boot with Gradle 
+
+</title>
+<link rel="canonical" href="https://robin-lee.github.io/blog/2016/08/beginning-spring-boot-with-gradle/">
+
+
+<script type="text/javascript">
+    var baseURL = 'https:\/\/robin-lee.github.io\/';
+    var host = baseURL.substring(0, baseURL.length - 1).replace(/\//g, '');
+    if ((host === window.location.host) && (window.location.protocol !== 'https:')) {
+        window.location.protocol = 'https:';
+    }
+</script>
+
+
+
+
+
+<link rel="stylesheet" href="https://robin-lee.github.io/css/reset.css">
+<link rel="stylesheet" href="https://robin-lee.github.io/css/pygments.css">
+<link rel="stylesheet" href="https://robin-lee.github.io/css/main.css">
+
+
+    <link rel="stylesheet" href="https://robin-lee.github.io/css/override.css">
+
+
+
+
+
+<link rel="shortcut icon"
+
+    href="https://robin-lee.github.io/favicon.ico"
+
+>
+
+
+
+</head>
+
+
+<body lang="en">
+
+<section class="header">
+    <div class="container">
+        <div class="content">
+            <a href="https://robin-lee.github.io/"><div class="name">Robin Lee</div></a>
+            <nav>
+                <ul>
+                    <a href="https://robin-lee.github.io/blog/"><li>Blog</li></a>
+                    <a href="https://robin-lee.github.io/about/"><li>About</li></a>
+                    
+                </ul>
+            </nav>
+        </div>
+    </div>
+</section>
+
+<section class="icons">
+    <div class="container">
+        <div class="content">
+
+        
+            <a href="//github.com/robin-lee" target="_blank">
+                <i class="icon ion-social-github"></i>
+            </a>
+        
+
+        
+
+        
+            <a href="//sg.linkedin.com/in/robin-lee-2b70818a" target="_blank">
+                <i class="icon ion-social-linkedin"></i>
+            </a>
+        
+
+        
+
+        
+
+        
+        </div>
+    </div>
+</section>
+
+
+<section class="main post non-narrow zero-top-spacing">
+    <div class="container">
+        <div class="content">
+            <div class="front-matter">
+                <div class="title-container">
+                    <div class="page-heading">
+
+    Beginning Spring Boot with Gradle
+
+</div>
+
+                    <div class="initials"><a href="https://robin-lee.github.io/">RL</a></div>
+                </div>
+                <div class="meta">
+                    <div class="date" title="Fri Aug 26 2016 16:03:00 &#43;0200">Aug 26, 2016</div>
+                    <div class="reading-time"><div class="middot"></div>6 minutes read</div>
+                </div>
+            </div>
+            <div class="markdown">
+                
+
+<p>Spring Boot with Gradle because Maven is too verbose.</p>
+
+<p>When I was looking for tutorials, it seemed like using gradle with Spring Boot is the lesser walked path.
+However, I think going down this path enables me to understand gradle better. This will be useful for Android development too.</p>
+
+<p>It is to be noted that Spring has some integrations with the paid version of the IntelliJ IDEA IDE. As I am using the community edition, I will use the Spring CLI to setup the project. Furthermore, it simulates the scenario where you are a contractor and you have a one off project that requires Spring Boot. You might not like spending a few hundred dollars on a new IDE which you will have to spend time getting familiar with. IntelliJ IDEA Community Edition is great for writing code once you have the initial setup done.</p>
+
+<p><em>Update:</em> This post is much messier than I expected. I jumped ahead to build my photo blog. So much configuration and testing was involved in this side project. As such I do not think this post will make much sense for the general reader. If you happen to be trying something more than a hello world or step-by-step tutorial this might be of help.</p>
+
+<p>References:</p>
+
+<ul>
+<li><a href="http://docs.spring.io/spring-boot/docs/current/reference/html/cli-using-the-cli.html">Spring Boot Docs</a></li>
+<li><a href="https://www.amazon.com/Pro-Spring-Boot-Felipe-Gutierrez/dp/1484214323/ref=sr_1_1?s=books&amp;ie=UTF8&amp;qid=1471961344&amp;sr=1-1">Pro Spring Boot by Felipe Gutierrez of PivotalLabs</a></li>
+</ul>
+
+<h1 id="setup">Setup</h1>
+
+<p>The assumption here is that you have sprint boot already installed to your commandline.</p>
+
+<p>Using the <code>spring init</code> command:</p>
+
+<pre><code>spring init --build=gradle --java-version=1.8 --dependencies=web,thymeleaf --package=codes.robin.spring --artifactId=codes.robin.spring --groupId=codes.robin.spring --packaging=war --name=spring-boot-web -x
+
+spring init --build=gradle -d=jpa,h2 -g=codes.robin.spring -a=simple-jpa-app --package-name=code.robin.spring -name=simple-jpa-app --packaging=war
+
+spring init --build=gradle -d=web,thymeleaf,data-jpa,data-rest -g=codes.robin.spring -a=spring-boot-journal --package-name=codes.robin.spring -name=spring-boot-journal -x
+</code></pre>
+
+<p><code>-x</code> extracts the project into your current directory if location is not specified.</p>
+
+<p><a href="http://docs.spring.io/spring-boot/docs/current/reference/html/cli-using-the-cli.html">Spring Boot CLI Docs</a></p>
+
+<h1 id="running-configurations">Running &amp; Configurations</h1>
+
+<pre><code>gradle build
+
+gradle bootRun
+</code></pre>
+
+<p>Try <code>localhost:8080</code>.</p>
+
+<p>1 way to change port:</p>
+
+<pre><code>myapp/
+    src/
+    gradle/
+    config/
+        application.properties # add a line &quot;server.port=8090&quot;
+</code></pre>
+
+<p><a href="http://stackoverflow.com/questions/21083170/spring-boot-how-to-configure-port">Stack link</a></p>
+
+<p>You can retrieve the values of the properties in the file by using the following annotation:</p>
+
+<pre><code>@Value(&quot;${server.port}&quot;)
+private String port;
+</code></pre>
+
+<p>Spring also offers a way to configure separate profiles using application-{profile}.properties files. This is really useful if you have different environments. You really should have separate environments for dev and prod.</p>
+
+<pre><code>application-dev.properties
+    server.ip=localhost
+
+application-prod.properties
+    server.ip=http//cool-server.com
+
+gradle bootRun -Dspring.profiles.active=dev
+</code></pre>
+
+<h2 id="not-so-minimum-code">(Not so) Minimum code</h2>
+
+<h3 id="folder-structure">Folder structure</h3>
+
+<pre><code>src/
+  domain # Models
+  repository # Repository, JPA/Custom Queries
+  web # Controllers
+</code></pre>
+
+<h3 id="controller">Controller</h3>
+
+<p>Using Spring <code>@Controller</code> annotation.</p>
+
+<p><code>@RestController</code> could be used too. <a href="http://docs.spring.io/spring/docs/current/javadoc-api/org/springframework/web/bind/annotation/RestController.html">link</a></p>
+
+<p>A convenience annotation that is itself annotated with @Controller and @ResponseBody.
+Types that carry this annotation are treated as controllers where @RequestMapping methods assume @ResponseBody semantics by default. Additionally, if you want to set response codes. Just pass <code>HttpServletResponse response</code> to the method like <code>someMethod(ttpServletResponse response)</code> and set <code>response.setStatus(HttpServletResponse.SC_ACCEPTED);</code>. <a href="http://stackoverflow.com/questions/24292373/spring-boot-rest-controller-how-to-return-different-http-status-codes">link</a></p>
+
+<p><code>@ModelAttribute</code> tells Spring to use its default web data binder to populate an instance of something with data from the HttpServletRequest. Choosing to pass this data back to the view is up to the programmer. When you have a method annotated with @ModelAttribute, it is being called every time code hits that servlet. When you have @ModelAttribute as one of the method&rsquo;s parameters, we are talking about incoming Http form data-binding. <a href="http://stackoverflow.com/questions/29370581/spring-mvc-please-explain-difference-between-requestparam-and-modelattribute">link</a> <a href="http://stackoverflow.com/questions/29370581/spring-mvc-please-explain-difference-between-requestparam-and-modelattribute">link</a> <a href="http://stackoverflow.com/questions/3423262/what-is-modelattribute-in-spring-mvc">link</a> <a href="http://stackoverflow.com/questions/8688135/modelattribute-annotation-when-to-use-it/26916920#26916920">very detailed link</a></p>
+
+<ul>
+<li>TODO: <code>ResponseEntity&lt;?&gt;</code> vs <code>@ResponseBody</code>. When to use?</li>
+<li>TODO: Pagination? Instead of loading all image posts at once, load them in stages.</li>
+</ul>
+
+<pre><code class="language-java">@Controller
+public class BasicController {
+
+    //This is similar to @Inject (part of the JSR-330)
+    //http://stackoverflow.com/questions/19414734/understanding-spring-autowired-usage
+    @Autowired
+    SomeRespository repo;
+
+    @RequestMapping(&quot;/&quot;)
+    @ResponseBody
+    public String index(){
+        //return NAME of html page (eg. index.html)
+        return &quot;Greetings from spring boot!&quot;;
+    }
+
+    @RequestMapping(value = &quot;/someResource&quot;, method = RequestMethod.GET)
+    public void someResource(HttpServletResponse response) {
+        //can change this to by default return a list?
+        response.setStatus(HttpServletResponse.SC_OK);
+        try {
+            response.getWriter().write(&quot;Some useful message.&quot;);
+            response.getWriter().flush();
+            response.getWriter().close();
+        } catch (Exception ex) {
+            log.error(&quot;Argh, the AIs are rebelling! &quot;, ex);
+        }
+
+    }
+
+    @RequestMapping(value = &quot;/upload&quot;, method = RequestMethod.POST)
+    @ResponseBody
+    public ResponseEntity&lt;?&gt; uploadFile(
+            @RequestParam(&quot;file&quot;) MultipartFile file, @RequestParam(value = &quot;description&quot;, required = true) String description) {
+
+        try {
+          // process multipart file
+        } catch (Exception e) {
+            System.out.println(e.getMessage());
+            return new ResponseEntity&lt;&gt;(HttpStatus.BAD_REQUEST);
+        }
+        return new ResponseEntity&lt;&gt;(HttpStatus.OK);
+    }
+
+    @RequestMapping(value = &quot;/submitInfo&quot;, method = RequestMethod.POST)
+    @ResponseBody
+    public String someInfoFromAForm(@ModelAttribute SomeObject someObject) {
+      //ModelAttribute is not actually required here
+
+      //use getters
+
+      return payload;
+    }
+
+}
+</code></pre>
+
+<p>References:
+-<a href="https://github.com/jdmr/fileUpload/blob/master/src/main/java/org/davidmendoza/fileUpload/web/ImageController.java">davidmendoza</a>
+-<a href="https://github.com/netgloo/spring-boot-samples/blob/master/spring-boot-file-upload-with-ajax/src/main/java/netgloo/controllers/MainController.java">netgloo</a></p>
+
+<h3 id="repository">Repository</h3>
+
+<pre><code class="language-java">public interface SomeRepository extends JpaRepository&lt;SomeObject, Long&gt; {
+}
+
+//examples
+repo.save(SomeObject);
+repo.findAll();
+repo.getOne((long) id);
+</code></pre>
+
+<p>Extended from:</p>
+
+<pre><code class="language-java">public interface JpaRepository&lt;T, ID extends Serializable&gt; extends PagingAndSortingRepository&lt;T, ID&gt; {
+    List&lt;T&gt; findAll();
+    List&lt;T&gt; findAll(Sort sort);
+    List&lt;T&gt; findAll(Iterable&lt;ID&gt; ids);
+    &lt;S extends T&gt; List&lt;S&gt; save(Iterable&lt;S&gt; entities);
+    void flush();
+    &lt;S extends T&gt; S saveAndFlush(S entity);
+    void deleteInBatch(Iterable&lt;T&gt; entities);
+    void deleteAllInBatch();
+    T getOne(ID id);
+}
+</code></pre>
+
+<h3 id="domain">Domain</h3>
+
+<p>Using JPA you need to have <code>@Entity</code>.
+<code>@Transient</code> means it won&rsquo;t be added to database. Some metadata.</p>
+
+<pre><code>@Entity
+public class SomeObject {
+
+  @Id
+  @GeneratedValue(strategy= GenerationType.AUTO)
+  private Long id;
+
+  private String description;
+  private Date created;
+
+  @Transient
+  private SimpleDateFormat format = new SimpleDateFormat(&quot;MM/dd/yyyy&quot;);
+
+  public SomeObject(String description, String date) throws ParseException{
+      this.description = description;
+      this.created = format.parse(date);
+  }
+
+  public SomeObject() {}
+
+  //getters &amp; setters
+
+}
+</code></pre>
+
+<h2 id="useful-things">Useful things</h2>
+
+<h3 id="curl-to-post-json">cURL to post json</h3>
+
+<pre><code>curl -X POST -d '{&quot;title&quot;:&quot;Test Spring Boot&quot;,&quot;created&quot;:&quot;06/18/2016&quot;,&quot;summary&quot;:&quot;Create Unit
+Test for Spring Boot&quot;}' -H &quot;Content-Type: application/json&quot; http://localhost:8080/journal
+</code></pre>
+
+<h3 id="testing">Testing</h3>
+
+<p>If you do <code>gradle test</code> it runs the tests and generates a html report in the <code>build/tests</code> folder.
+It would be nice to see the results immediately in terminal. <a href="https://www.mkyong.com/gradle/gradle-display-test-results-in-console/">link</a>
+Add the following to <code>build.gradle</code>:</p>
+
+<pre><code>test {
+    //we want display the following test events
+    testLogging {
+        events &quot;PASSED&quot;, &quot;STARTED&quot;, &quot;FAILED&quot;, &quot;SKIPPED&quot;
+    }
+}
+</code></pre>
+
+<h3 id="accessing-h2-in-memory-test-database">Accessing H2 In-Memory Test Database</h3>
+
+<p>Ensure <code>application.properties</code> has:</p>
+
+<pre><code>spring.h2.console.enabled=true
+</code></pre>
+
+<p>Go to <code>http://localhost:8080/h2-console/</code>.</p>
+
+<pre><code>By default it will have the org.h2.Driver driver class, which is the connection URL as
+jdbc:h2:mem:testdb and the
+username: sa
+password: empty
+to connect to the H2 engine.
+</code></pre>
+
+<h3 id="using-curl-to-upload-post-data-with-files">Using cURL to upload post data with files</h3>
+
+<p><a href="http://stackoverflow.com/questions/12667797/using-curl-to-upload-post-data-with-files">Link</a></p>
+
+<p>Use <code>-F</code> option:</p>
+
+<pre><code>-F/--form &lt;name=content&gt; Specify HTTP multipart POST data (H)`
+</code></pre>
+
+<pre><code>curl \
+  -F &quot;userid=1&quot; \
+  -F &quot;filecomment=This is an image file&quot; \
+  -F &quot;image=@/home/user1/Desktop/test.jpg&quot; \
+  localhost/uploader.php
+</code></pre>
+
+<pre><code>curl -i -X POST -H &quot;Content-Type: multipart/form-data&quot;
+-F &quot;data=@test.mp3&quot; http://mysuperserver/media/1234/upload/
+
+# when userid is cached as part of form
+curl -i -X POST -H &quot;Content-Type: multipart/form-data&quot; -F &quot;data=@test.mp3;userid=1234&quot; http://localhost:8080/upload/
+
+curl -i -X POST -H &quot;Content-Type: multipart/form-data&quot; -F file=@phoduckdp.jpg -F description=blah http://localhost:8080/upload/
+
+curl -v -F description=value1 -F file=@phoduckdp.jpg http://localhost:8080/upload/
+
+# GET verbose
+curl -v http://localhost:8080/photos
+</code></pre>
+
+<h3 id="curl-with-auth">cURL with auth</h3>
+
+<pre><code>curl -i localhost:8080/oauth/token -d &quot;grant_type=password&amp;scope=read&amp;username=springb
+oot&amp;password=isawesome&quot; -u acd167f6-04f8-4306-a118-03e2356f73aa:2dd4bec5-fe62-4568-94a1-
+c31ac3c4eb4e
+
+curl -i -H &quot;Authorization: bearer f1d362f2-b167-41d9-a411-35f8ba7f0454&quot; localhost:8080/api
+</code></pre>
+
+<h3 id="mysql">MySQL</h3>
+
+<p>Assuming you have it installed on OSX.</p>
+
+<pre><code>brew info mysql
+
+To have launchd start mysql now and restart at login:
+  brew services start mysql
+Or, if you don't want/need a background service you can just run:
+  mysql.server start
+
+To stop
+  mysql.server stop
+</code></pre>
+
+<h3 id="getting-properties-config">Getting properties/config</h3>
+
+<pre><code>@Value(&quot;${file.upload.directory}&quot;)
+private String fileUploadDirectory;
+
+//OR
+
+String directory = env.getProperty(&quot;file.upload.directory&quot;);
+</code></pre>
+
+<h3 id="optional-url-path">Optional URL path</h3>
+
+<p><a href="http://stackoverflow.com/questions/4904092/with-spring-3-0-can-i-make-an-optional-path-variable">link</a></p>
+
+<h3 id="livereload-setup">LiveReload setup</h3>
+
+<p><em>Update:</em> In the end I just included the <code>devtools</code> dependency and used the <code>make</code> command in the IDE before refreshing in the browser. Static files are still updated. However, when it comes to javascript I prefer having a setup that enables me to see the changes immediately (actually livereloading) so I think developing the UI &amp; frontend in a separate project would be better.</p>
+
+<p><a href="https://dzone.com/articles/continuous-auto-restart-with-spring-boot-devtools">link</a></p>
+
+<p>Add to build.gradle;</p>
+
+<pre><code>configurations {
+    dev
+}
+
+# under dependencies
+dev(&quot;org.springframework.boot:spring-boot-devtools&quot;)
+
+
+# hmm
+bootRun {
+    // Use Spring Boot DevTool only when we run Gradle bootRun task
+    classpath = sourceSets.main.runtimeClasspath + configurations.dev
+}
+</code></pre>
+
+<h3 id="h2-database-config">H2 Database config</h3>
+
+<p>If nothing is specified in <code>application.properties</code>, h2 uses in mem.</p>
+
+<pre><code>spring.datasource.url = jdbc:h2:mem:testdb
+</code></pre>
+
+<p>A persistent db can be useful for testing. This setting doesn&rsquo;t work nicely with <code>gradle build --continuous</code>.</p>
+
+<pre><code>spring.datasource.url=jdbc:h2:~/test;DB_CLOSE_DELAY=-1;DB_CLOSE_ON_EXIT=FALSE
+spring.jpa.hibernate.ddl-auto=update
+</code></pre>
+
+<h3 id="sample-application-properties">Sample <code>application.properties</code></h3>
+
+<pre><code>file.upload.directory=/home/someuser/tomcat-data-directory
+
+spring.h2.console.enabled=true
+
+#JPA-Hibernate
+spring.jpa.show-sql = true
+spring.jpa.hibernate.ddl-auto=update
+spring.jpa.hibernate.naming-strategy = org.hibernate.cfg.ImprovedNamingStrategy
+spring.jpa.properties.hibernate.dialect = org.hibernate.dialect.MySQL5Dialect
+
+spring.datasource.url=jdbc:h2:/home/someuser/tomcat-data-directory/testdb;DB_CLOSE_ON_EXIT=FALSE
+
+#Spring DataSource SQL
+#spring.datasource.url = jdbc:mysql://localhost:3306/cooldatabase
+#spring.datasource.username = root
+#spring.datasource.password =
+
+spring.datasource.testWhileIdle = true
+spring.datasource.validationQuery = SELECT 1
+</code></pre>
+
+                <br>
+                <p><a href="https://robin-lee.github.io/blog/">Back to posts</a></p>
+            </div>
+            <br>
+            <div class="disqus">
+                
+            </div>
+        </div>
+    </div>
+</section>
+
+
+
+<script type="text/javascript">
+var gaJsHost = (("https:" == document.location.protocol) ? "https://ssl." : "http://www.");
+document.write(unescape("%3Cscript src='" + gaJsHost + "google-analytics.com/ga.js' type='text/javascript'%3E%3C/script%3E"));
+</script>
+<script type="text/javascript">
+try {
+    var pageTracker = _gat._getTracker("XYZ");
+    pageTracker._trackPageview();
+} catch(err) {}
+</script>
+
+
+
+</body>
+</html>
+
