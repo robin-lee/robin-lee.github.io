@@ -6,8 +6,40 @@
     <description>Recent content in Blog on Robin Lee</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <lastBuildDate>Fri, 26 Aug 2016 16:03:00 +0200</lastBuildDate>
+    <lastBuildDate>Mon, 19 Sep 2016 15:35:25 +0800</lastBuildDate>
     <atom:link href="https://robin-lee.github.io/blog/index.xml" rel="self" type="application/rss+xml" />
+    
+    <item>
+      <title>MySQL Cheatsheet</title>
+      <link>https://robin-lee.github.io/blog/2016/09/mysql-cheatsheet/</link>
+      <pubDate>Mon, 19 Sep 2016 15:35:25 +0800</pubDate>
+      
+      <guid>https://robin-lee.github.io/blog/2016/09/mysql-cheatsheet/</guid>
+      <description>&lt;p&gt;A cheatsheet. Enough said.&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;show databases;
+
+select database();
+
+show tables;
+
+create table cats (cid CHAR(20), name CHAR(30), breed CHAR(20), age INTEGER, cuteness REAL)
+
+insert into cats (cid, name, breed, age, cuteness)
+values (1, &#39;coolcat&#39;, &#39;garfield&#39;, 999, 3.14159265953)
+
+delete
+from cats cat
+where cat.name = &#39;gary&#39;
+
+update cats cat
+set cat.age = cat.age + 1, cat.cuteness = cat.cuteness + 999
+where cat.cid = 1
+// where clause is applied first
+// can use &amp;gt;=
+&lt;/code&gt;&lt;/pre&gt;
+</description>
+    </item>
     
     <item>
       <title>Beginning Spring Boot with Gradle</title>

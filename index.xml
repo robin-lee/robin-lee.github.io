@@ -6,8 +6,40 @@
     <description>Recent content on Robin Lee</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <lastBuildDate>Fri, 26 Aug 2016 16:03:00 +0200</lastBuildDate>
+    <lastBuildDate>Mon, 19 Sep 2016 15:35:25 +0800</lastBuildDate>
     <atom:link href="https://robin-lee.github.io/index.xml" rel="self" type="application/rss+xml" />
+    
+    <item>
+      <title>MySQL Cheatsheet</title>
+      <link>https://robin-lee.github.io/blog/2016/09/mysql-cheatsheet/</link>
+      <pubDate>Mon, 19 Sep 2016 15:35:25 +0800</pubDate>
+      
+      <guid>https://robin-lee.github.io/blog/2016/09/mysql-cheatsheet/</guid>
+      <description>&lt;p&gt;A cheatsheet. Enough said.&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;show databases;
+
+select database();
+
+show tables;
+
+create table cats (cid CHAR(20), name CHAR(30), breed CHAR(20), age INTEGER, cuteness REAL)
+
+insert into cats (cid, name, breed, age, cuteness)
+values (1, &#39;coolcat&#39;, &#39;garfield&#39;, 999, 3.14159265953)
+
+delete
+from cats cat
+where cat.name = &#39;gary&#39;
+
+update cats cat
+set cat.age = cat.age + 1, cat.cuteness = cat.cuteness + 999
+where cat.cid = 1
+// where clause is applied first
+// can use &amp;gt;=
+&lt;/code&gt;&lt;/pre&gt;
+</description>
+    </item>
     
     <item>
       <title>Beginning Spring Boot with Gradle</title>
@@ -1233,44 +1265,6 @@ private int amount;
 
 &lt;p&gt;Going to the folder &lt;code&gt;/DisplayVendorID-756e6b6e&lt;/code&gt;, I had to replace &lt;code&gt;DisplayProductID-717&lt;/code&gt; with a customized configuration.
 It is better explained &lt;a href=&#34;http://www.insanelymac.com/forum/topic/208410-fixing-scrambledstretched-or-wrong-resolution-laptop-display-problems/&#34;&gt;here&lt;/a&gt;.&lt;/p&gt;
-</description>
-    </item>
-    
-    <item>
-      <title>Learning Regex</title>
-      <link>https://robin-lee.github.io/blog/2015/09/learning-regex/</link>
-      <pubDate>Tue, 15 Sep 2015 23:21:45 +0800</pubDate>
-      
-      <guid>https://robin-lee.github.io/blog/2015/09/learning-regex/</guid>
-      <description>&lt;p&gt;I think regular expressions are essential when it comes to extracting data from a source.&lt;/p&gt;
-
-&lt;p&gt;For example if you wanted the names of all the files in a folder without the extensio, using a regular expression could make the process easier and code more concise.&lt;/p&gt;
-
-&lt;p&gt;The difficulty is finding the material to practice on even with a cheatsheet for regex.&lt;/p&gt;
-
-&lt;p&gt;I found this site called &lt;a href=&#34;http://regexone.com/&#34;&gt;regexone&lt;/a&gt; and I felt the tutorial reflected certain real life situations. Not only did it teach me about the symbols it did so by sharing real life examples(where you might use a regular expression). Such as for checking for email validity or telephone number validity. Do check it out!&lt;/p&gt;
-
-&lt;p&gt;When crafting a regular expression for use you will definitely need to test it first, so here is an online tool you might want to use: &lt;a href=&#34;https://regex101.com/&#34;&gt;regex101&lt;/a&gt;&lt;/p&gt;
-
-&lt;p&gt;&lt;em&gt;Brief recap of what I went through&lt;/em&gt;&lt;/p&gt;
-
-&lt;ol&gt;
-&lt;li&gt;&lt;code&gt;^&lt;/code&gt;(hat) the hat character can be used to exclude or declare the start of a regular expression.&lt;/li&gt;
-&lt;li&gt;&lt;code&gt;[abc]&lt;/code&gt; square brackets mean that it is a character set. In this case only a,b, or c are valid.&lt;/li&gt;
-&lt;li&gt;&lt;code&gt;[^abc]&lt;/code&gt; this &lt;em&gt;inverts&lt;/em&gt; the logic in the previous point. Not a, b, nor c. Exclude a, b, and c.&lt;/li&gt;
-&lt;li&gt;&lt;code&gt;[a-z]|[0-9]&lt;/code&gt; a to z or 0-9.&lt;/li&gt;
-&lt;li&gt;&lt;code&gt;$&lt;/code&gt; end of regular expression&lt;/li&gt;
-&lt;li&gt;&lt;code&gt;()&lt;/code&gt; capture group, can be nested. Jan 1988. &lt;code&gt;(\w+\s(\d+))&lt;/code&gt; gives &lt;code&gt;Jan 1988&lt;/code&gt; &lt;code&gt;1988&lt;/code&gt;.&lt;/li&gt;
-&lt;li&gt;&lt;code&gt;.&lt;/code&gt; means any character. &lt;code&gt;\.&lt;/code&gt; with backslash means period.&lt;/li&gt;
-&lt;li&gt;&lt;code&gt;+&lt;/code&gt; means ONE or many repetitions. &lt;code&gt;*&lt;/code&gt; ZERO or many repetitions.&lt;/li&gt;
-&lt;li&gt;&lt;code&gt;\s&lt;/code&gt; any white space character &lt;code&gt;\t&lt;/code&gt;, , &lt;code&gt;r&lt;/code&gt;, &lt;code&gt;n&lt;/code&gt;.&lt;/li&gt;
-&lt;li&gt;&lt;code&gt;{n}&lt;/code&gt;, &lt;code&gt;{a,b}&lt;/code&gt;. n repetitions. a to b repetitions.&lt;/li&gt;
-&lt;li&gt;&lt;code&gt;\w&lt;/code&gt; means &lt;code&gt;[A-Za-z0-9_]&lt;/code&gt;&lt;/li&gt;
-&lt;li&gt;&lt;code&gt;\d&lt;/code&gt; means [0-9]&lt;/li&gt;
-&lt;li&gt;&lt;code&gt;ab?c&lt;/code&gt; means b is an optional. &lt;code&gt;abc&lt;/code&gt; and &lt;code&gt;ac&lt;/code&gt; are valid.&lt;/li&gt;
-&lt;li&gt;&lt;code&gt;\w+\b&lt;/code&gt; is useful for getting entire words. boundary between word and non-word character.&lt;/li&gt;
-&lt;li&gt;&lt;code&gt;\W+$&lt;/code&gt; would match any non-alphanumeric character up to the end of the line. Eg. &lt;code&gt;&amp;amp;$#*@!.&lt;/code&gt;.&lt;/li&gt;
-&lt;/ol&gt;
 </description>
     </item>
     

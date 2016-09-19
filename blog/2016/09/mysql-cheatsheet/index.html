@@ -13,10 +13,10 @@
 <title>
 
 
-     Mysql 
+     MySQL Cheatsheet 
 
 </title>
-<link rel="canonical" href="https://robin-lee.github.io/tags/mysql/">
+<link rel="canonical" href="https://robin-lee.github.io/blog/2016/09/mysql-cheatsheet/">
 
 
 <script type="text/javascript">
@@ -97,28 +97,61 @@
     </div>
 </section>
 
-<section class="main">
+
+<section class="main post non-narrow zero-top-spacing">
     <div class="container">
         <div class="content">
-            <div class="page-heading">Blog</div>
-            <ul>
-                
-                <li class="post-item">
-    <div class="meta">Sep 19, 2016</div>
-    <a href="https://robin-lee.github.io/blog/2016/09/mysql-cheatsheet/"><div>MySQL Cheatsheet</div></a>
-</li>
+            <div class="front-matter">
+                <div class="title-container">
+                    <div class="page-heading">
 
-                
-                <li class="post-item">
-    <div class="meta">Aug 11, 2016</div>
-    <a href="https://robin-lee.github.io/blog/2016/08/tomcat-development-server/"><div>Tomcat Development Server</div></a>
-</li>
+    MySQL Cheatsheet
 
+</div>
+
+                    <div class="initials"><a href="https://robin-lee.github.io/">RL</a></div>
+                </div>
+                <div class="meta">
+                    <div class="date" title="Mon Sep 19 2016 15:35:25 SGT">Sep 19, 2016</div>
+                    <div class="reading-time"><div class="middot"></div>1 minute read</div>
+                </div>
+            </div>
+            <div class="markdown">
+                <p>A cheatsheet. Enough said.</p>
+
+<pre><code>show databases;
+
+select database();
+
+show tables;
+
+create table cats (cid CHAR(20), name CHAR(30), breed CHAR(20), age INTEGER, cuteness REAL)
+
+insert into cats (cid, name, breed, age, cuteness)
+values (1, 'coolcat', 'garfield', 999, 3.14159265953)
+
+delete
+from cats cat
+where cat.name = 'gary'
+
+update cats cat
+set cat.age = cat.age + 1, cat.cuteness = cat.cuteness + 999
+where cat.cid = 1
+// where clause is applied first
+// can use &gt;=
+</code></pre>
+
+                <br>
+                <p><a href="https://robin-lee.github.io/blog/">Back to posts</a></p>
+            </div>
+            <br>
+            <div class="disqus">
                 
-            </ul>
+            </div>
         </div>
     </div>
 </section>
+
 
 
 <script type="text/javascript">
@@ -136,5 +169,4 @@ try {
 
 </body>
 </html>
-
 
