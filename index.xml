@@ -6,8 +6,408 @@
     <description>Recent content on Robin Lee</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <lastBuildDate>Mon, 19 Sep 2016 15:35:25 +0800</lastBuildDate>
+    <lastBuildDate>Sat, 29 Oct 2016 10:46:49 +0800</lastBuildDate>
     <atom:link href="https://robin-lee.github.io/index.xml" rel="self" type="application/rss+xml" />
+    
+    <item>
+      <title>Geek Camp 2016</title>
+      <link>https://robin-lee.github.io/blog/2016/10/geek-camp-2016/</link>
+      <pubDate>Sat, 29 Oct 2016 10:46:49 +0800</pubDate>
+      
+      <guid>https://robin-lee.github.io/blog/2016/10/geek-camp-2016/</guid>
+      <description>
+
+&lt;h2 id=&#34;schedule&#34;&gt;Schedule&lt;/h2&gt;
+
+&lt;ul&gt;
+&lt;li&gt;The Magic Behind Engineers.SG — Michael Cheng&lt;/li&gt;
+&lt;li&gt;An Unexpected Use for a Cardboard Box: Listening to the Moon — Roland Turner&lt;/li&gt;
+&lt;li&gt;Evolving Careers: How I Switched My Role from an Admin to a Javascript Developer — Leticia Choo&lt;/li&gt;
+&lt;li&gt;Create a 3D Game Engine for Pebble Smartwatch — Shipeng Xu&lt;/li&gt;
+&lt;li&gt;Rust: Make System Programming Great Again! — Omer Iqbal&lt;/li&gt;
+&lt;li&gt;I left.&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h2 id=&#34;the-magic-behind-engineers-sg&#34;&gt;The Magic Behind Engineers.SG&lt;/h2&gt;
+
+&lt;p&gt;Sharing about the &lt;em&gt;magic&lt;/em&gt; behind the scenes.
+@coderkungfu&lt;/p&gt;
+
+&lt;p&gt;With Singapore Power now. &lt;a href=&#34;https://www.techinasia.com/singapore-power-sau-sheong&#34;&gt;link&lt;/a&gt;&lt;/p&gt;
+
+&lt;p&gt;Motivation: Marketing problem for engineers in Singapore.&lt;/p&gt;
+
+&lt;p&gt;Goal: Tell more about Engineers in Singapore via Videos&lt;/p&gt;
+
+&lt;h3 id=&#34;streamline-capture-workflow&#34;&gt;Streamline Capture Workflow&lt;/h3&gt;
+
+&lt;ul&gt;
+&lt;li&gt;Capture all inputs (video, screen, audio)&lt;/li&gt;
+&lt;li&gt;Feed sources into a laptop via USB&lt;/li&gt;
+&lt;li&gt;Post production&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;pre&gt;&lt;code&gt;Presenter laptop -&amp;gt; Video splitter -&amp;gt; Video input
+
+Video splitter -&amp;gt; screen capture tool, webcam, condenser(microphone)
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;Important to hear what speaker is saying &lt;em&gt;clearly&lt;/em&gt;. So process audio!
+Shell script for processing audio: ffmpeg, SoX.&lt;/p&gt;
+
+&lt;h3 id=&#34;humans&#34;&gt;Humans&lt;/h3&gt;
+
+&lt;p&gt;Pre-meetup Procedures.&lt;/p&gt;
+
+&lt;ul&gt;
+&lt;li&gt;Get permissions from organizers and presenters.&lt;/li&gt;
+&lt;li&gt;Volunteers sign up for time slot.&lt;/li&gt;
+&lt;li&gt;Logistics.&lt;/li&gt;
+&lt;li&gt;Setup time.&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;Organizers don&amp;rsquo;t really have a pool of volunteers they can rely on.
+So it was better to setup a pool of volunteers to go around. (40+ now)&lt;/p&gt;
+
+&lt;p&gt;OBS: Open Broadcaster Software! Yes!&lt;/p&gt;
+
+&lt;h3 id=&#34;considerations&#34;&gt;Considerations&lt;/h3&gt;
+
+&lt;p&gt;He wanted to avoid having the presenter download software just to be able to do a screencapture. Tried to build a workflow with QuickTime (MAC).&lt;/p&gt;
+
+&lt;p&gt;Backup system. Why? Because it is running windows. Backup video and audio to reconstruct stuff.
+Slides and audio is most important.&lt;/p&gt;
+
+&lt;p&gt;Luggage for transporting gear. Lots of stuff and its heavy. Better to have something sturdy to transport stuff over &lt;em&gt;difficult terrain&lt;/em&gt;. Go to mustafa!&lt;/p&gt;
+
+&lt;h3 id=&#34;thoughts&#34;&gt;Thoughts&lt;/h3&gt;
+
+&lt;p&gt;Seems like a mash of hardware and software is needed to get things working. He started with something then improved it over time.&lt;/p&gt;
+
+&lt;h2 id=&#34;an-unexpected-use-for-a-cardboard-box-listening-to-the-moon&#34;&gt;An Unexpected Use for a Cardboard Box: Listening to the Moon&lt;/h2&gt;
+
+&lt;p&gt;Satellites.&lt;/p&gt;
+
+&lt;h3 id=&#34;satellite-orbits&#34;&gt;Satellite Orbits&lt;/h3&gt;
+
+&lt;p&gt;Polar LEO - where most ameteur satellies are.
+&lt;em&gt;LEO: Low earth orbit&lt;/em&gt;&lt;/p&gt;
+
+&lt;h3 id=&#34;objective&#34;&gt;Objective&lt;/h3&gt;
+
+&lt;p&gt;Bounce satellite signals off the moon.&lt;/p&gt;
+
+&lt;h3 id=&#34;stuff&#34;&gt;Stuff&lt;/h3&gt;
+
+&lt;p&gt;Listen to Jupiter. Source of HF radio emissions in the solar system.&lt;/p&gt;
+
+&lt;p&gt;You get a &amp;ldquo;nice&amp;rdquo; cup if you manage to establish 2 way communication with Mars.&lt;/p&gt;
+
+&lt;h3 id=&#34;intermediate-steps&#34;&gt;Intermediate steps&lt;/h3&gt;
+
+&lt;p&gt;Going from lower orbits to higher orbits.&lt;/p&gt;
+
+&lt;ul&gt;
+&lt;li&gt;LEO&lt;/li&gt;
+&lt;li&gt;GSO/Molniya&lt;/li&gt;
+&lt;li&gt;?&lt;/li&gt;
+&lt;li&gt;EME&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;Special satellite dish to look for reconnaisse satellite orbitting the moon. Looks at 100th of all the sounds &lt;em&gt;coming&lt;/em&gt; from the sky.
+eg. Gate3way&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;AA2TX&lt;/strong&gt;: Close to spec of commercial dishes&lt;/p&gt;
+
+&lt;ul&gt;
+&lt;li&gt;60cm cardboard box.&lt;/li&gt;
+&lt;li&gt;2400MHZ&lt;/li&gt;
+&lt;li&gt;20dBi&lt;/li&gt;
+&lt;li&gt;S-Band LNB/DC&lt;/li&gt;
+&lt;li&gt;Any coax&lt;/li&gt;
+&lt;li&gt;Amateur transceiver&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h3 id=&#34;interesting-stuff&#34;&gt;Interesting stuff&lt;/h3&gt;
+
+&lt;p&gt;Helical structure of antenna. Polarisation.
+Circular magnetic field. Better as you don&amp;rsquo;t know the orientation of the satellite.&lt;/p&gt;
+
+&lt;p&gt;Linear structure means you got to sync them. Must point right.&lt;/p&gt;
+
+&lt;p&gt;Signal recevied is a billionth of a watt. Cardboard box and LNA amplifiy it.
+Coax loses about 30% of it.&lt;/p&gt;
+
+&lt;p&gt;Noise is a problem.
+Entire sky is emitted radiation at a very low level. It matters in this case.
+Moon is freezing (here assumed to be -25C).&lt;/p&gt;
+
+&lt;h2 id=&#34;evolving-careers-how-i-switched-my-role-from-an-admin-to-a-javascript-developer&#34;&gt;Evolving Careers: How I Switched My Role from an Admin to a Javascript Developer&lt;/h2&gt;
+
+&lt;p&gt;&lt;a href=&#34;http://BillHsu.github.io&#34;&gt;BillHsu.github.io&lt;/a&gt;&lt;/p&gt;
+
+&lt;p&gt;Drawings.
+Life story.
+Bad dev practices.
+Learning journey.&lt;/p&gt;
+
+&lt;h2 id=&#34;create-a-3d-game-engine-for-pebble-smartwatch&#34;&gt;Create a 3D Game Engine for Pebble Smartwatch&lt;/h2&gt;
+
+&lt;p&gt;Todo:&lt;/p&gt;
+
+&lt;ul&gt;
+&lt;li&gt;Generic way of rendering 3d images for Pebble&lt;/li&gt;
+&lt;li&gt;Flexible&lt;/li&gt;
+&lt;li&gt;High frame rate&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;Breakdown the problem.&lt;/p&gt;
+
+&lt;p&gt;A smaller problem.
+Demonstrate concept of being able to create a game.
+Display 3D model on the watch.&lt;/p&gt;
+
+&lt;p&gt;First. Look at hardware specs.
+64 epaper.
+144x168.
+ST Micro STM32F439ZG 180MHz ARM (100MHz limit. Battery.)
+Bluetooth Module.
+Has a Lattice LP1K FPGA.&lt;/p&gt;
+
+&lt;p&gt;Watch side APIs: C, JavaScript (JerryScript, Samsung, IoT)&lt;/p&gt;
+
+&lt;p&gt;Phone side: JS, iOS, Android&lt;/p&gt;
+
+&lt;p&gt;2 ways:&lt;/p&gt;
+
+&lt;p&gt;Phone side rendering.
+Render on phone then send to watch. But bluetooth is slow.&lt;/p&gt;
+
+&lt;p&gt;Watch side rendering.
+Send the 3D vertices to watch. Rendering done on watch side. But CPU not very powerful.&lt;/p&gt;
+
+&lt;p&gt;Each pixel will be 1 byte(8bits)
+144x168 = ~24 kilobytes for each image&lt;/p&gt;
+
+&lt;p&gt;Bluetooth 2.1 max rate is 3Mbps. ~360KB/s (kilobytes). So maybe 10FPS?
+But you can&amp;rsquo;t use all the bytes. Some checksum&amp;hellip; etc.&lt;/p&gt;
+
+&lt;p&gt;Pebble max buffer size is 8KB? But he tested only could sent ~1.8KB.&lt;/p&gt;
+
+&lt;h3 id=&#34;pebblekit-js&#34;&gt;Pebblekit JS&lt;/h3&gt;
+
+&lt;p&gt;Create own WebGL as it is not supported.&lt;/p&gt;
+
+&lt;p&gt;Looking at a 3d bunny made of triangles. Just add more triangles to make it more realistic.&lt;/p&gt;
+
+&lt;p&gt;3D renderer you just need 1 function to draw a triangle then you can do anything you want.
+Every 3d triangle is mapped to a 2d triangle so after all we need a function to draw a 2d triangle.
+Process is called rasterization.&lt;/p&gt;
+
+&lt;p&gt;Previous talk &amp;ldquo;A 3D renderer in JavaScript&amp;rdquo;.&lt;/p&gt;
+
+&lt;p&gt;Sending buffer over took 8000ms while rendering took 250ms.
+Reducing image resolution&amp;hellip; 400ms to send 250ms to render. So 2 FPS.&lt;/p&gt;
+
+&lt;h2 id=&#34;rust-make-system-programming-great-again&#34;&gt;Rust: Make System Programming Great Again!&lt;/h2&gt;
+
+&lt;p&gt;How many of you have touched systems programming since university?
+Well&amp;hellip; It sucks.&lt;/p&gt;
+
+&lt;h3 id=&#34;heartbleed&#34;&gt;Heartbleed&lt;/h3&gt;
+
+&lt;p&gt;Buffer overflow. Missing bound check. &lt;code&gt;if length &amp;lt;  X&lt;/code&gt;.
+Shellshock. Goto fail gotofail.&lt;/p&gt;
+
+&lt;p&gt;c, c++ used to implement these libraries give you too much freedom.&lt;/p&gt;
+
+&lt;p&gt;We are concerned about memory safety.&lt;/p&gt;
+
+&lt;ul&gt;
+&lt;li&gt;Buffer overflows -&amp;gt; corrupt adjacents.&lt;/li&gt;
+&lt;li&gt;Buffer over-reads -&amp;gt; reveal sensitive data.&lt;/li&gt;
+&lt;li&gt;Dangling Pointers -&amp;gt; address of a deleted object&lt;/li&gt;
+&lt;li&gt;Double free -&amp;gt; Corrupt the heap&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h3 id=&#34;garbage-collection&#34;&gt;Garbage collection&lt;/h3&gt;
+
+&lt;p&gt;Generational mark &amp;amp; sweep. JVM style.
+Non-deterministic destruction.
+Resource like video but you want to destroy a particular file. You don&amp;rsquo;t know when itll be destroyed.
+Needs a lot more memory to be efficient. (3-4 times of actual application)
+Sweep pass touches almost all RAM leading to power inefficiency. (Android!)
+GC pauses not acceptable for hard realtime systems (Airplanes!)&lt;/p&gt;
+
+&lt;h3 id=&#34;enter-rust&#34;&gt;Enter Rust&lt;/h3&gt;
+
+&lt;pre&gt;&lt;code&gt;fn main() {
+    println!(&amp;quot;Hello world! Easier than C! We win!&amp;quot;);
+}
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;! mark to distinguish macro from normal method/function calls.&lt;/p&gt;
+
+&lt;p&gt;Systems programming lang:&lt;/p&gt;
+
+&lt;ul&gt;
+&lt;li&gt;Safety&lt;/li&gt;
+&lt;li&gt;Speed&lt;/li&gt;
+&lt;li&gt;Concurrency&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;Immutability by default&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;let x = 9;
+x = 10;
+//fails
+
+let mut y = 10;
+y = 5;
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;Strongly typed w inference&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;let x: i32 = 42;
+let y = 42;
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;Vectors.
+Resizable array. Store content on heap. Macros: Like C preprocessors.&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;let v = vec![1,2,3,4,5] // v: Vec&amp;lt;i32&amp;gt;
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;h3 id=&#34;rust-philosopy&#34;&gt;Rust philosopy&lt;/h3&gt;
+
+&lt;p&gt;Zero cost abstractions
+Zero performance cost.&lt;/p&gt;
+
+&lt;h3 id=&#34;rust-memory-model&#34;&gt;Rust memory model&lt;/h3&gt;
+
+&lt;h4 id=&#34;ownership&#34;&gt;Ownership&lt;/h4&gt;
+
+&lt;p&gt;You own something. So you take care of it.&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;fn foo() {
+    // variables own the resource.
+    let v = vec![1, 2, 3];
+}
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;Once binding goes out of scope, Rust will free the bound resources. Default behaviour.&lt;/p&gt;
+
+&lt;p&gt;There is only ONE binding to a given resource&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;let v = vec![1, 2, 3];
+let v2 = v;
+println!(&amp;quot;v[0] is: {}&amp;quot;, v[0]);
+
+//error: use of moved value: v
+//multiple bindings.
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;h4 id=&#34;ownership-move-semantics&#34;&gt;Ownership: move semantics&lt;/h4&gt;
+
+&lt;pre&gt;&lt;code&gt;fn take(v: Vec&amp;lt;i32&amp;gt;) {
+
+}
+let v = vec![1 ,2, 3];
+take(v);
+
+//compile error. wtf?
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;pre&gt;&lt;code&gt;let trumpVotes = vec![1, 2, 3];
+let mut fakeMore = trumpVotes;
+fakeMore.push(4);
+// does not compile because your stack has different sizes (trumpVotes, fakeMore) for same heap address.
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;Primitives implement Copy&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;let v = 1;
+let v2 = v;
+println!(&amp;quot;v is :{}&amp;quot;, v);
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;Inefficient. So not used in production.&lt;/p&gt;
+
+&lt;p&gt;How to pass to function&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;let v1 = ...
+let v2 = ...
+
+let (v1, v2, ans) = foo(v1, v2)
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;h4 id=&#34;borrowing&#34;&gt;Borrowing&lt;/h4&gt;
+
+&lt;pre&gt;&lt;code&gt;fn foo(v1: &amp;amp;Vec&amp;lt;i32&amp;gt;, v2: &amp;amp;Vec&amp;lt;i32&amp;gt;) -&amp;gt; ...
+
+let answer = foo(&amp;amp;v1, &amp;amp;v2);
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;pre&gt;&lt;code&gt;fn foo(v: &amp;amp;Vec&amp;lt;i32&amp;gt;) {
+    v.push(5)
+}
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;You can&amp;rsquo;t mutate stuff easily.&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;fn main() {
+    let mut x = 5;
+    let y = &amp;amp;mut x;
+    *y += 1;
+    println!(&amp;quot;x is :{}&amp;quot;, x);
+    // fails.
+    // data race. println! creates an immutable reference.
+    // y is mutable.
+}
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;ul&gt;
+&lt;li&gt;access content of the reference.&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h4 id=&#34;borrowing-rules&#34;&gt;Borrowing Rules&lt;/h4&gt;
+
+&lt;ul&gt;
+&lt;li&gt;Any borrow must last for a scope not greater than owner (Refence must not live longer than res they refer to)&lt;/li&gt;
+&lt;li&gt;You can only have 1 mutable reference at any time&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;&amp;lsquo;data race&amp;rsquo;. 2 or more pointer accessing 1 memory location at the same time where at least 1 of them is writing and operations are not synchronized.&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;Immutability is a property of the binding not the data.&lt;/strong&gt;&lt;/p&gt;
+
+&lt;h3 id=&#34;static-vs-dynamic-dispatch&#34;&gt;Static vs Dynamic Dispatch&lt;/h3&gt;
+
+&lt;h4 id=&#34;static&#34;&gt;Static&lt;/h4&gt;
+
+&lt;p&gt;Dont need to manually calc address of function.
+Matters because of optimizations you can do like &lt;strong&gt;inlining&lt;/strong&gt;.&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;add 3 5
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;h4 id=&#34;dynamic&#34;&gt;Dynamic&lt;/h4&gt;
+
+&lt;p&gt;Address of function has to be evaluated at compile time.&lt;/p&gt;
+
+&lt;p&gt;By default last expression will return.&lt;/p&gt;
+
+&lt;h4 id=&#34;stuff-1&#34;&gt;Stuff&lt;/h4&gt;
+
+&lt;p&gt;&lt;code&gt;u8&lt;/code&gt; is bytes.&lt;/p&gt;
+
+&lt;p&gt;&lt;code&gt;monomorphization&lt;/code&gt; for static dispatch. Can bloat codesize.&lt;/p&gt;
+
+&lt;h3 id=&#34;thoughts-1&#34;&gt;Thoughts&lt;/h3&gt;
+
+&lt;p&gt;Rust makes you fail a lot&amp;hellip; with good intentions?&lt;/p&gt;
+</description>
+    </item>
     
     <item>
       <title>MySQL Cheatsheet</title>
@@ -1249,31 +1649,6 @@ private int amount;
 
 &lt;pre&gt;&lt;code class=&#34;language-language-bash&#34;&gt;sudo usermod -aG vboxsf &amp;lt;your username&amp;gt;
 &lt;/code&gt;&lt;/pre&gt;
-</description>
-    </item>
-    
-    <item>
-      <title>Forcing Display Edid</title>
-      <link>https://robin-lee.github.io/blog/2016/02/forcing-display-edid/</link>
-      <pubDate>Fri, 05 Feb 2016 22:02:00 +0800</pubDate>
-      
-      <guid>https://robin-lee.github.io/blog/2016/02/forcing-display-edid/</guid>
-      <description>&lt;p&gt;I bought a 2 port VGA Switcher off Taobao so that I could switch my main display between my desktop and laptop. However, when I connected my Macbook through the VGA adapter to the VGA Switcher my screen was not appearing correctly. It was shifted off screen to the right.&lt;/p&gt;
-
-&lt;p&gt;&lt;img src=&#34;https://robin-lee.github.io/images/mtviki-vga-switch.jpg&#34; alt=&#34;VGA Switcher&#34; /&gt;&lt;/p&gt;
-
-&lt;p&gt;This is the 2 port VGA Switcher I bought off Taobao. It is a nice compact device with tacty buttons you can press to switch the the video input.&lt;/p&gt;
-
-&lt;p&gt;If I connect it up like Macbook - VGA Adapter - VGA Cable - Display, it works fine. However, the setup I need is Macbook - VGA Adapter - VGA Cable - VGA Switcher - Display. When connected up in this manner, the output from my Macbook is cutoff and shifted to the right. Faced with this problem I contemplated getting another KVM Switch that is known to work with Macbooks.&lt;/p&gt;
-
-&lt;p&gt;Knowing that it would still take at least 2-3 weeks to get a KVM Switch purchased from Amazon to my doorstep, I looked for software or configuration based solutions. The SwitchResX plugin was able to get the full HD resolution to show but that produced the cutoff issue. Smaller resolutions from 1400x1050 downwards was working fine but it wasn&amp;rsquo;t HDPI and it is such a waste for a 23 inch screen.&lt;/p&gt;
-
-&lt;p&gt;I observed that the display was being detected as a generic VGA/SVGA display with Vendor as &amp;ldquo;unkn - 756E6B6E&amp;rdquo; and Product as &amp;ldquo;717&amp;rdquo;. So I made a guess that my laptop was unable to tell what device we are being hooked up to through the VGA cable. When it comes to identifying something we usually do it through IDs. There had to be some file or ID that could be spoofed right?&lt;/p&gt;
-
-&lt;p&gt;After Googling a bit it seems like other people have had the similar problems. There were a number of threads where people indicated failure in producing the right output on an external display connected to their Macbook. Changing some files relating to EDID solved their problem. According to wikipedia: &lt;code&gt;Extended display identification data (EDID) is a data structure provided by a digital display to describe its capabilities to a video source (e.g. graphics card or set-top box). It is what enables a modern personal computer to know what kinds of monitors are connected to it.&lt;/code&gt;&lt;/p&gt;
-
-&lt;p&gt;Going to the folder &lt;code&gt;/DisplayVendorID-756e6b6e&lt;/code&gt;, I had to replace &lt;code&gt;DisplayProductID-717&lt;/code&gt; with a customized configuration.
-It is better explained &lt;a href=&#34;http://www.insanelymac.com/forum/topic/208410-fixing-scrambledstretched-or-wrong-resolution-laptop-display-problems/&#34;&gt;here&lt;/a&gt;.&lt;/p&gt;
 </description>
     </item>
     

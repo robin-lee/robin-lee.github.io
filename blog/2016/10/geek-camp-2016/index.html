@@ -1,0 +1,540 @@
+<!DOCTYPE html>
+<html lang="en-us">
+
+<head>
+<meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="chrome=1">
+<meta name="HandheldFriendly" content="True">
+<meta name="MobileOptimized" content="320">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="description" content="random adventures">
+
+<base href="https://robin-lee.github.io/">
+<title>
+
+
+     Geek Camp 2016 
+
+</title>
+<link rel="canonical" href="https://robin-lee.github.io/blog/2016/10/geek-camp-2016/">
+
+
+<script type="text/javascript">
+    var baseURL = 'https:\/\/robin-lee.github.io\/';
+    var host = baseURL.substring(0, baseURL.length - 1).replace(/\//g, '');
+    if ((host === window.location.host) && (window.location.protocol !== 'https:')) {
+        window.location.protocol = 'https:';
+    }
+</script>
+
+
+
+
+
+<link rel="stylesheet" href="https://robin-lee.github.io/css/reset.css">
+<link rel="stylesheet" href="https://robin-lee.github.io/css/pygments.css">
+<link rel="stylesheet" href="https://robin-lee.github.io/css/main.css">
+
+
+    <link rel="stylesheet" href="https://robin-lee.github.io/css/override.css">
+
+
+
+
+
+<link rel="shortcut icon"
+
+    href="https://robin-lee.github.io/favicon.ico"
+
+>
+
+
+
+</head>
+
+
+<body lang="en">
+
+<section class="header">
+    <div class="container">
+        <div class="content">
+            <a href="https://robin-lee.github.io/"><div class="name">Robin Lee</div></a>
+            <nav>
+                <ul>
+                    <a href="https://robin-lee.github.io/blog/"><li>Blog</li></a>
+                    <a href="https://robin-lee.github.io/about/"><li>About</li></a>
+                    
+                </ul>
+            </nav>
+        </div>
+    </div>
+</section>
+
+<section class="icons">
+    <div class="container">
+        <div class="content">
+
+        
+            <a href="//github.com/robin-lee" target="_blank">
+                <i class="icon ion-social-github"></i>
+            </a>
+        
+
+        
+
+        
+            <a href="//sg.linkedin.com/in/robin-lee-2b70818a" target="_blank">
+                <i class="icon ion-social-linkedin"></i>
+            </a>
+        
+
+        
+
+        
+
+        
+        </div>
+    </div>
+</section>
+
+
+<section class="main post non-narrow zero-top-spacing">
+    <div class="container">
+        <div class="content">
+            <div class="front-matter">
+                <div class="title-container">
+                    <div class="page-heading">
+
+    Geek Camp 2016
+
+</div>
+
+                    <div class="initials"><a href="https://robin-lee.github.io/">RL</a></div>
+                </div>
+                <div class="meta">
+                    <div class="date" title="Sat Oct 29 2016 10:46:49 SGT">Oct 29, 2016</div>
+                    <div class="reading-time"><div class="middot"></div>7 minutes read</div>
+                </div>
+            </div>
+            <div class="markdown">
+                
+
+<h2 id="schedule">Schedule</h2>
+
+<ul>
+<li>The Magic Behind Engineers.SG — Michael Cheng</li>
+<li>An Unexpected Use for a Cardboard Box: Listening to the Moon — Roland Turner</li>
+<li>Evolving Careers: How I Switched My Role from an Admin to a Javascript Developer — Leticia Choo</li>
+<li>Create a 3D Game Engine for Pebble Smartwatch — Shipeng Xu</li>
+<li>Rust: Make System Programming Great Again! — Omer Iqbal</li>
+<li>I left.</li>
+</ul>
+
+<h2 id="the-magic-behind-engineers-sg">The Magic Behind Engineers.SG</h2>
+
+<p>Sharing about the <em>magic</em> behind the scenes.
+@coderkungfu</p>
+
+<p>With Singapore Power now. <a href="https://www.techinasia.com/singapore-power-sau-sheong">link</a></p>
+
+<p>Motivation: Marketing problem for engineers in Singapore.</p>
+
+<p>Goal: Tell more about Engineers in Singapore via Videos</p>
+
+<h3 id="streamline-capture-workflow">Streamline Capture Workflow</h3>
+
+<ul>
+<li>Capture all inputs (video, screen, audio)</li>
+<li>Feed sources into a laptop via USB</li>
+<li>Post production</li>
+</ul>
+
+<pre><code>Presenter laptop -&gt; Video splitter -&gt; Video input
+
+Video splitter -&gt; screen capture tool, webcam, condenser(microphone)
+</code></pre>
+
+<p>Important to hear what speaker is saying <em>clearly</em>. So process audio!
+Shell script for processing audio: ffmpeg, SoX.</p>
+
+<h3 id="humans">Humans</h3>
+
+<p>Pre-meetup Procedures.</p>
+
+<ul>
+<li>Get permissions from organizers and presenters.</li>
+<li>Volunteers sign up for time slot.</li>
+<li>Logistics.</li>
+<li>Setup time.</li>
+</ul>
+
+<p>Organizers don&rsquo;t really have a pool of volunteers they can rely on.
+So it was better to setup a pool of volunteers to go around. (40+ now)</p>
+
+<p>OBS: Open Broadcaster Software! Yes!</p>
+
+<h3 id="considerations">Considerations</h3>
+
+<p>He wanted to avoid having the presenter download software just to be able to do a screencapture. Tried to build a workflow with QuickTime (MAC).</p>
+
+<p>Backup system. Why? Because it is running windows. Backup video and audio to reconstruct stuff.
+Slides and audio is most important.</p>
+
+<p>Luggage for transporting gear. Lots of stuff and its heavy. Better to have something sturdy to transport stuff over <em>difficult terrain</em>. Go to mustafa!</p>
+
+<h3 id="thoughts">Thoughts</h3>
+
+<p>Seems like a mash of hardware and software is needed to get things working. He started with something then improved it over time.</p>
+
+<h2 id="an-unexpected-use-for-a-cardboard-box-listening-to-the-moon">An Unexpected Use for a Cardboard Box: Listening to the Moon</h2>
+
+<p>Satellites.</p>
+
+<h3 id="satellite-orbits">Satellite Orbits</h3>
+
+<p>Polar LEO - where most ameteur satellies are.
+<em>LEO: Low earth orbit</em></p>
+
+<h3 id="objective">Objective</h3>
+
+<p>Bounce satellite signals off the moon.</p>
+
+<h3 id="stuff">Stuff</h3>
+
+<p>Listen to Jupiter. Source of HF radio emissions in the solar system.</p>
+
+<p>You get a &ldquo;nice&rdquo; cup if you manage to establish 2 way communication with Mars.</p>
+
+<h3 id="intermediate-steps">Intermediate steps</h3>
+
+<p>Going from lower orbits to higher orbits.</p>
+
+<ul>
+<li>LEO</li>
+<li>GSO/Molniya</li>
+<li>?</li>
+<li>EME</li>
+</ul>
+
+<p>Special satellite dish to look for reconnaisse satellite orbitting the moon. Looks at 100th of all the sounds <em>coming</em> from the sky.
+eg. Gate3way</p>
+
+<p><strong>AA2TX</strong>: Close to spec of commercial dishes</p>
+
+<ul>
+<li>60cm cardboard box.</li>
+<li>2400MHZ</li>
+<li>20dBi</li>
+<li>S-Band LNB/DC</li>
+<li>Any coax</li>
+<li>Amateur transceiver</li>
+</ul>
+
+<h3 id="interesting-stuff">Interesting stuff</h3>
+
+<p>Helical structure of antenna. Polarisation.
+Circular magnetic field. Better as you don&rsquo;t know the orientation of the satellite.</p>
+
+<p>Linear structure means you got to sync them. Must point right.</p>
+
+<p>Signal recevied is a billionth of a watt. Cardboard box and LNA amplifiy it.
+Coax loses about 30% of it.</p>
+
+<p>Noise is a problem.
+Entire sky is emitted radiation at a very low level. It matters in this case.
+Moon is freezing (here assumed to be -25C).</p>
+
+<h2 id="evolving-careers-how-i-switched-my-role-from-an-admin-to-a-javascript-developer">Evolving Careers: How I Switched My Role from an Admin to a Javascript Developer</h2>
+
+<p><a href="http://BillHsu.github.io">BillHsu.github.io</a></p>
+
+<p>Drawings.
+Life story.
+Bad dev practices.
+Learning journey.</p>
+
+<h2 id="create-a-3d-game-engine-for-pebble-smartwatch">Create a 3D Game Engine for Pebble Smartwatch</h2>
+
+<p>Todo:</p>
+
+<ul>
+<li>Generic way of rendering 3d images for Pebble</li>
+<li>Flexible</li>
+<li>High frame rate</li>
+</ul>
+
+<p>Breakdown the problem.</p>
+
+<p>A smaller problem.
+Demonstrate concept of being able to create a game.
+Display 3D model on the watch.</p>
+
+<p>First. Look at hardware specs.
+64 epaper.
+144x168.
+ST Micro STM32F439ZG 180MHz ARM (100MHz limit. Battery.)
+Bluetooth Module.
+Has a Lattice LP1K FPGA.</p>
+
+<p>Watch side APIs: C, JavaScript (JerryScript, Samsung, IoT)</p>
+
+<p>Phone side: JS, iOS, Android</p>
+
+<p>2 ways:</p>
+
+<p>Phone side rendering.
+Render on phone then send to watch. But bluetooth is slow.</p>
+
+<p>Watch side rendering.
+Send the 3D vertices to watch. Rendering done on watch side. But CPU not very powerful.</p>
+
+<p>Each pixel will be 1 byte(8bits)
+144x168 = ~24 kilobytes for each image</p>
+
+<p>Bluetooth 2.1 max rate is 3Mbps. ~360KB/s (kilobytes). So maybe 10FPS?
+But you can&rsquo;t use all the bytes. Some checksum&hellip; etc.</p>
+
+<p>Pebble max buffer size is 8KB? But he tested only could sent ~1.8KB.</p>
+
+<h3 id="pebblekit-js">Pebblekit JS</h3>
+
+<p>Create own WebGL as it is not supported.</p>
+
+<p>Looking at a 3d bunny made of triangles. Just add more triangles to make it more realistic.</p>
+
+<p>3D renderer you just need 1 function to draw a triangle then you can do anything you want.
+Every 3d triangle is mapped to a 2d triangle so after all we need a function to draw a 2d triangle.
+Process is called rasterization.</p>
+
+<p>Previous talk &ldquo;A 3D renderer in JavaScript&rdquo;.</p>
+
+<p>Sending buffer over took 8000ms while rendering took 250ms.
+Reducing image resolution&hellip; 400ms to send 250ms to render. So 2 FPS.</p>
+
+<h2 id="rust-make-system-programming-great-again">Rust: Make System Programming Great Again!</h2>
+
+<p>How many of you have touched systems programming since university?
+Well&hellip; It sucks.</p>
+
+<h3 id="heartbleed">Heartbleed</h3>
+
+<p>Buffer overflow. Missing bound check. <code>if length &lt;  X</code>.
+Shellshock. Goto fail gotofail.</p>
+
+<p>c, c++ used to implement these libraries give you too much freedom.</p>
+
+<p>We are concerned about memory safety.</p>
+
+<ul>
+<li>Buffer overflows -&gt; corrupt adjacents.</li>
+<li>Buffer over-reads -&gt; reveal sensitive data.</li>
+<li>Dangling Pointers -&gt; address of a deleted object</li>
+<li>Double free -&gt; Corrupt the heap</li>
+</ul>
+
+<h3 id="garbage-collection">Garbage collection</h3>
+
+<p>Generational mark &amp; sweep. JVM style.
+Non-deterministic destruction.
+Resource like video but you want to destroy a particular file. You don&rsquo;t know when itll be destroyed.
+Needs a lot more memory to be efficient. (3-4 times of actual application)
+Sweep pass touches almost all RAM leading to power inefficiency. (Android!)
+GC pauses not acceptable for hard realtime systems (Airplanes!)</p>
+
+<h3 id="enter-rust">Enter Rust</h3>
+
+<pre><code>fn main() {
+    println!(&quot;Hello world! Easier than C! We win!&quot;);
+}
+</code></pre>
+
+<p>! mark to distinguish macro from normal method/function calls.</p>
+
+<p>Systems programming lang:</p>
+
+<ul>
+<li>Safety</li>
+<li>Speed</li>
+<li>Concurrency</li>
+</ul>
+
+<p>Immutability by default</p>
+
+<pre><code>let x = 9;
+x = 10;
+//fails
+
+let mut y = 10;
+y = 5;
+</code></pre>
+
+<p>Strongly typed w inference</p>
+
+<pre><code>let x: i32 = 42;
+let y = 42;
+</code></pre>
+
+<p>Vectors.
+Resizable array. Store content on heap. Macros: Like C preprocessors.</p>
+
+<pre><code>let v = vec![1,2,3,4,5] // v: Vec&lt;i32&gt;
+</code></pre>
+
+<h3 id="rust-philosopy">Rust philosopy</h3>
+
+<p>Zero cost abstractions
+Zero performance cost.</p>
+
+<h3 id="rust-memory-model">Rust memory model</h3>
+
+<h4 id="ownership">Ownership</h4>
+
+<p>You own something. So you take care of it.</p>
+
+<pre><code>fn foo() {
+    // variables own the resource.
+    let v = vec![1, 2, 3];
+}
+</code></pre>
+
+<p>Once binding goes out of scope, Rust will free the bound resources. Default behaviour.</p>
+
+<p>There is only ONE binding to a given resource</p>
+
+<pre><code>let v = vec![1, 2, 3];
+let v2 = v;
+println!(&quot;v[0] is: {}&quot;, v[0]);
+
+//error: use of moved value: v
+//multiple bindings.
+</code></pre>
+
+<h4 id="ownership-move-semantics">Ownership: move semantics</h4>
+
+<pre><code>fn take(v: Vec&lt;i32&gt;) {
+
+}
+let v = vec![1 ,2, 3];
+take(v);
+
+//compile error. wtf?
+</code></pre>
+
+<pre><code>let trumpVotes = vec![1, 2, 3];
+let mut fakeMore = trumpVotes;
+fakeMore.push(4);
+// does not compile because your stack has different sizes (trumpVotes, fakeMore) for same heap address.
+</code></pre>
+
+<p>Primitives implement Copy</p>
+
+<pre><code>let v = 1;
+let v2 = v;
+println!(&quot;v is :{}&quot;, v);
+</code></pre>
+
+<p>Inefficient. So not used in production.</p>
+
+<p>How to pass to function</p>
+
+<pre><code>let v1 = ...
+let v2 = ...
+
+let (v1, v2, ans) = foo(v1, v2)
+</code></pre>
+
+<h4 id="borrowing">Borrowing</h4>
+
+<pre><code>fn foo(v1: &amp;Vec&lt;i32&gt;, v2: &amp;Vec&lt;i32&gt;) -&gt; ...
+
+let answer = foo(&amp;v1, &amp;v2);
+</code></pre>
+
+<pre><code>fn foo(v: &amp;Vec&lt;i32&gt;) {
+    v.push(5)
+}
+</code></pre>
+
+<p>You can&rsquo;t mutate stuff easily.</p>
+
+<pre><code>fn main() {
+    let mut x = 5;
+    let y = &amp;mut x;
+    *y += 1;
+    println!(&quot;x is :{}&quot;, x);
+    // fails.
+    // data race. println! creates an immutable reference.
+    // y is mutable.
+}
+</code></pre>
+
+<ul>
+<li>access content of the reference.</li>
+</ul>
+
+<h4 id="borrowing-rules">Borrowing Rules</h4>
+
+<ul>
+<li>Any borrow must last for a scope not greater than owner (Refence must not live longer than res they refer to)</li>
+<li>You can only have 1 mutable reference at any time</li>
+</ul>
+
+<p>&lsquo;data race&rsquo;. 2 or more pointer accessing 1 memory location at the same time where at least 1 of them is writing and operations are not synchronized.</p>
+
+<p><strong>Immutability is a property of the binding not the data.</strong></p>
+
+<h3 id="static-vs-dynamic-dispatch">Static vs Dynamic Dispatch</h3>
+
+<h4 id="static">Static</h4>
+
+<p>Dont need to manually calc address of function.
+Matters because of optimizations you can do like <strong>inlining</strong>.</p>
+
+<pre><code>add 3 5
+</code></pre>
+
+<h4 id="dynamic">Dynamic</h4>
+
+<p>Address of function has to be evaluated at compile time.</p>
+
+<p>By default last expression will return.</p>
+
+<h4 id="stuff-1">Stuff</h4>
+
+<p><code>u8</code> is bytes.</p>
+
+<p><code>monomorphization</code> for static dispatch. Can bloat codesize.</p>
+
+<h3 id="thoughts-1">Thoughts</h3>
+
+<p>Rust makes you fail a lot&hellip; with good intentions?</p>
+
+                <br>
+                <p><a href="https://robin-lee.github.io/blog/">Back to posts</a></p>
+            </div>
+            <br>
+            <div class="disqus">
+                
+            </div>
+        </div>
+    </div>
+</section>
+
+
+
+<script type="text/javascript">
+var gaJsHost = (("https:" == document.location.protocol) ? "https://ssl." : "http://www.");
+document.write(unescape("%3Cscript src='" + gaJsHost + "google-analytics.com/ga.js' type='text/javascript'%3E%3C/script%3E"));
+</script>
+<script type="text/javascript">
+try {
+    var pageTracker = _gat._getTracker("XYZ");
+    pageTracker._trackPageview();
+} catch(err) {}
+</script>
+
+
+
+</body>
+</html>
+
