@@ -37,6 +37,15 @@ set cat.age = cat.age + 1, cat.cuteness = cat.cuteness + 999
 where cat.cid = 1
 // where clause is applied first
 // can use &amp;gt;=
+
+create table students (sid CHAR(20),
+                        name CHAR(30),
+                        login CHAR(30),
+                        age INTEGER,
+                        gpa REAL,
+                        UNIQUE (name, age),
+                        CONSTRAINT StudentKey PRIMARY KEY (sid)
+                        )
 &lt;/code&gt;&lt;/pre&gt;
 </description>
     </item>
