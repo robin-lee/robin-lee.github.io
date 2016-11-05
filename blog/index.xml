@@ -1701,6 +1701,99 @@ For this post, we will continue with Intenet Sockets. I was in the midst of mess
     </item>
     
     <item>
+      <title>Growing Object Oriented Software, Guided by Tests Part 1</title>
+      <link>https://robin-lee.github.io/blog/2016/07/growing-object-oriented-software-guided-by-tests-part-1/</link>
+      <pubDate>Wed, 27 Jul 2016 14:31:03 +0200</pubDate>
+      
+      <guid>https://robin-lee.github.io/blog/2016/07/growing-object-oriented-software-guided-by-tests-part-1/</guid>
+      <description>
+
+&lt;p&gt;In this series, I consolidate points from the GOOSGBT book and may comment on some of them.
+The post may not be coherent as I am extracting fragments I consider useful or enlightening.&lt;/p&gt;
+
+&lt;p&gt;Stackoverflow post to read: &lt;a href=&#34;http://stackoverflow.com/questions/920992/unit-test-adoption/924639#924639&#34;&gt;link&lt;/a&gt;&lt;/p&gt;
+
+&lt;h2 id=&#34;levels-of-testing&#34;&gt;Levels of testing&lt;/h2&gt;
+
+&lt;ul&gt;
+&lt;li&gt;Acceptance: Does the whole system work?&lt;/li&gt;
+&lt;li&gt;Integration: Does our code work against code we can&amp;rsquo;t change?&lt;/li&gt;
+&lt;li&gt;Unit: Do our objects do the right thing, are they convenient to work with?&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h2 id=&#34;support-for-tdd-with-mock-objects&#34;&gt;Support for TDD with mock objects&lt;/h2&gt;
+
+&lt;p&gt;The essential steps for creating a test:&lt;/p&gt;
+
+&lt;ul&gt;
+&lt;li&gt;Create any required mock objects.&lt;/li&gt;
+&lt;li&gt;Create any real objects, including the target object.&lt;/li&gt;
+&lt;li&gt;Specify how you expect the mock objects to be called by the target object.&lt;/li&gt;
+&lt;li&gt;Call the triggering method(s) on the target object.&lt;/li&gt;
+&lt;li&gt;Assert that any resulting values are valid and that all the expected calls have been made.&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;The important point, as we stress repeatedly throughout this book, is to make clear the intention of every test, distinguishing between the tested functionality, the supporting infrastructure, and the object structure.&lt;/p&gt;
+
+&lt;h2 id=&#34;test-fixture&#34;&gt;Test Fixture&lt;/h2&gt;
+
+&lt;p&gt;A test fixture is the fixed state that exists at the start of a test. A test fixture ensures that a test is repeatable—every time a test is run it starts in the same state so it should produce the same results. A fixture may be set up before the test runs and torn down after it has finished. Think of &lt;code&gt;@Before&lt;/code&gt; and &lt;code&gt;@After&lt;/code&gt;.&lt;/p&gt;
+
+&lt;h2 id=&#34;mocking&#34;&gt;Mocking&lt;/h2&gt;
+
+&lt;p&gt;&lt;em&gt;Notes here are for jMock2. In the neigbourhood of page 26.&lt;/em&gt;&lt;/p&gt;
+
+&lt;p&gt;A mockery represents the context of the object under test, its neighboring objects; mock objects stand in for the real neighbors of the object under test while the test runs; and expectations describe how the object under test should invoke its neighbors during the test.&lt;/p&gt;
+
+&lt;p&gt;Note that the test does not require any assertions. This is quite common in mock object tests.&lt;/p&gt;
+
+&lt;h2 id=&#34;walking-skeleton&#34;&gt;Walking Skeleton&lt;/h2&gt;
+
+&lt;p&gt;We can’t automate the build, deploy, and test cycle without some idea of the overall structure. We don’t need much detail yet, just a broad-brush picture of what major system components will be needed to support the first planned release and how they will communicate.&lt;/p&gt;
+
+&lt;p&gt;We need a high-level view of the client’s requirements, both functional and non- functional, to guide our choices.&lt;/p&gt;
+
+&lt;h2 id=&#34;unit-test-behaviour-not-methods&#34;&gt;Unit-Test Behaviour Not Methods&lt;/h2&gt;
+
+&lt;p&gt;Many developers who adopt TDD find their early tests hard to understand when they revisit them later, and one common mistake is thinking about testing methods. A test called testBidAccepted() tells us what it does, but not what it’s for.&lt;/p&gt;
+
+&lt;p&gt;We do better when we focus on the &lt;strong&gt;features that the object under test should provide&lt;/strong&gt;, each of which may require collaboration with its neighbors and calling more than one of its methods. We need to know how to use the class to achieve a goal, *&lt;strong&gt;not&lt;/strong&gt; how to exercise all the paths through its code*.&lt;/p&gt;
+
+&lt;p&gt;&lt;code&gt;sniperJoinsAuctionUntilAuctionCloses()&lt;/code&gt;&lt;/p&gt;
+
+&lt;h1 id=&#34;object-oriented-style&#34;&gt;Object - Oriented Style&lt;/h1&gt;
+
+&lt;p&gt;We value code that is easy to maintain over code that is easy to write.1 Imple- menting a feature in the most direct way can damage the maintainability of the system, for example by making the code difficult to understand or by introducing hidden dependencies between components. Balancing immediate and longer-term concerns is often tricky, but we’ve seen too many teams that can no longer deliver because their system is too brittle.&lt;/p&gt;
+
+&lt;p&gt;We don’t want technical concepts to leak into the application model, so we write interfaces to describe its relationships with the outside world in its terminology (Cockburn’s ports). Then we write bridges between the application core and each technical domain (Cockburn’s adapters). This is related to what Eric Evans calls an “anticorruption layer” [Evans03].&lt;/p&gt;
+
+&lt;h2 id=&#34;achieving-object-oriented-design&#34;&gt;Achieving Object Oriented Design&lt;/h2&gt;
+
+&lt;p&gt;Breaking off, Budding out, Bundling up&lt;/p&gt;
+
+&lt;p&gt;Budding Out.&lt;/p&gt;
+
+&lt;p&gt;We think of this as “on-demand” design: we “pull” interfaces and their imple- mentations into existence from the needs of the client, rather than “pushing” out the features that we think a class should provide.&lt;/p&gt;
+
+&lt;h2 id=&#34;building-up-to-higher-level-programming&#34;&gt;Building up to higher level programming&lt;/h2&gt;
+
+&lt;p&gt;The declarative layer describes what the code will do, while the implementation layer describes how the code does it. The declarative layer is, in effect, a small domain-specific language embedded (in this case) in Java.&lt;/p&gt;
+
+&lt;h2 id=&#34;building-on-third-party-code&#34;&gt;Building on Third Party Code&lt;/h2&gt;
+
+&lt;h3 id=&#34;only-mock-objects-you-own&#34;&gt;Only mock objects you own&lt;/h3&gt;
+
+&lt;blockquote&gt;
+&lt;p&gt;When we use third-party code we often do not have a deep understanding of how it works. Even if we have the source available, we rarely have time to read it thoroughly enough to explore all its quirks. We can read its documentation, which is often incomplete or incorrect.&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;p&gt;Yeah tell me about it.&lt;/p&gt;
+
+&lt;p&gt;Part 2 will be on the worked example.&lt;/p&gt;
+</description>
+    </item>
+    
+    <item>
       <title>Gradle and gradle init</title>
       <link>https://robin-lee.github.io/blog/2016/07/gradle-and-gradle-init/</link>
       <pubDate>Wed, 27 Jul 2016 10:56:29 +0200</pubDate>
@@ -1982,23 +2075,6 @@ private int amount;
 &lt;p&gt;Furthermore, some old posts have been shifted over from pelican!&lt;/p&gt;
 
 &lt;p&gt;&lt;a href=&#34;https://gohugo.io/overview/quickstart/&#34;&gt;Check out how to use hugo here&lt;/a&gt;&lt;/p&gt;
-</description>
-    </item>
-    
-    <item>
-      <title>Virtual Box Shared Folder</title>
-      <link>https://robin-lee.github.io/blog/2016/02/virtual-box-shared-folder/</link>
-      <pubDate>Sat, 06 Feb 2016 21:41:18 +0800</pubDate>
-      
-      <guid>https://robin-lee.github.io/blog/2016/02/virtual-box-shared-folder/</guid>
-      <description>&lt;p&gt;For some projects I need to share files between my virtual machine and my host machine. VirtualBox allows for shared folders between the VM and the host after install Guest Additions. However, there is always a bit of configuration involved.&lt;/p&gt;
-
-&lt;p&gt;I installed Ubuntu 14.04 LTS and then installed Guest Additions. After I added a shared folder in the settings, I discovered that I did not have permission to access the folder. According to VirtualBox&amp;rsquo;s &lt;a href=&#34;https://www.virtualbox.org/manual/ch04.html#sf_mount_auto&#34;&gt;documentation&lt;/a&gt; you need to add guest users to the vboxsf group. I tend to forget the command to do so as I do not need to change user properties frequency.&lt;/p&gt;
-
-&lt;p&gt;If you happen to need the command here it is:&lt;/p&gt;
-
-&lt;pre&gt;&lt;code class=&#34;language-language-bash&#34;&gt;sudo usermod -aG vboxsf &amp;lt;your username&amp;gt;
-&lt;/code&gt;&lt;/pre&gt;
 </description>
     </item>
     

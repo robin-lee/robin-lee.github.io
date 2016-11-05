@@ -1,0 +1,233 @@
+<!DOCTYPE html>
+<html lang="en-us">
+
+<head>
+<meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="chrome=1">
+<meta name="HandheldFriendly" content="True">
+<meta name="MobileOptimized" content="320">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="description" content="random adventures">
+
+<base href="https://robin-lee.github.io/">
+<title>
+
+
+     Growing Object Oriented Software, Guided by Tests Part 1 
+
+</title>
+<link rel="canonical" href="https://robin-lee.github.io/blog/2016/07/growing-object-oriented-software-guided-by-tests-part-1/">
+
+
+<script type="text/javascript">
+    var baseURL = 'https:\/\/robin-lee.github.io\/';
+    var host = baseURL.substring(0, baseURL.length - 1).replace(/\//g, '');
+    if ((host === window.location.host) && (window.location.protocol !== 'https:')) {
+        window.location.protocol = 'https:';
+    }
+</script>
+
+
+
+
+
+<link rel="stylesheet" href="https://robin-lee.github.io/css/reset.css">
+<link rel="stylesheet" href="https://robin-lee.github.io/css/pygments.css">
+<link rel="stylesheet" href="https://robin-lee.github.io/css/main.css">
+
+
+    <link rel="stylesheet" href="https://robin-lee.github.io/css/override.css">
+
+
+
+
+
+<link rel="shortcut icon"
+
+    href="https://robin-lee.github.io/favicon.ico"
+
+>
+
+
+
+</head>
+
+
+<body lang="en">
+
+<section class="header">
+    <div class="container">
+        <div class="content">
+            <a href="https://robin-lee.github.io/"><div class="name">Robin Lee</div></a>
+            <nav>
+                <ul>
+                    <a href="https://robin-lee.github.io/blog/"><li>Blog</li></a>
+                    <a href="https://robin-lee.github.io/about/"><li>About</li></a>
+                    
+                </ul>
+            </nav>
+        </div>
+    </div>
+</section>
+
+<section class="icons">
+    <div class="container">
+        <div class="content">
+
+        
+            <a href="//github.com/robin-lee" target="_blank">
+                <i class="icon ion-social-github"></i>
+            </a>
+        
+
+        
+
+        
+            <a href="//sg.linkedin.com/in/robin-lee-2b70818a" target="_blank">
+                <i class="icon ion-social-linkedin"></i>
+            </a>
+        
+
+        
+
+        
+
+        
+        </div>
+    </div>
+</section>
+
+
+<section class="main post non-narrow zero-top-spacing">
+    <div class="container">
+        <div class="content">
+            <div class="front-matter">
+                <div class="title-container">
+                    <div class="page-heading">
+
+    Growing Object Oriented Software, Guided by Tests Part 1
+
+</div>
+
+                    <div class="initials"><a href="https://robin-lee.github.io/">RL</a></div>
+                </div>
+                <div class="meta">
+                    <div class="date" title="Wed Jul 27 2016 14:31:03 &#43;0200">Jul 27, 2016</div>
+                    <div class="reading-time"><div class="middot"></div>4 minutes read</div>
+                </div>
+            </div>
+            <div class="markdown">
+                
+
+<p>In this series, I consolidate points from the GOOSGBT book and may comment on some of them.
+The post may not be coherent as I am extracting fragments I consider useful or enlightening.</p>
+
+<p>Stackoverflow post to read: <a href="http://stackoverflow.com/questions/920992/unit-test-adoption/924639#924639">link</a></p>
+
+<h2 id="levels-of-testing">Levels of testing</h2>
+
+<ul>
+<li>Acceptance: Does the whole system work?</li>
+<li>Integration: Does our code work against code we can&rsquo;t change?</li>
+<li>Unit: Do our objects do the right thing, are they convenient to work with?</li>
+</ul>
+
+<h2 id="support-for-tdd-with-mock-objects">Support for TDD with mock objects</h2>
+
+<p>The essential steps for creating a test:</p>
+
+<ul>
+<li>Create any required mock objects.</li>
+<li>Create any real objects, including the target object.</li>
+<li>Specify how you expect the mock objects to be called by the target object.</li>
+<li>Call the triggering method(s) on the target object.</li>
+<li>Assert that any resulting values are valid and that all the expected calls have been made.</li>
+</ul>
+
+<p>The important point, as we stress repeatedly throughout this book, is to make clear the intention of every test, distinguishing between the tested functionality, the supporting infrastructure, and the object structure.</p>
+
+<h2 id="test-fixture">Test Fixture</h2>
+
+<p>A test fixture is the fixed state that exists at the start of a test. A test fixture ensures that a test is repeatable—every time a test is run it starts in the same state so it should produce the same results. A fixture may be set up before the test runs and torn down after it has finished. Think of <code>@Before</code> and <code>@After</code>.</p>
+
+<h2 id="mocking">Mocking</h2>
+
+<p><em>Notes here are for jMock2. In the neigbourhood of page 26.</em></p>
+
+<p>A mockery represents the context of the object under test, its neighboring objects; mock objects stand in for the real neighbors of the object under test while the test runs; and expectations describe how the object under test should invoke its neighbors during the test.</p>
+
+<p>Note that the test does not require any assertions. This is quite common in mock object tests.</p>
+
+<h2 id="walking-skeleton">Walking Skeleton</h2>
+
+<p>We can’t automate the build, deploy, and test cycle without some idea of the overall structure. We don’t need much detail yet, just a broad-brush picture of what major system components will be needed to support the first planned release and how they will communicate.</p>
+
+<p>We need a high-level view of the client’s requirements, both functional and non- functional, to guide our choices.</p>
+
+<h2 id="unit-test-behaviour-not-methods">Unit-Test Behaviour Not Methods</h2>
+
+<p>Many developers who adopt TDD find their early tests hard to understand when they revisit them later, and one common mistake is thinking about testing methods. A test called testBidAccepted() tells us what it does, but not what it’s for.</p>
+
+<p>We do better when we focus on the <strong>features that the object under test should provide</strong>, each of which may require collaboration with its neighbors and calling more than one of its methods. We need to know how to use the class to achieve a goal, *<strong>not</strong> how to exercise all the paths through its code*.</p>
+
+<p><code>sniperJoinsAuctionUntilAuctionCloses()</code></p>
+
+<h1 id="object-oriented-style">Object - Oriented Style</h1>
+
+<p>We value code that is easy to maintain over code that is easy to write.1 Imple- menting a feature in the most direct way can damage the maintainability of the system, for example by making the code difficult to understand or by introducing hidden dependencies between components. Balancing immediate and longer-term concerns is often tricky, but we’ve seen too many teams that can no longer deliver because their system is too brittle.</p>
+
+<p>We don’t want technical concepts to leak into the application model, so we write interfaces to describe its relationships with the outside world in its terminology (Cockburn’s ports). Then we write bridges between the application core and each technical domain (Cockburn’s adapters). This is related to what Eric Evans calls an “anticorruption layer” [Evans03].</p>
+
+<h2 id="achieving-object-oriented-design">Achieving Object Oriented Design</h2>
+
+<p>Breaking off, Budding out, Bundling up</p>
+
+<p>Budding Out.</p>
+
+<p>We think of this as “on-demand” design: we “pull” interfaces and their imple- mentations into existence from the needs of the client, rather than “pushing” out the features that we think a class should provide.</p>
+
+<h2 id="building-up-to-higher-level-programming">Building up to higher level programming</h2>
+
+<p>The declarative layer describes what the code will do, while the implementation layer describes how the code does it. The declarative layer is, in effect, a small domain-specific language embedded (in this case) in Java.</p>
+
+<h2 id="building-on-third-party-code">Building on Third Party Code</h2>
+
+<h3 id="only-mock-objects-you-own">Only mock objects you own</h3>
+
+<blockquote>
+<p>When we use third-party code we often do not have a deep understanding of how it works. Even if we have the source available, we rarely have time to read it thoroughly enough to explore all its quirks. We can read its documentation, which is often incomplete or incorrect.</p>
+</blockquote>
+
+<p>Yeah tell me about it.</p>
+
+<p>Part 2 will be on the worked example.</p>
+
+                <br>
+                <p><a href="https://robin-lee.github.io/blog/">Back to posts</a></p>
+            </div>
+            <br>
+            <div class="disqus">
+                
+            </div>
+        </div>
+    </div>
+</section>
+
+
+
+<script type="text/javascript">
+var gaJsHost = (("https:" == document.location.protocol) ? "https://ssl." : "http://www.");
+document.write(unescape("%3Cscript src='" + gaJsHost + "google-analytics.com/ga.js' type='text/javascript'%3E%3C/script%3E"));
+</script>
+<script type="text/javascript">
+try {
+    var pageTracker = _gat._getTracker("XYZ");
+    pageTracker._trackPageview();
+} catch(err) {}
+</script>
+
+
+
+</body>
+</html>
+
