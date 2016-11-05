@@ -6,8 +6,372 @@
     <description>Recent content in Blog on Robin Lee</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <lastBuildDate>Sat, 29 Oct 2016 10:46:49 +0800</lastBuildDate>
+    <lastBuildDate>Sat, 05 Nov 2016 12:30:25 +0800</lastBuildDate>
     <atom:link href="https://robin-lee.github.io/blog/index.xml" rel="self" type="application/rss+xml" />
+    
+    <item>
+      <title>Google DevFest 2016</title>
+      <link>https://robin-lee.github.io/blog/2016/11/google-devfest-2016/</link>
+      <pubDate>Sat, 05 Nov 2016 12:30:25 +0800</pubDate>
+      
+      <guid>https://robin-lee.github.io/blog/2016/11/google-devfest-2016/</guid>
+      <description>
+
+&lt;h2 id=&#34;foreword&#34;&gt;Foreword&lt;/h2&gt;
+
+&lt;p&gt;These are my rough notes from Google DevFest 2016.&lt;/p&gt;
+
+&lt;h2 id=&#34;pre-devfest&#34;&gt;Pre-DevFest&lt;/h2&gt;
+
+&lt;p&gt;Met Gerard from gLabs and Kai from Grab.&lt;/p&gt;
+
+&lt;h3 id=&#34;mockable&#34;&gt;Mockable&lt;/h3&gt;
+
+&lt;p&gt;Test http responses. Stub. Dummy object.&lt;/p&gt;
+
+&lt;h1 id=&#34;welcome-and-gdg-sg-report&#34;&gt;Welcome and GDG-SG Report&lt;/h1&gt;
+
+&lt;p&gt;Mr.Bharathi manages GDG-SG.&lt;/p&gt;
+
+&lt;p&gt;Events:&lt;/p&gt;
+
+&lt;ul&gt;
+&lt;li&gt;I/O Extended: Recap I/O (Q3)&lt;/li&gt;
+&lt;li&gt;GCP Next (Q2, cloud)&lt;/li&gt;
+&lt;li&gt;Study Jams: Basic course on android. (Q1, Q4)&lt;/li&gt;
+&lt;li&gt;Women Techmakers&lt;/li&gt;
+&lt;li&gt;DevFest (Q4)&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h2 id=&#34;google-developers-last-6-months&#34;&gt;Google Developers (last 6 months)&lt;/h2&gt;
+
+&lt;ul&gt;
+&lt;li&gt;Firebase (database stuff transform to ecosystem)&lt;/li&gt;
+&lt;li&gt;Android7.0 (Dooze, multiwindow, Vulcan API for games)&lt;/li&gt;
+&lt;li&gt;GCP (Google Cloud Platform)&lt;/li&gt;
+&lt;li&gt;Machine Learning and other stuff&lt;/li&gt;
+&lt;li&gt;&amp;hellip;&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;Facebook page is more active &lt;a href=&#34;http://bit.ly/gdg.sg&#34;&gt;http://bit.ly/gdg.sg&lt;/a&gt;&lt;/p&gt;
+
+&lt;p&gt;Firebase Pitch. Firebase Dev Summit 7th Nov Berlin Germany. Livestream available.&lt;/p&gt;
+
+&lt;p&gt;Android Pay: SG, HK, AUS.&lt;/p&gt;
+
+&lt;p&gt;Associate Android Developer Certification. (Google?)&lt;/p&gt;
+
+&lt;p&gt;GCP 2017 Singapore, Sydney, Mumbai and Tokyo. Getting support.&lt;/p&gt;
+
+&lt;p&gt;Google cloud editor. StackDriver. Chrome Payment API.&lt;/p&gt;
+
+&lt;p&gt;Accelerated Mobile Pages (AMP). Goal: Same speed as native applications.&lt;/p&gt;
+
+&lt;p&gt;Progressive Web Apps (PWA): Some features like push notifications faster&lt;/p&gt;
+
+&lt;p&gt;TensorFlow 0.9: Run neural networks on device itself. iOS. Android&lt;/p&gt;
+
+&lt;p&gt;DayDream: VR Platform&lt;/p&gt;
+
+&lt;p&gt;Google Home: Like Alexa? But powered by Google Assistant.&lt;/p&gt;
+
+&lt;h2 id=&#34;making-a-difference-through-technopreneurship&#34;&gt;Making a difference through Technopreneurship&lt;/h2&gt;
+
+&lt;p&gt;Regional Director, Edmas Neo, Infocomm Investments Pte Ltd. They are a Venture Capital under ministry of finance managing a 200M fund.&lt;/p&gt;
+
+&lt;p&gt;TAG.Pass (Methodology)&lt;/p&gt;
+
+&lt;p&gt;Ideation -&amp;gt; Accelaration -&amp;gt; Incubation -&amp;gt; Expansion&lt;/p&gt;
+
+&lt;p&gt;Now: with IDA to coach Startups.&lt;/p&gt;
+
+&lt;p&gt;Framing your mind. Change perspective -&amp;gt; New solutions.&lt;/p&gt;
+
+&lt;p&gt;NTU CAS (Career Aspiration Survery) 2010&lt;/p&gt;
+
+&lt;ul&gt;
+&lt;li&gt;&amp;lt;8% Entrepreneur&lt;/li&gt;
+&lt;li&gt;21% Leadership/Manager&lt;/li&gt;
+&lt;li&gt;71% Professional&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;Stuff about technology and innovation being important and showing govt/foreign govt articles.
+Epistemological Bias?&lt;/p&gt;
+
+&lt;p&gt;17th Global startup ecosystem ranking
+Innovative cities.&lt;/p&gt;
+
+&lt;p&gt;You can also find entrepreneurs to work for: Technopreneur Action Group (TAG)&lt;/p&gt;
+
+&lt;h2 id=&#34;making-your-cool-app-awesome&#34;&gt;Making your cool app awesome&lt;/h2&gt;
+
+&lt;p&gt;Mr Stefan Hogendoorn from Netherlands (Google Developer Expert, Co-founder, Qlouder Amsterdam)&lt;/p&gt;
+
+&lt;p&gt;@shogendoorn, stefan@qlouder.com.&lt;/p&gt;
+
+&lt;h3 id=&#34;the-cool-app&#34;&gt;The Cool App&lt;/h3&gt;
+
+&lt;p&gt;A feed search for twitter. Get twitter message by topic. Used to get a quick overview of a topic.&lt;/p&gt;
+
+&lt;p&gt;Polymer - declaratively create a web application.&lt;/p&gt;
+
+&lt;h4 id=&#34;architecture&#34;&gt;Architecture&lt;/h4&gt;
+
+&lt;p&gt;Polymer client connects to python flask server which in term connects to twitter.
+Good reason why the python app is inbetween (to be explained).&lt;/p&gt;
+
+&lt;p&gt;(shows barebones app. not cool.)&lt;/p&gt;
+
+&lt;p&gt;COOL? add Google Cloud Platform stuff.&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;Adding interaction: Firebase (Realtime database).&lt;/strong&gt;&lt;/p&gt;
+
+&lt;p&gt;Polymer client connects to &lt;em&gt;Firebase&lt;/em&gt; and to python flask server which in term connects to twitter and &lt;em&gt;Firebase&lt;/em&gt;&lt;/p&gt;
+
+&lt;p&gt;Observation: While typing polymer pulls data from Firebase. Realtime interaction.&lt;/p&gt;
+
+&lt;p&gt;COOLER? Machine Learning.&lt;/p&gt;
+
+&lt;p&gt;GCP has ML stuff. Google visionary. Google photos already using google visionary api (Groups by food, people).&lt;/p&gt;
+
+&lt;p&gt;&lt;Insert techinical difficulties showing code&gt;&lt;/p&gt;
+
+&lt;p&gt;Gets url of image from tweet. Base64 encode it then send it to the vision API.&lt;/p&gt;
+
+&lt;blockquote&gt;
+&lt;p&gt;&amp;ldquo;At a hackathon, winning team got images from a video stream then sent to the API to determine if people in images were bored or something.&amp;rdquo;&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;h2 id=&#34;acccelerated-mobile-pages-amp-an-overview&#34;&gt;Acccelerated Mobile Pages (AMP) - An Overview&lt;/h2&gt;
+
+&lt;p&gt;Mr Arudea Mahartianto (Google)&lt;/p&gt;
+
+&lt;p&gt;Shift to mobile. Messages from mother to buy groceries etc. (used to be calls? idk.)&lt;/p&gt;
+
+&lt;p&gt;Problem: Content consumption can be frustrating.&lt;/p&gt;
+
+&lt;p&gt;Examples:&lt;/p&gt;
+
+&lt;ul&gt;
+&lt;li&gt;Slow-loading pages.&lt;/li&gt;
+&lt;li&gt;Unresponsive experiences.&lt;/li&gt;
+&lt;li&gt;Unexpected content reflow.&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;53% of people abandon a website that takes more than 3 seconds to load.
+People also question credibility of website.&lt;/p&gt;
+
+&lt;p&gt;We need something that is: Fast, easy to implement, mobile friendly, embrace open web, enable monetization.&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;Enter AMP&lt;/strong&gt;&lt;/p&gt;
+
+&lt;h4 id=&#34;how-it-works&#34;&gt;How it works?&lt;/h4&gt;
+
+&lt;p&gt;Does not allow third party javascript&amp;hellip; Okay you can use it in sandboxed amp-iframes.&lt;/p&gt;
+
+&lt;p&gt;Limitations for a good reason:&lt;/p&gt;
+
+&lt;ul&gt;
+&lt;li&gt;No custom js except in sandboxed iframe&lt;/li&gt;
+&lt;li&gt;No scrolling elements&lt;/li&gt;
+&lt;li&gt;Max 50KB inline stylesheet&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;Many add-ons.&lt;/p&gt;
+
+&lt;h2 id=&#34;10-design-principles-to-make-an-additive-app&#34;&gt;10 Design Principles to Make an Additive App&lt;/h2&gt;
+
+&lt;p&gt;Mr Borrys Hasian (Google Expert in UX/UI and a mentor for Google Launchpad Accelerator in Silicon Valley).&lt;/p&gt;
+
+&lt;p&gt;Only 5 UI/UX google experts in SEA.&lt;/p&gt;
+
+&lt;blockquote&gt;
+&lt;p&gt;Upper limit of apps people use a month is 30 apps. - Nielsen&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;p&gt;Inspiration: Don norman, Dieter ram, Tom kelly&lt;/p&gt;
+
+&lt;p&gt;What is your product about? How you should start your app design?
+&amp;gt; Instagram is a simple way to capture and share the world&amp;rsquo;s moments.&lt;/p&gt;
+
+&lt;h4 id=&#34;making-your-app-fun&#34;&gt;Making your app fun&lt;/h4&gt;
+
+&lt;p&gt;&lt;strong&gt;Rewards of the tribe - gratification from others&lt;/strong&gt;
+For example: some intereaction between user and community around.&lt;/p&gt;
+
+&lt;p&gt;Make it fun with different pleasures:&lt;/p&gt;
+
+&lt;ul&gt;
+&lt;li&gt;Physio&lt;/li&gt;
+&lt;li&gt;Socio&lt;/li&gt;
+&lt;li&gt;Psycho&lt;/li&gt;
+&lt;li&gt;Ideo&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;&lt;strong&gt;Rewards of the hunt (material goods, money or information)&lt;/strong&gt;
+Like scrolling a feed then you reveal more.&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;Rewards of the self (mastery, completion, competency, consistency)&lt;/strong&gt;
+Make them feel like an expert. How to get people to contribute content, get followers.&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;External Triggers&lt;/strong&gt; to get people to use your app. E.g. Facebook. Basically, marketing stratgem.&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;Conversions&lt;/strong&gt; How to bring user from beginner stage to an advanced stage.
+Guided usage of the app. Start your first story. Share with friends.
+Clear start screen to bring users in: &amp;ldquo;Find people you know&amp;rdquo;.&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;Doing needs to be easier than thinking&lt;/strong&gt;. Take a photo then UI shows filter options.&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;Different context&lt;/strong&gt;. Drive different actions. Profile page? Prompt to take a photo for profile.&lt;/p&gt;
+
+&lt;p&gt;Floating Action Button forces you to think what key actions are for this page. Drive user action.&lt;/p&gt;
+
+&lt;p&gt;Many of us are creating apps without knowing whether or not it&amp;rsquo;ll be useful for the users.&lt;/p&gt;
+
+&lt;p&gt;How to make it simple?&lt;/p&gt;
+
+&lt;blockquote&gt;
+&lt;p&gt;Antoine de Saint-Exupery quote on perfection.&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;p&gt;At Rakuten he cut off &lt;em&gt;67% of items on screen&lt;/em&gt;. Doubled conversion rate. Paradox of what to click.&lt;/p&gt;
+
+&lt;p&gt;Nice comforting transitions. (Instagram login page on mobile)&lt;/p&gt;
+
+&lt;h4 id=&#34;how-do-we-measure&#34;&gt;How do we measure?&lt;/h4&gt;
+
+&lt;p&gt;Emotional Design Score. Get them to agree/disagree with qns for each of the 10 points.&lt;/p&gt;
+
+&lt;p&gt;Visceral, Behavioural and Reflective.&lt;/p&gt;
+
+&lt;blockquote&gt;
+&lt;p&gt;Less but better&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;p&gt;Q: Why Instagram&amp;rsquo;s new logo is more colorful.&lt;/p&gt;
+
+&lt;p&gt;A guess. Plain white figure ground. Then people will focus more on images. So draws attention.&lt;/p&gt;
+
+&lt;p&gt;&lt;em&gt;Some question I didn&amp;rsquo;t catch.&lt;/em&gt;
+&lt;em&gt;Some law&lt;/em&gt;. 64% of users will use the product if certain number of early adopters use the product.
+Suggestion make it easy for expert user first before &lt;em&gt;simplifying for common user&lt;/em&gt;. Common users don&amp;rsquo;t know what they want.&lt;/p&gt;
+
+&lt;p&gt;On Snapchat. Somebody didn&amp;rsquo;t find it easy but this dude is probably not in the target audience. The younger group does feel that it is instant. Compact short content.&lt;/p&gt;
+
+&lt;p&gt;Q: User experience for chatbot.&lt;/p&gt;
+
+&lt;p&gt;Rising customer service startup in indonesia. They are moving towards it.
+He thinks its evolving to that direction. Can suggest products.&lt;/p&gt;
+
+&lt;p&gt;Something about email. Email is a huge channel. Depends on target audience.&lt;/p&gt;
+
+&lt;p&gt;On &lt;strong&gt;Inbox&lt;/strong&gt;. Came from Google Labs. Useful when traveling. I agree.&lt;/p&gt;
+
+&lt;h2 id=&#34;achieving-developer-happiness-by-automating-the-android-tests-workflows&#34;&gt;Achieving developer happiness by Automating the Android Tests &amp;amp; Workflows&lt;/h2&gt;
+
+&lt;p&gt;Mr Khang Toh (CTO, PicoCandy)&lt;/p&gt;
+
+&lt;p&gt;Sell stickers in managing apps. If we need stickers they have SDKs. Work with Messenger, Viber, BBM, Kakao talk.&lt;/p&gt;
+
+&lt;p&gt;In terms of development process. How do you make your team happy?&lt;/p&gt;
+
+&lt;blockquote&gt;
+&lt;p&gt;If its worth doing once, its probably worth automating it but it needs to be clean otherwise you get an automated mess.&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;p&gt;&lt;strong&gt;Continuous Delivery&lt;/strong&gt;&lt;/p&gt;
+
+&lt;p&gt;Do things in &lt;strong&gt;short cycles&lt;/strong&gt; and release &lt;em&gt;fast&lt;/em&gt;.&lt;/p&gt;
+
+&lt;p&gt;Key to automating: Testing, builds, distribution.&lt;/p&gt;
+
+&lt;p&gt;3 steps to automating your tests:&lt;/p&gt;
+
+&lt;ul&gt;
+&lt;li&gt;Code Architecture: MVP (&lt;strong&gt;YES!!!&lt;/strong&gt;)&lt;/li&gt;
+&lt;li&gt;Dependency Injection &amp;amp; Mocks: To be able to test and test well (&lt;strong&gt;YES!!!&lt;/strong&gt;)&lt;/li&gt;
+&lt;li&gt;Automate UI Testing: eg Espresso ( T_T how to do this right?)&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;Some code.
+Android code testing lab. &lt;strong&gt;I DID THIS !!!&lt;/strong&gt;&lt;/p&gt;
+
+&lt;p&gt;Dependency injection with build flavors.&lt;/p&gt;
+
+&lt;p&gt;ArgumentCaptor to simulating callbacks.&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;Why automate UI Testing?&lt;/strong&gt;&lt;/p&gt;
+
+&lt;p&gt;Because it is most expensive.&lt;/p&gt;
+
+&lt;p&gt;Increasing cost -&amp;gt;&lt;/p&gt;
+
+&lt;p&gt;Unit -&amp;gt; Service -&amp;gt; UI&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;Espresso&lt;/strong&gt;&lt;/p&gt;
+
+&lt;p&gt;Familiar Instrument testing? This different.&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;Continuous Delivery&lt;/strong&gt;&lt;/p&gt;
+
+&lt;p&gt;CircleCI. Jenkins used to be bad but now its a lot better.
+Firebase also has a test lab.&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;Automate builds and distribution&lt;/strong&gt;&lt;/p&gt;
+
+&lt;p&gt;Using fastlane. Can get screenshots for all &lt;strong&gt;locales&lt;/strong&gt;.&lt;/p&gt;
+
+&lt;h2 id=&#34;android-pay-integration-an-implementation-overview&#34;&gt;Android Pay Integration - An Implementation Overview&lt;/h2&gt;
+
+&lt;p&gt;Mr Kenneth Andersson (Director of Engineering, Grab)/ WEE Weing Kai (Mobile Team, Grab)&lt;/p&gt;
+
+&lt;h3 id=&#34;android-pay-vs-traditonal-credit-card&#34;&gt;Android Pay vs Traditonal Credit Card&lt;/h3&gt;
+
+&lt;p&gt;Stripe as gateway provider in Singapore.
+Android Pays only allows one token to be charged only one time. Every transaction you need a new token
+More secure.&lt;/p&gt;
+
+&lt;h3 id=&#34;android-pay-flow&#34;&gt;Android Pay Flow&lt;/h3&gt;
+
+&lt;p&gt;MaskedWalletRequest: Either use a fragment they provide (some button) or make your own then do a manual request (diff method call).&lt;/p&gt;
+
+&lt;p&gt;FullWalletRequest: Can be configured to use third party gateway like Stripe or BrainTree.&lt;/p&gt;
+
+&lt;p&gt;Both requests must be successful. Then you get a token.&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;Android Pay&lt;/strong&gt;&lt;/p&gt;
+
+&lt;ol&gt;
+&lt;li&gt;Scheduled as a feature work&lt;/li&gt;
+&lt;li&gt;Deprioritized due to toher work&lt;/li&gt;
+&lt;li&gt;Turned into a Grabathon project (Grab&amp;rsquo;s internal hackathon)&lt;/li&gt;
+&lt;li&gt;Released a week later - launch in record time (24h).&lt;/li&gt;
+&lt;/ol&gt;
+
+&lt;p&gt;A lot of support from Google team. Thumbs up. A few online meetings. 3 calls (SG, London, MountainView). Different time.&lt;/p&gt;
+
+&lt;p&gt;Challenges:&lt;/p&gt;
+
+&lt;ul&gt;
+&lt;li&gt;Allow user to add android pay&lt;/li&gt;
+&lt;li&gt;Allow users to change card&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;&lt;strong&gt;To change card you need to make another MaskedWallet request. No well documented.&lt;/strong&gt;&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;This flow is for physical products. A service can also be considered a physical product.&lt;/strong&gt;&lt;/p&gt;
+
+&lt;p&gt;Why Android Pay? Some people prefer an international brand.&lt;/p&gt;
+
+&lt;h2 id=&#34;under-the-hood-of-android-quick-review&#34;&gt;Under the Hood of Android - Quick Review&lt;/h2&gt;
+
+&lt;p&gt;Mr Jason Zaman (Contributor,  Gentoo Linux)&lt;/p&gt;
+
+&lt;p&gt;Much much lower. Slides &lt;a href=&#34;http://blog.perfinion.com/&#34;&gt;http://blog.perfinion.com/&lt;/a&gt;&lt;/p&gt;
+
+&lt;p&gt;Android Runtime used to be Dalvik now it is ART.&lt;/p&gt;
+</description>
+    </item>
     
     <item>
       <title>Geek Camp 2016</title>
@@ -1635,31 +1999,6 @@ private int amount;
 
 &lt;pre&gt;&lt;code class=&#34;language-language-bash&#34;&gt;sudo usermod -aG vboxsf &amp;lt;your username&amp;gt;
 &lt;/code&gt;&lt;/pre&gt;
-</description>
-    </item>
-    
-    <item>
-      <title>Forcing Display Edid</title>
-      <link>https://robin-lee.github.io/blog/2016/02/forcing-display-edid/</link>
-      <pubDate>Fri, 05 Feb 2016 22:02:00 +0800</pubDate>
-      
-      <guid>https://robin-lee.github.io/blog/2016/02/forcing-display-edid/</guid>
-      <description>&lt;p&gt;I bought a 2 port VGA Switcher off Taobao so that I could switch my main display between my desktop and laptop. However, when I connected my Macbook through the VGA adapter to the VGA Switcher my screen was not appearing correctly. It was shifted off screen to the right.&lt;/p&gt;
-
-&lt;p&gt;&lt;img src=&#34;https://robin-lee.github.io/images/mtviki-vga-switch.jpg&#34; alt=&#34;VGA Switcher&#34; /&gt;&lt;/p&gt;
-
-&lt;p&gt;This is the 2 port VGA Switcher I bought off Taobao. It is a nice compact device with tacty buttons you can press to switch the the video input.&lt;/p&gt;
-
-&lt;p&gt;If I connect it up like Macbook - VGA Adapter - VGA Cable - Display, it works fine. However, the setup I need is Macbook - VGA Adapter - VGA Cable - VGA Switcher - Display. When connected up in this manner, the output from my Macbook is cutoff and shifted to the right. Faced with this problem I contemplated getting another KVM Switch that is known to work with Macbooks.&lt;/p&gt;
-
-&lt;p&gt;Knowing that it would still take at least 2-3 weeks to get a KVM Switch purchased from Amazon to my doorstep, I looked for software or configuration based solutions. The SwitchResX plugin was able to get the full HD resolution to show but that produced the cutoff issue. Smaller resolutions from 1400x1050 downwards was working fine but it wasn&amp;rsquo;t HDPI and it is such a waste for a 23 inch screen.&lt;/p&gt;
-
-&lt;p&gt;I observed that the display was being detected as a generic VGA/SVGA display with Vendor as &amp;ldquo;unkn - 756E6B6E&amp;rdquo; and Product as &amp;ldquo;717&amp;rdquo;. So I made a guess that my laptop was unable to tell what device we are being hooked up to through the VGA cable. When it comes to identifying something we usually do it through IDs. There had to be some file or ID that could be spoofed right?&lt;/p&gt;
-
-&lt;p&gt;After Googling a bit it seems like other people have had the similar problems. There were a number of threads where people indicated failure in producing the right output on an external display connected to their Macbook. Changing some files relating to EDID solved their problem. According to wikipedia: &lt;code&gt;Extended display identification data (EDID) is a data structure provided by a digital display to describe its capabilities to a video source (e.g. graphics card or set-top box). It is what enables a modern personal computer to know what kinds of monitors are connected to it.&lt;/code&gt;&lt;/p&gt;
-
-&lt;p&gt;Going to the folder &lt;code&gt;/DisplayVendorID-756e6b6e&lt;/code&gt;, I had to replace &lt;code&gt;DisplayProductID-717&lt;/code&gt; with a customized configuration.
-It is better explained &lt;a href=&#34;http://www.insanelymac.com/forum/topic/208410-fixing-scrambledstretched-or-wrong-resolution-laptop-display-problems/&#34;&gt;here&lt;/a&gt;.&lt;/p&gt;
 </description>
     </item>
     
