@@ -1,12 +1,11 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes" ?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
-    <title>Make on Robin Lee</title>
-    <link>https://robin-lee.github.io/tags/make/</link>
-    <description>Recent content in Make on Robin Lee</description>
+    <title>Robin Lee</title>
+    <link>https://robin-lee.github.io/tags/make/index.xml</link>
+    <description>Recent content on Robin Lee</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <lastBuildDate>Fri, 19 Aug 2016 15:33:28 +0200</lastBuildDate>
     <atom:link href="https://robin-lee.github.io/tags/make/index.xml" rel="self" type="application/rss+xml" />
     
     <item>
@@ -106,7 +105,7 @@ What I &lt;strong&gt;&lt;em&gt;think&lt;/em&gt;&lt;/strong&gt; happens is that &
 
 &lt;p&gt;Knowing the difference might just help you when you have one of those projects involving sensors or microcontrollers!&lt;/p&gt;
 
-&lt;p&gt;##C++ Strings&lt;/p&gt;
+&lt;h2 id=&#34;c-strings&#34;&gt;C++ Strings&lt;/h2&gt;
 
 &lt;p&gt;Frankly, at the moment I still do not understand enough about between strings and string literals. Being pragmatic,
 I will look at some practical use cases.&lt;/p&gt;

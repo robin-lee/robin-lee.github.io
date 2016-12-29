@@ -1,13 +1,23 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes" ?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
-    <title>Blog on Robin Lee</title>
-    <link>https://robin-lee.github.io/blog/</link>
-    <description>Recent content in Blog on Robin Lee</description>
+    <title>Blog-rss on Robin Lee</title>
+    <link>https://robin-lee.github.io/blog/index.xml</link>
+    <description>Recent content in Blog-rss on Robin Lee</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <lastBuildDate>Sat, 05 Nov 2016 12:30:25 +0800</lastBuildDate>
+    <lastBuildDate>Thu, 29 Dec 2016 12:25:26 +0800</lastBuildDate>
     <atom:link href="https://robin-lee.github.io/blog/index.xml" rel="self" type="application/rss+xml" />
+    
+    <item>
+      <title>test</title>
+      <link>https://robin-lee.github.io/blog/2016/12/test/</link>
+      <pubDate>Thu, 29 Dec 2016 12:25:26 +0800</pubDate>
+      
+      <guid>https://robin-lee.github.io/blog/2016/12/test/</guid>
+      <description>&lt;p&gt;A test.&lt;/p&gt;
+</description>
+    </item>
     
     <item>
       <title>Google DevFest 2016</title>
@@ -1298,7 +1308,7 @@ What I &lt;strong&gt;&lt;em&gt;think&lt;/em&gt;&lt;/strong&gt; happens is that &
 
 &lt;p&gt;Knowing the difference might just help you when you have one of those projects involving sensors or microcontrollers!&lt;/p&gt;
 
-&lt;p&gt;##C++ Strings&lt;/p&gt;
+&lt;h2 id=&#34;c-strings&#34;&gt;C++ Strings&lt;/h2&gt;
 
 &lt;p&gt;Frankly, at the moment I still do not understand enough about between strings and string literals. Being pragmatic,
 I will look at some practical use cases.&lt;/p&gt;
@@ -2061,20 +2071,6 @@ private int amount;
                 .registerTypeAdapter(listType, new CustomPlaceDeserializer&amp;lt;Place&amp;gt;())
                 .create();
 &lt;/code&gt;&lt;/pre&gt;
-</description>
-    </item>
-    
-    <item>
-      <title>Hello World</title>
-      <link>https://robin-lee.github.io/blog/2016/07/hello-world/</link>
-      <pubDate>Sun, 10 Jul 2016 14:29:34 +0200</pubDate>
-      
-      <guid>https://robin-lee.github.io/blog/2016/07/hello-world/</guid>
-      <description>&lt;p&gt;Whoopee! Hugo, with the cocoa theme!&lt;/p&gt;
-
-&lt;p&gt;Furthermore, some old posts have been shifted over from pelican!&lt;/p&gt;
-
-&lt;p&gt;&lt;a href=&#34;https://gohugo.io/overview/quickstart/&#34;&gt;Check out how to use hugo here&lt;/a&gt;&lt;/p&gt;
 </description>
     </item>
     

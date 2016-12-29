@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes" ?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
-    <title>Fixed on Robin Lee</title>
-    <link>https://robin-lee.github.io/fixed/</link>
-    <description>Recent content in Fixed on Robin Lee</description>
+    <title>Fixed-rss on Robin Lee</title>
+    <link>https://robin-lee.github.io/fixed/index.xml</link>
+    <description>Recent content in Fixed-rss on Robin Lee</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
     <lastBuildDate>Sun, 10 Jul 2016 15:04:30 +0200</lastBuildDate>

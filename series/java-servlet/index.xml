@@ -1,12 +1,11 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes" ?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
-    <title>Java Servlet on Robin Lee</title>
-    <link>https://robin-lee.github.io/series/java-servlet/</link>
-    <description>Recent content in Java Servlet on Robin Lee</description>
+    <title>Robin Lee</title>
+    <link>https://robin-lee.github.io/series/java-servlet/index.xml</link>
+    <description>Recent content on Robin Lee</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <lastBuildDate>Fri, 12 Aug 2016 16:23:07 +0200</lastBuildDate>
     <atom:link href="https://robin-lee.github.io/series/java-servlet/index.xml" rel="self" type="application/rss+xml" />
     
     <item>
