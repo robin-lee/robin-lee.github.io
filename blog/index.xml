@@ -10,12 +10,49 @@
     <atom:link href="https://robin-lee.github.io/blog/index.xml" rel="self" type="application/rss+xml" />
     
     <item>
-      <title>test</title>
-      <link>https://robin-lee.github.io/blog/2016/12/test/</link>
+      <title>Working with git submodules</title>
+      <link>https://robin-lee.github.io/blog/2016/12/working-with-git-submodules/</link>
       <pubDate>Thu, 29 Dec 2016 12:25:26 +0800</pubDate>
       
-      <guid>https://robin-lee.github.io/blog/2016/12/test/</guid>
-      <description>&lt;p&gt;A test.&lt;/p&gt;
+      <guid>https://robin-lee.github.io/blog/2016/12/working-with-git-submodules/</guid>
+      <description>
+
+&lt;p&gt;After I did a clean install of OSX on my laptop I had to clone my blog repository and setup submodules again.
+This serves as a quick reference should I need to manage submodules again.&lt;/p&gt;
+
+&lt;p&gt;&lt;a href=&#34;https://github.com/blog/2104-working-with-submodules&#34;&gt;GitHub: Working with submodules&lt;/a&gt;&lt;/p&gt;
+
+&lt;h1 id=&#34;removing&#34;&gt;Removing&lt;/h1&gt;
+&lt;div class=&#34;highlight&#34; style=&#34;background: #ffffff&#34;&gt;&lt;pre style=&#34;line-height: 125%&#34;&gt;&lt;span&gt;&lt;/span&gt;git submodule deinit &amp;lt;asubmodule&amp;gt;    
+git rm &amp;lt;asubmodule&amp;gt;
+&lt;span style=&#34;color: #888888&#34;&gt;# Note: asubmodule (no trailing slash)&lt;/span&gt;
+&lt;/pre&gt;&lt;/div&gt;
+
+&lt;pre&gt;&lt;code&gt;# or, if you want to leave it in your working tree
+git rm --cached &amp;lt;asubmodule&amp;gt;
+rm -rf .git/modules/&amp;lt;asubmodule&amp;gt;
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;&lt;a href=&#34;http://stackoverflow.com/questions/29850029/what-is-the-current-way-to-remove-a-git-submodule&#34;&gt;Stackoverflow reference&lt;/a&gt;&lt;/p&gt;
+
+&lt;h1 id=&#34;adding&#34;&gt;Adding&lt;/h1&gt;
+
+&lt;pre&gt;&lt;code&gt;# add entire gh-page repo to public folder
+git submodule add -b master git@github.com:&amp;lt;username&amp;gt;/&amp;lt;username&amp;gt;.github.io.git public
+
+# adding a repo to a path
+git submodule add git@&amp;lt;github.com or bitbucket etc.&amp;gt;:&amp;lt;repo&amp;gt; &amp;lt;path like lib/billboard&amp;gt;
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;&lt;a href=&#34;https://chrisjean.com/git-submodules-adding-using-removing-and-updating/&#34;&gt;link to chrisjean&lt;/a&gt;&lt;/p&gt;
+
+&lt;h1 id=&#34;updating&#34;&gt;Updating&lt;/h1&gt;
+
+&lt;pre&gt;&lt;code&gt;git submodule update --init --recursive
+
+# or when cloning for the first
+git clone --recursive &amp;lt;project url&amp;gt;
+&lt;/code&gt;&lt;/pre&gt;
 </description>
     </item>
     
@@ -927,92 +964,89 @@ Types that carry this annotation are treated as controllers where @RequestMappin
 &lt;li&gt;TODO: &lt;code&gt;ResponseEntity&amp;lt;?&amp;gt;&lt;/code&gt; vs &lt;code&gt;@ResponseBody&lt;/code&gt;. When to use?&lt;/li&gt;
 &lt;li&gt;TODO: Pagination? Instead of loading all image posts at once, load them in stages.&lt;/li&gt;
 &lt;/ul&gt;
+&lt;div class=&#34;highlight&#34; style=&#34;background: #ffffff&#34;&gt;&lt;pre style=&#34;line-height: 125%&#34;&gt;&lt;span&gt;&lt;/span&gt;&lt;span style=&#34;color: #555555; font-weight: bold&#34;&gt;@Controller&lt;/span&gt;
+&lt;span style=&#34;color: #008800; font-weight: bold&#34;&gt;public&lt;/span&gt; &lt;span style=&#34;color: #008800; font-weight: bold&#34;&gt;class&lt;/span&gt; &lt;span style=&#34;color: #BB0066; font-weight: bold&#34;&gt;BasicController&lt;/span&gt; &lt;span style=&#34;color: #333333&#34;&gt;{&lt;/span&gt;
 
-&lt;pre&gt;&lt;code class=&#34;language-java&#34;&gt;@Controller
-public class BasicController {
+    &lt;span style=&#34;color: #888888&#34;&gt;//This is similar to @Inject (part of the JSR-330)&lt;/span&gt;
+    &lt;span style=&#34;color: #888888&#34;&gt;//http://stackoverflow.com/questions/19414734/understanding-spring-autowired-usage&lt;/span&gt;
+    &lt;span style=&#34;color: #555555; font-weight: bold&#34;&gt;@Autowired&lt;/span&gt;
+    SomeRespository repo&lt;span style=&#34;color: #333333&#34;&gt;;&lt;/span&gt;
 
-    //This is similar to @Inject (part of the JSR-330)
-    //http://stackoverflow.com/questions/19414734/understanding-spring-autowired-usage
-    @Autowired
-    SomeRespository repo;
+    &lt;span style=&#34;color: #555555; font-weight: bold&#34;&gt;@RequestMapping&lt;/span&gt;&lt;span style=&#34;color: #333333&#34;&gt;(&lt;/span&gt;&lt;span style=&#34;background-color: #fff0f0&#34;&gt;&amp;quot;/&amp;quot;&lt;/span&gt;&lt;span style=&#34;color: #333333&#34;&gt;)&lt;/span&gt;
+    &lt;span style=&#34;color: #555555; font-weight: bold&#34;&gt;@ResponseBody&lt;/span&gt;
+    &lt;span style=&#34;color: #008800; font-weight: bold&#34;&gt;public&lt;/span&gt; String &lt;span style=&#34;color: #0066BB; font-weight: bold&#34;&gt;index&lt;/span&gt;&lt;span style=&#34;color: #333333&#34;&gt;(){&lt;/span&gt;
+        &lt;span style=&#34;color: #888888&#34;&gt;//return NAME of html page (eg. index.html)&lt;/span&gt;
+        &lt;span style=&#34;color: #008800; font-weight: bold&#34;&gt;return&lt;/span&gt; &lt;span style=&#34;background-color: #fff0f0&#34;&gt;&amp;quot;Greetings from spring boot!&amp;quot;&lt;/span&gt;&lt;span style=&#34;color: #333333&#34;&gt;;&lt;/span&gt;
+    &lt;span style=&#34;color: #333333&#34;&gt;}&lt;/span&gt;
 
-    @RequestMapping(&amp;quot;/&amp;quot;)
-    @ResponseBody
-    public String index(){
-        //return NAME of html page (eg. index.html)
-        return &amp;quot;Greetings from spring boot!&amp;quot;;
-    }
+    &lt;span style=&#34;color: #555555; font-weight: bold&#34;&gt;@RequestMapping&lt;/span&gt;&lt;span style=&#34;color: #333333&#34;&gt;(&lt;/span&gt;value &lt;span style=&#34;color: #333333&#34;&gt;=&lt;/span&gt; &lt;span style=&#34;background-color: #fff0f0&#34;&gt;&amp;quot;/someResource&amp;quot;&lt;/span&gt;&lt;span style=&#34;color: #333333&#34;&gt;,&lt;/span&gt; method &lt;span style=&#34;color: #333333&#34;&gt;=&lt;/span&gt; RequestMethod&lt;span style=&#34;color: #333333&#34;&gt;.&lt;/span&gt;&lt;span style=&#34;color: #0000CC&#34;&gt;GET&lt;/span&gt;&lt;span style=&#34;color: #333333&#34;&gt;)&lt;/span&gt;
+    &lt;span style=&#34;color: #008800; font-weight: bold&#34;&gt;public&lt;/span&gt; &lt;span style=&#34;color: #333399; font-weight: bold&#34;&gt;void&lt;/span&gt; &lt;span style=&#34;color: #0066BB; font-weight: bold&#34;&gt;someResource&lt;/span&gt;&lt;span style=&#34;color: #333333&#34;&gt;(&lt;/span&gt;HttpServletResponse response&lt;span style=&#34;color: #333333&#34;&gt;)&lt;/span&gt; &lt;span style=&#34;color: #333333&#34;&gt;{&lt;/span&gt;
+        &lt;span style=&#34;color: #888888&#34;&gt;//can change this to by default return a list?&lt;/span&gt;
+        response&lt;span style=&#34;color: #333333&#34;&gt;.&lt;/span&gt;&lt;span style=&#34;color: #0000CC&#34;&gt;setStatus&lt;/span&gt;&lt;span style=&#34;color: #333333&#34;&gt;(&lt;/span&gt;HttpServletResponse&lt;span style=&#34;color: #333333&#34;&gt;.&lt;/span&gt;&lt;span style=&#34;color: #0000CC&#34;&gt;SC_OK&lt;/span&gt;&lt;span style=&#34;color: #333333&#34;&gt;);&lt;/span&gt;
+        &lt;span style=&#34;color: #008800; font-weight: bold&#34;&gt;try&lt;/span&gt; &lt;span style=&#34;color: #333333&#34;&gt;{&lt;/span&gt;
+            response&lt;span style=&#34;color: #333333&#34;&gt;.&lt;/span&gt;&lt;span style=&#34;color: #0000CC&#34;&gt;getWriter&lt;/span&gt;&lt;span style=&#34;color: #333333&#34;&gt;().&lt;/span&gt;&lt;span style=&#34;color: #0000CC&#34;&gt;write&lt;/span&gt;&lt;span style=&#34;color: #333333&#34;&gt;(&lt;/span&gt;&lt;span style=&#34;background-color: #fff0f0&#34;&gt;&amp;quot;Some useful message.&amp;quot;&lt;/span&gt;&lt;span style=&#34;color: #333333&#34;&gt;);&lt;/span&gt;
+            response&lt;span style=&#34;color: #333333&#34;&gt;.&lt;/span&gt;&lt;span style=&#34;color: #0000CC&#34;&gt;getWriter&lt;/span&gt;&lt;span style=&#34;color: #333333&#34;&gt;().&lt;/span&gt;&lt;span style=&#34;color: #0000CC&#34;&gt;flush&lt;/span&gt;&lt;span style=&#34;color: #333333&#34;&gt;();&lt;/span&gt;
+            response&lt;span style=&#34;color: #333333&#34;&gt;.&lt;/span&gt;&lt;span style=&#34;color: #0000CC&#34;&gt;getWriter&lt;/span&gt;&lt;span style=&#34;color: #333333&#34;&gt;().&lt;/span&gt;&lt;span style=&#34;color: #0000CC&#34;&gt;close&lt;/span&gt;&lt;span style=&#34;color: #333333&#34;&gt;();&lt;/span&gt;
+        &lt;span style=&#34;color: #333333&#34;&gt;}&lt;/span&gt; &lt;span style=&#34;color: #008800; font-weight: bold&#34;&gt;catch&lt;/span&gt; &lt;span style=&#34;color: #333333&#34;&gt;(&lt;/span&gt;Exception ex&lt;span style=&#34;color: #333333&#34;&gt;)&lt;/span&gt; &lt;span style=&#34;color: #333333&#34;&gt;{&lt;/span&gt;
+            log&lt;span style=&#34;color: #333333&#34;&gt;.&lt;/span&gt;&lt;span style=&#34;color: #0000CC&#34;&gt;error&lt;/span&gt;&lt;span style=&#34;color: #333333&#34;&gt;(&lt;/span&gt;&lt;span style=&#34;background-color: #fff0f0&#34;&gt;&amp;quot;Argh, the AIs are rebelling! &amp;quot;&lt;/span&gt;&lt;span style=&#34;color: #333333&#34;&gt;,&lt;/span&gt; ex&lt;span style=&#34;color: #333333&#34;&gt;);&lt;/span&gt;
+        &lt;span style=&#34;color: #333333&#34;&gt;}&lt;/span&gt;
 
-    @RequestMapping(value = &amp;quot;/someResource&amp;quot;, method = RequestMethod.GET)
-    public void someResource(HttpServletResponse response) {
-        //can change this to by default return a list?
-        response.setStatus(HttpServletResponse.SC_OK);
-        try {
-            response.getWriter().write(&amp;quot;Some useful message.&amp;quot;);
-            response.getWriter().flush();
-            response.getWriter().close();
-        } catch (Exception ex) {
-            log.error(&amp;quot;Argh, the AIs are rebelling! &amp;quot;, ex);
-        }
+    &lt;span style=&#34;color: #333333&#34;&gt;}&lt;/span&gt;
 
-    }
+    &lt;span style=&#34;color: #555555; font-weight: bold&#34;&gt;@RequestMapping&lt;/span&gt;&lt;span style=&#34;color: #333333&#34;&gt;(&lt;/span&gt;value &lt;span style=&#34;color: #333333&#34;&gt;=&lt;/span&gt; &lt;span style=&#34;background-color: #fff0f0&#34;&gt;&amp;quot;/upload&amp;quot;&lt;/span&gt;&lt;span style=&#34;color: #333333&#34;&gt;,&lt;/span&gt; method &lt;span style=&#34;color: #333333&#34;&gt;=&lt;/span&gt; RequestMethod&lt;span style=&#34;color: #333333&#34;&gt;.&lt;/span&gt;&lt;span style=&#34;color: #0000CC&#34;&gt;POST&lt;/span&gt;&lt;span style=&#34;color: #333333&#34;&gt;)&lt;/span&gt;
+    &lt;span style=&#34;color: #555555; font-weight: bold&#34;&gt;@ResponseBody&lt;/span&gt;
+    &lt;span style=&#34;color: #008800; font-weight: bold&#34;&gt;public&lt;/span&gt; ResponseEntity&lt;span style=&#34;color: #333333&#34;&gt;&amp;lt;?&amp;gt;&lt;/span&gt; uploadFile&lt;span style=&#34;color: #333333&#34;&gt;(&lt;/span&gt;
+            &lt;span style=&#34;color: #555555; font-weight: bold&#34;&gt;@RequestParam&lt;/span&gt;&lt;span style=&#34;color: #333333&#34;&gt;(&lt;/span&gt;&lt;span style=&#34;background-color: #fff0f0&#34;&gt;&amp;quot;file&amp;quot;&lt;/span&gt;&lt;span style=&#34;color: #333333&#34;&gt;)&lt;/span&gt; MultipartFile file&lt;span style=&#34;color: #333333&#34;&gt;,&lt;/span&gt; &lt;span style=&#34;color: #555555; font-weight: bold&#34;&gt;@RequestParam&lt;/span&gt;&lt;span style=&#34;color: #333333&#34;&gt;(&lt;/span&gt;value &lt;span style=&#34;color: #333333&#34;&gt;=&lt;/span&gt; &lt;span style=&#34;background-color: #fff0f0&#34;&gt;&amp;quot;description&amp;quot;&lt;/span&gt;&lt;span style=&#34;color: #333333&#34;&gt;,&lt;/span&gt; required &lt;span style=&#34;color: #333333&#34;&gt;=&lt;/span&gt; &lt;span style=&#34;color: #008800; font-weight: bold&#34;&gt;true&lt;/span&gt;&lt;span style=&#34;color: #333333&#34;&gt;)&lt;/span&gt; String description&lt;span style=&#34;color: #333333&#34;&gt;)&lt;/span&gt; &lt;span style=&#34;color: #333333&#34;&gt;{&lt;/span&gt;
 
-    @RequestMapping(value = &amp;quot;/upload&amp;quot;, method = RequestMethod.POST)
-    @ResponseBody
-    public ResponseEntity&amp;lt;?&amp;gt; uploadFile(
-            @RequestParam(&amp;quot;file&amp;quot;) MultipartFile file, @RequestParam(value = &amp;quot;description&amp;quot;, required = true) String description) {
+        &lt;span style=&#34;color: #008800; font-weight: bold&#34;&gt;try&lt;/span&gt; &lt;span style=&#34;color: #333333&#34;&gt;{&lt;/span&gt;
+          &lt;span style=&#34;color: #888888&#34;&gt;// process multipart file&lt;/span&gt;
+        &lt;span style=&#34;color: #333333&#34;&gt;}&lt;/span&gt; &lt;span style=&#34;color: #008800; font-weight: bold&#34;&gt;catch&lt;/span&gt; &lt;span style=&#34;color: #333333&#34;&gt;(&lt;/span&gt;Exception e&lt;span style=&#34;color: #333333&#34;&gt;)&lt;/span&gt; &lt;span style=&#34;color: #333333&#34;&gt;{&lt;/span&gt;
+            System&lt;span style=&#34;color: #333333&#34;&gt;.&lt;/span&gt;&lt;span style=&#34;color: #0000CC&#34;&gt;out&lt;/span&gt;&lt;span style=&#34;color: #333333&#34;&gt;.&lt;/span&gt;&lt;span style=&#34;color: #0000CC&#34;&gt;println&lt;/span&gt;&lt;span style=&#34;color: #333333&#34;&gt;(&lt;/span&gt;e&lt;span style=&#34;color: #333333&#34;&gt;.&lt;/span&gt;&lt;span style=&#34;color: #0000CC&#34;&gt;getMessage&lt;/span&gt;&lt;span style=&#34;color: #333333&#34;&gt;());&lt;/span&gt;
+            &lt;span style=&#34;color: #008800; font-weight: bold&#34;&gt;return&lt;/span&gt; &lt;span style=&#34;color: #008800; font-weight: bold&#34;&gt;new&lt;/span&gt; ResponseEntity&lt;span style=&#34;color: #333333&#34;&gt;&amp;lt;&amp;gt;(&lt;/span&gt;HttpStatus&lt;span style=&#34;color: #333333&#34;&gt;.&lt;/span&gt;&lt;span style=&#34;color: #0000CC&#34;&gt;BAD_REQUEST&lt;/span&gt;&lt;span style=&#34;color: #333333&#34;&gt;);&lt;/span&gt;
+        &lt;span style=&#34;color: #333333&#34;&gt;}&lt;/span&gt;
+        &lt;span style=&#34;color: #008800; font-weight: bold&#34;&gt;return&lt;/span&gt; &lt;span style=&#34;color: #008800; font-weight: bold&#34;&gt;new&lt;/span&gt; ResponseEntity&lt;span style=&#34;color: #333333&#34;&gt;&amp;lt;&amp;gt;(&lt;/span&gt;HttpStatus&lt;span style=&#34;color: #333333&#34;&gt;.&lt;/span&gt;&lt;span style=&#34;color: #0000CC&#34;&gt;OK&lt;/span&gt;&lt;span style=&#34;color: #333333&#34;&gt;);&lt;/span&gt;
+    &lt;span style=&#34;color: #333333&#34;&gt;}&lt;/span&gt;
 
-        try {
-          // process multipart file
-        } catch (Exception e) {
-            System.out.println(e.getMessage());
-            return new ResponseEntity&amp;lt;&amp;gt;(HttpStatus.BAD_REQUEST);
-        }
-        return new ResponseEntity&amp;lt;&amp;gt;(HttpStatus.OK);
-    }
+    &lt;span style=&#34;color: #555555; font-weight: bold&#34;&gt;@RequestMapping&lt;/span&gt;&lt;span style=&#34;color: #333333&#34;&gt;(&lt;/span&gt;value &lt;span style=&#34;color: #333333&#34;&gt;=&lt;/span&gt; &lt;span style=&#34;background-color: #fff0f0&#34;&gt;&amp;quot;/submitInfo&amp;quot;&lt;/span&gt;&lt;span style=&#34;color: #333333&#34;&gt;,&lt;/span&gt; method &lt;span style=&#34;color: #333333&#34;&gt;=&lt;/span&gt; RequestMethod&lt;span style=&#34;color: #333333&#34;&gt;.&lt;/span&gt;&lt;span style=&#34;color: #0000CC&#34;&gt;POST&lt;/span&gt;&lt;span style=&#34;color: #333333&#34;&gt;)&lt;/span&gt;
+    &lt;span style=&#34;color: #555555; font-weight: bold&#34;&gt;@ResponseBody&lt;/span&gt;
+    &lt;span style=&#34;color: #008800; font-weight: bold&#34;&gt;public&lt;/span&gt; String &lt;span style=&#34;color: #0066BB; font-weight: bold&#34;&gt;someInfoFromAForm&lt;/span&gt;&lt;span style=&#34;color: #333333&#34;&gt;(&lt;/span&gt;&lt;span style=&#34;color: #555555; font-weight: bold&#34;&gt;@ModelAttribute&lt;/span&gt; SomeObject someObject&lt;span style=&#34;color: #333333&#34;&gt;)&lt;/span&gt; &lt;span style=&#34;color: #333333&#34;&gt;{&lt;/span&gt;
+      &lt;span style=&#34;color: #888888&#34;&gt;//ModelAttribute is not actually required here&lt;/span&gt;
 
-    @RequestMapping(value = &amp;quot;/submitInfo&amp;quot;, method = RequestMethod.POST)
-    @ResponseBody
-    public String someInfoFromAForm(@ModelAttribute SomeObject someObject) {
-      //ModelAttribute is not actually required here
+      &lt;span style=&#34;color: #888888&#34;&gt;//use getters&lt;/span&gt;
 
-      //use getters
+      &lt;span style=&#34;color: #008800; font-weight: bold&#34;&gt;return&lt;/span&gt; payload&lt;span style=&#34;color: #333333&#34;&gt;;&lt;/span&gt;
+    &lt;span style=&#34;color: #333333&#34;&gt;}&lt;/span&gt;
 
-      return payload;
-    }
-
-}
-&lt;/code&gt;&lt;/pre&gt;
+&lt;span style=&#34;color: #333333&#34;&gt;}&lt;/span&gt;
+&lt;/pre&gt;&lt;/div&gt;
 
 &lt;p&gt;References:
 -&lt;a href=&#34;https://github.com/jdmr/fileUpload/blob/master/src/main/java/org/davidmendoza/fileUpload/web/ImageController.java&#34;&gt;davidmendoza&lt;/a&gt;
 -&lt;a href=&#34;https://github.com/netgloo/spring-boot-samples/blob/master/spring-boot-file-upload-with-ajax/src/main/java/netgloo/controllers/MainController.java&#34;&gt;netgloo&lt;/a&gt;&lt;/p&gt;
 
 &lt;h3 id=&#34;repository&#34;&gt;Repository&lt;/h3&gt;
+&lt;div class=&#34;highlight&#34; style=&#34;background: #ffffff&#34;&gt;&lt;pre style=&#34;line-height: 125%&#34;&gt;&lt;span&gt;&lt;/span&gt;&lt;span style=&#34;color: #008800; font-weight: bold&#34;&gt;public&lt;/span&gt; &lt;span style=&#34;color: #008800; font-weight: bold&#34;&gt;interface&lt;/span&gt; &lt;span style=&#34;color: #BB0066; font-weight: bold&#34;&gt;SomeRepository&lt;/span&gt; &lt;span style=&#34;color: #008800; font-weight: bold&#34;&gt;extends&lt;/span&gt; JpaRepository&lt;span style=&#34;color: #333333&#34;&gt;&amp;lt;&lt;/span&gt;SomeObject&lt;span style=&#34;color: #333333&#34;&gt;,&lt;/span&gt; Long&lt;span style=&#34;color: #333333&#34;&gt;&amp;gt;&lt;/span&gt; &lt;span style=&#34;color: #333333&#34;&gt;{&lt;/span&gt;
+&lt;span style=&#34;color: #333333&#34;&gt;}&lt;/span&gt;
 
-&lt;pre&gt;&lt;code class=&#34;language-java&#34;&gt;public interface SomeRepository extends JpaRepository&amp;lt;SomeObject, Long&amp;gt; {
-}
-
-//examples
-repo.save(SomeObject);
-repo.findAll();
-repo.getOne((long) id);
-&lt;/code&gt;&lt;/pre&gt;
+&lt;span style=&#34;color: #888888&#34;&gt;//examples&lt;/span&gt;
+repo&lt;span style=&#34;color: #333333&#34;&gt;.&lt;/span&gt;&lt;span style=&#34;color: #0000CC&#34;&gt;save&lt;/span&gt;&lt;span style=&#34;color: #333333&#34;&gt;(&lt;/span&gt;SomeObject&lt;span style=&#34;color: #333333&#34;&gt;);&lt;/span&gt;
+repo&lt;span style=&#34;color: #333333&#34;&gt;.&lt;/span&gt;&lt;span style=&#34;color: #0000CC&#34;&gt;findAll&lt;/span&gt;&lt;span style=&#34;color: #333333&#34;&gt;();&lt;/span&gt;
+repo&lt;span style=&#34;color: #333333&#34;&gt;.&lt;/span&gt;&lt;span style=&#34;color: #0000CC&#34;&gt;getOne&lt;/span&gt;&lt;span style=&#34;color: #333333&#34;&gt;((&lt;/span&gt;&lt;span style=&#34;color: #333399; font-weight: bold&#34;&gt;long&lt;/span&gt;&lt;span style=&#34;color: #333333&#34;&gt;)&lt;/span&gt; id&lt;span style=&#34;color: #333333&#34;&gt;);&lt;/span&gt;
+&lt;/pre&gt;&lt;/div&gt;
 
 &lt;p&gt;Extended from:&lt;/p&gt;
-
-&lt;pre&gt;&lt;code class=&#34;language-java&#34;&gt;public interface JpaRepository&amp;lt;T, ID extends Serializable&amp;gt; extends PagingAndSortingRepository&amp;lt;T, ID&amp;gt; {
-    List&amp;lt;T&amp;gt; findAll();
-    List&amp;lt;T&amp;gt; findAll(Sort sort);
-    List&amp;lt;T&amp;gt; findAll(Iterable&amp;lt;ID&amp;gt; ids);
-    &amp;lt;S extends T&amp;gt; List&amp;lt;S&amp;gt; save(Iterable&amp;lt;S&amp;gt; entities);
-    void flush();
-    &amp;lt;S extends T&amp;gt; S saveAndFlush(S entity);
-    void deleteInBatch(Iterable&amp;lt;T&amp;gt; entities);
-    void deleteAllInBatch();
-    T getOne(ID id);
-}
-&lt;/code&gt;&lt;/pre&gt;
+&lt;div class=&#34;highlight&#34; style=&#34;background: #ffffff&#34;&gt;&lt;pre style=&#34;line-height: 125%&#34;&gt;&lt;span&gt;&lt;/span&gt;&lt;span style=&#34;color: #008800; font-weight: bold&#34;&gt;public&lt;/span&gt; &lt;span style=&#34;color: #008800; font-weight: bold&#34;&gt;interface&lt;/span&gt; &lt;span style=&#34;color: #BB0066; font-weight: bold&#34;&gt;JpaRepository&lt;/span&gt;&lt;span style=&#34;color: #333333&#34;&gt;&amp;lt;&lt;/span&gt;T&lt;span style=&#34;color: #333333&#34;&gt;,&lt;/span&gt; ID &lt;span style=&#34;color: #008800; font-weight: bold&#34;&gt;extends&lt;/span&gt; Serializable&lt;span style=&#34;color: #333333&#34;&gt;&amp;gt;&lt;/span&gt; &lt;span style=&#34;color: #008800; font-weight: bold&#34;&gt;extends&lt;/span&gt; PagingAndSortingRepository&lt;span style=&#34;color: #333333&#34;&gt;&amp;lt;&lt;/span&gt;T&lt;span style=&#34;color: #333333&#34;&gt;,&lt;/span&gt; ID&lt;span style=&#34;color: #333333&#34;&gt;&amp;gt;&lt;/span&gt; &lt;span style=&#34;color: #333333&#34;&gt;{&lt;/span&gt;
+    List&lt;span style=&#34;color: #333333&#34;&gt;&amp;lt;&lt;/span&gt;T&lt;span style=&#34;color: #333333&#34;&gt;&amp;gt;&lt;/span&gt; &lt;span style=&#34;color: #0066BB; font-weight: bold&#34;&gt;findAll&lt;/span&gt;&lt;span style=&#34;color: #333333&#34;&gt;();&lt;/span&gt;
+    List&lt;span style=&#34;color: #333333&#34;&gt;&amp;lt;&lt;/span&gt;T&lt;span style=&#34;color: #333333&#34;&gt;&amp;gt;&lt;/span&gt; &lt;span style=&#34;color: #0066BB; font-weight: bold&#34;&gt;findAll&lt;/span&gt;&lt;span style=&#34;color: #333333&#34;&gt;(&lt;/span&gt;Sort sort&lt;span style=&#34;color: #333333&#34;&gt;);&lt;/span&gt;
+    List&lt;span style=&#34;color: #333333&#34;&gt;&amp;lt;&lt;/span&gt;T&lt;span style=&#34;color: #333333&#34;&gt;&amp;gt;&lt;/span&gt; &lt;span style=&#34;color: #0066BB; font-weight: bold&#34;&gt;findAll&lt;/span&gt;&lt;span style=&#34;color: #333333&#34;&gt;(&lt;/span&gt;Iterable&lt;span style=&#34;color: #333333&#34;&gt;&amp;lt;&lt;/span&gt;ID&lt;span style=&#34;color: #333333&#34;&gt;&amp;gt;&lt;/span&gt; ids&lt;span style=&#34;color: #333333&#34;&gt;);&lt;/span&gt;
+    &lt;span style=&#34;color: #333333&#34;&gt;&amp;lt;&lt;/span&gt;S &lt;span style=&#34;color: #008800; font-weight: bold&#34;&gt;extends&lt;/span&gt; T&lt;span style=&#34;color: #333333&#34;&gt;&amp;gt;&lt;/span&gt; List&lt;span style=&#34;color: #333333&#34;&gt;&amp;lt;&lt;/span&gt;S&lt;span style=&#34;color: #333333&#34;&gt;&amp;gt;&lt;/span&gt; &lt;span style=&#34;color: #0066BB; font-weight: bold&#34;&gt;save&lt;/span&gt;&lt;span style=&#34;color: #333333&#34;&gt;(&lt;/span&gt;Iterable&lt;span style=&#34;color: #333333&#34;&gt;&amp;lt;&lt;/span&gt;S&lt;span style=&#34;color: #333333&#34;&gt;&amp;gt;&lt;/span&gt; entities&lt;span style=&#34;color: #333333&#34;&gt;);&lt;/span&gt;
+    &lt;span style=&#34;color: #333399; font-weight: bold&#34;&gt;void&lt;/span&gt; &lt;span style=&#34;color: #0066BB; font-weight: bold&#34;&gt;flush&lt;/span&gt;&lt;span style=&#34;color: #333333&#34;&gt;();&lt;/span&gt;
+    &lt;span style=&#34;color: #333333&#34;&gt;&amp;lt;&lt;/span&gt;S &lt;span style=&#34;color: #008800; font-weight: bold&#34;&gt;extends&lt;/span&gt; T&lt;span style=&#34;color: #333333&#34;&gt;&amp;gt;&lt;/span&gt; S &lt;span style=&#34;color: #0066BB; font-weight: bold&#34;&gt;saveAndFlush&lt;/span&gt;&lt;span style=&#34;color: #333333&#34;&gt;(&lt;/span&gt;S entity&lt;span style=&#34;color: #333333&#34;&gt;);&lt;/span&gt;
+    &lt;span style=&#34;color: #333399; font-weight: bold&#34;&gt;void&lt;/span&gt; &lt;span style=&#34;color: #0066BB; font-weight: bold&#34;&gt;deleteInBatch&lt;/span&gt;&lt;span style=&#34;color: #333333&#34;&gt;(&lt;/span&gt;Iterable&lt;span style=&#34;color: #333333&#34;&gt;&amp;lt;&lt;/span&gt;T&lt;span style=&#34;color: #333333&#34;&gt;&amp;gt;&lt;/span&gt; entities&lt;span style=&#34;color: #333333&#34;&gt;);&lt;/span&gt;
+    &lt;span style=&#34;color: #333399; font-weight: bold&#34;&gt;void&lt;/span&gt; &lt;span style=&#34;color: #0066BB; font-weight: bold&#34;&gt;deleteAllInBatch&lt;/span&gt;&lt;span style=&#34;color: #333333&#34;&gt;();&lt;/span&gt;
+    T &lt;span style=&#34;color: #0066BB; font-weight: bold&#34;&gt;getOne&lt;/span&gt;&lt;span style=&#34;color: #333333&#34;&gt;(&lt;/span&gt;ID id&lt;span style=&#34;color: #333333&#34;&gt;);&lt;/span&gt;
+&lt;span style=&#34;color: #333333&#34;&gt;}&lt;/span&gt;
+&lt;/pre&gt;&lt;/div&gt;
 
 &lt;h3 id=&#34;domain&#34;&gt;Domain&lt;/h3&gt;
 
@@ -1229,22 +1263,21 @@ basics of cpp before we move on to data structures and then algorithms.&lt;/p&gt
 Note: This post is written largely in the context of using OSX (my laptop).&lt;/p&gt;
 
 &lt;h2 id=&#34;a-program&#34;&gt;A program&lt;/h2&gt;
+&lt;div class=&#34;highlight&#34; style=&#34;background: #ffffff&#34;&gt;&lt;pre style=&#34;line-height: 125%&#34;&gt;&lt;span&gt;&lt;/span&gt;&lt;span style=&#34;color: #557799&#34;&gt;#include&lt;/span&gt; &lt;span style=&#34;color: #888888&#34;&gt;&amp;lt;iostream&amp;gt;&lt;/span&gt;&lt;span style=&#34;color: #557799&#34;&gt;&lt;/span&gt;
+&lt;span style=&#34;color: #557799&#34;&gt;#include&lt;/span&gt; &lt;span style=&#34;color: #888888&#34;&gt;&amp;lt;string&amp;gt;&lt;/span&gt;&lt;span style=&#34;color: #557799&#34;&gt;&lt;/span&gt;
 
-&lt;pre&gt;&lt;code class=&#34;language-c++&#34;&gt;#include &amp;lt;iostream&amp;gt;
-#include &amp;lt;string&amp;gt;
-
-int main() {
+&lt;span style=&#34;color: #333399; font-weight: bold&#34;&gt;int&lt;/span&gt; &lt;span style=&#34;color: #0066BB; font-weight: bold&#34;&gt;main&lt;/span&gt;() {
     {
-        const std::string s = &amp;quot;Hot chocolate is nice.&amp;quot;;
-        std::cout &amp;lt;&amp;lt; s &amp;lt;&amp;lt; std::endl;
+        &lt;span style=&#34;color: #008800; font-weight: bold&#34;&gt;const&lt;/span&gt; std&lt;span style=&#34;color: #333333&#34;&gt;::&lt;/span&gt;string s &lt;span style=&#34;color: #333333&#34;&gt;=&lt;/span&gt; &lt;span style=&#34;background-color: #fff0f0&#34;&gt;&amp;quot;Hot chocolate is nice.&amp;quot;&lt;/span&gt;;
+        std&lt;span style=&#34;color: #333333&#34;&gt;::&lt;/span&gt;cout &lt;span style=&#34;color: #333333&#34;&gt;&amp;lt;&amp;lt;&lt;/span&gt; s &lt;span style=&#34;color: #333333&#34;&gt;&amp;lt;&amp;lt;&lt;/span&gt; std&lt;span style=&#34;color: #333333&#34;&gt;::&lt;/span&gt;endl;
     }
     {
-        const std::string s = &amp;quot;COOP iced tea is nice!&amp;quot;;
-        std::cout &amp;lt;&amp;lt; s &amp;lt;&amp;lt; std::endl;
+        &lt;span style=&#34;color: #008800; font-weight: bold&#34;&gt;const&lt;/span&gt; std&lt;span style=&#34;color: #333333&#34;&gt;::&lt;/span&gt;string s &lt;span style=&#34;color: #333333&#34;&gt;=&lt;/span&gt; &lt;span style=&#34;background-color: #fff0f0&#34;&gt;&amp;quot;COOP iced tea is nice!&amp;quot;&lt;/span&gt;;
+        std&lt;span style=&#34;color: #333333&#34;&gt;::&lt;/span&gt;cout &lt;span style=&#34;color: #333333&#34;&gt;&amp;lt;&amp;lt;&lt;/span&gt; s &lt;span style=&#34;color: #333333&#34;&gt;&amp;lt;&amp;lt;&lt;/span&gt; std&lt;span style=&#34;color: #333333&#34;&gt;::&lt;/span&gt;endl;
     }
-    return 0;
+    &lt;span style=&#34;color: #008800; font-weight: bold&#34;&gt;return&lt;/span&gt; &lt;span style=&#34;color: #0000DD; font-weight: bold&#34;&gt;0&lt;/span&gt;;
 }
-&lt;/code&gt;&lt;/pre&gt;
+&lt;/pre&gt;&lt;/div&gt;
 
 &lt;p&gt;A basic program might look like something above. &lt;code&gt;#include&lt;/code&gt; libraries and send something to the output.&lt;/p&gt;
 
@@ -1260,33 +1293,29 @@ int main() {
 &lt;p&gt;To run a program coded in cpp, you need to first compile the cpp code and then execute the resulting executable file.
 It can get quite repetive. To make things simpler it useful to have a script to automate the &lt;em&gt;build&lt;/em&gt; process. Creating a Makefile for the &lt;code&gt;make&lt;/code&gt; tool is one
 way you can achieve such automation. Some call it a &lt;a href=&#34;https://www.cs.umd.edu/class/fall2002/cmsc214/Tutorial/makefile.html&#34;&gt;Macro&lt;/a&gt;.&lt;/p&gt;
-
-&lt;pre&gt;&lt;code class=&#34;language-makefile&#34;&gt;run: compile
+&lt;div class=&#34;highlight&#34; style=&#34;background: #ffffff&#34;&gt;&lt;pre style=&#34;line-height: 125%&#34;&gt;&lt;span&gt;&lt;/span&gt;&lt;span style=&#34;color: #0066BB; font-weight: bold&#34;&gt;run&lt;/span&gt;&lt;span style=&#34;color: #333333&#34;&gt;:&lt;/span&gt; compile
         ./play
 
-compile:
+&lt;span style=&#34;color: #0066BB; font-weight: bold&#34;&gt;compile&lt;/span&gt;&lt;span style=&#34;color: #333333&#34;&gt;:&lt;/span&gt;
         g++ play.cpp -o play
-&lt;/code&gt;&lt;/pre&gt;
+&lt;/pre&gt;&lt;/div&gt;
 
 &lt;p&gt;By default the tool &lt;code&gt;make&lt;/code&gt; process the first target. By convention, the first target is called &lt;code&gt;all&lt;/code&gt; (we are not following that here to be clear on how make works).
 The questions that arise now are: What is the format of a make file? What is target?&lt;/p&gt;
 
 &lt;p&gt;A makefile has a format like so:&lt;/p&gt;
-
-&lt;pre&gt;&lt;code class=&#34;language-makefile&#34;&gt;target: dependencies
-[tab character] system command
-&lt;/code&gt;&lt;/pre&gt;
+&lt;div class=&#34;highlight&#34; style=&#34;background: #ffffff&#34;&gt;&lt;pre style=&#34;line-height: 125%&#34;&gt;&lt;span&gt;&lt;/span&gt;&lt;span style=&#34;color: #0066BB; font-weight: bold&#34;&gt;target&lt;/span&gt;&lt;span style=&#34;color: #333333&#34;&gt;:&lt;/span&gt; dependencies
+&lt;span style=&#34;color: #FF0000; background-color: #FFAAAA&#34;&gt;[tab&lt;/span&gt; &lt;span style=&#34;color: #FF0000; background-color: #FFAAAA&#34;&gt;character]&lt;/span&gt; &lt;span style=&#34;color: #FF0000; background-color: #FFAAAA&#34;&gt;system&lt;/span&gt; &lt;span style=&#34;color: #FF0000; background-color: #FFAAAA&#34;&gt;command&lt;/span&gt;
+&lt;/pre&gt;&lt;/div&gt;
 
 &lt;p&gt;Another way you can specify the default target is &lt;a href=&#34;http://stackoverflow.com/a/30176470&#34;&gt;link&lt;/a&gt;:&lt;/p&gt;
-
-&lt;pre&gt;&lt;code class=&#34;language-makefile&#34;&gt;.DEFAULT_GOAL := mytarget
-&lt;/code&gt;&lt;/pre&gt;
+&lt;div class=&#34;highlight&#34; style=&#34;background: #ffffff&#34;&gt;&lt;pre style=&#34;line-height: 125%&#34;&gt;&lt;span&gt;&lt;/span&gt;&lt;span style=&#34;color: #996633&#34;&gt;.DEFAULT_GOAL&lt;/span&gt; &lt;span style=&#34;color: #333333&#34;&gt;:=&lt;/span&gt; mytarget
+&lt;/pre&gt;&lt;/div&gt;
 
 &lt;p&gt;For a newer make &amp;gt; 3.80:&lt;/p&gt;
-
-&lt;pre&gt;&lt;code class=&#34;language-makefile&#34;&gt;.PHONY: default
-default: mytarget ;
-&lt;/code&gt;&lt;/pre&gt;
+&lt;div class=&#34;highlight&#34; style=&#34;background: #ffffff&#34;&gt;&lt;pre style=&#34;line-height: 125%&#34;&gt;&lt;span&gt;&lt;/span&gt;&lt;span style=&#34;color: #0066BB; font-weight: bold&#34;&gt;.PHONY&lt;/span&gt;&lt;span style=&#34;color: #333333&#34;&gt;:&lt;/span&gt; default
+&lt;span style=&#34;color: #0066BB; font-weight: bold&#34;&gt;default&lt;/span&gt;&lt;span style=&#34;color: #333333&#34;&gt;:&lt;/span&gt; mytarget ;
+&lt;/pre&gt;&lt;/div&gt;
 
 &lt;h2 id=&#34;gcc-vs-g&#34;&gt;gcc vs g++&lt;/h2&gt;
 
@@ -1312,19 +1341,17 @@ What I &lt;strong&gt;&lt;em&gt;think&lt;/em&gt;&lt;/strong&gt; happens is that &
 
 &lt;p&gt;Frankly, at the moment I still do not understand enough about between strings and string literals. Being pragmatic,
 I will look at some practical use cases.&lt;/p&gt;
+&lt;div class=&#34;highlight&#34; style=&#34;background: #ffffff&#34;&gt;&lt;pre style=&#34;line-height: 125%&#34;&gt;&lt;span&gt;&lt;/span&gt;&lt;span style=&#34;color: #557799&#34;&gt;#include&lt;/span&gt; &lt;span style=&#34;color: #888888&#34;&gt;&amp;lt;string&amp;gt;&lt;/span&gt;&lt;span style=&#34;color: #557799&#34;&gt;&lt;/span&gt;
+&lt;span style=&#34;color: #008800; font-weight: bold&#34;&gt;using&lt;/span&gt; std&lt;span style=&#34;color: #333333&#34;&gt;::&lt;/span&gt;string;
 
-&lt;pre&gt;&lt;code class=&#34;language-cpp&#34;&gt;#include &amp;lt;string&amp;gt;
-using std::string;
+string stringLiteral &lt;span style=&#34;color: #333333&#34;&gt;=&lt;/span&gt; &lt;span style=&#34;background-color: #fff0f0&#34;&gt;&amp;quot;characters enclose in double quotes and cannot span lines&amp;quot;&lt;/span&gt;;
 
-string stringLiteral = &amp;quot;characters enclose in double quotes and cannot span lines&amp;quot;;
+&lt;span style=&#34;color: #888888&#34;&gt;//overloaded constructor to create a string with n of character.&lt;/span&gt;
+string repeatCharacter &lt;span style=&#34;color: #0066BB; font-weight: bold&#34;&gt;z&lt;/span&gt;(&lt;span style=&#34;color: #0000DD; font-weight: bold&#34;&gt;10&lt;/span&gt;, &lt;span style=&#34;color: #0044DD&#34;&gt;&amp;#39;*&amp;#39;&lt;/span&gt;);
 
-//overloaded constructor to create a string with n of character.
-string repeatCharacter z(10, &#39;*&#39;);
-
-//a string
-string someString = string(&amp;quot;i am a string&amp;quot;);
-
-&lt;/code&gt;&lt;/pre&gt;
+&lt;span style=&#34;color: #888888&#34;&gt;//a string&lt;/span&gt;
+string someString &lt;span style=&#34;color: #333333&#34;&gt;=&lt;/span&gt; string(&lt;span style=&#34;background-color: #fff0f0&#34;&gt;&amp;quot;i am a string&amp;quot;&lt;/span&gt;);
+&lt;/pre&gt;&lt;/div&gt;
 
 &lt;p&gt;A &lt;strong&gt;string literal&lt;/strong&gt; is a bunch of characters in doubles and they cannot span lines. Having some prior knowledge in C and C++, I would say that a string literal is &lt;em&gt;a series of characters in memory terminated by a null character &lt;code&gt;\0&lt;/code&gt;&lt;/em&gt;. Maybe it would be better to call them character literal arrays.&lt;/p&gt;
 
@@ -1332,27 +1359,26 @@ string someString = string(&amp;quot;i am a string&amp;quot;);
 
 &lt;p&gt;A common use case with strings is to join them just like creating a sentence where you want to join words or phrases together.
 This is where you can see a difference (&lt;a href=&#34;http://stackoverflow.com/questions/662918/how-do-i-concatenate-multiple-c-strings-on-one-line&#34;&gt;refence link&lt;/a&gt;):&lt;/p&gt;
+&lt;div class=&#34;highlight&#34; style=&#34;background: #ffffff&#34;&gt;&lt;pre style=&#34;line-height: 125%&#34;&gt;&lt;span&gt;&lt;/span&gt;string stringLiteral1 &lt;span style=&#34;color: #333333&#34;&gt;=&lt;/span&gt; &lt;span style=&#34;background-color: #fff0f0&#34;&gt;&amp;quot;hello&amp;quot;&lt;/span&gt;;
+string stringLiteral2 &lt;span style=&#34;color: #333333&#34;&gt;=&lt;/span&gt; &lt;span style=&#34;background-color: #fff0f0&#34;&gt;&amp;quot; world&amp;quot;&lt;/span&gt;;
 
-&lt;pre&gt;&lt;code class=&#34;language-cpp&#34;&gt;string stringLiteral1 = &amp;quot;hello&amp;quot;;
-string stringLiteral2 = &amp;quot; world&amp;quot;;
+&lt;span style=&#34;color: #888888&#34;&gt;//you cannot do because they are both string literals.&lt;/span&gt;
+string s &lt;span style=&#34;color: #333333&#34;&gt;=&lt;/span&gt; stringLiteral1 &lt;span style=&#34;color: #333333&#34;&gt;+&lt;/span&gt; stringLiteral2;
 
-//you cannot do because they are both string literals.
-string s = stringLiteral1 + stringLiteral2;
+&lt;span style=&#34;color: #888888&#34;&gt;//(A)convert them to strings&lt;/span&gt;
+string newstring &lt;span style=&#34;color: #333333&#34;&gt;=&lt;/span&gt; string(stringLiteral1) &lt;span style=&#34;color: #333333&#34;&gt;+&lt;/span&gt; string(stringLiteral2);
 
-//(A)convert them to strings
-string newstring = string(stringLiteral1) + string(stringLiteral2);
+&lt;span style=&#34;color: #888888&#34;&gt;//(B)or perhaps&lt;/span&gt;
+std&lt;span style=&#34;color: #333333&#34;&gt;::&lt;/span&gt;stringstream ss;
+ss &lt;span style=&#34;color: #333333&#34;&gt;&amp;lt;&amp;lt;&lt;/span&gt; &lt;span style=&#34;background-color: #fff0f0&#34;&gt;&amp;quot;Hello, world, &amp;quot;&lt;/span&gt; &lt;span style=&#34;color: #333333&#34;&gt;&amp;lt;&amp;lt;&lt;/span&gt; myInt &lt;span style=&#34;color: #333333&#34;&gt;&amp;lt;&amp;lt;&lt;/span&gt; niceToSeeYouString;
+std&lt;span style=&#34;color: #333333&#34;&gt;::&lt;/span&gt;string s &lt;span style=&#34;color: #333333&#34;&gt;=&lt;/span&gt; ss.str();
 
-//(B)or perhaps
-std::stringstream ss;
-ss &amp;lt;&amp;lt; &amp;quot;Hello, world, &amp;quot; &amp;lt;&amp;lt; myInt &amp;lt;&amp;lt; niceToSeeYouString;
-std::string s = ss.str();
-
-//(C)or using append; a little verbose?.
-std::string s;
-s.append(&amp;quot;Hello world, &amp;quot;);
-s.append(&amp;quot;nice to see you, &amp;quot;);
-s.append(&amp;quot;or not.&amp;quot;);
-&lt;/code&gt;&lt;/pre&gt;
+&lt;span style=&#34;color: #888888&#34;&gt;//(C)or using append; a little verbose?.&lt;/span&gt;
+std&lt;span style=&#34;color: #333333&#34;&gt;::&lt;/span&gt;string s;
+s.append(&lt;span style=&#34;background-color: #fff0f0&#34;&gt;&amp;quot;Hello world, &amp;quot;&lt;/span&gt;);
+s.append(&lt;span style=&#34;background-color: #fff0f0&#34;&gt;&amp;quot;nice to see you, &amp;quot;&lt;/span&gt;);
+s.append(&lt;span style=&#34;background-color: #fff0f0&#34;&gt;&amp;quot;or not.&amp;quot;&lt;/span&gt;);
+&lt;/pre&gt;&lt;/div&gt;
 
 &lt;p&gt;At a glance, I think I would prefer using method (A) or (B) to create dynamic strings. In a game prototype, NPCs could
 have a lengthly paragraph text to say depending on a player&amp;rsquo;s actions. What if there really was a lot to output because the NPC
@@ -1837,9 +1863,8 @@ The post may not be coherent as I am extracting fragments I consider useful or e
 &lt;h1 id=&#34;gradle-init&#34;&gt;Gradle init&lt;/h1&gt;
 
 &lt;p&gt;My motivation to use gradle came from the need to test some code or libraries without starting a fully fledged IDE. I discovered a useful plugin gradle has called the &lt;code&gt;Build Init Plugin&lt;/code&gt;. (&lt;a href=&#34;https://docs.gradle.org/current/userguide/build_init_plugin.html&#34;&gt;link&lt;/a&gt;)&lt;/p&gt;
-
-&lt;pre&gt;&lt;code class=&#34;language-bash&#34;&gt;gradle init --type java-library
-&lt;/code&gt;&lt;/pre&gt;
+&lt;div class=&#34;highlight&#34; style=&#34;background: #ffffff&#34;&gt;&lt;pre style=&#34;line-height: 125%&#34;&gt;&lt;span&gt;&lt;/span&gt;gradle init --type java-library
+&lt;/pre&gt;&lt;/div&gt;
 
 &lt;p&gt;With then one command I have a basic Java project setup and I can use something like Sublime Text and get going. As a bonus JUnit is included by default.&lt;/p&gt;
 </description>
@@ -1996,81 +2021,76 @@ you design might be different from what the API returns you (due to application 
 &lt;p&gt;If you happen to use GSON and retrofit 2&amp;hellip; Perhaps this example will help you.&lt;/p&gt;
 
 &lt;p&gt;Sample json data:&lt;/p&gt;
-
-&lt;pre&gt;&lt;code class=&#34;language-json&#34;&gt;{
-  &amp;quot;date&amp;quot;: &amp;quot;2016-01-01T21:23:00&amp;quot;,
-  &amp;quot;places&amp;quot;: [
+&lt;div class=&#34;highlight&#34; style=&#34;background: #ffffff&#34;&gt;&lt;pre style=&#34;line-height: 125%&#34;&gt;&lt;span&gt;&lt;/span&gt;{
+  &lt;span style=&#34;color: #007700&#34;&gt;&amp;quot;date&amp;quot;&lt;/span&gt;: &lt;span style=&#34;background-color: #fff0f0&#34;&gt;&amp;quot;2016-01-01T21:23:00&amp;quot;&lt;/span&gt;,
+  &lt;span style=&#34;color: #007700&#34;&gt;&amp;quot;places&amp;quot;&lt;/span&gt;: [
     {
-      &amp;quot;id&amp;quot;: 1,
-      &amp;quot;amount&amp;quot;: 25
+      &lt;span style=&#34;color: #007700&#34;&gt;&amp;quot;id&amp;quot;&lt;/span&gt;: &lt;span style=&#34;color: #0000DD; font-weight: bold&#34;&gt;1&lt;/span&gt;,
+      &lt;span style=&#34;color: #007700&#34;&gt;&amp;quot;amount&amp;quot;&lt;/span&gt;: &lt;span style=&#34;color: #0000DD; font-weight: bold&#34;&gt;25&lt;/span&gt;
     },
     {
-      &amp;quot;id&amp;quot;: 2,
-      &amp;quot;amount&amp;quot;: 59
+      &lt;span style=&#34;color: #007700&#34;&gt;&amp;quot;id&amp;quot;&lt;/span&gt;: &lt;span style=&#34;color: #0000DD; font-weight: bold&#34;&gt;2&lt;/span&gt;,
+      &lt;span style=&#34;color: #007700&#34;&gt;&amp;quot;amount&amp;quot;&lt;/span&gt;: &lt;span style=&#34;color: #0000DD; font-weight: bold&#34;&gt;59&lt;/span&gt;
     },
     {
-      &amp;quot;id&amp;quot;: 3,
-      &amp;quot;amount&amp;quot;: 28
+      &lt;span style=&#34;color: #007700&#34;&gt;&amp;quot;id&amp;quot;&lt;/span&gt;: &lt;span style=&#34;color: #0000DD; font-weight: bold&#34;&gt;3&lt;/span&gt;,
+      &lt;span style=&#34;color: #007700&#34;&gt;&amp;quot;amount&amp;quot;&lt;/span&gt;: &lt;span style=&#34;color: #0000DD; font-weight: bold&#34;&gt;28&lt;/span&gt;
     },
     {
-      &amp;quot;id&amp;quot;: 4,
-      &amp;quot;amount&amp;quot;: 11
+      &lt;span style=&#34;color: #007700&#34;&gt;&amp;quot;id&amp;quot;&lt;/span&gt;: &lt;span style=&#34;color: #0000DD; font-weight: bold&#34;&gt;4&lt;/span&gt;,
+      &lt;span style=&#34;color: #007700&#34;&gt;&amp;quot;amount&amp;quot;&lt;/span&gt;: &lt;span style=&#34;color: #0000DD; font-weight: bold&#34;&gt;11&lt;/span&gt;
     }
   ]
 }
-&lt;/code&gt;&lt;/pre&gt;
+&lt;/pre&gt;&lt;/div&gt;
 
 &lt;p&gt;Lets say you just want the &amp;ldquo;list&amp;rdquo; of places.&lt;/p&gt;
 
 &lt;p&gt;First define a model for each &amp;ldquo;Place&amp;rdquo;.&lt;/p&gt;
+&lt;div class=&#34;highlight&#34; style=&#34;background: #ffffff&#34;&gt;&lt;pre style=&#34;line-height: 125%&#34;&gt;&lt;span&gt;&lt;/span&gt;&lt;span style=&#34;color: #008800; font-weight: bold&#34;&gt;private&lt;/span&gt; &lt;span style=&#34;color: #333399; font-weight: bold&#34;&gt;int&lt;/span&gt; id&lt;span style=&#34;color: #333333&#34;&gt;;&lt;/span&gt;
+&lt;span style=&#34;color: #008800; font-weight: bold&#34;&gt;private&lt;/span&gt; &lt;span style=&#34;color: #333399; font-weight: bold&#34;&gt;int&lt;/span&gt; amount&lt;span style=&#34;color: #333333&#34;&gt;;&lt;/span&gt;
 
-&lt;pre&gt;&lt;code class=&#34;language-java&#34;&gt;
-private int id;
-private int amount;
-
-//Constructors, getters and setters
-&lt;/code&gt;&lt;/pre&gt;
+&lt;span style=&#34;color: #888888&#34;&gt;//Constructors, getters and setters&lt;/span&gt;
+&lt;/pre&gt;&lt;/div&gt;
 
 &lt;p&gt;Define a custom deserializer for GSON with a main method for testing (or you could setup JUnit).&lt;/p&gt;
+&lt;div class=&#34;highlight&#34; style=&#34;background: #ffffff&#34;&gt;&lt;pre style=&#34;line-height: 125%&#34;&gt;&lt;span&gt;&lt;/span&gt;&lt;span style=&#34;color: #008800; font-weight: bold&#34;&gt;class&lt;/span&gt; &lt;span style=&#34;color: #BB0066; font-weight: bold&#34;&gt;CustomPlaceDeserializer&lt;/span&gt;&lt;span style=&#34;color: #333333&#34;&gt;&amp;lt;&lt;/span&gt;T&lt;span style=&#34;color: #333333&#34;&gt;&amp;gt;&lt;/span&gt; &lt;span style=&#34;color: #008800; font-weight: bold&#34;&gt;implements&lt;/span&gt; JsonDeserializer&lt;span style=&#34;color: #333333&#34;&gt;&amp;lt;&lt;/span&gt;List&lt;span style=&#34;color: #333333&#34;&gt;&amp;lt;&lt;/span&gt;T&lt;span style=&#34;color: #333333&#34;&gt;&amp;gt;&amp;gt;&lt;/span&gt; &lt;span style=&#34;color: #333333&#34;&gt;{&lt;/span&gt;
 
-&lt;pre&gt;&lt;code class=&#34;language-java&#34;&gt;class CustomPlaceDeserializer&amp;lt;T&amp;gt; implements JsonDeserializer&amp;lt;List&amp;lt;T&amp;gt;&amp;gt; {
+    &lt;span style=&#34;color: #008800; font-weight: bold&#34;&gt;public&lt;/span&gt; List&lt;span style=&#34;color: #333333&#34;&gt;&amp;lt;&lt;/span&gt;T&lt;span style=&#34;color: #333333&#34;&gt;&amp;gt;&lt;/span&gt; &lt;span style=&#34;color: #0066BB; font-weight: bold&#34;&gt;deserialize&lt;/span&gt;&lt;span style=&#34;color: #333333&#34;&gt;(&lt;/span&gt;JsonElement jsonElement&lt;span style=&#34;color: #333333&#34;&gt;,&lt;/span&gt; Type type&lt;span style=&#34;color: #333333&#34;&gt;,&lt;/span&gt; JsonDeserializationContext context&lt;span style=&#34;color: #333333&#34;&gt;)&lt;/span&gt;
+            &lt;span style=&#34;color: #008800; font-weight: bold&#34;&gt;throws&lt;/span&gt; JsonParseException &lt;span style=&#34;color: #333333&#34;&gt;{&lt;/span&gt;
 
-    public List&amp;lt;T&amp;gt; deserialize(JsonElement jsonElement, Type type, JsonDeserializationContext context)
-            throws JsonParseException {
+        JsonElement results &lt;span style=&#34;color: #333333&#34;&gt;=&lt;/span&gt; jsonElement&lt;span style=&#34;color: #333333&#34;&gt;.&lt;/span&gt;&lt;span style=&#34;color: #0000CC&#34;&gt;getAsJsonObject&lt;/span&gt;&lt;span style=&#34;color: #333333&#34;&gt;().&lt;/span&gt;&lt;span style=&#34;color: #0000CC&#34;&gt;get&lt;/span&gt;&lt;span style=&#34;color: #333333&#34;&gt;(&lt;/span&gt;&lt;span style=&#34;background-color: #fff0f0&#34;&gt;&amp;quot;places&amp;quot;&lt;/span&gt;&lt;span style=&#34;color: #333333&#34;&gt;);&lt;/span&gt;
 
-        JsonElement results = jsonElement.getAsJsonObject().get(&amp;quot;places&amp;quot;);
+        &lt;span style=&#34;color: #008800; font-weight: bold&#34;&gt;return&lt;/span&gt; &lt;span style=&#34;color: #008800; font-weight: bold&#34;&gt;new&lt;/span&gt; Gson&lt;span style=&#34;color: #333333&#34;&gt;().&lt;/span&gt;&lt;span style=&#34;color: #0000CC&#34;&gt;fromJson&lt;/span&gt;&lt;span style=&#34;color: #333333&#34;&gt;(&lt;/span&gt;results&lt;span style=&#34;color: #333333&#34;&gt;,&lt;/span&gt; type&lt;span style=&#34;color: #333333&#34;&gt;);&lt;/span&gt;
+    &lt;span style=&#34;color: #333333&#34;&gt;}&lt;/span&gt;
 
-        return new Gson().fromJson(results, type);
-    }
+    &lt;span style=&#34;color: #008800; font-weight: bold&#34;&gt;public&lt;/span&gt; &lt;span style=&#34;color: #008800; font-weight: bold&#34;&gt;static&lt;/span&gt; &lt;span style=&#34;color: #333399; font-weight: bold&#34;&gt;void&lt;/span&gt; &lt;span style=&#34;color: #0066BB; font-weight: bold&#34;&gt;main&lt;/span&gt;&lt;span style=&#34;color: #333333&#34;&gt;(&lt;/span&gt;String&lt;span style=&#34;color: #333333&#34;&gt;[]&lt;/span&gt; args&lt;span style=&#34;color: #333333&#34;&gt;)&lt;/span&gt; &lt;span style=&#34;color: #008800; font-weight: bold&#34;&gt;throws&lt;/span&gt; Exception &lt;span style=&#34;color: #333333&#34;&gt;{&lt;/span&gt;
 
-    public static void main(String[] args) throws Exception {
+        &lt;span style=&#34;color: #888888&#34;&gt;//&lt;/span&gt;
 
-        //
+        &lt;span style=&#34;color: #888888&#34;&gt;// Configure Gson&lt;/span&gt;
+        GsonBuilder gsonBuilder &lt;span style=&#34;color: #333333&#34;&gt;=&lt;/span&gt; &lt;span style=&#34;color: #008800; font-weight: bold&#34;&gt;new&lt;/span&gt; GsonBuilder&lt;span style=&#34;color: #333333&#34;&gt;();&lt;/span&gt;
+        Type listType &lt;span style=&#34;color: #333333&#34;&gt;=&lt;/span&gt; &lt;span style=&#34;color: #008800; font-weight: bold&#34;&gt;new&lt;/span&gt; TypeToken&lt;span style=&#34;color: #333333&#34;&gt;&amp;lt;&lt;/span&gt;ArrayList&lt;span style=&#34;color: #333333&#34;&gt;&amp;lt;&lt;/span&gt;Place&lt;span style=&#34;color: #333333&#34;&gt;&amp;gt;&amp;gt;(){}.&lt;/span&gt;&lt;span style=&#34;color: #0000CC&#34;&gt;getType&lt;/span&gt;&lt;span style=&#34;color: #333333&#34;&gt;();&lt;/span&gt;
+        gsonBuilder&lt;span style=&#34;color: #333333&#34;&gt;.&lt;/span&gt;&lt;span style=&#34;color: #0000CC&#34;&gt;registerTypeAdapter&lt;/span&gt;&lt;span style=&#34;color: #333333&#34;&gt;(&lt;/span&gt;listType&lt;span style=&#34;color: #333333&#34;&gt;,&lt;/span&gt; &lt;span style=&#34;color: #008800; font-weight: bold&#34;&gt;new&lt;/span&gt; CustomPlaceDeserializer&lt;span style=&#34;color: #333333&#34;&gt;&amp;lt;&lt;/span&gt;Place&lt;span style=&#34;color: #333333&#34;&gt;&amp;gt;());&lt;/span&gt;
+        Gson gson &lt;span style=&#34;color: #333333&#34;&gt;=&lt;/span&gt; gsonBuilder&lt;span style=&#34;color: #333333&#34;&gt;.&lt;/span&gt;&lt;span style=&#34;color: #0000CC&#34;&gt;create&lt;/span&gt;&lt;span style=&#34;color: #333333&#34;&gt;();&lt;/span&gt;
 
-        // Configure Gson
-        GsonBuilder gsonBuilder = new GsonBuilder();
-        Type listType = new TypeToken&amp;lt;ArrayList&amp;lt;Place&amp;gt;&amp;gt;(){}.getType();
-        gsonBuilder.registerTypeAdapter(listType, new CustomPlaceDeserializer&amp;lt;Place&amp;gt;());
-        Gson gson = gsonBuilder.create();
+        &lt;span style=&#34;color: #888888&#34;&gt;// The JSON data&lt;/span&gt;
+        String jsonstring &lt;span style=&#34;color: #333333&#34;&gt;=&lt;/span&gt; &lt;span style=&#34;background-color: #fff0f0&#34;&gt;&amp;quot;replace this with sample json string&amp;quot;&lt;/span&gt;&lt;span style=&#34;color: #333333&#34;&gt;;&lt;/span&gt;
 
-        // The JSON data
-        String jsonstring = &amp;quot;replace this with sample json string&amp;quot;;
+        &lt;span style=&#34;color: #888888&#34;&gt;// Parse JSON to Java&lt;/span&gt;
+        List&lt;span style=&#34;color: #333333&#34;&gt;&amp;lt;&lt;/span&gt;Place&lt;span style=&#34;color: #333333&#34;&gt;&amp;gt;&lt;/span&gt; places &lt;span style=&#34;color: #333333&#34;&gt;=&lt;/span&gt; gson&lt;span style=&#34;color: #333333&#34;&gt;.&lt;/span&gt;&lt;span style=&#34;color: #0000CC&#34;&gt;fromJson&lt;/span&gt;&lt;span style=&#34;color: #333333&#34;&gt;(&lt;/span&gt;jsonstring&lt;span style=&#34;color: #333333&#34;&gt;,&lt;/span&gt; listType&lt;span style=&#34;color: #333333&#34;&gt;);&lt;/span&gt;
+        System&lt;span style=&#34;color: #333333&#34;&gt;.&lt;/span&gt;&lt;span style=&#34;color: #0000CC&#34;&gt;out&lt;/span&gt;&lt;span style=&#34;color: #333333&#34;&gt;.&lt;/span&gt;&lt;span style=&#34;color: #0000CC&#34;&gt;println&lt;/span&gt;&lt;span style=&#34;color: #333333&#34;&gt;(&lt;/span&gt;places&lt;span style=&#34;color: #333333&#34;&gt;.&lt;/span&gt;&lt;span style=&#34;color: #0000CC&#34;&gt;size&lt;/span&gt;&lt;span style=&#34;color: #333333&#34;&gt;());&lt;/span&gt;
+    &lt;span style=&#34;color: #333333&#34;&gt;}&lt;/span&gt;
 
-        // Parse JSON to Java
-        List&amp;lt;Place&amp;gt; places = gson.fromJson(jsonstring, listType);
-        System.out.println(places.size());
-    }
-
-}
-&lt;/code&gt;&lt;/pre&gt;
+&lt;span style=&#34;color: #333333&#34;&gt;}&lt;/span&gt;
+&lt;/pre&gt;&lt;/div&gt;
 
 &lt;p&gt;If you are using retrofit 2, it might look something like this:&lt;/p&gt;
-
-&lt;pre&gt;&lt;code class=&#34;language-java&#34;&gt;Gson customGson =
-        new GsonBuilder()
-                .registerTypeAdapter(listType, new CustomPlaceDeserializer&amp;lt;Place&amp;gt;())
-                .create();
-&lt;/code&gt;&lt;/pre&gt;
+&lt;div class=&#34;highlight&#34; style=&#34;background: #ffffff&#34;&gt;&lt;pre style=&#34;line-height: 125%&#34;&gt;&lt;span&gt;&lt;/span&gt;Gson customGson &lt;span style=&#34;color: #333333&#34;&gt;=&lt;/span&gt;
+        &lt;span style=&#34;color: #008800; font-weight: bold&#34;&gt;new&lt;/span&gt; GsonBuilder&lt;span style=&#34;color: #333333&#34;&gt;()&lt;/span&gt;
+                &lt;span style=&#34;color: #333333&#34;&gt;.&lt;/span&gt;&lt;span style=&#34;color: #0000CC&#34;&gt;registerTypeAdapter&lt;/span&gt;&lt;span style=&#34;color: #333333&#34;&gt;(&lt;/span&gt;listType&lt;span style=&#34;color: #333333&#34;&gt;,&lt;/span&gt; &lt;span style=&#34;color: #008800; font-weight: bold&#34;&gt;new&lt;/span&gt; CustomPlaceDeserializer&lt;span style=&#34;color: #333333&#34;&gt;&amp;lt;&lt;/span&gt;Place&lt;span style=&#34;color: #333333&#34;&gt;&amp;gt;())&lt;/span&gt;
+                &lt;span style=&#34;color: #333333&#34;&gt;.&lt;/span&gt;&lt;span style=&#34;color: #0000CC&#34;&gt;create&lt;/span&gt;&lt;span style=&#34;color: #333333&#34;&gt;();&lt;/span&gt;
+&lt;/pre&gt;&lt;/div&gt;
 </description>
     </item>
     

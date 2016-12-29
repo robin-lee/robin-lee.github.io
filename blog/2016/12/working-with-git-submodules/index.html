@@ -14,10 +14,10 @@
 <title>
 
 
-     Robin Lee - Virtual Box Shared Folder 
+     Robin Lee - Working with git submodules 
 
 </title>
-<link rel="canonical" href="https://robin-lee.github.io/blog/2016/02/virtual-box-shared-folder/">
+<link rel="canonical" href="https://robin-lee.github.io/blog/2016/12/working-with-git-submodules/">
 
 
 <script type="text/javascript">
@@ -97,24 +97,56 @@
                 <div class="title-container">
                     <div class="page-heading">
 
-    Virtual Box Shared Folder
+    Working with git submodules
 
 </div>
 
                     <div class="initials"><a href="https://robin-lee.github.io/"></a></div>
                 </div>
                 <div class="meta">
-                    <div class="date" title="Sat Feb 6 2016 21:41:18 SGT">Feb 6, 2016</div>
+                    <div class="date" title="Thu Dec 29 2016 12:25:26 SGT">Dec 29, 2016</div>
                     <div class="reading-time"><div class="middot"></div>1 minute read</div>
                 </div>
             </div>
             <div class="markdown">
-                <p>For some projects I need to share files between my virtual machine and my host machine. VirtualBox allows for shared folders between the VM and the host after install Guest Additions. However, there is always a bit of configuration involved.</p>
+                
 
-<p>I installed Ubuntu 14.04 LTS and then installed Guest Additions. After I added a shared folder in the settings, I discovered that I did not have permission to access the folder. According to VirtualBox&rsquo;s <a href="https://www.virtualbox.org/manual/ch04.html#sf_mount_auto">documentation</a> you need to add guest users to the vboxsf group. I tend to forget the command to do so as I do not need to change user properties frequency.</p>
+<p>After I did a clean install of OSX on my laptop I had to clone my blog repository and setup submodules again.
+This serves as a quick reference should I need to manage submodules again.</p>
 
-<p>If you happen to need the command here it is:</p>
-sudo usermod -aG vboxsf <your username>
+<p><a href="https://github.com/blog/2104-working-with-submodules">GitHub: Working with submodules</a></p>
+
+<h1 id="removing">Removing</h1>
+<div class="highlight" style="background: #ffffff"><pre style="line-height: 125%"><span></span>git submodule deinit &lt;asubmodule&gt;    
+git rm &lt;asubmodule&gt;
+<span style="color: #888888"># Note: asubmodule (no trailing slash)</span>
+</pre></div>
+
+<pre><code># or, if you want to leave it in your working tree
+git rm --cached &lt;asubmodule&gt;
+rm -rf .git/modules/&lt;asubmodule&gt;
+</code></pre>
+
+<p><a href="http://stackoverflow.com/questions/29850029/what-is-the-current-way-to-remove-a-git-submodule">Stackoverflow reference</a></p>
+
+<h1 id="adding">Adding</h1>
+
+<pre><code># add entire gh-page repo to public folder
+git submodule add -b master git@github.com:&lt;username&gt;/&lt;username&gt;.github.io.git public
+
+# adding a repo to a path
+git submodule add git@&lt;github.com or bitbucket etc.&gt;:&lt;repo&gt; &lt;path like lib/billboard&gt;
+</code></pre>
+
+<p><a href="https://chrisjean.com/git-submodules-adding-using-removing-and-updating/">link to chrisjean</a></p>
+
+<h1 id="updating">Updating</h1>
+
+<pre><code>git submodule update --init --recursive
+
+# or when cloning for the first
+git clone --recursive &lt;project url&gt;
+</code></pre>
 
                 <br>
                 <p><a href="https://robin-lee.github.io/">Back to posts</a></p>

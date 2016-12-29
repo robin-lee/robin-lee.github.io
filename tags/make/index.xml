@@ -26,22 +26,21 @@ basics of cpp before we move on to data structures and then algorithms.&lt;/p&gt
 Note: This post is written largely in the context of using OSX (my laptop).&lt;/p&gt;
 
 &lt;h2 id=&#34;a-program&#34;&gt;A program&lt;/h2&gt;
+&lt;div class=&#34;highlight&#34; style=&#34;background: #ffffff&#34;&gt;&lt;pre style=&#34;line-height: 125%&#34;&gt;&lt;span&gt;&lt;/span&gt;&lt;span style=&#34;color: #557799&#34;&gt;#include&lt;/span&gt; &lt;span style=&#34;color: #888888&#34;&gt;&amp;lt;iostream&amp;gt;&lt;/span&gt;&lt;span style=&#34;color: #557799&#34;&gt;&lt;/span&gt;
+&lt;span style=&#34;color: #557799&#34;&gt;#include&lt;/span&gt; &lt;span style=&#34;color: #888888&#34;&gt;&amp;lt;string&amp;gt;&lt;/span&gt;&lt;span style=&#34;color: #557799&#34;&gt;&lt;/span&gt;
 
-&lt;pre&gt;&lt;code class=&#34;language-c++&#34;&gt;#include &amp;lt;iostream&amp;gt;
-#include &amp;lt;string&amp;gt;
-
-int main() {
+&lt;span style=&#34;color: #333399; font-weight: bold&#34;&gt;int&lt;/span&gt; &lt;span style=&#34;color: #0066BB; font-weight: bold&#34;&gt;main&lt;/span&gt;() {
     {
-        const std::string s = &amp;quot;Hot chocolate is nice.&amp;quot;;
-        std::cout &amp;lt;&amp;lt; s &amp;lt;&amp;lt; std::endl;
+        &lt;span style=&#34;color: #008800; font-weight: bold&#34;&gt;const&lt;/span&gt; std&lt;span style=&#34;color: #333333&#34;&gt;::&lt;/span&gt;string s &lt;span style=&#34;color: #333333&#34;&gt;=&lt;/span&gt; &lt;span style=&#34;background-color: #fff0f0&#34;&gt;&amp;quot;Hot chocolate is nice.&amp;quot;&lt;/span&gt;;
+        std&lt;span style=&#34;color: #333333&#34;&gt;::&lt;/span&gt;cout &lt;span style=&#34;color: #333333&#34;&gt;&amp;lt;&amp;lt;&lt;/span&gt; s &lt;span style=&#34;color: #333333&#34;&gt;&amp;lt;&amp;lt;&lt;/span&gt; std&lt;span style=&#34;color: #333333&#34;&gt;::&lt;/span&gt;endl;
     }
     {
-        const std::string s = &amp;quot;COOP iced tea is nice!&amp;quot;;
-        std::cout &amp;lt;&amp;lt; s &amp;lt;&amp;lt; std::endl;
+        &lt;span style=&#34;color: #008800; font-weight: bold&#34;&gt;const&lt;/span&gt; std&lt;span style=&#34;color: #333333&#34;&gt;::&lt;/span&gt;string s &lt;span style=&#34;color: #333333&#34;&gt;=&lt;/span&gt; &lt;span style=&#34;background-color: #fff0f0&#34;&gt;&amp;quot;COOP iced tea is nice!&amp;quot;&lt;/span&gt;;
+        std&lt;span style=&#34;color: #333333&#34;&gt;::&lt;/span&gt;cout &lt;span style=&#34;color: #333333&#34;&gt;&amp;lt;&amp;lt;&lt;/span&gt; s &lt;span style=&#34;color: #333333&#34;&gt;&amp;lt;&amp;lt;&lt;/span&gt; std&lt;span style=&#34;color: #333333&#34;&gt;::&lt;/span&gt;endl;
     }
-    return 0;
+    &lt;span style=&#34;color: #008800; font-weight: bold&#34;&gt;return&lt;/span&gt; &lt;span style=&#34;color: #0000DD; font-weight: bold&#34;&gt;0&lt;/span&gt;;
 }
-&lt;/code&gt;&lt;/pre&gt;
+&lt;/pre&gt;&lt;/div&gt;
 
 &lt;p&gt;A basic program might look like something above. &lt;code&gt;#include&lt;/code&gt; libraries and send something to the output.&lt;/p&gt;
 
@@ -57,33 +56,29 @@ int main() {
 &lt;p&gt;To run a program coded in cpp, you need to first compile the cpp code and then execute the resulting executable file.
 It can get quite repetive. To make things simpler it useful to have a script to automate the &lt;em&gt;build&lt;/em&gt; process. Creating a Makefile for the &lt;code&gt;make&lt;/code&gt; tool is one
 way you can achieve such automation. Some call it a &lt;a href=&#34;https://www.cs.umd.edu/class/fall2002/cmsc214/Tutorial/makefile.html&#34;&gt;Macro&lt;/a&gt;.&lt;/p&gt;
-
-&lt;pre&gt;&lt;code class=&#34;language-makefile&#34;&gt;run: compile
+&lt;div class=&#34;highlight&#34; style=&#34;background: #ffffff&#34;&gt;&lt;pre style=&#34;line-height: 125%&#34;&gt;&lt;span&gt;&lt;/span&gt;&lt;span style=&#34;color: #0066BB; font-weight: bold&#34;&gt;run&lt;/span&gt;&lt;span style=&#34;color: #333333&#34;&gt;:&lt;/span&gt; compile
         ./play
 
-compile:
+&lt;span style=&#34;color: #0066BB; font-weight: bold&#34;&gt;compile&lt;/span&gt;&lt;span style=&#34;color: #333333&#34;&gt;:&lt;/span&gt;
         g++ play.cpp -o play
-&lt;/code&gt;&lt;/pre&gt;
+&lt;/pre&gt;&lt;/div&gt;
 
 &lt;p&gt;By default the tool &lt;code&gt;make&lt;/code&gt; process the first target. By convention, the first target is called &lt;code&gt;all&lt;/code&gt; (we are not following that here to be clear on how make works).
 The questions that arise now are: What is the format of a make file? What is target?&lt;/p&gt;
 
 &lt;p&gt;A makefile has a format like so:&lt;/p&gt;
-
-&lt;pre&gt;&lt;code class=&#34;language-makefile&#34;&gt;target: dependencies
-[tab character] system command
-&lt;/code&gt;&lt;/pre&gt;
+&lt;div class=&#34;highlight&#34; style=&#34;background: #ffffff&#34;&gt;&lt;pre style=&#34;line-height: 125%&#34;&gt;&lt;span&gt;&lt;/span&gt;&lt;span style=&#34;color: #0066BB; font-weight: bold&#34;&gt;target&lt;/span&gt;&lt;span style=&#34;color: #333333&#34;&gt;:&lt;/span&gt; dependencies
+&lt;span style=&#34;color: #FF0000; background-color: #FFAAAA&#34;&gt;[tab&lt;/span&gt; &lt;span style=&#34;color: #FF0000; background-color: #FFAAAA&#34;&gt;character]&lt;/span&gt; &lt;span style=&#34;color: #FF0000; background-color: #FFAAAA&#34;&gt;system&lt;/span&gt; &lt;span style=&#34;color: #FF0000; background-color: #FFAAAA&#34;&gt;command&lt;/span&gt;
+&lt;/pre&gt;&lt;/div&gt;
 
 &lt;p&gt;Another way you can specify the default target is &lt;a href=&#34;http://stackoverflow.com/a/30176470&#34;&gt;link&lt;/a&gt;:&lt;/p&gt;
-
-&lt;pre&gt;&lt;code class=&#34;language-makefile&#34;&gt;.DEFAULT_GOAL := mytarget
-&lt;/code&gt;&lt;/pre&gt;
+&lt;div class=&#34;highlight&#34; style=&#34;background: #ffffff&#34;&gt;&lt;pre style=&#34;line-height: 125%&#34;&gt;&lt;span&gt;&lt;/span&gt;&lt;span style=&#34;color: #996633&#34;&gt;.DEFAULT_GOAL&lt;/span&gt; &lt;span style=&#34;color: #333333&#34;&gt;:=&lt;/span&gt; mytarget
+&lt;/pre&gt;&lt;/div&gt;
 
 &lt;p&gt;For a newer make &amp;gt; 3.80:&lt;/p&gt;
-
-&lt;pre&gt;&lt;code class=&#34;language-makefile&#34;&gt;.PHONY: default
-default: mytarget ;
-&lt;/code&gt;&lt;/pre&gt;
+&lt;div class=&#34;highlight&#34; style=&#34;background: #ffffff&#34;&gt;&lt;pre style=&#34;line-height: 125%&#34;&gt;&lt;span&gt;&lt;/span&gt;&lt;span style=&#34;color: #0066BB; font-weight: bold&#34;&gt;.PHONY&lt;/span&gt;&lt;span style=&#34;color: #333333&#34;&gt;:&lt;/span&gt; default
+&lt;span style=&#34;color: #0066BB; font-weight: bold&#34;&gt;default&lt;/span&gt;&lt;span style=&#34;color: #333333&#34;&gt;:&lt;/span&gt; mytarget ;
+&lt;/pre&gt;&lt;/div&gt;
 
 &lt;h2 id=&#34;gcc-vs-g&#34;&gt;gcc vs g++&lt;/h2&gt;
 
@@ -109,19 +104,17 @@ What I &lt;strong&gt;&lt;em&gt;think&lt;/em&gt;&lt;/strong&gt; happens is that &
 
 &lt;p&gt;Frankly, at the moment I still do not understand enough about between strings and string literals. Being pragmatic,
 I will look at some practical use cases.&lt;/p&gt;
+&lt;div class=&#34;highlight&#34; style=&#34;background: #ffffff&#34;&gt;&lt;pre style=&#34;line-height: 125%&#34;&gt;&lt;span&gt;&lt;/span&gt;&lt;span style=&#34;color: #557799&#34;&gt;#include&lt;/span&gt; &lt;span style=&#34;color: #888888&#34;&gt;&amp;lt;string&amp;gt;&lt;/span&gt;&lt;span style=&#34;color: #557799&#34;&gt;&lt;/span&gt;
+&lt;span style=&#34;color: #008800; font-weight: bold&#34;&gt;using&lt;/span&gt; std&lt;span style=&#34;color: #333333&#34;&gt;::&lt;/span&gt;string;
 
-&lt;pre&gt;&lt;code class=&#34;language-cpp&#34;&gt;#include &amp;lt;string&amp;gt;
-using std::string;
+string stringLiteral &lt;span style=&#34;color: #333333&#34;&gt;=&lt;/span&gt; &lt;span style=&#34;background-color: #fff0f0&#34;&gt;&amp;quot;characters enclose in double quotes and cannot span lines&amp;quot;&lt;/span&gt;;
 
-string stringLiteral = &amp;quot;characters enclose in double quotes and cannot span lines&amp;quot;;
+&lt;span style=&#34;color: #888888&#34;&gt;//overloaded constructor to create a string with n of character.&lt;/span&gt;
+string repeatCharacter &lt;span style=&#34;color: #0066BB; font-weight: bold&#34;&gt;z&lt;/span&gt;(&lt;span style=&#34;color: #0000DD; font-weight: bold&#34;&gt;10&lt;/span&gt;, &lt;span style=&#34;color: #0044DD&#34;&gt;&amp;#39;*&amp;#39;&lt;/span&gt;);
 
-//overloaded constructor to create a string with n of character.
-string repeatCharacter z(10, &#39;*&#39;);
-
-//a string
-string someString = string(&amp;quot;i am a string&amp;quot;);
-
-&lt;/code&gt;&lt;/pre&gt;
+&lt;span style=&#34;color: #888888&#34;&gt;//a string&lt;/span&gt;
+string someString &lt;span style=&#34;color: #333333&#34;&gt;=&lt;/span&gt; string(&lt;span style=&#34;background-color: #fff0f0&#34;&gt;&amp;quot;i am a string&amp;quot;&lt;/span&gt;);
+&lt;/pre&gt;&lt;/div&gt;
 
 &lt;p&gt;A &lt;strong&gt;string literal&lt;/strong&gt; is a bunch of characters in doubles and they cannot span lines. Having some prior knowledge in C and C++, I would say that a string literal is &lt;em&gt;a series of characters in memory terminated by a null character &lt;code&gt;\0&lt;/code&gt;&lt;/em&gt;. Maybe it would be better to call them character literal arrays.&lt;/p&gt;
 
@@ -129,27 +122,26 @@ string someString = string(&amp;quot;i am a string&amp;quot;);
 
 &lt;p&gt;A common use case with strings is to join them just like creating a sentence where you want to join words or phrases together.
 This is where you can see a difference (&lt;a href=&#34;http://stackoverflow.com/questions/662918/how-do-i-concatenate-multiple-c-strings-on-one-line&#34;&gt;refence link&lt;/a&gt;):&lt;/p&gt;
+&lt;div class=&#34;highlight&#34; style=&#34;background: #ffffff&#34;&gt;&lt;pre style=&#34;line-height: 125%&#34;&gt;&lt;span&gt;&lt;/span&gt;string stringLiteral1 &lt;span style=&#34;color: #333333&#34;&gt;=&lt;/span&gt; &lt;span style=&#34;background-color: #fff0f0&#34;&gt;&amp;quot;hello&amp;quot;&lt;/span&gt;;
+string stringLiteral2 &lt;span style=&#34;color: #333333&#34;&gt;=&lt;/span&gt; &lt;span style=&#34;background-color: #fff0f0&#34;&gt;&amp;quot; world&amp;quot;&lt;/span&gt;;
 
-&lt;pre&gt;&lt;code class=&#34;language-cpp&#34;&gt;string stringLiteral1 = &amp;quot;hello&amp;quot;;
-string stringLiteral2 = &amp;quot; world&amp;quot;;
+&lt;span style=&#34;color: #888888&#34;&gt;//you cannot do because they are both string literals.&lt;/span&gt;
+string s &lt;span style=&#34;color: #333333&#34;&gt;=&lt;/span&gt; stringLiteral1 &lt;span style=&#34;color: #333333&#34;&gt;+&lt;/span&gt; stringLiteral2;
 
-//you cannot do because they are both string literals.
-string s = stringLiteral1 + stringLiteral2;
+&lt;span style=&#34;color: #888888&#34;&gt;//(A)convert them to strings&lt;/span&gt;
+string newstring &lt;span style=&#34;color: #333333&#34;&gt;=&lt;/span&gt; string(stringLiteral1) &lt;span style=&#34;color: #333333&#34;&gt;+&lt;/span&gt; string(stringLiteral2);
 
-//(A)convert them to strings
-string newstring = string(stringLiteral1) + string(stringLiteral2);
+&lt;span style=&#34;color: #888888&#34;&gt;//(B)or perhaps&lt;/span&gt;
+std&lt;span style=&#34;color: #333333&#34;&gt;::&lt;/span&gt;stringstream ss;
+ss &lt;span style=&#34;color: #333333&#34;&gt;&amp;lt;&amp;lt;&lt;/span&gt; &lt;span style=&#34;background-color: #fff0f0&#34;&gt;&amp;quot;Hello, world, &amp;quot;&lt;/span&gt; &lt;span style=&#34;color: #333333&#34;&gt;&amp;lt;&amp;lt;&lt;/span&gt; myInt &lt;span style=&#34;color: #333333&#34;&gt;&amp;lt;&amp;lt;&lt;/span&gt; niceToSeeYouString;
+std&lt;span style=&#34;color: #333333&#34;&gt;::&lt;/span&gt;string s &lt;span style=&#34;color: #333333&#34;&gt;=&lt;/span&gt; ss.str();
 
-//(B)or perhaps
-std::stringstream ss;
-ss &amp;lt;&amp;lt; &amp;quot;Hello, world, &amp;quot; &amp;lt;&amp;lt; myInt &amp;lt;&amp;lt; niceToSeeYouString;
-std::string s = ss.str();
-
-//(C)or using append; a little verbose?.
-std::string s;
-s.append(&amp;quot;Hello world, &amp;quot;);
-s.append(&amp;quot;nice to see you, &amp;quot;);
-s.append(&amp;quot;or not.&amp;quot;);
-&lt;/code&gt;&lt;/pre&gt;
+&lt;span style=&#34;color: #888888&#34;&gt;//(C)or using append; a little verbose?.&lt;/span&gt;
+std&lt;span style=&#34;color: #333333&#34;&gt;::&lt;/span&gt;string s;
+s.append(&lt;span style=&#34;background-color: #fff0f0&#34;&gt;&amp;quot;Hello world, &amp;quot;&lt;/span&gt;);
+s.append(&lt;span style=&#34;background-color: #fff0f0&#34;&gt;&amp;quot;nice to see you, &amp;quot;&lt;/span&gt;);
+s.append(&lt;span style=&#34;background-color: #fff0f0&#34;&gt;&amp;quot;or not.&amp;quot;&lt;/span&gt;);
+&lt;/pre&gt;&lt;/div&gt;
 
 &lt;p&gt;At a glance, I think I would prefer using method (A) or (B) to create dynamic strings. In a game prototype, NPCs could
 have a lengthly paragraph text to say depending on a player&amp;rsquo;s actions. What if there really was a lot to output because the NPC

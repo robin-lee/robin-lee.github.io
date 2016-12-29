@@ -42,9 +42,8 @@
 &lt;h1 id=&#34;gradle-init&#34;&gt;Gradle init&lt;/h1&gt;
 
 &lt;p&gt;My motivation to use gradle came from the need to test some code or libraries without starting a fully fledged IDE. I discovered a useful plugin gradle has called the &lt;code&gt;Build Init Plugin&lt;/code&gt;. (&lt;a href=&#34;https://docs.gradle.org/current/userguide/build_init_plugin.html&#34;&gt;link&lt;/a&gt;)&lt;/p&gt;
-
-&lt;pre&gt;&lt;code class=&#34;language-bash&#34;&gt;gradle init --type java-library
-&lt;/code&gt;&lt;/pre&gt;
+&lt;div class=&#34;highlight&#34; style=&#34;background: #ffffff&#34;&gt;&lt;pre style=&#34;line-height: 125%&#34;&gt;&lt;span&gt;&lt;/span&gt;gradle init --type java-library
+&lt;/pre&gt;&lt;/div&gt;
 
 &lt;p&gt;With then one command I have a basic Java project setup and I can use something like Sublime Text and get going. As a bonus JUnit is included by default.&lt;/p&gt;
 </description>

@@ -206,92 +206,89 @@ Types that carry this annotation are treated as controllers where @RequestMappin
 <li>TODO: <code>ResponseEntity&lt;?&gt;</code> vs <code>@ResponseBody</code>. When to use?</li>
 <li>TODO: Pagination? Instead of loading all image posts at once, load them in stages.</li>
 </ul>
+<div class="highlight" style="background: #ffffff"><pre style="line-height: 125%"><span></span><span style="color: #555555; font-weight: bold">@Controller</span>
+<span style="color: #008800; font-weight: bold">public</span> <span style="color: #008800; font-weight: bold">class</span> <span style="color: #BB0066; font-weight: bold">BasicController</span> <span style="color: #333333">{</span>
 
-<pre><code class="language-java">@Controller
-public class BasicController {
+    <span style="color: #888888">//This is similar to @Inject (part of the JSR-330)</span>
+    <span style="color: #888888">//http://stackoverflow.com/questions/19414734/understanding-spring-autowired-usage</span>
+    <span style="color: #555555; font-weight: bold">@Autowired</span>
+    SomeRespository repo<span style="color: #333333">;</span>
 
-    //This is similar to @Inject (part of the JSR-330)
-    //http://stackoverflow.com/questions/19414734/understanding-spring-autowired-usage
-    @Autowired
-    SomeRespository repo;
+    <span style="color: #555555; font-weight: bold">@RequestMapping</span><span style="color: #333333">(</span><span style="background-color: #fff0f0">&quot;/&quot;</span><span style="color: #333333">)</span>
+    <span style="color: #555555; font-weight: bold">@ResponseBody</span>
+    <span style="color: #008800; font-weight: bold">public</span> String <span style="color: #0066BB; font-weight: bold">index</span><span style="color: #333333">(){</span>
+        <span style="color: #888888">//return NAME of html page (eg. index.html)</span>
+        <span style="color: #008800; font-weight: bold">return</span> <span style="background-color: #fff0f0">&quot;Greetings from spring boot!&quot;</span><span style="color: #333333">;</span>
+    <span style="color: #333333">}</span>
 
-    @RequestMapping(&quot;/&quot;)
-    @ResponseBody
-    public String index(){
-        //return NAME of html page (eg. index.html)
-        return &quot;Greetings from spring boot!&quot;;
-    }
+    <span style="color: #555555; font-weight: bold">@RequestMapping</span><span style="color: #333333">(</span>value <span style="color: #333333">=</span> <span style="background-color: #fff0f0">&quot;/someResource&quot;</span><span style="color: #333333">,</span> method <span style="color: #333333">=</span> RequestMethod<span style="color: #333333">.</span><span style="color: #0000CC">GET</span><span style="color: #333333">)</span>
+    <span style="color: #008800; font-weight: bold">public</span> <span style="color: #333399; font-weight: bold">void</span> <span style="color: #0066BB; font-weight: bold">someResource</span><span style="color: #333333">(</span>HttpServletResponse response<span style="color: #333333">)</span> <span style="color: #333333">{</span>
+        <span style="color: #888888">//can change this to by default return a list?</span>
+        response<span style="color: #333333">.</span><span style="color: #0000CC">setStatus</span><span style="color: #333333">(</span>HttpServletResponse<span style="color: #333333">.</span><span style="color: #0000CC">SC_OK</span><span style="color: #333333">);</span>
+        <span style="color: #008800; font-weight: bold">try</span> <span style="color: #333333">{</span>
+            response<span style="color: #333333">.</span><span style="color: #0000CC">getWriter</span><span style="color: #333333">().</span><span style="color: #0000CC">write</span><span style="color: #333333">(</span><span style="background-color: #fff0f0">&quot;Some useful message.&quot;</span><span style="color: #333333">);</span>
+            response<span style="color: #333333">.</span><span style="color: #0000CC">getWriter</span><span style="color: #333333">().</span><span style="color: #0000CC">flush</span><span style="color: #333333">();</span>
+            response<span style="color: #333333">.</span><span style="color: #0000CC">getWriter</span><span style="color: #333333">().</span><span style="color: #0000CC">close</span><span style="color: #333333">();</span>
+        <span style="color: #333333">}</span> <span style="color: #008800; font-weight: bold">catch</span> <span style="color: #333333">(</span>Exception ex<span style="color: #333333">)</span> <span style="color: #333333">{</span>
+            log<span style="color: #333333">.</span><span style="color: #0000CC">error</span><span style="color: #333333">(</span><span style="background-color: #fff0f0">&quot;Argh, the AIs are rebelling! &quot;</span><span style="color: #333333">,</span> ex<span style="color: #333333">);</span>
+        <span style="color: #333333">}</span>
 
-    @RequestMapping(value = &quot;/someResource&quot;, method = RequestMethod.GET)
-    public void someResource(HttpServletResponse response) {
-        //can change this to by default return a list?
-        response.setStatus(HttpServletResponse.SC_OK);
-        try {
-            response.getWriter().write(&quot;Some useful message.&quot;);
-            response.getWriter().flush();
-            response.getWriter().close();
-        } catch (Exception ex) {
-            log.error(&quot;Argh, the AIs are rebelling! &quot;, ex);
-        }
+    <span style="color: #333333">}</span>
 
-    }
+    <span style="color: #555555; font-weight: bold">@RequestMapping</span><span style="color: #333333">(</span>value <span style="color: #333333">=</span> <span style="background-color: #fff0f0">&quot;/upload&quot;</span><span style="color: #333333">,</span> method <span style="color: #333333">=</span> RequestMethod<span style="color: #333333">.</span><span style="color: #0000CC">POST</span><span style="color: #333333">)</span>
+    <span style="color: #555555; font-weight: bold">@ResponseBody</span>
+    <span style="color: #008800; font-weight: bold">public</span> ResponseEntity<span style="color: #333333">&lt;?&gt;</span> uploadFile<span style="color: #333333">(</span>
+            <span style="color: #555555; font-weight: bold">@RequestParam</span><span style="color: #333333">(</span><span style="background-color: #fff0f0">&quot;file&quot;</span><span style="color: #333333">)</span> MultipartFile file<span style="color: #333333">,</span> <span style="color: #555555; font-weight: bold">@RequestParam</span><span style="color: #333333">(</span>value <span style="color: #333333">=</span> <span style="background-color: #fff0f0">&quot;description&quot;</span><span style="color: #333333">,</span> required <span style="color: #333333">=</span> <span style="color: #008800; font-weight: bold">true</span><span style="color: #333333">)</span> String description<span style="color: #333333">)</span> <span style="color: #333333">{</span>
 
-    @RequestMapping(value = &quot;/upload&quot;, method = RequestMethod.POST)
-    @ResponseBody
-    public ResponseEntity&lt;?&gt; uploadFile(
-            @RequestParam(&quot;file&quot;) MultipartFile file, @RequestParam(value = &quot;description&quot;, required = true) String description) {
+        <span style="color: #008800; font-weight: bold">try</span> <span style="color: #333333">{</span>
+          <span style="color: #888888">// process multipart file</span>
+        <span style="color: #333333">}</span> <span style="color: #008800; font-weight: bold">catch</span> <span style="color: #333333">(</span>Exception e<span style="color: #333333">)</span> <span style="color: #333333">{</span>
+            System<span style="color: #333333">.</span><span style="color: #0000CC">out</span><span style="color: #333333">.</span><span style="color: #0000CC">println</span><span style="color: #333333">(</span>e<span style="color: #333333">.</span><span style="color: #0000CC">getMessage</span><span style="color: #333333">());</span>
+            <span style="color: #008800; font-weight: bold">return</span> <span style="color: #008800; font-weight: bold">new</span> ResponseEntity<span style="color: #333333">&lt;&gt;(</span>HttpStatus<span style="color: #333333">.</span><span style="color: #0000CC">BAD_REQUEST</span><span style="color: #333333">);</span>
+        <span style="color: #333333">}</span>
+        <span style="color: #008800; font-weight: bold">return</span> <span style="color: #008800; font-weight: bold">new</span> ResponseEntity<span style="color: #333333">&lt;&gt;(</span>HttpStatus<span style="color: #333333">.</span><span style="color: #0000CC">OK</span><span style="color: #333333">);</span>
+    <span style="color: #333333">}</span>
 
-        try {
-          // process multipart file
-        } catch (Exception e) {
-            System.out.println(e.getMessage());
-            return new ResponseEntity&lt;&gt;(HttpStatus.BAD_REQUEST);
-        }
-        return new ResponseEntity&lt;&gt;(HttpStatus.OK);
-    }
+    <span style="color: #555555; font-weight: bold">@RequestMapping</span><span style="color: #333333">(</span>value <span style="color: #333333">=</span> <span style="background-color: #fff0f0">&quot;/submitInfo&quot;</span><span style="color: #333333">,</span> method <span style="color: #333333">=</span> RequestMethod<span style="color: #333333">.</span><span style="color: #0000CC">POST</span><span style="color: #333333">)</span>
+    <span style="color: #555555; font-weight: bold">@ResponseBody</span>
+    <span style="color: #008800; font-weight: bold">public</span> String <span style="color: #0066BB; font-weight: bold">someInfoFromAForm</span><span style="color: #333333">(</span><span style="color: #555555; font-weight: bold">@ModelAttribute</span> SomeObject someObject<span style="color: #333333">)</span> <span style="color: #333333">{</span>
+      <span style="color: #888888">//ModelAttribute is not actually required here</span>
 
-    @RequestMapping(value = &quot;/submitInfo&quot;, method = RequestMethod.POST)
-    @ResponseBody
-    public String someInfoFromAForm(@ModelAttribute SomeObject someObject) {
-      //ModelAttribute is not actually required here
+      <span style="color: #888888">//use getters</span>
 
-      //use getters
+      <span style="color: #008800; font-weight: bold">return</span> payload<span style="color: #333333">;</span>
+    <span style="color: #333333">}</span>
 
-      return payload;
-    }
-
-}
-</code></pre>
+<span style="color: #333333">}</span>
+</pre></div>
 
 <p>References:
 -<a href="https://github.com/jdmr/fileUpload/blob/master/src/main/java/org/davidmendoza/fileUpload/web/ImageController.java">davidmendoza</a>
 -<a href="https://github.com/netgloo/spring-boot-samples/blob/master/spring-boot-file-upload-with-ajax/src/main/java/netgloo/controllers/MainController.java">netgloo</a></p>
 
 <h3 id="repository">Repository</h3>
+<div class="highlight" style="background: #ffffff"><pre style="line-height: 125%"><span></span><span style="color: #008800; font-weight: bold">public</span> <span style="color: #008800; font-weight: bold">interface</span> <span style="color: #BB0066; font-weight: bold">SomeRepository</span> <span style="color: #008800; font-weight: bold">extends</span> JpaRepository<span style="color: #333333">&lt;</span>SomeObject<span style="color: #333333">,</span> Long<span style="color: #333333">&gt;</span> <span style="color: #333333">{</span>
+<span style="color: #333333">}</span>
 
-<pre><code class="language-java">public interface SomeRepository extends JpaRepository&lt;SomeObject, Long&gt; {
-}
-
-//examples
-repo.save(SomeObject);
-repo.findAll();
-repo.getOne((long) id);
-</code></pre>
+<span style="color: #888888">//examples</span>
+repo<span style="color: #333333">.</span><span style="color: #0000CC">save</span><span style="color: #333333">(</span>SomeObject<span style="color: #333333">);</span>
+repo<span style="color: #333333">.</span><span style="color: #0000CC">findAll</span><span style="color: #333333">();</span>
+repo<span style="color: #333333">.</span><span style="color: #0000CC">getOne</span><span style="color: #333333">((</span><span style="color: #333399; font-weight: bold">long</span><span style="color: #333333">)</span> id<span style="color: #333333">);</span>
+</pre></div>
 
 <p>Extended from:</p>
-
-<pre><code class="language-java">public interface JpaRepository&lt;T, ID extends Serializable&gt; extends PagingAndSortingRepository&lt;T, ID&gt; {
-    List&lt;T&gt; findAll();
-    List&lt;T&gt; findAll(Sort sort);
-    List&lt;T&gt; findAll(Iterable&lt;ID&gt; ids);
-    &lt;S extends T&gt; List&lt;S&gt; save(Iterable&lt;S&gt; entities);
-    void flush();
-    &lt;S extends T&gt; S saveAndFlush(S entity);
-    void deleteInBatch(Iterable&lt;T&gt; entities);
-    void deleteAllInBatch();
-    T getOne(ID id);
-}
-</code></pre>
+<div class="highlight" style="background: #ffffff"><pre style="line-height: 125%"><span></span><span style="color: #008800; font-weight: bold">public</span> <span style="color: #008800; font-weight: bold">interface</span> <span style="color: #BB0066; font-weight: bold">JpaRepository</span><span style="color: #333333">&lt;</span>T<span style="color: #333333">,</span> ID <span style="color: #008800; font-weight: bold">extends</span> Serializable<span style="color: #333333">&gt;</span> <span style="color: #008800; font-weight: bold">extends</span> PagingAndSortingRepository<span style="color: #333333">&lt;</span>T<span style="color: #333333">,</span> ID<span style="color: #333333">&gt;</span> <span style="color: #333333">{</span>
+    List<span style="color: #333333">&lt;</span>T<span style="color: #333333">&gt;</span> <span style="color: #0066BB; font-weight: bold">findAll</span><span style="color: #333333">();</span>
+    List<span style="color: #333333">&lt;</span>T<span style="color: #333333">&gt;</span> <span style="color: #0066BB; font-weight: bold">findAll</span><span style="color: #333333">(</span>Sort sort<span style="color: #333333">);</span>
+    List<span style="color: #333333">&lt;</span>T<span style="color: #333333">&gt;</span> <span style="color: #0066BB; font-weight: bold">findAll</span><span style="color: #333333">(</span>Iterable<span style="color: #333333">&lt;</span>ID<span style="color: #333333">&gt;</span> ids<span style="color: #333333">);</span>
+    <span style="color: #333333">&lt;</span>S <span style="color: #008800; font-weight: bold">extends</span> T<span style="color: #333333">&gt;</span> List<span style="color: #333333">&lt;</span>S<span style="color: #333333">&gt;</span> <span style="color: #0066BB; font-weight: bold">save</span><span style="color: #333333">(</span>Iterable<span style="color: #333333">&lt;</span>S<span style="color: #333333">&gt;</span> entities<span style="color: #333333">);</span>
+    <span style="color: #333399; font-weight: bold">void</span> <span style="color: #0066BB; font-weight: bold">flush</span><span style="color: #333333">();</span>
+    <span style="color: #333333">&lt;</span>S <span style="color: #008800; font-weight: bold">extends</span> T<span style="color: #333333">&gt;</span> S <span style="color: #0066BB; font-weight: bold">saveAndFlush</span><span style="color: #333333">(</span>S entity<span style="color: #333333">);</span>
+    <span style="color: #333399; font-weight: bold">void</span> <span style="color: #0066BB; font-weight: bold">deleteInBatch</span><span style="color: #333333">(</span>Iterable<span style="color: #333333">&lt;</span>T<span style="color: #333333">&gt;</span> entities<span style="color: #333333">);</span>
+    <span style="color: #333399; font-weight: bold">void</span> <span style="color: #0066BB; font-weight: bold">deleteAllInBatch</span><span style="color: #333333">();</span>
+    T <span style="color: #0066BB; font-weight: bold">getOne</span><span style="color: #333333">(</span>ID id<span style="color: #333333">);</span>
+<span style="color: #333333">}</span>
+</pre></div>
 
 <h3 id="domain">Domain</h3>
 

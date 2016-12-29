@@ -111,92 +111,89 @@ Types that carry this annotation are treated as controllers where @RequestMappin
 &lt;li&gt;TODO: &lt;code&gt;ResponseEntity&amp;lt;?&amp;gt;&lt;/code&gt; vs &lt;code&gt;@ResponseBody&lt;/code&gt;. When to use?&lt;/li&gt;
 &lt;li&gt;TODO: Pagination? Instead of loading all image posts at once, load them in stages.&lt;/li&gt;
 &lt;/ul&gt;
+&lt;div class=&#34;highlight&#34; style=&#34;background: #ffffff&#34;&gt;&lt;pre style=&#34;line-height: 125%&#34;&gt;&lt;span&gt;&lt;/span&gt;&lt;span style=&#34;color: #555555; font-weight: bold&#34;&gt;@Controller&lt;/span&gt;
+&lt;span style=&#34;color: #008800; font-weight: bold&#34;&gt;public&lt;/span&gt; &lt;span style=&#34;color: #008800; font-weight: bold&#34;&gt;class&lt;/span&gt; &lt;span style=&#34;color: #BB0066; font-weight: bold&#34;&gt;BasicController&lt;/span&gt; &lt;span style=&#34;color: #333333&#34;&gt;{&lt;/span&gt;
 
-&lt;pre&gt;&lt;code class=&#34;language-java&#34;&gt;@Controller
-public class BasicController {
+    &lt;span style=&#34;color: #888888&#34;&gt;//This is similar to @Inject (part of the JSR-330)&lt;/span&gt;
+    &lt;span style=&#34;color: #888888&#34;&gt;//http://stackoverflow.com/questions/19414734/understanding-spring-autowired-usage&lt;/span&gt;
+    &lt;span style=&#34;color: #555555; font-weight: bold&#34;&gt;@Autowired&lt;/span&gt;
+    SomeRespository repo&lt;span style=&#34;color: #333333&#34;&gt;;&lt;/span&gt;
 
-    //This is similar to @Inject (part of the JSR-330)
-    //http://stackoverflow.com/questions/19414734/understanding-spring-autowired-usage
-    @Autowired
-    SomeRespository repo;
+    &lt;span style=&#34;color: #555555; font-weight: bold&#34;&gt;@RequestMapping&lt;/span&gt;&lt;span style=&#34;color: #333333&#34;&gt;(&lt;/span&gt;&lt;span style=&#34;background-color: #fff0f0&#34;&gt;&amp;quot;/&amp;quot;&lt;/span&gt;&lt;span style=&#34;color: #333333&#34;&gt;)&lt;/span&gt;
+    &lt;span style=&#34;color: #555555; font-weight: bold&#34;&gt;@ResponseBody&lt;/span&gt;
+    &lt;span style=&#34;color: #008800; font-weight: bold&#34;&gt;public&lt;/span&gt; String &lt;span style=&#34;color: #0066BB; font-weight: bold&#34;&gt;index&lt;/span&gt;&lt;span style=&#34;color: #333333&#34;&gt;(){&lt;/span&gt;
+        &lt;span style=&#34;color: #888888&#34;&gt;//return NAME of html page (eg. index.html)&lt;/span&gt;
+        &lt;span style=&#34;color: #008800; font-weight: bold&#34;&gt;return&lt;/span&gt; &lt;span style=&#34;background-color: #fff0f0&#34;&gt;&amp;quot;Greetings from spring boot!&amp;quot;&lt;/span&gt;&lt;span style=&#34;color: #333333&#34;&gt;;&lt;/span&gt;
+    &lt;span style=&#34;color: #333333&#34;&gt;}&lt;/span&gt;
 
-    @RequestMapping(&amp;quot;/&amp;quot;)
-    @ResponseBody
-    public String index(){
-        //return NAME of html page (eg. index.html)
-        return &amp;quot;Greetings from spring boot!&amp;quot;;
-    }
+    &lt;span style=&#34;color: #555555; font-weight: bold&#34;&gt;@RequestMapping&lt;/span&gt;&lt;span style=&#34;color: #333333&#34;&gt;(&lt;/span&gt;value &lt;span style=&#34;color: #333333&#34;&gt;=&lt;/span&gt; &lt;span style=&#34;background-color: #fff0f0&#34;&gt;&amp;quot;/someResource&amp;quot;&lt;/span&gt;&lt;span style=&#34;color: #333333&#34;&gt;,&lt;/span&gt; method &lt;span style=&#34;color: #333333&#34;&gt;=&lt;/span&gt; RequestMethod&lt;span style=&#34;color: #333333&#34;&gt;.&lt;/span&gt;&lt;span style=&#34;color: #0000CC&#34;&gt;GET&lt;/span&gt;&lt;span style=&#34;color: #333333&#34;&gt;)&lt;/span&gt;
+    &lt;span style=&#34;color: #008800; font-weight: bold&#34;&gt;public&lt;/span&gt; &lt;span style=&#34;color: #333399; font-weight: bold&#34;&gt;void&lt;/span&gt; &lt;span style=&#34;color: #0066BB; font-weight: bold&#34;&gt;someResource&lt;/span&gt;&lt;span style=&#34;color: #333333&#34;&gt;(&lt;/span&gt;HttpServletResponse response&lt;span style=&#34;color: #333333&#34;&gt;)&lt;/span&gt; &lt;span style=&#34;color: #333333&#34;&gt;{&lt;/span&gt;
+        &lt;span style=&#34;color: #888888&#34;&gt;//can change this to by default return a list?&lt;/span&gt;
+        response&lt;span style=&#34;color: #333333&#34;&gt;.&lt;/span&gt;&lt;span style=&#34;color: #0000CC&#34;&gt;setStatus&lt;/span&gt;&lt;span style=&#34;color: #333333&#34;&gt;(&lt;/span&gt;HttpServletResponse&lt;span style=&#34;color: #333333&#34;&gt;.&lt;/span&gt;&lt;span style=&#34;color: #0000CC&#34;&gt;SC_OK&lt;/span&gt;&lt;span style=&#34;color: #333333&#34;&gt;);&lt;/span&gt;
+        &lt;span style=&#34;color: #008800; font-weight: bold&#34;&gt;try&lt;/span&gt; &lt;span style=&#34;color: #333333&#34;&gt;{&lt;/span&gt;
+            response&lt;span style=&#34;color: #333333&#34;&gt;.&lt;/span&gt;&lt;span style=&#34;color: #0000CC&#34;&gt;getWriter&lt;/span&gt;&lt;span style=&#34;color: #333333&#34;&gt;().&lt;/span&gt;&lt;span style=&#34;color: #0000CC&#34;&gt;write&lt;/span&gt;&lt;span style=&#34;color: #333333&#34;&gt;(&lt;/span&gt;&lt;span style=&#34;background-color: #fff0f0&#34;&gt;&amp;quot;Some useful message.&amp;quot;&lt;/span&gt;&lt;span style=&#34;color: #333333&#34;&gt;);&lt;/span&gt;
+            response&lt;span style=&#34;color: #333333&#34;&gt;.&lt;/span&gt;&lt;span style=&#34;color: #0000CC&#34;&gt;getWriter&lt;/span&gt;&lt;span style=&#34;color: #333333&#34;&gt;().&lt;/span&gt;&lt;span style=&#34;color: #0000CC&#34;&gt;flush&lt;/span&gt;&lt;span style=&#34;color: #333333&#34;&gt;();&lt;/span&gt;
+            response&lt;span style=&#34;color: #333333&#34;&gt;.&lt;/span&gt;&lt;span style=&#34;color: #0000CC&#34;&gt;getWriter&lt;/span&gt;&lt;span style=&#34;color: #333333&#34;&gt;().&lt;/span&gt;&lt;span style=&#34;color: #0000CC&#34;&gt;close&lt;/span&gt;&lt;span style=&#34;color: #333333&#34;&gt;();&lt;/span&gt;
+        &lt;span style=&#34;color: #333333&#34;&gt;}&lt;/span&gt; &lt;span style=&#34;color: #008800; font-weight: bold&#34;&gt;catch&lt;/span&gt; &lt;span style=&#34;color: #333333&#34;&gt;(&lt;/span&gt;Exception ex&lt;span style=&#34;color: #333333&#34;&gt;)&lt;/span&gt; &lt;span style=&#34;color: #333333&#34;&gt;{&lt;/span&gt;
+            log&lt;span style=&#34;color: #333333&#34;&gt;.&lt;/span&gt;&lt;span style=&#34;color: #0000CC&#34;&gt;error&lt;/span&gt;&lt;span style=&#34;color: #333333&#34;&gt;(&lt;/span&gt;&lt;span style=&#34;background-color: #fff0f0&#34;&gt;&amp;quot;Argh, the AIs are rebelling! &amp;quot;&lt;/span&gt;&lt;span style=&#34;color: #333333&#34;&gt;,&lt;/span&gt; ex&lt;span style=&#34;color: #333333&#34;&gt;);&lt;/span&gt;
+        &lt;span style=&#34;color: #333333&#34;&gt;}&lt;/span&gt;
 
-    @RequestMapping(value = &amp;quot;/someResource&amp;quot;, method = RequestMethod.GET)
-    public void someResource(HttpServletResponse response) {
-        //can change this to by default return a list?
-        response.setStatus(HttpServletResponse.SC_OK);
-        try {
-            response.getWriter().write(&amp;quot;Some useful message.&amp;quot;);
-            response.getWriter().flush();
-            response.getWriter().close();
-        } catch (Exception ex) {
-            log.error(&amp;quot;Argh, the AIs are rebelling! &amp;quot;, ex);
-        }
+    &lt;span style=&#34;color: #333333&#34;&gt;}&lt;/span&gt;
 
-    }
+    &lt;span style=&#34;color: #555555; font-weight: bold&#34;&gt;@RequestMapping&lt;/span&gt;&lt;span style=&#34;color: #333333&#34;&gt;(&lt;/span&gt;value &lt;span style=&#34;color: #333333&#34;&gt;=&lt;/span&gt; &lt;span style=&#34;background-color: #fff0f0&#34;&gt;&amp;quot;/upload&amp;quot;&lt;/span&gt;&lt;span style=&#34;color: #333333&#34;&gt;,&lt;/span&gt; method &lt;span style=&#34;color: #333333&#34;&gt;=&lt;/span&gt; RequestMethod&lt;span style=&#34;color: #333333&#34;&gt;.&lt;/span&gt;&lt;span style=&#34;color: #0000CC&#34;&gt;POST&lt;/span&gt;&lt;span style=&#34;color: #333333&#34;&gt;)&lt;/span&gt;
+    &lt;span style=&#34;color: #555555; font-weight: bold&#34;&gt;@ResponseBody&lt;/span&gt;
+    &lt;span style=&#34;color: #008800; font-weight: bold&#34;&gt;public&lt;/span&gt; ResponseEntity&lt;span style=&#34;color: #333333&#34;&gt;&amp;lt;?&amp;gt;&lt;/span&gt; uploadFile&lt;span style=&#34;color: #333333&#34;&gt;(&lt;/span&gt;
+            &lt;span style=&#34;color: #555555; font-weight: bold&#34;&gt;@RequestParam&lt;/span&gt;&lt;span style=&#34;color: #333333&#34;&gt;(&lt;/span&gt;&lt;span style=&#34;background-color: #fff0f0&#34;&gt;&amp;quot;file&amp;quot;&lt;/span&gt;&lt;span style=&#34;color: #333333&#34;&gt;)&lt;/span&gt; MultipartFile file&lt;span style=&#34;color: #333333&#34;&gt;,&lt;/span&gt; &lt;span style=&#34;color: #555555; font-weight: bold&#34;&gt;@RequestParam&lt;/span&gt;&lt;span style=&#34;color: #333333&#34;&gt;(&lt;/span&gt;value &lt;span style=&#34;color: #333333&#34;&gt;=&lt;/span&gt; &lt;span style=&#34;background-color: #fff0f0&#34;&gt;&amp;quot;description&amp;quot;&lt;/span&gt;&lt;span style=&#34;color: #333333&#34;&gt;,&lt;/span&gt; required &lt;span style=&#34;color: #333333&#34;&gt;=&lt;/span&gt; &lt;span style=&#34;color: #008800; font-weight: bold&#34;&gt;true&lt;/span&gt;&lt;span style=&#34;color: #333333&#34;&gt;)&lt;/span&gt; String description&lt;span style=&#34;color: #333333&#34;&gt;)&lt;/span&gt; &lt;span style=&#34;color: #333333&#34;&gt;{&lt;/span&gt;
 
-    @RequestMapping(value = &amp;quot;/upload&amp;quot;, method = RequestMethod.POST)
-    @ResponseBody
-    public ResponseEntity&amp;lt;?&amp;gt; uploadFile(
-            @RequestParam(&amp;quot;file&amp;quot;) MultipartFile file, @RequestParam(value = &amp;quot;description&amp;quot;, required = true) String description) {
+        &lt;span style=&#34;color: #008800; font-weight: bold&#34;&gt;try&lt;/span&gt; &lt;span style=&#34;color: #333333&#34;&gt;{&lt;/span&gt;
+          &lt;span style=&#34;color: #888888&#34;&gt;// process multipart file&lt;/span&gt;
+        &lt;span style=&#34;color: #333333&#34;&gt;}&lt;/span&gt; &lt;span style=&#34;color: #008800; font-weight: bold&#34;&gt;catch&lt;/span&gt; &lt;span style=&#34;color: #333333&#34;&gt;(&lt;/span&gt;Exception e&lt;span style=&#34;color: #333333&#34;&gt;)&lt;/span&gt; &lt;span style=&#34;color: #333333&#34;&gt;{&lt;/span&gt;
+            System&lt;span style=&#34;color: #333333&#34;&gt;.&lt;/span&gt;&lt;span style=&#34;color: #0000CC&#34;&gt;out&lt;/span&gt;&lt;span style=&#34;color: #333333&#34;&gt;.&lt;/span&gt;&lt;span style=&#34;color: #0000CC&#34;&gt;println&lt;/span&gt;&lt;span style=&#34;color: #333333&#34;&gt;(&lt;/span&gt;e&lt;span style=&#34;color: #333333&#34;&gt;.&lt;/span&gt;&lt;span style=&#34;color: #0000CC&#34;&gt;getMessage&lt;/span&gt;&lt;span style=&#34;color: #333333&#34;&gt;());&lt;/span&gt;
+            &lt;span style=&#34;color: #008800; font-weight: bold&#34;&gt;return&lt;/span&gt; &lt;span style=&#34;color: #008800; font-weight: bold&#34;&gt;new&lt;/span&gt; ResponseEntity&lt;span style=&#34;color: #333333&#34;&gt;&amp;lt;&amp;gt;(&lt;/span&gt;HttpStatus&lt;span style=&#34;color: #333333&#34;&gt;.&lt;/span&gt;&lt;span style=&#34;color: #0000CC&#34;&gt;BAD_REQUEST&lt;/span&gt;&lt;span style=&#34;color: #333333&#34;&gt;);&lt;/span&gt;
+        &lt;span style=&#34;color: #333333&#34;&gt;}&lt;/span&gt;
+        &lt;span style=&#34;color: #008800; font-weight: bold&#34;&gt;return&lt;/span&gt; &lt;span style=&#34;color: #008800; font-weight: bold&#34;&gt;new&lt;/span&gt; ResponseEntity&lt;span style=&#34;color: #333333&#34;&gt;&amp;lt;&amp;gt;(&lt;/span&gt;HttpStatus&lt;span style=&#34;color: #333333&#34;&gt;.&lt;/span&gt;&lt;span style=&#34;color: #0000CC&#34;&gt;OK&lt;/span&gt;&lt;span style=&#34;color: #333333&#34;&gt;);&lt;/span&gt;
+    &lt;span style=&#34;color: #333333&#34;&gt;}&lt;/span&gt;
 
-        try {
-          // process multipart file
-        } catch (Exception e) {
-            System.out.println(e.getMessage());
-            return new ResponseEntity&amp;lt;&amp;gt;(HttpStatus.BAD_REQUEST);
-        }
-        return new ResponseEntity&amp;lt;&amp;gt;(HttpStatus.OK);
-    }
+    &lt;span style=&#34;color: #555555; font-weight: bold&#34;&gt;@RequestMapping&lt;/span&gt;&lt;span style=&#34;color: #333333&#34;&gt;(&lt;/span&gt;value &lt;span style=&#34;color: #333333&#34;&gt;=&lt;/span&gt; &lt;span style=&#34;background-color: #fff0f0&#34;&gt;&amp;quot;/submitInfo&amp;quot;&lt;/span&gt;&lt;span style=&#34;color: #333333&#34;&gt;,&lt;/span&gt; method &lt;span style=&#34;color: #333333&#34;&gt;=&lt;/span&gt; RequestMethod&lt;span style=&#34;color: #333333&#34;&gt;.&lt;/span&gt;&lt;span style=&#34;color: #0000CC&#34;&gt;POST&lt;/span&gt;&lt;span style=&#34;color: #333333&#34;&gt;)&lt;/span&gt;
+    &lt;span style=&#34;color: #555555; font-weight: bold&#34;&gt;@ResponseBody&lt;/span&gt;
+    &lt;span style=&#34;color: #008800; font-weight: bold&#34;&gt;public&lt;/span&gt; String &lt;span style=&#34;color: #0066BB; font-weight: bold&#34;&gt;someInfoFromAForm&lt;/span&gt;&lt;span style=&#34;color: #333333&#34;&gt;(&lt;/span&gt;&lt;span style=&#34;color: #555555; font-weight: bold&#34;&gt;@ModelAttribute&lt;/span&gt; SomeObject someObject&lt;span style=&#34;color: #333333&#34;&gt;)&lt;/span&gt; &lt;span style=&#34;color: #333333&#34;&gt;{&lt;/span&gt;
+      &lt;span style=&#34;color: #888888&#34;&gt;//ModelAttribute is not actually required here&lt;/span&gt;
 
-    @RequestMapping(value = &amp;quot;/submitInfo&amp;quot;, method = RequestMethod.POST)
-    @ResponseBody
-    public String someInfoFromAForm(@ModelAttribute SomeObject someObject) {
-      //ModelAttribute is not actually required here
+      &lt;span style=&#34;color: #888888&#34;&gt;//use getters&lt;/span&gt;
 
-      //use getters
+      &lt;span style=&#34;color: #008800; font-weight: bold&#34;&gt;return&lt;/span&gt; payload&lt;span style=&#34;color: #333333&#34;&gt;;&lt;/span&gt;
+    &lt;span style=&#34;color: #333333&#34;&gt;}&lt;/span&gt;
 
-      return payload;
-    }
-
-}
-&lt;/code&gt;&lt;/pre&gt;
+&lt;span style=&#34;color: #333333&#34;&gt;}&lt;/span&gt;
+&lt;/pre&gt;&lt;/div&gt;
 
 &lt;p&gt;References:
 -&lt;a href=&#34;https://github.com/jdmr/fileUpload/blob/master/src/main/java/org/davidmendoza/fileUpload/web/ImageController.java&#34;&gt;davidmendoza&lt;/a&gt;
 -&lt;a href=&#34;https://github.com/netgloo/spring-boot-samples/blob/master/spring-boot-file-upload-with-ajax/src/main/java/netgloo/controllers/MainController.java&#34;&gt;netgloo&lt;/a&gt;&lt;/p&gt;
 
 &lt;h3 id=&#34;repository&#34;&gt;Repository&lt;/h3&gt;
+&lt;div class=&#34;highlight&#34; style=&#34;background: #ffffff&#34;&gt;&lt;pre style=&#34;line-height: 125%&#34;&gt;&lt;span&gt;&lt;/span&gt;&lt;span style=&#34;color: #008800; font-weight: bold&#34;&gt;public&lt;/span&gt; &lt;span style=&#34;color: #008800; font-weight: bold&#34;&gt;interface&lt;/span&gt; &lt;span style=&#34;color: #BB0066; font-weight: bold&#34;&gt;SomeRepository&lt;/span&gt; &lt;span style=&#34;color: #008800; font-weight: bold&#34;&gt;extends&lt;/span&gt; JpaRepository&lt;span style=&#34;color: #333333&#34;&gt;&amp;lt;&lt;/span&gt;SomeObject&lt;span style=&#34;color: #333333&#34;&gt;,&lt;/span&gt; Long&lt;span style=&#34;color: #333333&#34;&gt;&amp;gt;&lt;/span&gt; &lt;span style=&#34;color: #333333&#34;&gt;{&lt;/span&gt;
+&lt;span style=&#34;color: #333333&#34;&gt;}&lt;/span&gt;
 
-&lt;pre&gt;&lt;code class=&#34;language-java&#34;&gt;public interface SomeRepository extends JpaRepository&amp;lt;SomeObject, Long&amp;gt; {
-}
-
-//examples
-repo.save(SomeObject);
-repo.findAll();
-repo.getOne((long) id);
-&lt;/code&gt;&lt;/pre&gt;
+&lt;span style=&#34;color: #888888&#34;&gt;//examples&lt;/span&gt;
+repo&lt;span style=&#34;color: #333333&#34;&gt;.&lt;/span&gt;&lt;span style=&#34;color: #0000CC&#34;&gt;save&lt;/span&gt;&lt;span style=&#34;color: #333333&#34;&gt;(&lt;/span&gt;SomeObject&lt;span style=&#34;color: #333333&#34;&gt;);&lt;/span&gt;
+repo&lt;span style=&#34;color: #333333&#34;&gt;.&lt;/span&gt;&lt;span style=&#34;color: #0000CC&#34;&gt;findAll&lt;/span&gt;&lt;span style=&#34;color: #333333&#34;&gt;();&lt;/span&gt;
+repo&lt;span style=&#34;color: #333333&#34;&gt;.&lt;/span&gt;&lt;span style=&#34;color: #0000CC&#34;&gt;getOne&lt;/span&gt;&lt;span style=&#34;color: #333333&#34;&gt;((&lt;/span&gt;&lt;span style=&#34;color: #333399; font-weight: bold&#34;&gt;long&lt;/span&gt;&lt;span style=&#34;color: #333333&#34;&gt;)&lt;/span&gt; id&lt;span style=&#34;color: #333333&#34;&gt;);&lt;/span&gt;
+&lt;/pre&gt;&lt;/div&gt;
 
 &lt;p&gt;Extended from:&lt;/p&gt;
-
-&lt;pre&gt;&lt;code class=&#34;language-java&#34;&gt;public interface JpaRepository&amp;lt;T, ID extends Serializable&amp;gt; extends PagingAndSortingRepository&amp;lt;T, ID&amp;gt; {
-    List&amp;lt;T&amp;gt; findAll();
-    List&amp;lt;T&amp;gt; findAll(Sort sort);
-    List&amp;lt;T&amp;gt; findAll(Iterable&amp;lt;ID&amp;gt; ids);
-    &amp;lt;S extends T&amp;gt; List&amp;lt;S&amp;gt; save(Iterable&amp;lt;S&amp;gt; entities);
-    void flush();
-    &amp;lt;S extends T&amp;gt; S saveAndFlush(S entity);
-    void deleteInBatch(Iterable&amp;lt;T&amp;gt; entities);
-    void deleteAllInBatch();
-    T getOne(ID id);
-}
-&lt;/code&gt;&lt;/pre&gt;
+&lt;div class=&#34;highlight&#34; style=&#34;background: #ffffff&#34;&gt;&lt;pre style=&#34;line-height: 125%&#34;&gt;&lt;span&gt;&lt;/span&gt;&lt;span style=&#34;color: #008800; font-weight: bold&#34;&gt;public&lt;/span&gt; &lt;span style=&#34;color: #008800; font-weight: bold&#34;&gt;interface&lt;/span&gt; &lt;span style=&#34;color: #BB0066; font-weight: bold&#34;&gt;JpaRepository&lt;/span&gt;&lt;span style=&#34;color: #333333&#34;&gt;&amp;lt;&lt;/span&gt;T&lt;span style=&#34;color: #333333&#34;&gt;,&lt;/span&gt; ID &lt;span style=&#34;color: #008800; font-weight: bold&#34;&gt;extends&lt;/span&gt; Serializable&lt;span style=&#34;color: #333333&#34;&gt;&amp;gt;&lt;/span&gt; &lt;span style=&#34;color: #008800; font-weight: bold&#34;&gt;extends&lt;/span&gt; PagingAndSortingRepository&lt;span style=&#34;color: #333333&#34;&gt;&amp;lt;&lt;/span&gt;T&lt;span style=&#34;color: #333333&#34;&gt;,&lt;/span&gt; ID&lt;span style=&#34;color: #333333&#34;&gt;&amp;gt;&lt;/span&gt; &lt;span style=&#34;color: #333333&#34;&gt;{&lt;/span&gt;
+    List&lt;span style=&#34;color: #333333&#34;&gt;&amp;lt;&lt;/span&gt;T&lt;span style=&#34;color: #333333&#34;&gt;&amp;gt;&lt;/span&gt; &lt;span style=&#34;color: #0066BB; font-weight: bold&#34;&gt;findAll&lt;/span&gt;&lt;span style=&#34;color: #333333&#34;&gt;();&lt;/span&gt;
+    List&lt;span style=&#34;color: #333333&#34;&gt;&amp;lt;&lt;/span&gt;T&lt;span style=&#34;color: #333333&#34;&gt;&amp;gt;&lt;/span&gt; &lt;span style=&#34;color: #0066BB; font-weight: bold&#34;&gt;findAll&lt;/span&gt;&lt;span style=&#34;color: #333333&#34;&gt;(&lt;/span&gt;Sort sort&lt;span style=&#34;color: #333333&#34;&gt;);&lt;/span&gt;
+    List&lt;span style=&#34;color: #333333&#34;&gt;&amp;lt;&lt;/span&gt;T&lt;span style=&#34;color: #333333&#34;&gt;&amp;gt;&lt;/span&gt; &lt;span style=&#34;color: #0066BB; font-weight: bold&#34;&gt;findAll&lt;/span&gt;&lt;span style=&#34;color: #333333&#34;&gt;(&lt;/span&gt;Iterable&lt;span style=&#34;color: #333333&#34;&gt;&amp;lt;&lt;/span&gt;ID&lt;span style=&#34;color: #333333&#34;&gt;&amp;gt;&lt;/span&gt; ids&lt;span style=&#34;color: #333333&#34;&gt;);&lt;/span&gt;
+    &lt;span style=&#34;color: #333333&#34;&gt;&amp;lt;&lt;/span&gt;S &lt;span style=&#34;color: #008800; font-weight: bold&#34;&gt;extends&lt;/span&gt; T&lt;span style=&#34;color: #333333&#34;&gt;&amp;gt;&lt;/span&gt; List&lt;span style=&#34;color: #333333&#34;&gt;&amp;lt;&lt;/span&gt;S&lt;span style=&#34;color: #333333&#34;&gt;&amp;gt;&lt;/span&gt; &lt;span style=&#34;color: #0066BB; font-weight: bold&#34;&gt;save&lt;/span&gt;&lt;span style=&#34;color: #333333&#34;&gt;(&lt;/span&gt;Iterable&lt;span style=&#34;color: #333333&#34;&gt;&amp;lt;&lt;/span&gt;S&lt;span style=&#34;color: #333333&#34;&gt;&amp;gt;&lt;/span&gt; entities&lt;span style=&#34;color: #333333&#34;&gt;);&lt;/span&gt;
+    &lt;span style=&#34;color: #333399; font-weight: bold&#34;&gt;void&lt;/span&gt; &lt;span style=&#34;color: #0066BB; font-weight: bold&#34;&gt;flush&lt;/span&gt;&lt;span style=&#34;color: #333333&#34;&gt;();&lt;/span&gt;
+    &lt;span style=&#34;color: #333333&#34;&gt;&amp;lt;&lt;/span&gt;S &lt;span style=&#34;color: #008800; font-weight: bold&#34;&gt;extends&lt;/span&gt; T&lt;span style=&#34;color: #333333&#34;&gt;&amp;gt;&lt;/span&gt; S &lt;span style=&#34;color: #0066BB; font-weight: bold&#34;&gt;saveAndFlush&lt;/span&gt;&lt;span style=&#34;color: #333333&#34;&gt;(&lt;/span&gt;S entity&lt;span style=&#34;color: #333333&#34;&gt;);&lt;/span&gt;
+    &lt;span style=&#34;color: #333399; font-weight: bold&#34;&gt;void&lt;/span&gt; &lt;span style=&#34;color: #0066BB; font-weight: bold&#34;&gt;deleteInBatch&lt;/span&gt;&lt;span style=&#34;color: #333333&#34;&gt;(&lt;/span&gt;Iterable&lt;span style=&#34;color: #333333&#34;&gt;&amp;lt;&lt;/span&gt;T&lt;span style=&#34;color: #333333&#34;&gt;&amp;gt;&lt;/span&gt; entities&lt;span style=&#34;color: #333333&#34;&gt;);&lt;/span&gt;
+    &lt;span style=&#34;color: #333399; font-weight: bold&#34;&gt;void&lt;/span&gt; &lt;span style=&#34;color: #0066BB; font-weight: bold&#34;&gt;deleteAllInBatch&lt;/span&gt;&lt;span style=&#34;color: #333333&#34;&gt;();&lt;/span&gt;
+    T &lt;span style=&#34;color: #0066BB; font-weight: bold&#34;&gt;getOne&lt;/span&gt;&lt;span style=&#34;color: #333333&#34;&gt;(&lt;/span&gt;ID id&lt;span style=&#34;color: #333333&#34;&gt;);&lt;/span&gt;
+&lt;span style=&#34;color: #333333&#34;&gt;}&lt;/span&gt;
+&lt;/pre&gt;&lt;/div&gt;
 
 &lt;h3 id=&#34;domain&#34;&gt;Domain&lt;/h3&gt;
 
