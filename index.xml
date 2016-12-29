@@ -23,10 +23,11 @@ This serves as a quick reference should I need to manage submodules again.&lt;/p
 &lt;p&gt;&lt;a href=&#34;https://github.com/blog/2104-working-with-submodules&#34;&gt;GitHub: Working with submodules&lt;/a&gt;&lt;/p&gt;
 
 &lt;h1 id=&#34;removing&#34;&gt;Removing&lt;/h1&gt;
-&lt;div class=&#34;highlight&#34; style=&#34;background: #ffffff&#34;&gt;&lt;pre style=&#34;line-height: 125%&#34;&gt;&lt;span&gt;&lt;/span&gt;git submodule deinit &amp;lt;asubmodule&amp;gt;    
+
+&lt;pre&gt;&lt;code&gt;git submodule deinit &amp;lt;asubmodule&amp;gt;    
 git rm &amp;lt;asubmodule&amp;gt;
-&lt;span style=&#34;color: #888888&#34;&gt;# Note: asubmodule (no trailing slash)&lt;/span&gt;
-&lt;/pre&gt;&lt;/div&gt;
+# Note: asubmodule (no trailing slash)
+&lt;/code&gt;&lt;/pre&gt;
 
 &lt;pre&gt;&lt;code&gt;# or, if you want to leave it in your working tree
 git rm --cached &amp;lt;asubmodule&amp;gt;

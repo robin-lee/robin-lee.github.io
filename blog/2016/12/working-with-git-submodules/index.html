@@ -117,10 +117,11 @@ This serves as a quick reference should I need to manage submodules again.</p>
 <p><a href="https://github.com/blog/2104-working-with-submodules">GitHub: Working with submodules</a></p>
 
 <h1 id="removing">Removing</h1>
-<div class="highlight" style="background: #ffffff"><pre style="line-height: 125%"><span></span>git submodule deinit &lt;asubmodule&gt;    
+
+<pre><code>git submodule deinit &lt;asubmodule&gt;    
 git rm &lt;asubmodule&gt;
-<span style="color: #888888"># Note: asubmodule (no trailing slash)</span>
-</pre></div>
+# Note: asubmodule (no trailing slash)
+</code></pre>
 
 <pre><code># or, if you want to leave it in your working tree
 git rm --cached &lt;asubmodule&gt;
