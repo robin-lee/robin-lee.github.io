@@ -6,8 +6,95 @@
     <description>Recent content on Robin Lee</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <lastBuildDate>Thu, 29 Dec 2016 12:25:26 +0800</lastBuildDate>
+    <lastBuildDate>Mon, 23 Jan 2017 18:09:13 +0800</lastBuildDate>
     <atom:link href="https://robin-lee.github.io/index.xml" rel="self" type="application/rss+xml" />
+    
+    <item>
+      <title>Portfolio</title>
+      <link>https://robin-lee.github.io/portfolio/</link>
+      <pubDate>Mon, 23 Jan 2017 18:09:13 +0800</pubDate>
+      
+      <guid>https://robin-lee.github.io/portfolio/</guid>
+      <description>
+
+&lt;p&gt;A selection of work I have done.&lt;/p&gt;
+
+&lt;h1 id=&#34;for-companies&#34;&gt;For companies&lt;/h1&gt;
+
+&lt;hr /&gt;
+
+&lt;h2 id=&#34;lbasense-dashboard&#34;&gt;LBASense Dashboard&lt;/h2&gt;
+
+&lt;p&gt;DFRC AG&lt;/p&gt;
+
+&lt;p&gt;Programmed LBASense Dashboard according to UI mock-ups and published it on the Play Store.
+Adopted model-view-presenter within clean architecture and utilized Dagger 2, for DI, to enable testing.&lt;/p&gt;
+
+&lt;p&gt;Other libraries used, include geospatial libraries, CrashAnalytics (Fabric&amp;rsquo;s team was acquired by Google; Jan 2017), MPCharts and OSMDroid for mapping.&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&#34;https://robin-lee.github.io/images/lbasense2.jpg&#34; width=&#34;250&#34; alt=&#34;Screenshot 2&#34;&gt;
+&lt;img src=&#34;https://robin-lee.github.io/images/lbasense3.jpg&#34; width=&#34;250&#34; alt=&#34;Screenshot 3&#34;&gt;&lt;/p&gt;
+
+&lt;h2 id=&#34;lbsaas-smart-tour&#34;&gt;LBSaaS Smart Tour&lt;/h2&gt;
+
+&lt;p&gt;DFRC AG&lt;/p&gt;
+
+&lt;p&gt;Developed the Android application for the EUREKA Eurostars project LBSaaS (E!9010) which aims to better shopper and shop relationships using Augmented Reality(AR), gamification and virtual coupons.&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&#34;https://robin-lee.github.io/images/lbsaas2.jpg&#34; width=&#34;250&#34; alt=&#34;Screenshot 2&#34;&gt;
+&lt;img src=&#34;https://robin-lee.github.io/images/lbsaas3.jpg&#34; width=&#34;250&#34; alt=&#34;Screenshot 3&#34;&gt;&lt;/p&gt;
+
+&lt;h2 id=&#34;shop-owner-admin-app&#34;&gt;Shop Owner Admin App&lt;/h2&gt;
+
+&lt;p&gt;DFRC AG&lt;/p&gt;
+
+&lt;p&gt;Created the application for &lt;em&gt;shop owners&lt;/em&gt; to update the content for significant locations.&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&#34;https://robin-lee.github.io/images/shopowneradmin2.jpg&#34; width=&#34;250&#34; alt=&#34;Screenshot 2&#34;&gt;
+&lt;img src=&#34;https://robin-lee.github.io/images/shopowneradmin3.jpg&#34; width=&#34;250&#34; alt=&#34;Screenshot 3&#34;&gt;&lt;/p&gt;
+
+&lt;h2 id=&#34;dealparkinglot&#34;&gt;DealParkingLot&lt;/h2&gt;
+
+&lt;p&gt;BP Singapore&lt;/p&gt;
+
+&lt;p&gt;Developed a hybrid and cross-platform (iOS and Android) mobile application using IonicJS for traders to confirm deals.
+Collaborated with a diverse team (SG, India, UK and USA) to gather requirements and feedback. Also, modified Cordova plugins in Obj-C and Java for certificate pinning.&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&#34;https://robin-lee.github.io/images/bp1.jpg&#34; width=&#34;250&#34; alt=&#34;Screenshot 1&#34;&gt;
+&lt;img src=&#34;https://robin-lee.github.io/images/bp2.jpg&#34; width=&#34;250&#34; alt=&#34;Screenshot 2&#34;&gt;&lt;/p&gt;
+
+&lt;h3 id=&#34;additional-prototypes&#34;&gt;Additional prototypes&lt;/h3&gt;
+
+&lt;p&gt;BP Singapore&lt;/p&gt;
+
+&lt;ul&gt;
+&lt;li&gt;Unit converter: Quick and easy way to convert units for oil and other commodities.&lt;/li&gt;
+&lt;li&gt;Ships To Go: Enables operators to track ships on the move.&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h1 id=&#34;for-school&#34;&gt;For school&lt;/h1&gt;
+
+&lt;hr /&gt;
+
+&lt;h2 id=&#34;books-r-us&#34;&gt;Books R&amp;rsquo; Us&lt;/h2&gt;
+
+&lt;p&gt;The classic book store project that schools give you. Built using Flask.
+Initial project was started using flask cookie-cutter to adopt &lt;em&gt;better&lt;/em&gt; practices.
+It has some unit and integration tests which is important for long term project maintenance.&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&#34;https://robin-lee.github.io/images/booksrus.png&#34; alt=&#34;Screenshot 1&#34;&gt;&lt;/p&gt;
+
+&lt;h2 id=&#34;oh-no-its-zombies-oniz&#34;&gt;Oh No Its Zombies (ONIZ)&lt;/h2&gt;
+
+&lt;p&gt;A multiplayer Android game. Uses Google Game Services and LibGDX.&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&#34;https://robin-lee.github.io/images/oniz1.png&#34; width=&#34;250&#34; alt=&#34;Screenshot 1&#34;&gt;
+&lt;img src=&#34;https://robin-lee.github.io/images/oniz2.png&#34; width=&#34;250&#34; alt=&#34;Screenshot 2&#34;&gt;&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&#34;https://robin-lee.github.io/images/oniz3.png&#34; width=&#34;250&#34; alt=&#34;Screenshot 3&#34;&gt;
+&lt;img src=&#34;https://robin-lee.github.io/images/oniz4.png&#34; width=&#34;250&#34; alt=&#34;Screenshot 4&#34;&gt;&lt;/p&gt;
+</description>
+    </item>
     
     <item>
       <title>Working with git submodules</title>
@@ -2001,97 +2088,6 @@ becomes
 &lt;blockquote&gt;
 &lt;p&gt;Depend on abstractions, not on concretions.&lt;/p&gt;
 &lt;/blockquote&gt;
-</description>
-    </item>
-    
-    <item>
-      <title>Gson Custom Deserializer</title>
-      <link>https://robin-lee.github.io/blog/2016/07/gson-custom-deserializer/</link>
-      <pubDate>Tue, 12 Jul 2016 21:51:16 +0200</pubDate>
-      
-      <guid>https://robin-lee.github.io/blog/2016/07/gson-custom-deserializer/</guid>
-      <description>&lt;p&gt;When you develop an application, usually you will have to consume an API Service which might return some JSON data.
-You might not need all values from the JSON data.&lt;/p&gt;
-
-&lt;p&gt;The question is how do you process such data the &lt;em&gt;right&lt;/em&gt; way?&lt;/p&gt;
-
-&lt;p&gt;Typically, you will retrieve the data using a HTTP client and then pass it on to a Object Relational Mapper.
-In my experience APIs return data based on models crafted for the database, however, for client side applications the model
-you design might be different from what the API returns you (due to application needs/ease of development). Hence, you need to extract part of it, transform it or map it differently.&lt;/p&gt;
-
-&lt;p&gt;If you happen to use GSON and retrofit 2&amp;hellip; Perhaps this example will help you.&lt;/p&gt;
-
-&lt;p&gt;Sample json data:&lt;/p&gt;
-&lt;div class=&#34;highlight&#34; style=&#34;background: #ffffff&#34;&gt;&lt;pre style=&#34;line-height: 125%&#34;&gt;&lt;span&gt;&lt;/span&gt;{
-  &lt;span style=&#34;color: #007700&#34;&gt;&amp;quot;date&amp;quot;&lt;/span&gt;: &lt;span style=&#34;background-color: #fff0f0&#34;&gt;&amp;quot;2016-01-01T21:23:00&amp;quot;&lt;/span&gt;,
-  &lt;span style=&#34;color: #007700&#34;&gt;&amp;quot;places&amp;quot;&lt;/span&gt;: [
-    {
-      &lt;span style=&#34;color: #007700&#34;&gt;&amp;quot;id&amp;quot;&lt;/span&gt;: &lt;span style=&#34;color: #0000DD; font-weight: bold&#34;&gt;1&lt;/span&gt;,
-      &lt;span style=&#34;color: #007700&#34;&gt;&amp;quot;amount&amp;quot;&lt;/span&gt;: &lt;span style=&#34;color: #0000DD; font-weight: bold&#34;&gt;25&lt;/span&gt;
-    },
-    {
-      &lt;span style=&#34;color: #007700&#34;&gt;&amp;quot;id&amp;quot;&lt;/span&gt;: &lt;span style=&#34;color: #0000DD; font-weight: bold&#34;&gt;2&lt;/span&gt;,
-      &lt;span style=&#34;color: #007700&#34;&gt;&amp;quot;amount&amp;quot;&lt;/span&gt;: &lt;span style=&#34;color: #0000DD; font-weight: bold&#34;&gt;59&lt;/span&gt;
-    },
-    {
-      &lt;span style=&#34;color: #007700&#34;&gt;&amp;quot;id&amp;quot;&lt;/span&gt;: &lt;span style=&#34;color: #0000DD; font-weight: bold&#34;&gt;3&lt;/span&gt;,
-      &lt;span style=&#34;color: #007700&#34;&gt;&amp;quot;amount&amp;quot;&lt;/span&gt;: &lt;span style=&#34;color: #0000DD; font-weight: bold&#34;&gt;28&lt;/span&gt;
-    },
-    {
-      &lt;span style=&#34;color: #007700&#34;&gt;&amp;quot;id&amp;quot;&lt;/span&gt;: &lt;span style=&#34;color: #0000DD; font-weight: bold&#34;&gt;4&lt;/span&gt;,
-      &lt;span style=&#34;color: #007700&#34;&gt;&amp;quot;amount&amp;quot;&lt;/span&gt;: &lt;span style=&#34;color: #0000DD; font-weight: bold&#34;&gt;11&lt;/span&gt;
-    }
-  ]
-}
-&lt;/pre&gt;&lt;/div&gt;
-
-&lt;p&gt;Lets say you just want the &amp;ldquo;list&amp;rdquo; of places.&lt;/p&gt;
-
-&lt;p&gt;First define a model for each &amp;ldquo;Place&amp;rdquo;.&lt;/p&gt;
-&lt;div class=&#34;highlight&#34; style=&#34;background: #ffffff&#34;&gt;&lt;pre style=&#34;line-height: 125%&#34;&gt;&lt;span&gt;&lt;/span&gt;&lt;span style=&#34;color: #008800; font-weight: bold&#34;&gt;private&lt;/span&gt; &lt;span style=&#34;color: #333399; font-weight: bold&#34;&gt;int&lt;/span&gt; id&lt;span style=&#34;color: #333333&#34;&gt;;&lt;/span&gt;
-&lt;span style=&#34;color: #008800; font-weight: bold&#34;&gt;private&lt;/span&gt; &lt;span style=&#34;color: #333399; font-weight: bold&#34;&gt;int&lt;/span&gt; amount&lt;span style=&#34;color: #333333&#34;&gt;;&lt;/span&gt;
-
-&lt;span style=&#34;color: #888888&#34;&gt;//Constructors, getters and setters&lt;/span&gt;
-&lt;/pre&gt;&lt;/div&gt;
-
-&lt;p&gt;Define a custom deserializer for GSON with a main method for testing (or you could setup JUnit).&lt;/p&gt;
-&lt;div class=&#34;highlight&#34; style=&#34;background: #ffffff&#34;&gt;&lt;pre style=&#34;line-height: 125%&#34;&gt;&lt;span&gt;&lt;/span&gt;&lt;span style=&#34;color: #008800; font-weight: bold&#34;&gt;class&lt;/span&gt; &lt;span style=&#34;color: #BB0066; font-weight: bold&#34;&gt;CustomPlaceDeserializer&lt;/span&gt;&lt;span style=&#34;color: #333333&#34;&gt;&amp;lt;&lt;/span&gt;T&lt;span style=&#34;color: #333333&#34;&gt;&amp;gt;&lt;/span&gt; &lt;span style=&#34;color: #008800; font-weight: bold&#34;&gt;implements&lt;/span&gt; JsonDeserializer&lt;span style=&#34;color: #333333&#34;&gt;&amp;lt;&lt;/span&gt;List&lt;span style=&#34;color: #333333&#34;&gt;&amp;lt;&lt;/span&gt;T&lt;span style=&#34;color: #333333&#34;&gt;&amp;gt;&amp;gt;&lt;/span&gt; &lt;span style=&#34;color: #333333&#34;&gt;{&lt;/span&gt;
-
-    &lt;span style=&#34;color: #008800; font-weight: bold&#34;&gt;public&lt;/span&gt; List&lt;span style=&#34;color: #333333&#34;&gt;&amp;lt;&lt;/span&gt;T&lt;span style=&#34;color: #333333&#34;&gt;&amp;gt;&lt;/span&gt; &lt;span style=&#34;color: #0066BB; font-weight: bold&#34;&gt;deserialize&lt;/span&gt;&lt;span style=&#34;color: #333333&#34;&gt;(&lt;/span&gt;JsonElement jsonElement&lt;span style=&#34;color: #333333&#34;&gt;,&lt;/span&gt; Type type&lt;span style=&#34;color: #333333&#34;&gt;,&lt;/span&gt; JsonDeserializationContext context&lt;span style=&#34;color: #333333&#34;&gt;)&lt;/span&gt;
-            &lt;span style=&#34;color: #008800; font-weight: bold&#34;&gt;throws&lt;/span&gt; JsonParseException &lt;span style=&#34;color: #333333&#34;&gt;{&lt;/span&gt;
-
-        JsonElement results &lt;span style=&#34;color: #333333&#34;&gt;=&lt;/span&gt; jsonElement&lt;span style=&#34;color: #333333&#34;&gt;.&lt;/span&gt;&lt;span style=&#34;color: #0000CC&#34;&gt;getAsJsonObject&lt;/span&gt;&lt;span style=&#34;color: #333333&#34;&gt;().&lt;/span&gt;&lt;span style=&#34;color: #0000CC&#34;&gt;get&lt;/span&gt;&lt;span style=&#34;color: #333333&#34;&gt;(&lt;/span&gt;&lt;span style=&#34;background-color: #fff0f0&#34;&gt;&amp;quot;places&amp;quot;&lt;/span&gt;&lt;span style=&#34;color: #333333&#34;&gt;);&lt;/span&gt;
-
-        &lt;span style=&#34;color: #008800; font-weight: bold&#34;&gt;return&lt;/span&gt; &lt;span style=&#34;color: #008800; font-weight: bold&#34;&gt;new&lt;/span&gt; Gson&lt;span style=&#34;color: #333333&#34;&gt;().&lt;/span&gt;&lt;span style=&#34;color: #0000CC&#34;&gt;fromJson&lt;/span&gt;&lt;span style=&#34;color: #333333&#34;&gt;(&lt;/span&gt;results&lt;span style=&#34;color: #333333&#34;&gt;,&lt;/span&gt; type&lt;span style=&#34;color: #333333&#34;&gt;);&lt;/span&gt;
-    &lt;span style=&#34;color: #333333&#34;&gt;}&lt;/span&gt;
-
-    &lt;span style=&#34;color: #008800; font-weight: bold&#34;&gt;public&lt;/span&gt; &lt;span style=&#34;color: #008800; font-weight: bold&#34;&gt;static&lt;/span&gt; &lt;span style=&#34;color: #333399; font-weight: bold&#34;&gt;void&lt;/span&gt; &lt;span style=&#34;color: #0066BB; font-weight: bold&#34;&gt;main&lt;/span&gt;&lt;span style=&#34;color: #333333&#34;&gt;(&lt;/span&gt;String&lt;span style=&#34;color: #333333&#34;&gt;[]&lt;/span&gt; args&lt;span style=&#34;color: #333333&#34;&gt;)&lt;/span&gt; &lt;span style=&#34;color: #008800; font-weight: bold&#34;&gt;throws&lt;/span&gt; Exception &lt;span style=&#34;color: #333333&#34;&gt;{&lt;/span&gt;
-
-        &lt;span style=&#34;color: #888888&#34;&gt;//&lt;/span&gt;
-
-        &lt;span style=&#34;color: #888888&#34;&gt;// Configure Gson&lt;/span&gt;
-        GsonBuilder gsonBuilder &lt;span style=&#34;color: #333333&#34;&gt;=&lt;/span&gt; &lt;span style=&#34;color: #008800; font-weight: bold&#34;&gt;new&lt;/span&gt; GsonBuilder&lt;span style=&#34;color: #333333&#34;&gt;();&lt;/span&gt;
-        Type listType &lt;span style=&#34;color: #333333&#34;&gt;=&lt;/span&gt; &lt;span style=&#34;color: #008800; font-weight: bold&#34;&gt;new&lt;/span&gt; TypeToken&lt;span style=&#34;color: #333333&#34;&gt;&amp;lt;&lt;/span&gt;ArrayList&lt;span style=&#34;color: #333333&#34;&gt;&amp;lt;&lt;/span&gt;Place&lt;span style=&#34;color: #333333&#34;&gt;&amp;gt;&amp;gt;(){}.&lt;/span&gt;&lt;span style=&#34;color: #0000CC&#34;&gt;getType&lt;/span&gt;&lt;span style=&#34;color: #333333&#34;&gt;();&lt;/span&gt;
-        gsonBuilder&lt;span style=&#34;color: #333333&#34;&gt;.&lt;/span&gt;&lt;span style=&#34;color: #0000CC&#34;&gt;registerTypeAdapter&lt;/span&gt;&lt;span style=&#34;color: #333333&#34;&gt;(&lt;/span&gt;listType&lt;span style=&#34;color: #333333&#34;&gt;,&lt;/span&gt; &lt;span style=&#34;color: #008800; font-weight: bold&#34;&gt;new&lt;/span&gt; CustomPlaceDeserializer&lt;span style=&#34;color: #333333&#34;&gt;&amp;lt;&lt;/span&gt;Place&lt;span style=&#34;color: #333333&#34;&gt;&amp;gt;());&lt;/span&gt;
-        Gson gson &lt;span style=&#34;color: #333333&#34;&gt;=&lt;/span&gt; gsonBuilder&lt;span style=&#34;color: #333333&#34;&gt;.&lt;/span&gt;&lt;span style=&#34;color: #0000CC&#34;&gt;create&lt;/span&gt;&lt;span style=&#34;color: #333333&#34;&gt;();&lt;/span&gt;
-
-        &lt;span style=&#34;color: #888888&#34;&gt;// The JSON data&lt;/span&gt;
-        String jsonstring &lt;span style=&#34;color: #333333&#34;&gt;=&lt;/span&gt; &lt;span style=&#34;background-color: #fff0f0&#34;&gt;&amp;quot;replace this with sample json string&amp;quot;&lt;/span&gt;&lt;span style=&#34;color: #333333&#34;&gt;;&lt;/span&gt;
-
-        &lt;span style=&#34;color: #888888&#34;&gt;// Parse JSON to Java&lt;/span&gt;
-        List&lt;span style=&#34;color: #333333&#34;&gt;&amp;lt;&lt;/span&gt;Place&lt;span style=&#34;color: #333333&#34;&gt;&amp;gt;&lt;/span&gt; places &lt;span style=&#34;color: #333333&#34;&gt;=&lt;/span&gt; gson&lt;span style=&#34;color: #333333&#34;&gt;.&lt;/span&gt;&lt;span style=&#34;color: #0000CC&#34;&gt;fromJson&lt;/span&gt;&lt;span style=&#34;color: #333333&#34;&gt;(&lt;/span&gt;jsonstring&lt;span style=&#34;color: #333333&#34;&gt;,&lt;/span&gt; listType&lt;span style=&#34;color: #333333&#34;&gt;);&lt;/span&gt;
-        System&lt;span style=&#34;color: #333333&#34;&gt;.&lt;/span&gt;&lt;span style=&#34;color: #0000CC&#34;&gt;out&lt;/span&gt;&lt;span style=&#34;color: #333333&#34;&gt;.&lt;/span&gt;&lt;span style=&#34;color: #0000CC&#34;&gt;println&lt;/span&gt;&lt;span style=&#34;color: #333333&#34;&gt;(&lt;/span&gt;places&lt;span style=&#34;color: #333333&#34;&gt;.&lt;/span&gt;&lt;span style=&#34;color: #0000CC&#34;&gt;size&lt;/span&gt;&lt;span style=&#34;color: #333333&#34;&gt;());&lt;/span&gt;
-    &lt;span style=&#34;color: #333333&#34;&gt;}&lt;/span&gt;
-
-&lt;span style=&#34;color: #333333&#34;&gt;}&lt;/span&gt;
-&lt;/pre&gt;&lt;/div&gt;
-
-&lt;p&gt;If you are using retrofit 2, it might look something like this:&lt;/p&gt;
-&lt;div class=&#34;highlight&#34; style=&#34;background: #ffffff&#34;&gt;&lt;pre style=&#34;line-height: 125%&#34;&gt;&lt;span&gt;&lt;/span&gt;Gson customGson &lt;span style=&#34;color: #333333&#34;&gt;=&lt;/span&gt;
-        &lt;span style=&#34;color: #008800; font-weight: bold&#34;&gt;new&lt;/span&gt; GsonBuilder&lt;span style=&#34;color: #333333&#34;&gt;()&lt;/span&gt;
-                &lt;span style=&#34;color: #333333&#34;&gt;.&lt;/span&gt;&lt;span style=&#34;color: #0000CC&#34;&gt;registerTypeAdapter&lt;/span&gt;&lt;span style=&#34;color: #333333&#34;&gt;(&lt;/span&gt;listType&lt;span style=&#34;color: #333333&#34;&gt;,&lt;/span&gt; &lt;span style=&#34;color: #008800; font-weight: bold&#34;&gt;new&lt;/span&gt; CustomPlaceDeserializer&lt;span style=&#34;color: #333333&#34;&gt;&amp;lt;&lt;/span&gt;Place&lt;span style=&#34;color: #333333&#34;&gt;&amp;gt;())&lt;/span&gt;
-                &lt;span style=&#34;color: #333333&#34;&gt;.&lt;/span&gt;&lt;span style=&#34;color: #0000CC&#34;&gt;create&lt;/span&gt;&lt;span style=&#34;color: #333333&#34;&gt;();&lt;/span&gt;
-&lt;/pre&gt;&lt;/div&gt;
 </description>
     </item>
     

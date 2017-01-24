@@ -6,8 +6,95 @@
     <description>Recent content in Fixed-rss on Robin Lee</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <lastBuildDate>Sun, 10 Jul 2016 15:04:30 +0200</lastBuildDate>
+    <lastBuildDate>Mon, 23 Jan 2017 18:09:13 +0800</lastBuildDate>
     <atom:link href="https://robin-lee.github.io/fixed/index.xml" rel="self" type="application/rss+xml" />
+    
+    <item>
+      <title>Portfolio</title>
+      <link>https://robin-lee.github.io/portfolio/</link>
+      <pubDate>Mon, 23 Jan 2017 18:09:13 +0800</pubDate>
+      
+      <guid>https://robin-lee.github.io/portfolio/</guid>
+      <description>
+
+&lt;p&gt;A selection of work I have done.&lt;/p&gt;
+
+&lt;h1 id=&#34;for-companies&#34;&gt;For companies&lt;/h1&gt;
+
+&lt;hr /&gt;
+
+&lt;h2 id=&#34;lbasense-dashboard&#34;&gt;LBASense Dashboard&lt;/h2&gt;
+
+&lt;p&gt;DFRC AG&lt;/p&gt;
+
+&lt;p&gt;Programmed LBASense Dashboard according to UI mock-ups and published it on the Play Store.
+Adopted model-view-presenter within clean architecture and utilized Dagger 2, for DI, to enable testing.&lt;/p&gt;
+
+&lt;p&gt;Other libraries used, include geospatial libraries, CrashAnalytics (Fabric&amp;rsquo;s team was acquired by Google; Jan 2017), MPCharts and OSMDroid for mapping.&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&#34;https://robin-lee.github.io/images/lbasense2.jpg&#34; width=&#34;250&#34; alt=&#34;Screenshot 2&#34;&gt;
+&lt;img src=&#34;https://robin-lee.github.io/images/lbasense3.jpg&#34; width=&#34;250&#34; alt=&#34;Screenshot 3&#34;&gt;&lt;/p&gt;
+
+&lt;h2 id=&#34;lbsaas-smart-tour&#34;&gt;LBSaaS Smart Tour&lt;/h2&gt;
+
+&lt;p&gt;DFRC AG&lt;/p&gt;
+
+&lt;p&gt;Developed the Android application for the EUREKA Eurostars project LBSaaS (E!9010) which aims to better shopper and shop relationships using Augmented Reality(AR), gamification and virtual coupons.&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&#34;https://robin-lee.github.io/images/lbsaas2.jpg&#34; width=&#34;250&#34; alt=&#34;Screenshot 2&#34;&gt;
+&lt;img src=&#34;https://robin-lee.github.io/images/lbsaas3.jpg&#34; width=&#34;250&#34; alt=&#34;Screenshot 3&#34;&gt;&lt;/p&gt;
+
+&lt;h2 id=&#34;shop-owner-admin-app&#34;&gt;Shop Owner Admin App&lt;/h2&gt;
+
+&lt;p&gt;DFRC AG&lt;/p&gt;
+
+&lt;p&gt;Created the application for &lt;em&gt;shop owners&lt;/em&gt; to update the content for significant locations.&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&#34;https://robin-lee.github.io/images/shopowneradmin2.jpg&#34; width=&#34;250&#34; alt=&#34;Screenshot 2&#34;&gt;
+&lt;img src=&#34;https://robin-lee.github.io/images/shopowneradmin3.jpg&#34; width=&#34;250&#34; alt=&#34;Screenshot 3&#34;&gt;&lt;/p&gt;
+
+&lt;h2 id=&#34;dealparkinglot&#34;&gt;DealParkingLot&lt;/h2&gt;
+
+&lt;p&gt;BP Singapore&lt;/p&gt;
+
+&lt;p&gt;Developed a hybrid and cross-platform (iOS and Android) mobile application using IonicJS for traders to confirm deals.
+Collaborated with a diverse team (SG, India, UK and USA) to gather requirements and feedback. Also, modified Cordova plugins in Obj-C and Java for certificate pinning.&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&#34;https://robin-lee.github.io/images/bp1.jpg&#34; width=&#34;250&#34; alt=&#34;Screenshot 1&#34;&gt;
+&lt;img src=&#34;https://robin-lee.github.io/images/bp2.jpg&#34; width=&#34;250&#34; alt=&#34;Screenshot 2&#34;&gt;&lt;/p&gt;
+
+&lt;h3 id=&#34;additional-prototypes&#34;&gt;Additional prototypes&lt;/h3&gt;
+
+&lt;p&gt;BP Singapore&lt;/p&gt;
+
+&lt;ul&gt;
+&lt;li&gt;Unit converter: Quick and easy way to convert units for oil and other commodities.&lt;/li&gt;
+&lt;li&gt;Ships To Go: Enables operators to track ships on the move.&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h1 id=&#34;for-school&#34;&gt;For school&lt;/h1&gt;
+
+&lt;hr /&gt;
+
+&lt;h2 id=&#34;books-r-us&#34;&gt;Books R&amp;rsquo; Us&lt;/h2&gt;
+
+&lt;p&gt;The classic book store project that schools give you. Built using Flask.
+Initial project was started using flask cookie-cutter to adopt &lt;em&gt;better&lt;/em&gt; practices.
+It has some unit and integration tests which is important for long term project maintenance.&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&#34;https://robin-lee.github.io/images/booksrus.png&#34; alt=&#34;Screenshot 1&#34;&gt;&lt;/p&gt;
+
+&lt;h2 id=&#34;oh-no-its-zombies-oniz&#34;&gt;Oh No Its Zombies (ONIZ)&lt;/h2&gt;
+
+&lt;p&gt;A multiplayer Android game. Uses Google Game Services and LibGDX.&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&#34;https://robin-lee.github.io/images/oniz1.png&#34; width=&#34;250&#34; alt=&#34;Screenshot 1&#34;&gt;
+&lt;img src=&#34;https://robin-lee.github.io/images/oniz2.png&#34; width=&#34;250&#34; alt=&#34;Screenshot 2&#34;&gt;&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&#34;https://robin-lee.github.io/images/oniz3.png&#34; width=&#34;250&#34; alt=&#34;Screenshot 3&#34;&gt;
+&lt;img src=&#34;https://robin-lee.github.io/images/oniz4.png&#34; width=&#34;250&#34; alt=&#34;Screenshot 4&#34;&gt;&lt;/p&gt;
+</description>
+    </item>
     
     <item>
       <title>About</title>
@@ -17,7 +104,7 @@
       <guid>https://robin-lee.github.io/about/</guid>
       <description>&lt;p&gt;Robin is an undergraduate at SUTD.&lt;/p&gt;
 
-&lt;p&gt;He likes reading epic fantasy, translated light novels and trying new technologies*.&lt;/p&gt;
+&lt;p&gt;He likes tinkering with technologies and aims to become a great software engineer building applications that people love to use.&lt;/p&gt;
 
 &lt;p&gt;Here he writes about his adventures with random things as well as shares his thoughts on various topics.&lt;/p&gt;
 </description>
