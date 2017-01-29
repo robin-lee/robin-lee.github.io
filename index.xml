@@ -6,8 +6,84 @@
     <description>Recent content on Robin Lee</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <lastBuildDate>Mon, 23 Jan 2017 18:09:13 +0800</lastBuildDate>
+    <lastBuildDate>Sun, 29 Jan 2017 22:11:02 +0800</lastBuildDate>
     <atom:link href="https://robin-lee.github.io/index.xml" rel="self" type="application/rss+xml" />
+    
+    <item>
+      <title>Gradle Init Java</title>
+      <link>https://robin-lee.github.io/blog/2017/01/gradle-init-java/</link>
+      <pubDate>Sun, 29 Jan 2017 22:11:02 +0800</pubDate>
+      
+      <guid>https://robin-lee.github.io/blog/2017/01/gradle-init-java/</guid>
+      <description>
+
+&lt;p&gt;Instead of starting a Java project using IntelliJ I experimented with the gradle
+init plugin. Recall: &lt;code&gt;gradle init --type java-library&lt;/code&gt;. Originally, the idea was
+to have an easy way to start a project for Java but frankly speaking using an IDE
+already makes it easy enough. Although&amp;hellip; I like being able to do &lt;code&gt;gradle run&lt;/code&gt; in
+terminal to execute my code.&lt;/p&gt;
+
+&lt;h2 id=&#34;generated-build-gradle&#34;&gt;Generated build.gradle&lt;/h2&gt;
+
+&lt;pre&gt;&lt;code&gt;apply plugin: &#39;java&#39;
+
+
+repositories {
+    // Use &#39;jcenter&#39; for resolving your dependencies.
+    // You can declare any Maven/Ivy/file repository here.
+    jcenter()
+}
+
+dependencies {
+    // The production code uses the SLF4J logging API at compile time
+    compile &#39;org.slf4j:slf4j-api:1.7.21&#39;
+
+    testCompile &#39;junit:junit:4.12&#39;
+}
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;The above build.gradle doesn&amp;rsquo;t make it easy to work with the project in IntelliJ.
+We have to make some modifications.&lt;/p&gt;
+
+&lt;h2 id=&#34;modified-build-gradle&#34;&gt;Modified build.gradle&lt;/h2&gt;
+
+&lt;ol&gt;
+&lt;li&gt;Add IDEA plugin: Generate idea project files.&lt;/li&gt;
+&lt;li&gt;Add application plugin: Enable &lt;code&gt;gradle run&lt;/code&gt;.&lt;/li&gt;
+&lt;li&gt;Set the main class to be executed.&lt;/li&gt;
+&lt;/ol&gt;
+
+&lt;pre&gt;&lt;code&gt;apply plugin:&#39;application&#39;
+mainClassName = &amp;quot;Main&amp;quot;
+
+apply plugin: &#39;idea&#39;
+
+apply plugin: &#39;java&#39;
+
+repositories {
+    // Use &#39;jcenter&#39; for resolving your dependencies.
+    // You can declare any Maven/Ivy/file repository here.
+    jcenter()
+}
+
+dependencies {
+
+    compile gradleApi()
+
+    compile &#39;org.slf4j:slf4j-api:1.7.21&#39;
+
+    testCompile &#39;junit:junit:4.12&#39;
+}
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;h2 id=&#34;execution&#34;&gt;Execution&lt;/h2&gt;
+
+&lt;p&gt;After setting up, you can run &lt;code&gt;gradle build&lt;/code&gt; in terminal and open the project
+in IntelliJ (I am using the community edition). After making modifications you
+can execute the tests with &lt;code&gt;gradle test&lt;/code&gt; and execute the main program with
+&lt;code&gt;gradle run&lt;/code&gt;.&lt;/p&gt;
+</description>
+    </item>
     
     <item>
       <title>Portfolio</title>
@@ -2045,48 +2121,6 @@ becomes
 
 &lt;blockquote&gt;
 &lt;p&gt;Always practice refactoring for every module you write and every module you maintain.&lt;/p&gt;
-&lt;/blockquote&gt;
-</description>
-    </item>
-    
-    <item>
-      <title>SOLID Principles</title>
-      <link>https://robin-lee.github.io/blog/2016/07/solid-principles/</link>
-      <pubDate>Sat, 23 Jul 2016 14:46:47 +0200</pubDate>
-      
-      <guid>https://robin-lee.github.io/blog/2016/07/solid-principles/</guid>
-      <description>
-
-&lt;p&gt;A set of principles to design or write &lt;strong&gt;classes&lt;/strong&gt;.&lt;/p&gt;
-
-&lt;h1 id=&#34;single-responsibility-principle&#34;&gt;Single Responsibility Principle&lt;/h1&gt;
-
-&lt;blockquote&gt;
-&lt;p&gt;A class should have one, and only one, reason to change.&lt;/p&gt;
-&lt;/blockquote&gt;
-
-&lt;h1 id=&#34;open-closed-principle&#34;&gt;Open - Closed Principle&lt;/h1&gt;
-
-&lt;blockquote&gt;
-&lt;p&gt;You should be able to extend a classes behavior, without modifying it.&lt;/p&gt;
-&lt;/blockquote&gt;
-
-&lt;h1 id=&#34;liskov-substitution-principle&#34;&gt;Liskov Substitution Principle&lt;/h1&gt;
-
-&lt;blockquote&gt;
-&lt;p&gt;Derived classes must be substitutable for their base classes.&lt;/p&gt;
-&lt;/blockquote&gt;
-
-&lt;h1 id=&#34;interface-segregation-principle&#34;&gt;Interface Segregation Principle&lt;/h1&gt;
-
-&lt;blockquote&gt;
-&lt;p&gt;Make fine grained interfaces that are client specific.&lt;/p&gt;
-&lt;/blockquote&gt;
-
-&lt;h1 id=&#34;dependency-inversion-principle&#34;&gt;Dependency Inversion Principle&lt;/h1&gt;
-
-&lt;blockquote&gt;
-&lt;p&gt;Depend on abstractions, not on concretions.&lt;/p&gt;
 &lt;/blockquote&gt;
 </description>
     </item>
