@@ -6,8 +6,46 @@
     <description>Recent content in Blog-rss on Robin Lee</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <lastBuildDate>Sun, 29 Jan 2017 22:11:02 +0800</lastBuildDate>
+    <lastBuildDate>Fri, 03 Feb 2017 10:57:07 +0800</lastBuildDate>
     <atom:link href="https://robin-lee.github.io/blog/index.xml" rel="self" type="application/rss+xml" />
+    
+    <item>
+      <title>4 Principles of Data Visualization</title>
+      <link>https://robin-lee.github.io/blog/2017/02/4-principles-of-data-visualization/</link>
+      <pubDate>Fri, 03 Feb 2017 10:57:07 +0800</pubDate>
+      
+      <guid>https://robin-lee.github.io/blog/2017/02/4-principles-of-data-visualization/</guid>
+      <description>
+
+&lt;h2 id=&#34;1-above-all-else-show-the-data&#34;&gt;1. Above all else, show the data&lt;/h2&gt;
+
+&lt;p&gt;Minimize the administrative items on screen, maximize the information presented.&lt;/p&gt;
+
+&lt;h2 id=&#34;2-prioritize-the-information&#34;&gt;2. Prioritize the information&lt;/h2&gt;
+
+&lt;p&gt;Determine 3-5 most important information.
+Highlight them.&lt;/p&gt;
+
+&lt;h2 id=&#34;3-relate-the-information&#34;&gt;3. Relate the information&lt;/h2&gt;
+
+&lt;p&gt;Juxtapose, compose and reference the data so it is more meaningful.&lt;/p&gt;
+
+&lt;h2 id=&#34;4-leverage-the-interactivity&#34;&gt;4. Leverage the interactivity&lt;/h2&gt;
+
+&lt;p&gt;Overview, zoom, filter. You can reveal information gradually so it is not too clouded.&lt;/p&gt;
+
+&lt;h2 id=&#34;general&#34;&gt;General&lt;/h2&gt;
+
+&lt;ul&gt;
+&lt;li&gt;List, Categorise, Prioritise.&lt;/li&gt;
+&lt;li&gt;How could the core data be more useful by showing related data around it?&lt;/li&gt;
+&lt;li&gt;Do lots of &lt;strong&gt;sketching&lt;/strong&gt;. Have to see it to have a better idea how it can be revised.&lt;/li&gt;
+&lt;li&gt;In what way can interactivity be used?&lt;/li&gt;
+&lt;li&gt;Color-coding?&lt;/li&gt;
+&lt;li&gt;Inspiration: &lt;a href=&#34;http://www.webdesignerdepot.com/2009/06/50-great-examples-of-data-visualization/&#34;&gt;50 great examples&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+</description>
+    </item>
     
     <item>
       <title>Gradle Init Java</title>
@@ -2034,48 +2072,6 @@ becomes
 
 &lt;blockquote&gt;
 &lt;p&gt;Always practice refactoring for every module you write and every module you maintain.&lt;/p&gt;
-&lt;/blockquote&gt;
-</description>
-    </item>
-    
-    <item>
-      <title>SOLID Principles</title>
-      <link>https://robin-lee.github.io/blog/2016/07/solid-principles/</link>
-      <pubDate>Sat, 23 Jul 2016 14:46:47 +0200</pubDate>
-      
-      <guid>https://robin-lee.github.io/blog/2016/07/solid-principles/</guid>
-      <description>
-
-&lt;p&gt;A set of principles to design or write &lt;strong&gt;classes&lt;/strong&gt;.&lt;/p&gt;
-
-&lt;h1 id=&#34;single-responsibility-principle&#34;&gt;Single Responsibility Principle&lt;/h1&gt;
-
-&lt;blockquote&gt;
-&lt;p&gt;A class should have one, and only one, reason to change.&lt;/p&gt;
-&lt;/blockquote&gt;
-
-&lt;h1 id=&#34;open-closed-principle&#34;&gt;Open - Closed Principle&lt;/h1&gt;
-
-&lt;blockquote&gt;
-&lt;p&gt;You should be able to extend a classes behavior, without modifying it.&lt;/p&gt;
-&lt;/blockquote&gt;
-
-&lt;h1 id=&#34;liskov-substitution-principle&#34;&gt;Liskov Substitution Principle&lt;/h1&gt;
-
-&lt;blockquote&gt;
-&lt;p&gt;Derived classes must be substitutable for their base classes.&lt;/p&gt;
-&lt;/blockquote&gt;
-
-&lt;h1 id=&#34;interface-segregation-principle&#34;&gt;Interface Segregation Principle&lt;/h1&gt;
-
-&lt;blockquote&gt;
-&lt;p&gt;Make fine grained interfaces that are client specific.&lt;/p&gt;
-&lt;/blockquote&gt;
-
-&lt;h1 id=&#34;dependency-inversion-principle&#34;&gt;Dependency Inversion Principle&lt;/h1&gt;
-
-&lt;blockquote&gt;
-&lt;p&gt;Depend on abstractions, not on concretions.&lt;/p&gt;
 &lt;/blockquote&gt;
 </description>
     </item>

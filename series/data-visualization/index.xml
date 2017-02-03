@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Robin Lee</title>
+    <link>https://robin-lee.github.io/series/data-visualization/index.xml</link>
+    <description>Recent content on Robin Lee</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    <atom:link href="https://robin-lee.github.io/series/data-visualization/index.xml" rel="self" type="application/rss+xml" />
+    
+    <item>
+      <title>4 Principles of Data Visualization</title>
+      <link>https://robin-lee.github.io/blog/2017/02/4-principles-of-data-visualization/</link>
+      <pubDate>Fri, 03 Feb 2017 10:57:07 +0800</pubDate>
+      
+      <guid>https://robin-lee.github.io/blog/2017/02/4-principles-of-data-visualization/</guid>
+      <description>
+
+&lt;h2 id=&#34;1-above-all-else-show-the-data&#34;&gt;1. Above all else, show the data&lt;/h2&gt;
+
+&lt;p&gt;Minimize the administrative items on screen, maximize the information presented.&lt;/p&gt;
+
+&lt;h2 id=&#34;2-prioritize-the-information&#34;&gt;2. Prioritize the information&lt;/h2&gt;
+
+&lt;p&gt;Determine 3-5 most important information.
+Highlight them.&lt;/p&gt;
+
+&lt;h2 id=&#34;3-relate-the-information&#34;&gt;3. Relate the information&lt;/h2&gt;
+
+&lt;p&gt;Juxtapose, compose and reference the data so it is more meaningful.&lt;/p&gt;
+
+&lt;h2 id=&#34;4-leverage-the-interactivity&#34;&gt;4. Leverage the interactivity&lt;/h2&gt;
+
+&lt;p&gt;Overview, zoom, filter. You can reveal information gradually so it is not too clouded.&lt;/p&gt;
+
+&lt;h2 id=&#34;general&#34;&gt;General&lt;/h2&gt;
+
+&lt;ul&gt;
+&lt;li&gt;List, Categorise, Prioritise.&lt;/li&gt;
+&lt;li&gt;How could the core data be more useful by showing related data around it?&lt;/li&gt;
+&lt;li&gt;Do lots of &lt;strong&gt;sketching&lt;/strong&gt;. Have to see it to have a better idea how it can be revised.&lt;/li&gt;
+&lt;li&gt;In what way can interactivity be used?&lt;/li&gt;
+&lt;li&gt;Color-coding?&lt;/li&gt;
+&lt;li&gt;Inspiration: &lt;a href=&#34;http://www.webdesignerdepot.com/2009/06/50-great-examples-of-data-visualization/&#34;&gt;50 great examples&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+</description>
+    </item>
+    
+  </channel>
+</rss>
