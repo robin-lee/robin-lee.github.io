@@ -1,0 +1,240 @@
+<!DOCTYPE html>
+<html lang="en-us">
+
+<head>
+<meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="chrome=1">
+<meta name="HandheldFriendly" content="True">
+<meta name="MobileOptimized" content="320">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="referrer" content="no-referrer">
+<meta name="description" content="random adventures">
+
+<base href="https://robin-lee.github.io/">
+<title>
+
+
+     Robin Lee - Data mining capstone 
+
+</title>
+<link rel="canonical" href="https://robin-lee.github.io/blog/2017/02/data-mining-capstone/">
+
+
+<script type="text/javascript">
+    var baseURL = 'https:\/\/robin-lee.github.io\/';
+    var host = baseURL.substring(0, baseURL.length - 1).replace(/\//g, '');
+    if ((host === window.location.host) && (window.location.protocol !== 'https:')) {
+        window.location.protocol = 'https:';
+    }
+</script>
+
+
+
+
+
+<link rel="stylesheet" href="https://robin-lee.github.io//css/reset.css">
+<link rel="stylesheet" href="https://robin-lee.github.io//css/pygments.css">
+<link rel="stylesheet" href="https://robin-lee.github.io//css/main.css">
+<link rel="stylesheet" href="https://robin-lee.github.io//css/override.css">
+
+
+
+
+<link rel="shortcut icon"
+
+    href="https://robin-lee.github.io/favicon.ico"
+
+>
+
+
+
+
+
+
+</head>
+
+
+<body lang="en">
+
+
+
+<section class="header">
+
+    <div class="container">
+        <a href="https://robin-lee.github.io/"><img class="logo" style="margin-right: 20px;" src="https://robin-lee.github.io/logo.png" /></a>
+        <div class="content">
+            <a href="https://robin-lee.github.io/"><div class="name"><h1>Robin Lee</h1></div></a>
+            <nav>
+                <ul>
+                    <a href="https://robin-lee.github.io/"><li>Blog</li></a>
+                    <a href="https://robin-lee.github.io/about/"><li>About</li></a>
+                    <a href="https://robin-lee.github.io/portfolio/"><li>Portfolio</li></a>
+                </ul>
+            </nav>
+        </div>
+    </div>
+</section>
+
+<section class="icons">
+    <div class="container">
+        <div class="content">
+
+        
+            <a href="//github.com/robin-lee" target="_blank">
+                <i class="icon ion-social-github"></i>
+            </a>
+        
+
+        
+
+        
+            <a href="//sg.linkedin.com/in/robin-lee-2b70818a" target="_blank">
+                <i class="icon ion-social-linkedin"></i>
+            </a>
+        
+
+        
+
+        
+            <a href="https://robin-lee.github.io/index.xml">
+                <i class="icon ion-social-rss larger"></i>
+            </a>
+        
+        </div>
+    </div>
+</section>
+
+
+<section class="main post non-narrow zero-top-spacing">
+    <div class="container">
+        <div class="content">
+            <div class="front-matter">
+                <div class="title-container">
+                    <div class="page-heading">
+
+    Data mining capstone
+
+</div>
+
+                    <div class="initials"><a href="https://robin-lee.github.io/"></a></div>
+                </div>
+                <div class="meta">
+                    <div class="date" title="Fri Feb 10 2017 09:18:21 SGT">Feb 10, 2017</div>
+                    <div class="reading-time"><div class="middot"></div>1 minute read</div>
+                </div>
+            </div>
+            <div class="markdown">
+                
+
+<p>Snippets of the data mining class.</p>
+
+<h2 id="techniques">Techniques</h2>
+
+<ul>
+<li>Frequency itemset mining</li>
+<li>Associated rules discovery</li>
+<li>Cluster analysis</li>
+<li>Outlier detection</li>
+<li>Classifier building</li>
+</ul>
+
+<h2 id="association-rules-discovery">Association Rules Discovery</h2>
+
+<p>Example of association rule.</p>
+
+<p>Supermarket. Purchase history of people.</p>
+
+<ul>
+<li>large set of items. things sold.</li>
+<li>large set of baskets. each basket is a subset of items.</li>
+</ul>
+
+<table>
+<thead>
+<tr>
+<th align="left">id</th>
+<th align="left">items</th>
+</tr>
+</thead>
+
+<tbody>
+<tr>
+<td align="left">1</td>
+<td align="left">Bread, Coke, Milk</td>
+</tr>
+
+<tr>
+<td align="left">2</td>
+<td align="left">Beer, Bread</td>
+</tr>
+
+<tr>
+<td align="left">3</td>
+<td align="left">Beer, Coke, Diaper, Milk</td>
+</tr>
+</tbody>
+</table>
+
+<p>Association rules. People bought {x,y,z} tend to buy {v,w} with very high probability.</p>
+
+<p>Essentially, recommendation system from Machine Learning.</p>
+
+<h2 id="rule-measures-support-and-confidence">Rule Measures: Support and Confidence</h2>
+
+<ul>
+<li>Support, s, probability that a transaction contains { X &amp; Y &amp; Z}.</li>
+<li>Confidence, c, conditional probability that a transaction having {X &amp; Y} also contains Z.</li>
+</ul>
+
+<p>Low support means low number of transactions have {X &amp; Y &amp; Z}.</p>
+
+<p>Good rule has high support and high confidence.</p>
+
+<h2 id="interesting-association-rules">Interesting Association rules</h2>
+
+<ul>
+<li>Not all high confidence rules are interesting.
+
+<ul>
+<li>The rules X -&gt; Milk may have high confidence for many itemsets X, because milk is just purchased very often and the confidence is very high.</li>
+</ul></li>
+</ul>
+
+<h1 id="good-clustering">Good clustering</h1>
+
+<ul>
+<li>High intra class similarity</li>
+<li>Low inter-class similarity</li>
+</ul>
+
+<p>Distance functions: Euclidean, Cosine, Jaccard, Edit distance.</p>
+
+<h1 id="clustering-algorithms">Clustering algorithms</h1>
+
+<ul>
+<li>Partitioning, Hierarchy algorithm, Density, Grid based</li>
+</ul>
+
+<h2 id="random-stuff">Random stuff</h2>
+
+<p>Roy goes bowling in vivo.</p>
+
+<p>My very educated mother just served us nine pizzas.</p>
+
+                <br>
+                <p><a href="https://robin-lee.github.io/">Back to posts</a></p>
+            </div>
+            <br>
+            <div class="disqus">
+                
+            </div>
+        </div>
+    </div>
+</section>
+
+
+
+
+</body>
+</html>
+

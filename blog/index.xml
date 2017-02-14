@@ -6,8 +6,150 @@
     <description>Recent content in Blog-rss on Robin Lee</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <lastBuildDate>Fri, 03 Feb 2017 10:57:07 +0800</lastBuildDate>
+    <lastBuildDate>Tue, 14 Feb 2017 22:59:25 +0800</lastBuildDate>
     <atom:link href="https://robin-lee.github.io/blog/index.xml" rel="self" type="application/rss+xml" />
+    
+    <item>
+      <title>Using ffmpeg to join videos</title>
+      <link>https://robin-lee.github.io/blog/2017/02/using-ffmpeg-to-join-videos/</link>
+      <pubDate>Tue, 14 Feb 2017 22:59:25 +0800</pubDate>
+      
+      <guid>https://robin-lee.github.io/blog/2017/02/using-ffmpeg-to-join-videos/</guid>
+      <description>
+
+&lt;p&gt;For a project, I had to join videos. Is there a tool that can help us? Yes.
+ffmpeg.&lt;/p&gt;
+
+&lt;h2 id=&#34;how-to-join-videos-with-ffmpeg&#34;&gt;How to join videos with ffmpeg?&lt;/h2&gt;
+
+&lt;p&gt;ffmpeg has a concat command you can use. There are 2 modes demux and concat.
+&lt;code&gt;demux&lt;/code&gt; is newer and &lt;em&gt;better&lt;/em&gt; while &lt;code&gt;concat&lt;/code&gt; is older and is support in older
+ffmpeg versions.&lt;/p&gt;
+
+&lt;p&gt;&lt;a href=&#34;https://trac.ffmpeg.org/wiki/Concatenate&#34;&gt;ffmpeg concatenate&lt;/a&gt;&lt;/p&gt;
+
+&lt;h3 id=&#34;for-joining-same-codec-and-similar-dimensions&#34;&gt;For joining same codec and similar dimensions&lt;/h3&gt;
+
+&lt;p&gt;Step 1: Create list of videos you want to join in a txt file.&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;file &#39;meow.mp4&#39;
+file &#39;woof.mp4&#39;
+file &#39;pewpew.mp4&#39;
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;Step 2: Execute the following command&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;ffmpeg -f concat -safe 0 -i vidlist.txt -c copy output.mp4
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;Step 3: Enjoy the longer video.&lt;/p&gt;
+</description>
+    </item>
+    
+    <item>
+      <title>Data mining capstone</title>
+      <link>https://robin-lee.github.io/blog/2017/02/data-mining-capstone/</link>
+      <pubDate>Fri, 10 Feb 2017 09:18:21 +0800</pubDate>
+      
+      <guid>https://robin-lee.github.io/blog/2017/02/data-mining-capstone/</guid>
+      <description>
+
+&lt;p&gt;Snippets of the data mining class.&lt;/p&gt;
+
+&lt;h2 id=&#34;techniques&#34;&gt;Techniques&lt;/h2&gt;
+
+&lt;ul&gt;
+&lt;li&gt;Frequency itemset mining&lt;/li&gt;
+&lt;li&gt;Associated rules discovery&lt;/li&gt;
+&lt;li&gt;Cluster analysis&lt;/li&gt;
+&lt;li&gt;Outlier detection&lt;/li&gt;
+&lt;li&gt;Classifier building&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h2 id=&#34;association-rules-discovery&#34;&gt;Association Rules Discovery&lt;/h2&gt;
+
+&lt;p&gt;Example of association rule.&lt;/p&gt;
+
+&lt;p&gt;Supermarket. Purchase history of people.&lt;/p&gt;
+
+&lt;ul&gt;
+&lt;li&gt;large set of items. things sold.&lt;/li&gt;
+&lt;li&gt;large set of baskets. each basket is a subset of items.&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;table&gt;
+&lt;thead&gt;
+&lt;tr&gt;
+&lt;th align=&#34;left&#34;&gt;id&lt;/th&gt;
+&lt;th align=&#34;left&#34;&gt;items&lt;/th&gt;
+&lt;/tr&gt;
+&lt;/thead&gt;
+
+&lt;tbody&gt;
+&lt;tr&gt;
+&lt;td align=&#34;left&#34;&gt;1&lt;/td&gt;
+&lt;td align=&#34;left&#34;&gt;Bread, Coke, Milk&lt;/td&gt;
+&lt;/tr&gt;
+
+&lt;tr&gt;
+&lt;td align=&#34;left&#34;&gt;2&lt;/td&gt;
+&lt;td align=&#34;left&#34;&gt;Beer, Bread&lt;/td&gt;
+&lt;/tr&gt;
+
+&lt;tr&gt;
+&lt;td align=&#34;left&#34;&gt;3&lt;/td&gt;
+&lt;td align=&#34;left&#34;&gt;Beer, Coke, Diaper, Milk&lt;/td&gt;
+&lt;/tr&gt;
+&lt;/tbody&gt;
+&lt;/table&gt;
+
+&lt;p&gt;Association rules. People bought {x,y,z} tend to buy {v,w} with very high probability.&lt;/p&gt;
+
+&lt;p&gt;Essentially, recommendation system from Machine Learning.&lt;/p&gt;
+
+&lt;h2 id=&#34;rule-measures-support-and-confidence&#34;&gt;Rule Measures: Support and Confidence&lt;/h2&gt;
+
+&lt;ul&gt;
+&lt;li&gt;Support, s, probability that a transaction contains { X &amp;amp; Y &amp;amp; Z}.&lt;/li&gt;
+&lt;li&gt;Confidence, c, conditional probability that a transaction having {X &amp;amp; Y} also contains Z.&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;Low support means low number of transactions have {X &amp;amp; Y &amp;amp; Z}.&lt;/p&gt;
+
+&lt;p&gt;Good rule has high support and high confidence.&lt;/p&gt;
+
+&lt;h2 id=&#34;interesting-association-rules&#34;&gt;Interesting Association rules&lt;/h2&gt;
+
+&lt;ul&gt;
+&lt;li&gt;Not all high confidence rules are interesting.
+
+&lt;ul&gt;
+&lt;li&gt;The rules X -&amp;gt; Milk may have high confidence for many itemsets X, because milk is just purchased very often and the confidence is very high.&lt;/li&gt;
+&lt;/ul&gt;&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h1 id=&#34;good-clustering&#34;&gt;Good clustering&lt;/h1&gt;
+
+&lt;ul&gt;
+&lt;li&gt;High intra class similarity&lt;/li&gt;
+&lt;li&gt;Low inter-class similarity&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;Distance functions: Euclidean, Cosine, Jaccard, Edit distance.&lt;/p&gt;
+
+&lt;h1 id=&#34;clustering-algorithms&#34;&gt;Clustering algorithms&lt;/h1&gt;
+
+&lt;ul&gt;
+&lt;li&gt;Partitioning, Hierarchy algorithm, Density, Grid based&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h2 id=&#34;random-stuff&#34;&gt;Random stuff&lt;/h2&gt;
+
+&lt;p&gt;Roy goes bowling in vivo.&lt;/p&gt;
+
+&lt;p&gt;My very educated mother just served us nine pizzas.&lt;/p&gt;
+</description>
+    </item>
     
     <item>
       <title>4 Principles of Data Visualization</title>
@@ -1982,97 +2124,6 @@ The post may not be coherent as I am extracting fragments I consider useful or e
 &lt;/pre&gt;&lt;/div&gt;
 
 &lt;p&gt;With then one command I have a basic Java project setup and I can use something like Sublime Text and get going. As a bonus JUnit is included by default.&lt;/p&gt;
-</description>
-    </item>
-    
-    <item>
-      <title>Uncle Bob Said</title>
-      <link>https://robin-lee.github.io/blog/2016/07/uncle-bob-said/</link>
-      <pubDate>Sun, 24 Jul 2016 22:10:37 +0200</pubDate>
-      
-      <guid>https://robin-lee.github.io/blog/2016/07/uncle-bob-said/</guid>
-      <description>
-
-&lt;h1 id=&#34;inspirational-quotes&#34;&gt;Inspirational quotes&lt;/h1&gt;
-
-&lt;blockquote&gt;
-&lt;p&gt;&amp;ldquo;You dont go fast by writing crap”&lt;/p&gt;
-
-&lt;p&gt;&amp;ldquo;You want to go fast, you do a good job”&lt;/p&gt;
-
-&lt;p&gt;“Move deliberately, instead of rapidly&amp;rdquo;&lt;/p&gt;
-&lt;/blockquote&gt;
-</description>
-    </item>
-    
-    <item>
-      <title>Agile Software Development</title>
-      <link>https://robin-lee.github.io/blog/2016/07/agile-software-development/</link>
-      <pubDate>Sat, 23 Jul 2016 16:29:59 +0200</pubDate>
-      
-      <guid>https://robin-lee.github.io/blog/2016/07/agile-software-development/</guid>
-      <description>
-
-&lt;h1 id=&#34;what-is-agile-software-development&#34;&gt;What is Agile Software Development?&lt;/h1&gt;
-
-&lt;p&gt;It refers to adopting a set of practices or principles while developing software.&lt;/p&gt;
-
-&lt;blockquote&gt;
-&lt;p&gt;In early 2001, the Agile Alliance met to outine the values and principles that would allow software teams work together and respond to change.&lt;/p&gt;
-&lt;/blockquote&gt;
-
-&lt;p&gt;&lt;em&gt;Agile Software Development, Principles, Patterns and Practices.&lt;/em&gt;&lt;/p&gt;
-
-&lt;h1 id=&#34;things-that-got-my-attention&#34;&gt;Things that got my attention&lt;/h1&gt;
-
-&lt;p&gt;1.&lt;/p&gt;
-
-&lt;blockquote&gt;
-&lt;p&gt;Agiles processes promote sustainable development. The sponsors, developers and users should be able to maintain constant pace indefinitely.&lt;/p&gt;
-&lt;/blockquote&gt;
-
-&lt;p&gt;2.&lt;/p&gt;
-
-&lt;blockquote&gt;
-&lt;p&gt;An agile project is not run like a 50-yard dash; it is run like a marathon. They run at a fast, sustainable pace. Running too fast often leads to burnout, shortcuts and debacle. &amp;hellip; A team is not allowed to work overtime. The only exception is the last week in a release.&lt;/p&gt;
-&lt;/blockquote&gt;
-
-&lt;p&gt;3.&lt;/p&gt;
-
-&lt;blockquote&gt;
-&lt;p&gt;Splitting, Spiking and Velocity. Any story too big should be split in stories that aren&amp;rsquo;t too big. After splitting, it should be reestiamted.&lt;/p&gt;
-&lt;/blockquote&gt;
-
-&lt;p&gt;Velocity is something like &amp;ldquo;2 days per story point&amp;rdquo;.&lt;/p&gt;
-
-&lt;p&gt;Example:&lt;/p&gt;
-
-&lt;pre&gt;&lt;code&gt;-&amp;gt; Users can securely transfer money into, out of, and between their accounts.
-
-becomes
-
--&amp;gt; Users can login
--&amp;gt; Users can logout
--&amp;gt; Users can deposit money into their account
--&amp;gt; Users can withdraw money from their account
--&amp;gt; Users can transfer money from their account to another account
-&lt;/code&gt;&lt;/pre&gt;
-
-&lt;p&gt;4.&lt;/p&gt;
-
-&lt;blockquote&gt;
-&lt;p&gt;Intentional programming. You state your intent in a test before implementing it, making your intent as simple and readable as possible. The act of writing tests first is an act of discerning between design decisions. WumpusGame example: Integers instead of room object or game world?&lt;/p&gt;
-&lt;/blockquote&gt;
-
-&lt;p&gt;&lt;em&gt;White box test: A test that knows and depends on its internal structure. (unit)&lt;/em&gt;&lt;/p&gt;
-
-&lt;p&gt;&lt;em&gt;Black box test: A test that does&lt;/em&gt; &lt;strong&gt;&lt;em&gt;not&lt;/em&gt;&lt;/strong&gt; &lt;em&gt;know or depend on its internal structure. (acceptance)&lt;/em&gt;&lt;/p&gt;
-
-&lt;p&gt;5.&lt;/p&gt;
-
-&lt;blockquote&gt;
-&lt;p&gt;Always practice refactoring for every module you write and every module you maintain.&lt;/p&gt;
-&lt;/blockquote&gt;
 </description>
     </item>
     
