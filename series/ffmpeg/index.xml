@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Robin Lee</title>
+    <link>https://robin-lee.github.io/series/ffmpeg/index.xml</link>
+    <description>Recent content on Robin Lee</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    <atom:link href="https://robin-lee.github.io/series/ffmpeg/index.xml" rel="self" type="application/rss+xml" />
+    
+    <item>
+      <title>Using ffmpeg to join videos</title>
+      <link>https://robin-lee.github.io/blog/2017/02/using-ffmpeg-to-join-videos/</link>
+      <pubDate>Tue, 14 Feb 2017 22:59:25 +0800</pubDate>
+      
+      <guid>https://robin-lee.github.io/blog/2017/02/using-ffmpeg-to-join-videos/</guid>
+      <description>
+
+&lt;p&gt;For a project, I had to join videos. Is there a tool that can help us? Yes.
+ffmpeg.&lt;/p&gt;
+
+&lt;h2 id=&#34;how-to-join-videos-with-ffmpeg&#34;&gt;How to join videos with ffmpeg?&lt;/h2&gt;
+
+&lt;p&gt;ffmpeg has a concat command you can use. There are 2 modes demux and concat.
+&lt;code&gt;demux&lt;/code&gt; is newer and &lt;em&gt;better&lt;/em&gt; while &lt;code&gt;concat&lt;/code&gt; is older and is support in older
+ffmpeg versions.&lt;/p&gt;
+
+&lt;p&gt;&lt;a href=&#34;https://trac.ffmpeg.org/wiki/Concatenate&#34;&gt;ffmpeg concatenate&lt;/a&gt;&lt;/p&gt;
+
+&lt;h3 id=&#34;for-joining-same-codec-and-similar-dimensions&#34;&gt;For joining same codec and similar dimensions&lt;/h3&gt;
+
+&lt;p&gt;Step 1: Create list of videos you want to join in a txt file.&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;file &#39;meow.mp4&#39;
+file &#39;woof.mp4&#39;
+file &#39;pewpew.mp4&#39;
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;Step 2: Execute the following command&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;ffmpeg -f concat -safe 0 -i vidlist.txt -c copy output.mp4
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;Step 3: Enjoy the longer video.&lt;/p&gt;
+</description>
+    </item>
+    
+  </channel>
+</rss>
