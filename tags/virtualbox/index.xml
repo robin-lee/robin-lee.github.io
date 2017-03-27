@@ -193,7 +193,7 @@ esac
 &lt;p&gt;Give the script permissions:&lt;/p&gt;
 
 &lt;pre&gt;&lt;code&gt;sudo chmod 755 /etc/init.d/tomcat8
-sudo upate-rc.d tomcat8 defaults
+sudo update-rc.d tomcat8 defaults
 sudo reboot
 &lt;/code&gt;&lt;/pre&gt;
 

@@ -43,6 +43,12 @@ file &#39;pewpew.mp4&#39;
 &lt;/code&gt;&lt;/pre&gt;
 
 &lt;p&gt;Step 3: Enjoy the longer video.&lt;/p&gt;
+
+&lt;h2 id=&#34;further-exploration&#34;&gt;Further exploration&lt;/h2&gt;
+
+&lt;p&gt;[](&lt;a href=&#34;http://stackoverflow.com/questions/18141055/ffmpeg-commands-to-concatenate-different-type-and-resolution-videos-into-1-video&#34;&gt;http://stackoverflow.com/questions/18141055/ffmpeg-commands-to-concatenate-different-type-and-resolution-videos-into-1-video&lt;/a&gt;)&lt;/p&gt;
+
+&lt;p&gt;[](&lt;a href=&#34;http://stackoverflow.com/questions/13754802/how-to-use-ffmpeg-to-concatenate-two-videos-of-different-aspect-ratios&#34;&gt;http://stackoverflow.com/questions/13754802/how-to-use-ffmpeg-to-concatenate-two-videos-of-different-aspect-ratios&lt;/a&gt;)&lt;/p&gt;
 </description>
     </item>
     
@@ -1996,7 +2002,7 @@ esac
 &lt;p&gt;Give the script permissions:&lt;/p&gt;
 
 &lt;pre&gt;&lt;code&gt;sudo chmod 755 /etc/init.d/tomcat8
-sudo upate-rc.d tomcat8 defaults
+sudo update-rc.d tomcat8 defaults
 sudo reboot
 &lt;/code&gt;&lt;/pre&gt;
 
