@@ -1,0 +1,360 @@
+<!DOCTYPE html>
+<html lang="en-us">
+
+<head>
+<meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="chrome=1">
+<meta name="HandheldFriendly" content="True">
+<meta name="MobileOptimized" content="320">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="referrer" content="no-referrer">
+<meta name="description" content="random adventures">
+
+<base href="https://robin-lee.github.io/">
+<title>
+
+
+     Robin Lee - demystifying tests 
+
+</title>
+<link rel="canonical" href="https://robin-lee.github.io/blog/2017/03/demystifying-tests/">
+
+
+<script type="text/javascript">
+    var baseURL = 'https:\/\/robin-lee.github.io\/';
+    var host = baseURL.substring(0, baseURL.length - 1).replace(/\//g, '');
+    if ((host === window.location.host) && (window.location.protocol !== 'https:')) {
+        window.location.protocol = 'https:';
+    }
+</script>
+
+
+
+
+
+<link rel="stylesheet" href="https://robin-lee.github.io//css/reset.css">
+<link rel="stylesheet" href="https://robin-lee.github.io//css/pygments.css">
+<link rel="stylesheet" href="https://robin-lee.github.io//css/main.css">
+<link rel="stylesheet" href="https://robin-lee.github.io//css/override.css">
+
+
+
+
+<link rel="shortcut icon"
+
+    href="https://robin-lee.github.io/favicon.ico"
+
+>
+
+
+
+
+
+
+</head>
+
+
+<body lang="en">
+
+
+
+<section class="header">
+
+    <div class="container">
+        <a href="https://robin-lee.github.io/"><img class="logo" style="margin-right: 20px;" src="https://robin-lee.github.io/logo.png" /></a>
+        <div class="content">
+            <a href="https://robin-lee.github.io/"><div class="name"><h1>Robin Lee</h1></div></a>
+            <nav>
+                <ul>
+                    <a href="https://robin-lee.github.io/"><li>Blog</li></a>
+                    <a href="https://robin-lee.github.io/about/"><li>About</li></a>
+                    <a href="https://robin-lee.github.io/portfolio/"><li>Portfolio</li></a>
+                </ul>
+            </nav>
+        </div>
+    </div>
+</section>
+
+<section class="icons">
+    <div class="container">
+        <div class="content">
+
+        
+            <a href="//github.com/robin-lee" target="_blank">
+                <i class="icon ion-social-github"></i>
+            </a>
+        
+
+        
+
+        
+            <a href="//sg.linkedin.com/in/robin-lee-2b70818a" target="_blank">
+                <i class="icon ion-social-linkedin"></i>
+            </a>
+        
+
+        
+
+        
+            <a href="https://robin-lee.github.io/index.xml">
+                <i class="icon ion-social-rss larger"></i>
+            </a>
+        
+        </div>
+    </div>
+</section>
+
+
+<section class="main post non-narrow zero-top-spacing">
+    <div class="container">
+        <div class="content">
+            <div class="front-matter">
+                <div class="title-container">
+                    <div class="page-heading">
+
+    demystifying tests
+
+</div>
+
+                    <div class="initials"><a href="https://robin-lee.github.io/"></a></div>
+                </div>
+                <div class="meta">
+                    <div class="date" title="Wed Mar 29 2017 18:55:10 SGT">Mar 29, 2017</div>
+                    <div class="reading-time"><div class="middot"></div>7 minutes read</div>
+                </div>
+            </div>
+            <div class="markdown">
+                
+
+<p>My rough notes on talk &amp; workshop conducted by Christopher Rex. Code most by Sahil.
+QA ThoughtWorks 7 years.</p>
+
+<p>Met Narain*, consultant for banks. He said the design and implementation of software is most important followed by knowledge of languages.</p>
+
+<p>Met Raju*, ThoughtWorks. General conversation about school and ThoughtWorks. They have about 80 people here. &lt; 20% operations.</p>
+
+<p>Met Ika*, ThoughtWorks testing. Brought me to office.</p>
+
+<p><a href="http://github.com/christopher-rex/sample-test-pyramid">github</a></p>
+
+<p>Office 97
+Browser &lt;-&gt; <strong>Monolithic App</strong> &lt;-&gt; Db</p>
+
+<p>API Gateway -&gt; Still can get away with testing UI</p>
+
+<h1 id="problem-function-testing">Problem Function Testing</h1>
+
+<p>Alexa. Voice enabled device.</p>
+
+<p>Apps put into Alex domain. How to test?</p>
+
+<p>Basically, you can&rsquo;t stick to one layer to test it. Just speaking to it doesn&rsquo;t work.
+Too many variables/inconsistencies.</p>
+
+<p>Goal: come up with <strong>sensible test</strong> approach for IoT devices.</p>
+
+<h1 id="evolution-of-automated-testing">Evolution of Automated testing</h1>
+
+<ol>
+<li>Manual testing</li>
+<li>Automated testing</li>
+<li>Continuous integration server: Build, test, result (feedback), deploy (maybes)</li>
+</ol>
+
+<h1 id="problem-automation">Problem Automation</h1>
+
+<p><strong>Always Red, Painfully slow build</strong></p>
+
+<p>Rohit: Many problems&hellip; Sometimes have to wait for GUI. System upgrade then build fails.</p>
+
+<p>Developer has to wait for the feedback for the build. He can&rsquo;t go away&hellip;
+He would have already moved on to the new build.</p>
+
+<p>We would like to have a more <strong>efficient automation suite</strong>.</p>
+
+<h1 id="common-approach">Common approach</h1>
+
+<p>Using test pyramid. Using multiple layers. Go about testing in logic in each layer.</p>
+
+<p>Stub testing is one layer in the test pyramid.</p>
+
+<p>If I have a list of requirements how do I map them to tests in each layer?
+Christopher and Saye* came up with a github project with 4 layers of testing.</p>
+
+<p>Goals today:</p>
+
+<ol>
+<li>Building deeper understanding of AUT (layered approach to testing)</li>
+<li>Testing for right logic in right layer (sensible functional testing, efficient automation testing)</li>
+</ol>
+
+<h1 id="project">Project</h1>
+
+<p>Simple application. sample-test-pyramid.
+Login, coupon page.</p>
+
+<h2 id="tests">Tests</h2>
+
+<h3 id="login-functionality">Login Functionality</h3>
+
+<p>Think of acceptance criterions. Expected functionality that is required to be built.</p>
+
+<ol>
+<li>Should be able to login if account is verified.
+&hellip;</li>
+</ol>
+
+<p>In extended case, super user going to the right page is a valid test scenario.</p>
+
+<p><strong>How to test?</strong>*
+You need data first (mock). After a long time, you get a lot of scenarios.
+To manage this you need to come up with a good testing approach.</p>
+
+<p>Testing approach
+1. How can we approach testing this user-auth feature?
+2. Do we have enough information to to define&hellip;</p>
+
+<p>First, thing to know&hellip; You need to know application architecture.</p>
+
+<p>In this case, we have
+User interaction layer, Service layer</p>
+
+<p>(End to end layer)</p>
+
+<p>User interaction layer:
+- Web application
+API wire-up logic
+Presentation logic</p>
+
+<p>Service Layer:
+- User Service
+- Coupon Service
+ Domain Logic</p>
+
+<p><code>process? lsof -i:4567</code>
+Check if jetty is still running on port 4567?</p>
+
+<p><code>./up</code> convenience script to bring up server. For java it uses gradle. For js it uses node.</p>
+
+<p>Using postman without going through UI tests run much faster. You modularize your tests. Only when there is a change in the layer then you perform the tests for that layer or service. Don&rsquo;t need to repeat tests unless you make a change. Advantage of making a test in seclusion.</p>
+
+<p>Test UI layer without Service layer? Stub the response (for both stubbed user service and stubbed coupon service).</p>
+
+<p>Tool used Stubby4j. Define YAML config. Says what to respond for a request (Seems like you need to record it).</p>
+
+<p>There could be validation in presentation layer (hence, presentation logic).</p>
+
+<p>Thick client, then there may not be a lot of communication going to the backend.</p>
+
+<p>Do you want to be held up if the service layer is in the process of upgrading and not working?
+No. Stubs overcome this. You can continue developing and testing. The developers already know the <em>contract</em> the backend team is supposed to fulfill. Gives team autonomy to build their layer.</p>
+
+<p>Choices:
+- E2E
+- Stubbed (Comprehensive layer that includes UI logic. Anything that doesn&rsquo;t hit the server.)
+- Service</p>
+
+<p>One convention we can use is the one used in <code>cucumber</code>.</p>
+
+<p>The flow: Login -&gt; Coupon page.
+Without stub you would not be able to go from login to coupon page.</p>
+
+<p>Reason for &ldquo;Verify Successful Login&rdquo; as E2E because you need to communicate with server and you also need to show unauthorized on the UI.</p>
+
+<p>&hellip;</p>
+
+<h1 id="applying-layered-testing-approach">Applying Layered Testing Approach</h1>
+
+<p>Don&rsquo;t need to test Alex Service, Kitchen Light (Philips Hue) because they are well tested by their teams.</p>
+
+<p>We just need to test the boundary. Then we need 1 more E2E to make sure our software works well in real life.
+With proper understanding of architecture of application you can simplify your tests. You need a deeper understanding of the application.</p>
+
+<p>&lt;&lt; Ends functional testing portion &gt;&gt;</p>
+
+<p>Now we move into automation. Before, going there&hellip;
+Zooming into user service there is a unit layer. (Router &gt; Handlers (Ping, Login) &gt; Repository).
+Unit tests uses mocks (e.g. mockRepository).</p>
+
+<p>SparkServer?</p>
+
+<p>Within integration tests, SparkServer is constructed as a functional component not the actual Db.</p>
+
+<p>User journey better expressed in BDD so we use <code>cucumber</code>. Can run tests for each layer because they are tagged (e2e, stub).</p>
+
+<h1 id="test-automation-layered">Test Automation - Layered</h1>
+
+<p><image></p>
+
+<p><chart>
+Stubbed Webapp Tests most number of tests. Shows you it is a thick client. Lots of tests on UI layer.</p>
+
+<h1 id="ci-build-monitor">CI Build Monitor</h1>
+
+<p>Unit tests failing. But rest green? Error has not propagated up.</p>
+
+<p>Integration test failing. Rest green. Business logic in service layer is failing. Could be due to lift and shift of logic passing unit tests but haven&rsquo;t actually updated unit tests. However, QA for integration layer could have updated it already.</p>
+
+<p>E2E or stubbed test is failing. E.g. route has changed or response schema has changed. Schema upgrade. UI logic or presentation logic has gone for a test.</p>
+
+<p>Just by looking at CI you know what the problem is at each time.</p>
+
+<h1 id="interesting-scenario-for-coupon">Interesting scenario for coupon</h1>
+
+<p>Verify coupon page is not accessible without login. (go to url directly)</p>
+
+<p>Also, think about concurrent coupon validation.</p>
+
+<h1 id="qna">QnA</h1>
+
+<p>(Q&rsquo;s from narain)</p>
+
+<p>Q: More expensive to have acceptance at UI level, cheaper at the unit level. If I have a thick client application, in terms of automation, and you&rsquo;re refactoring the entire thing to get the right density of tests for each layer.</p>
+
+<p>A: There might be tool to migrate tests to another layer. We use JUnit, unit and integration. Cucumber can also do unit and integration. If business level ppl then cucumber makes sense.</p>
+
+<p>RephraseQ: Any other automation frameworks (mental frameworks)? What approach should you take?</p>
+
+<p>A: It depends on how long lasting the code base will be. New? Many years in operation? If delivery is going to be real soon how much sense does it make to migrate the tests to lower layers&hellip; Maybe not much. If longer roadmap, probably good to invest in the automation framework.</p>
+
+<p>Q: Application is more UI based but developers are not. This framework is unit up&hellip;</p>
+
+<p>A: Built a suite, a framework, of 3000 tests. These tests were all on the UI layer. It was a big deal. When app grew it became expensive to manage. Industry has grown&hellip; determined its not wise to have too many tests in the UI layer. (Raju)</p>
+
+<p>A: Root cause analysis for defects. Then categorized which defects can be defended in which layer. Then risk analysis to determine which defects to write tests for.</p>
+
+<p>Q: Who should be writing these unit tests and integration? Large organizations don&rsquo;t have agile. Whats the costs benefit analysis?</p>
+
+<p>A: Yes its difficult to justify the cost of changing everything. Start building the right way. Old apps refactor to use the new way as you touch them. Progressive change. Present cost benefit to organization then let them decide.</p>
+
+<p>A: Treat unit tests as black box. Focus more on integration test. If integration test failure then he goes to unit test to see if its covered in unit tests. Ask himself why not covered. Write it himself or ask a dev to do it.</p>
+
+<p>(Interesting graphic: Ice-cream cone anti-pattern. watirmelon.blog)
+Christopher: Beware of recording too many request, responses. Try to prevent the anti-pattern from happening.</p>
+
+<p>(Mention of slow tool. QTP. Falls into an anti-pattern. Write more tests to the extent that you dont know the architecture of your application. RFT. Migration tools to migrate QTP to RFT. All failing because they are building this ice-cream cone.)</p>
+
+<p>Q (me): How would you test streaming data like stock information, audio or video?</p>
+
+<p>A: Good question. Haven&rsquo;t had experience there but theoretically you still can stub it.
+A (Ika): In my experience you can stub it.</p>
+
+<p>A (Christopher): Has had a pre-prod scenario to test a few E2E scenarios.</p>
+
+                <br>
+                <p><a href="https://robin-lee.github.io/">Back to posts</a></p>
+            </div>
+            <br>
+            <div class="disqus">
+                
+            </div>
+        </div>
+    </div>
+</section>
+
+
+
+
+</body>
+</html>
+

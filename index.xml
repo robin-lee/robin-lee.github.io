@@ -6,8 +6,233 @@
     <description>Recent content on Robin Lee</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <lastBuildDate>Tue, 14 Feb 2017 22:59:25 +0800</lastBuildDate>
+    <lastBuildDate>Wed, 29 Mar 2017 18:55:10 +0800</lastBuildDate>
     <atom:link href="https://robin-lee.github.io/index.xml" rel="self" type="application/rss+xml" />
+    
+    <item>
+      <title>demystifying tests</title>
+      <link>https://robin-lee.github.io/blog/2017/03/demystifying-tests/</link>
+      <pubDate>Wed, 29 Mar 2017 18:55:10 +0800</pubDate>
+      
+      <guid>https://robin-lee.github.io/blog/2017/03/demystifying-tests/</guid>
+      <description>
+
+&lt;p&gt;My rough notes on talk &amp;amp; workshop conducted by Christopher Rex. Code most by Sahil.
+QA ThoughtWorks 7 years.&lt;/p&gt;
+
+&lt;p&gt;Met Narain*, consultant for banks. He said the design and implementation of software is most important followed by knowledge of languages.&lt;/p&gt;
+
+&lt;p&gt;Met Raju*, ThoughtWorks. General conversation about school and ThoughtWorks. They have about 80 people here. &amp;lt; 20% operations.&lt;/p&gt;
+
+&lt;p&gt;Met Ika*, ThoughtWorks testing. Brought me to office.&lt;/p&gt;
+
+&lt;p&gt;&lt;a href=&#34;http://github.com/christopher-rex/sample-test-pyramid&#34;&gt;github&lt;/a&gt;&lt;/p&gt;
+
+&lt;p&gt;Office 97
+Browser &amp;lt;-&amp;gt; &lt;strong&gt;Monolithic App&lt;/strong&gt; &amp;lt;-&amp;gt; Db&lt;/p&gt;
+
+&lt;p&gt;API Gateway -&amp;gt; Still can get away with testing UI&lt;/p&gt;
+
+&lt;h1 id=&#34;problem-function-testing&#34;&gt;Problem Function Testing&lt;/h1&gt;
+
+&lt;p&gt;Alexa. Voice enabled device.&lt;/p&gt;
+
+&lt;p&gt;Apps put into Alex domain. How to test?&lt;/p&gt;
+
+&lt;p&gt;Basically, you can&amp;rsquo;t stick to one layer to test it. Just speaking to it doesn&amp;rsquo;t work.
+Too many variables/inconsistencies.&lt;/p&gt;
+
+&lt;p&gt;Goal: come up with &lt;strong&gt;sensible test&lt;/strong&gt; approach for IoT devices.&lt;/p&gt;
+
+&lt;h1 id=&#34;evolution-of-automated-testing&#34;&gt;Evolution of Automated testing&lt;/h1&gt;
+
+&lt;ol&gt;
+&lt;li&gt;Manual testing&lt;/li&gt;
+&lt;li&gt;Automated testing&lt;/li&gt;
+&lt;li&gt;Continuous integration server: Build, test, result (feedback), deploy (maybes)&lt;/li&gt;
+&lt;/ol&gt;
+
+&lt;h1 id=&#34;problem-automation&#34;&gt;Problem Automation&lt;/h1&gt;
+
+&lt;p&gt;&lt;strong&gt;Always Red, Painfully slow build&lt;/strong&gt;&lt;/p&gt;
+
+&lt;p&gt;Rohit: Many problems&amp;hellip; Sometimes have to wait for GUI. System upgrade then build fails.&lt;/p&gt;
+
+&lt;p&gt;Developer has to wait for the feedback for the build. He can&amp;rsquo;t go away&amp;hellip;
+He would have already moved on to the new build.&lt;/p&gt;
+
+&lt;p&gt;We would like to have a more &lt;strong&gt;efficient automation suite&lt;/strong&gt;.&lt;/p&gt;
+
+&lt;h1 id=&#34;common-approach&#34;&gt;Common approach&lt;/h1&gt;
+
+&lt;p&gt;Using test pyramid. Using multiple layers. Go about testing in logic in each layer.&lt;/p&gt;
+
+&lt;p&gt;Stub testing is one layer in the test pyramid.&lt;/p&gt;
+
+&lt;p&gt;If I have a list of requirements how do I map them to tests in each layer?
+Christopher and Saye* came up with a github project with 4 layers of testing.&lt;/p&gt;
+
+&lt;p&gt;Goals today:&lt;/p&gt;
+
+&lt;ol&gt;
+&lt;li&gt;Building deeper understanding of AUT (layered approach to testing)&lt;/li&gt;
+&lt;li&gt;Testing for right logic in right layer (sensible functional testing, efficient automation testing)&lt;/li&gt;
+&lt;/ol&gt;
+
+&lt;h1 id=&#34;project&#34;&gt;Project&lt;/h1&gt;
+
+&lt;p&gt;Simple application. sample-test-pyramid.
+Login, coupon page.&lt;/p&gt;
+
+&lt;h2 id=&#34;tests&#34;&gt;Tests&lt;/h2&gt;
+
+&lt;h3 id=&#34;login-functionality&#34;&gt;Login Functionality&lt;/h3&gt;
+
+&lt;p&gt;Think of acceptance criterions. Expected functionality that is required to be built.&lt;/p&gt;
+
+&lt;ol&gt;
+&lt;li&gt;Should be able to login if account is verified.
+&amp;hellip;&lt;/li&gt;
+&lt;/ol&gt;
+
+&lt;p&gt;In extended case, super user going to the right page is a valid test scenario.&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;How to test?&lt;/strong&gt;*
+You need data first (mock). After a long time, you get a lot of scenarios.
+To manage this you need to come up with a good testing approach.&lt;/p&gt;
+
+&lt;p&gt;Testing approach
+1. How can we approach testing this user-auth feature?
+2. Do we have enough information to to define&amp;hellip;&lt;/p&gt;
+
+&lt;p&gt;First, thing to know&amp;hellip; You need to know application architecture.&lt;/p&gt;
+
+&lt;p&gt;In this case, we have
+User interaction layer, Service layer&lt;/p&gt;
+
+&lt;p&gt;(End to end layer)&lt;/p&gt;
+
+&lt;p&gt;User interaction layer:
+- Web application
+API wire-up logic
+Presentation logic&lt;/p&gt;
+
+&lt;p&gt;Service Layer:
+- User Service
+- Coupon Service
+ Domain Logic&lt;/p&gt;
+
+&lt;p&gt;&lt;code&gt;process? lsof -i:4567&lt;/code&gt;
+Check if jetty is still running on port 4567?&lt;/p&gt;
+
+&lt;p&gt;&lt;code&gt;./up&lt;/code&gt; convenience script to bring up server. For java it uses gradle. For js it uses node.&lt;/p&gt;
+
+&lt;p&gt;Using postman without going through UI tests run much faster. You modularize your tests. Only when there is a change in the layer then you perform the tests for that layer or service. Don&amp;rsquo;t need to repeat tests unless you make a change. Advantage of making a test in seclusion.&lt;/p&gt;
+
+&lt;p&gt;Test UI layer without Service layer? Stub the response (for both stubbed user service and stubbed coupon service).&lt;/p&gt;
+
+&lt;p&gt;Tool used Stubby4j. Define YAML config. Says what to respond for a request (Seems like you need to record it).&lt;/p&gt;
+
+&lt;p&gt;There could be validation in presentation layer (hence, presentation logic).&lt;/p&gt;
+
+&lt;p&gt;Thick client, then there may not be a lot of communication going to the backend.&lt;/p&gt;
+
+&lt;p&gt;Do you want to be held up if the service layer is in the process of upgrading and not working?
+No. Stubs overcome this. You can continue developing and testing. The developers already know the &lt;em&gt;contract&lt;/em&gt; the backend team is supposed to fulfill. Gives team autonomy to build their layer.&lt;/p&gt;
+
+&lt;p&gt;Choices:
+- E2E
+- Stubbed (Comprehensive layer that includes UI logic. Anything that doesn&amp;rsquo;t hit the server.)
+- Service&lt;/p&gt;
+
+&lt;p&gt;One convention we can use is the one used in &lt;code&gt;cucumber&lt;/code&gt;.&lt;/p&gt;
+
+&lt;p&gt;The flow: Login -&amp;gt; Coupon page.
+Without stub you would not be able to go from login to coupon page.&lt;/p&gt;
+
+&lt;p&gt;Reason for &amp;ldquo;Verify Successful Login&amp;rdquo; as E2E because you need to communicate with server and you also need to show unauthorized on the UI.&lt;/p&gt;
+
+&lt;p&gt;&amp;hellip;&lt;/p&gt;
+
+&lt;h1 id=&#34;applying-layered-testing-approach&#34;&gt;Applying Layered Testing Approach&lt;/h1&gt;
+
+&lt;p&gt;Don&amp;rsquo;t need to test Alex Service, Kitchen Light (Philips Hue) because they are well tested by their teams.&lt;/p&gt;
+
+&lt;p&gt;We just need to test the boundary. Then we need 1 more E2E to make sure our software works well in real life.
+With proper understanding of architecture of application you can simplify your tests. You need a deeper understanding of the application.&lt;/p&gt;
+
+&lt;p&gt;&amp;lt;&amp;lt; Ends functional testing portion &amp;gt;&amp;gt;&lt;/p&gt;
+
+&lt;p&gt;Now we move into automation. Before, going there&amp;hellip;
+Zooming into user service there is a unit layer. (Router &amp;gt; Handlers (Ping, Login) &amp;gt; Repository).
+Unit tests uses mocks (e.g. mockRepository).&lt;/p&gt;
+
+&lt;p&gt;SparkServer?&lt;/p&gt;
+
+&lt;p&gt;Within integration tests, SparkServer is constructed as a functional component not the actual Db.&lt;/p&gt;
+
+&lt;p&gt;User journey better expressed in BDD so we use &lt;code&gt;cucumber&lt;/code&gt;. Can run tests for each layer because they are tagged (e2e, stub).&lt;/p&gt;
+
+&lt;h1 id=&#34;test-automation-layered&#34;&gt;Test Automation - Layered&lt;/h1&gt;
+
+&lt;p&gt;&lt;image&gt;&lt;/p&gt;
+
+&lt;p&gt;&lt;chart&gt;
+Stubbed Webapp Tests most number of tests. Shows you it is a thick client. Lots of tests on UI layer.&lt;/p&gt;
+
+&lt;h1 id=&#34;ci-build-monitor&#34;&gt;CI Build Monitor&lt;/h1&gt;
+
+&lt;p&gt;Unit tests failing. But rest green? Error has not propagated up.&lt;/p&gt;
+
+&lt;p&gt;Integration test failing. Rest green. Business logic in service layer is failing. Could be due to lift and shift of logic passing unit tests but haven&amp;rsquo;t actually updated unit tests. However, QA for integration layer could have updated it already.&lt;/p&gt;
+
+&lt;p&gt;E2E or stubbed test is failing. E.g. route has changed or response schema has changed. Schema upgrade. UI logic or presentation logic has gone for a test.&lt;/p&gt;
+
+&lt;p&gt;Just by looking at CI you know what the problem is at each time.&lt;/p&gt;
+
+&lt;h1 id=&#34;interesting-scenario-for-coupon&#34;&gt;Interesting scenario for coupon&lt;/h1&gt;
+
+&lt;p&gt;Verify coupon page is not accessible without login. (go to url directly)&lt;/p&gt;
+
+&lt;p&gt;Also, think about concurrent coupon validation.&lt;/p&gt;
+
+&lt;h1 id=&#34;qna&#34;&gt;QnA&lt;/h1&gt;
+
+&lt;p&gt;(Q&amp;rsquo;s from narain)&lt;/p&gt;
+
+&lt;p&gt;Q: More expensive to have acceptance at UI level, cheaper at the unit level. If I have a thick client application, in terms of automation, and you&amp;rsquo;re refactoring the entire thing to get the right density of tests for each layer.&lt;/p&gt;
+
+&lt;p&gt;A: There might be tool to migrate tests to another layer. We use JUnit, unit and integration. Cucumber can also do unit and integration. If business level ppl then cucumber makes sense.&lt;/p&gt;
+
+&lt;p&gt;RephraseQ: Any other automation frameworks (mental frameworks)? What approach should you take?&lt;/p&gt;
+
+&lt;p&gt;A: It depends on how long lasting the code base will be. New? Many years in operation? If delivery is going to be real soon how much sense does it make to migrate the tests to lower layers&amp;hellip; Maybe not much. If longer roadmap, probably good to invest in the automation framework.&lt;/p&gt;
+
+&lt;p&gt;Q: Application is more UI based but developers are not. This framework is unit up&amp;hellip;&lt;/p&gt;
+
+&lt;p&gt;A: Built a suite, a framework, of 3000 tests. These tests were all on the UI layer. It was a big deal. When app grew it became expensive to manage. Industry has grown&amp;hellip; determined its not wise to have too many tests in the UI layer. (Raju)&lt;/p&gt;
+
+&lt;p&gt;A: Root cause analysis for defects. Then categorized which defects can be defended in which layer. Then risk analysis to determine which defects to write tests for.&lt;/p&gt;
+
+&lt;p&gt;Q: Who should be writing these unit tests and integration? Large organizations don&amp;rsquo;t have agile. Whats the costs benefit analysis?&lt;/p&gt;
+
+&lt;p&gt;A: Yes its difficult to justify the cost of changing everything. Start building the right way. Old apps refactor to use the new way as you touch them. Progressive change. Present cost benefit to organization then let them decide.&lt;/p&gt;
+
+&lt;p&gt;A: Treat unit tests as black box. Focus more on integration test. If integration test failure then he goes to unit test to see if its covered in unit tests. Ask himself why not covered. Write it himself or ask a dev to do it.&lt;/p&gt;
+
+&lt;p&gt;(Interesting graphic: Ice-cream cone anti-pattern. watirmelon.blog)
+Christopher: Beware of recording too many request, responses. Try to prevent the anti-pattern from happening.&lt;/p&gt;
+
+&lt;p&gt;(Mention of slow tool. QTP. Falls into an anti-pattern. Write more tests to the extent that you dont know the architecture of your application. RFT. Migration tools to migrate QTP to RFT. All failing because they are building this ice-cream cone.)&lt;/p&gt;
+
+&lt;p&gt;Q (me): How would you test streaming data like stock information, audio or video?&lt;/p&gt;
+
+&lt;p&gt;A: Good question. Haven&amp;rsquo;t had experience there but theoretically you still can stub it.
+A (Ika): In my experience you can stub it.&lt;/p&gt;
+
+&lt;p&gt;A (Christopher): Has had a pre-prod scenario to test a few E2E scenarios.&lt;/p&gt;
+</description>
+    </item>
     
     <item>
       <title>Using ffmpeg to join videos</title>
@@ -2083,99 +2308,6 @@ For this post, we will continue with Intenet Sockets. I was in the midst of mess
 &lt;h1 id=&#34;socket-programming&#34;&gt;Socket Programming&lt;/h1&gt;
 
 &lt;p&gt;&lt;a href=&#34;http://www.cs.dartmouth.edu/~campbell/cs50/socketprogramming.html&#34;&gt;dartmouth cs50&lt;/a&gt;&lt;/p&gt;
-</description>
-    </item>
-    
-    <item>
-      <title>Growing Object Oriented Software, Guided by Tests Part 1</title>
-      <link>https://robin-lee.github.io/blog/2016/07/growing-object-oriented-software-guided-by-tests-part-1/</link>
-      <pubDate>Wed, 27 Jul 2016 14:31:03 +0200</pubDate>
-      
-      <guid>https://robin-lee.github.io/blog/2016/07/growing-object-oriented-software-guided-by-tests-part-1/</guid>
-      <description>
-
-&lt;p&gt;In this series, I consolidate points from the GOOSGBT book and may comment on some of them.
-The post may not be coherent as I am extracting fragments I consider useful or enlightening.&lt;/p&gt;
-
-&lt;p&gt;Stackoverflow post to read: &lt;a href=&#34;http://stackoverflow.com/questions/920992/unit-test-adoption/924639#924639&#34;&gt;link&lt;/a&gt;&lt;/p&gt;
-
-&lt;h2 id=&#34;levels-of-testing&#34;&gt;Levels of testing&lt;/h2&gt;
-
-&lt;ul&gt;
-&lt;li&gt;Acceptance: Does the whole system work?&lt;/li&gt;
-&lt;li&gt;Integration: Does our code work against code we can&amp;rsquo;t change?&lt;/li&gt;
-&lt;li&gt;Unit: Do our objects do the right thing, are they convenient to work with?&lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;h2 id=&#34;support-for-tdd-with-mock-objects&#34;&gt;Support for TDD with mock objects&lt;/h2&gt;
-
-&lt;p&gt;The essential steps for creating a test:&lt;/p&gt;
-
-&lt;ul&gt;
-&lt;li&gt;Create any required mock objects.&lt;/li&gt;
-&lt;li&gt;Create any real objects, including the target object.&lt;/li&gt;
-&lt;li&gt;Specify how you expect the mock objects to be called by the target object.&lt;/li&gt;
-&lt;li&gt;Call the triggering method(s) on the target object.&lt;/li&gt;
-&lt;li&gt;Assert that any resulting values are valid and that all the expected calls have been made.&lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;p&gt;The important point, as we stress repeatedly throughout this book, is to make clear the intention of every test, distinguishing between the tested functionality, the supporting infrastructure, and the object structure.&lt;/p&gt;
-
-&lt;h2 id=&#34;test-fixture&#34;&gt;Test Fixture&lt;/h2&gt;
-
-&lt;p&gt;A test fixture is the fixed state that exists at the start of a test. A test fixture ensures that a test is repeatable—every time a test is run it starts in the same state so it should produce the same results. A fixture may be set up before the test runs and torn down after it has finished. Think of &lt;code&gt;@Before&lt;/code&gt; and &lt;code&gt;@After&lt;/code&gt;.&lt;/p&gt;
-
-&lt;h2 id=&#34;mocking&#34;&gt;Mocking&lt;/h2&gt;
-
-&lt;p&gt;&lt;em&gt;Notes here are for jMock2. In the neigbourhood of page 26.&lt;/em&gt;&lt;/p&gt;
-
-&lt;p&gt;A mockery represents the context of the object under test, its neighboring objects; mock objects stand in for the real neighbors of the object under test while the test runs; and expectations describe how the object under test should invoke its neighbors during the test.&lt;/p&gt;
-
-&lt;p&gt;Note that the test does not require any assertions. This is quite common in mock object tests.&lt;/p&gt;
-
-&lt;h2 id=&#34;walking-skeleton&#34;&gt;Walking Skeleton&lt;/h2&gt;
-
-&lt;p&gt;We can’t automate the build, deploy, and test cycle without some idea of the overall structure. We don’t need much detail yet, just a broad-brush picture of what major system components will be needed to support the first planned release and how they will communicate.&lt;/p&gt;
-
-&lt;p&gt;We need a high-level view of the client’s requirements, both functional and non- functional, to guide our choices.&lt;/p&gt;
-
-&lt;h2 id=&#34;unit-test-behaviour-not-methods&#34;&gt;Unit-Test Behaviour Not Methods&lt;/h2&gt;
-
-&lt;p&gt;Many developers who adopt TDD find their early tests hard to understand when they revisit them later, and one common mistake is thinking about testing methods. A test called testBidAccepted() tells us what it does, but not what it’s for.&lt;/p&gt;
-
-&lt;p&gt;We do better when we focus on the &lt;strong&gt;features that the object under test should provide&lt;/strong&gt;, each of which may require collaboration with its neighbors and calling more than one of its methods. We need to know how to use the class to achieve a goal, *&lt;strong&gt;not&lt;/strong&gt; how to exercise all the paths through its code*.&lt;/p&gt;
-
-&lt;p&gt;&lt;code&gt;sniperJoinsAuctionUntilAuctionCloses()&lt;/code&gt;&lt;/p&gt;
-
-&lt;h1 id=&#34;object-oriented-style&#34;&gt;Object - Oriented Style&lt;/h1&gt;
-
-&lt;p&gt;We value code that is easy to maintain over code that is easy to write.1 Imple- menting a feature in the most direct way can damage the maintainability of the system, for example by making the code difficult to understand or by introducing hidden dependencies between components. Balancing immediate and longer-term concerns is often tricky, but we’ve seen too many teams that can no longer deliver because their system is too brittle.&lt;/p&gt;
-
-&lt;p&gt;We don’t want technical concepts to leak into the application model, so we write interfaces to describe its relationships with the outside world in its terminology (Cockburn’s ports). Then we write bridges between the application core and each technical domain (Cockburn’s adapters). This is related to what Eric Evans calls an “anticorruption layer” [Evans03].&lt;/p&gt;
-
-&lt;h2 id=&#34;achieving-object-oriented-design&#34;&gt;Achieving Object Oriented Design&lt;/h2&gt;
-
-&lt;p&gt;Breaking off, Budding out, Bundling up&lt;/p&gt;
-
-&lt;p&gt;Budding Out.&lt;/p&gt;
-
-&lt;p&gt;We think of this as “on-demand” design: we “pull” interfaces and their imple- mentations into existence from the needs of the client, rather than “pushing” out the features that we think a class should provide.&lt;/p&gt;
-
-&lt;h2 id=&#34;building-up-to-higher-level-programming&#34;&gt;Building up to higher level programming&lt;/h2&gt;
-
-&lt;p&gt;The declarative layer describes what the code will do, while the implementation layer describes how the code does it. The declarative layer is, in effect, a small domain-specific language embedded (in this case) in Java.&lt;/p&gt;
-
-&lt;h2 id=&#34;building-on-third-party-code&#34;&gt;Building on Third Party Code&lt;/h2&gt;
-
-&lt;h3 id=&#34;only-mock-objects-you-own&#34;&gt;Only mock objects you own&lt;/h3&gt;
-
-&lt;blockquote&gt;
-&lt;p&gt;When we use third-party code we often do not have a deep understanding of how it works. Even if we have the source available, we rarely have time to read it thoroughly enough to explore all its quirks. We can read its documentation, which is often incomplete or incorrect.&lt;/p&gt;
-&lt;/blockquote&gt;
-
-&lt;p&gt;Yeah tell me about it.&lt;/p&gt;
-
-&lt;p&gt;Part 2 will be on the worked example.&lt;/p&gt;
 </description>
     </item>
     
