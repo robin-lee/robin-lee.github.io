@@ -9,12 +9,61 @@
     <atom:link href="https://robin-lee.github.io/series/reactjs/index.xml" rel="self" type="application/rss+xml" />
     
     <item>
-      <title>react basics</title>
+      <title>React Basics</title>
       <link>https://robin-lee.github.io/blog/2017/03/react-basics/</link>
       <pubDate>Thu, 30 Mar 2017 17:40:03 +0800</pubDate>
       
       <guid>https://robin-lee.github.io/blog/2017/03/react-basics/</guid>
       <description>
+
+&lt;p&gt;Edit 14/6/17: Fix formatting.&lt;/p&gt;
+
+&lt;p&gt;ReactJS to learn React Native. Essentially, trying to follow the learning path here: &lt;a href=&#34;https://reactjs.co/react-native-convention/&#34;&gt;link&lt;/a&gt;&lt;/p&gt;
+
+&lt;p&gt;Obviously, certain parts will be prioritised.&lt;/p&gt;
+
+&lt;h1 id=&#34;skeleton&#34;&gt;Skeleton&lt;/h1&gt;
+
+&lt;p&gt;App.js&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;import React from &#39;react&#39;;
+
+// Component with Stateless
+class App extends React.Component {
+    render() {
+        return &amp;lt;h1&amp;gt;Hello Guys&amp;lt;/h1&amp;gt;
+    }
+}
+
+// Stateless component
+// const App = () =&amp;gt; &amp;lt;h1&amp;gt;Hello Eggheads&amp;lt;/h1&amp;gt;
+
+export default App;
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;index.html&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;&amp;lt;!DOCTYPE html&amp;gt;
+&amp;lt;html lang=&amp;quot;en&amp;quot;&amp;gt;
+&amp;lt;head&amp;gt;
+    &amp;lt;meta charset=&amp;quot;UTF-8&amp;quot;&amp;gt;
+    &amp;lt;title&amp;gt;Intro&amp;lt;/title&amp;gt;
+&amp;lt;/head&amp;gt;
+&amp;lt;body&amp;gt;
+    &amp;lt;div id=&amp;quot;app&amp;quot;&amp;gt;&amp;lt;/div&amp;gt;
+    &amp;lt;script src=&amp;quot;index.js&amp;quot;&amp;gt;&amp;lt;/script&amp;gt;
+&amp;lt;/body&amp;gt;
+&amp;lt;/html&amp;gt;
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;main.js&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;import React from &#39;react&#39;;
+import ReactDOM from &#39;react-dom&#39;;
+import App from &#39;./App&#39;;
+
+ReactDOM.render(&amp;lt;App /&amp;gt;, document.getElementById(&#39;app&#39;));
+&lt;/code&gt;&lt;/pre&gt;
 
 &lt;h1 id=&#34;components&#34;&gt;Components&lt;/h1&gt;
 
@@ -273,11 +322,14 @@ class Input extends React.Component {
 }
 &lt;/code&gt;&lt;/pre&gt;
 
-&lt;p&gt;Example (rough order):
-1. componentWillMount
-2. render
-3. componentDidMount
-4. componentWillUnmount&lt;/p&gt;
+&lt;p&gt;Example (rough order):&lt;/p&gt;
+
+&lt;ol&gt;
+&lt;li&gt;componentWillMount&lt;/li&gt;
+&lt;li&gt;render&lt;/li&gt;
+&lt;li&gt;componentDidMount&lt;/li&gt;
+&lt;li&gt;componentWillUnmount&lt;/li&gt;
+&lt;/ol&gt;
 
 &lt;pre&gt;&lt;code&gt;class App extends React.Component {
   constructor() {
@@ -319,14 +371,14 @@ class Input extends React.Component {
      clearInterval(this.increment)
    }
 }
-
-## Component update lifecycle
 &lt;/code&gt;&lt;/pre&gt;
 
-&lt;p&gt;import React from &amp;lsquo;react&amp;rsquo;;
-import ReactDOM from &amp;lsquo;react-dom&amp;rsquo;;&lt;/p&gt;
+&lt;h2 id=&#34;component-update-lifecycle&#34;&gt;Component update lifecycle&lt;/h2&gt;
 
-&lt;p&gt;class App extends React.Component {
+&lt;pre&gt;&lt;code&gt;import React from &#39;react&#39;;
+import ReactDOM from &#39;react-dom&#39;;
+
+class App extends React.Component {
   constructor(){
     super();
     this.update = this.update.bind(this);
@@ -334,8 +386,8 @@ import ReactDOM from &amp;lsquo;react-dom&amp;rsquo;;&lt;/p&gt;
   }
   update(){
     ReactDOM.render(
-      &lt;App val={this.props.val+1} /&gt;,
-      document.getElementById(&amp;lsquo;app&amp;rsquo;)
+      &amp;lt;App val={this.props.val+1} /&amp;gt;,
+      document.getElementById(&#39;app&#39;)
     );
   }
   componentWillReceiveProps(nextProps){
@@ -350,276 +402,261 @@ import ReactDOM from &amp;lsquo;react-dom&amp;rsquo;;&lt;/p&gt;
   render(){
     console.log(this.state.increasing)
     return (
-      &lt;button onClick={this.update}&gt;
+      &amp;lt;button onClick={this.update}&amp;gt;
         {this.props.val}
-      &lt;/button&gt;)
+      &amp;lt;/button&amp;gt;)
   }
   componentDidUpdate(prevProps, prevState) {
     // just as the arguments say.
-    console.log(&amp;lsquo;prevProps&amp;rsquo;, prevProps)
+    console.log(&#39;prevProps&#39;, prevProps)
   }
-}&lt;/p&gt;
+}
 
-&lt;p&gt;App.defaultProps = { val: 0 }&lt;/p&gt;
+App.defaultProps = { val: 0 }
 
-&lt;p&gt;export default App&lt;/p&gt;
-
-&lt;pre&gt;&lt;code&gt;
-# Dynamically generated components
-
+export default App
 &lt;/code&gt;&lt;/pre&gt;
 
-&lt;p&gt;import React from &amp;lsquo;react&amp;rsquo;;&lt;/p&gt;
+&lt;h1 id=&#34;dynamically-generated-components&#34;&gt;Dynamically generated components&lt;/h1&gt;
 
-&lt;p&gt;class App extends React.Component {
+&lt;pre&gt;&lt;code&gt;import React from &#39;react&#39;;
+
+class App extends React.Component {
   constructor() {
     super();
     this.state = {items: []}
-  }&lt;/p&gt;
+  }
 
-&lt;p&gt;componentWillMount() {
-    fetch( &amp;lsquo;&lt;a href=&#34;http://swapi.co/api/people/?format=json&#39;&#34;&gt;http://swapi.co/api/people/?format=json&#39;&lt;/a&gt;)
+  componentWillMount() {
+    fetch( &#39;http://swapi.co/api/people/?format=json&#39;)
       .then( response =&amp;gt; response.json() )
       .then( ({result: items}) =&amp;gt; this.setState({items}) )
-  }&lt;/p&gt;
+  }
 
-&lt;p&gt;filter(e) {
+  filter(e) {
     //takes event of an input
     this.setState({filter: e.target.value})
-  }&lt;/p&gt;
+  }
 
-&lt;p&gt;render() {
+  render() {
     let items = this.state.items;
     if(this.state.filter) {
       items = items.filter( item =&amp;gt;
         item.name.toLowerCase()
         .includes(this.state.filter.toLowerCase()))
-    }&lt;/p&gt;
+    }
 
-&lt;pre&gt;&lt;code&gt;//&amp;quot;key&amp;quot; is amongst siblings. therefore the &amp;quot;key&amp;quot; tag is placed here.
-//In the context of the Person h4 component it has no siblings.
-return (
-  &amp;lt;div&amp;gt;
-    &amp;lt;input type=&amp;quot;text&amp;quot; onChange={this.filter.bind(this)} /&amp;gt;
-    {items.map(item =&amp;gt;
-      &amp;lt;Person key={item.name} person={item} /&amp;gt;)}
-  &amp;lt;/div&amp;gt;
-  )
+    //&amp;quot;key&amp;quot; is amongst siblings. therefore the &amp;quot;key&amp;quot; tag is placed here.
+    //In the context of the Person h4 component it has no siblings.
+    return (
+      &amp;lt;div&amp;gt;
+        &amp;lt;input type=&amp;quot;text&amp;quot; onChange={this.filter.bind(this)} /&amp;gt;
+        {items.map(item =&amp;gt;
+          &amp;lt;Person key={item.name} person={item} /&amp;gt;)}
+      &amp;lt;/div&amp;gt;
+      )
+  }
+}
+
+const Person = (props) =&amp;gt; &amp;lt;h4&amp;gt; {props.person.name} &amp;lt;/h4&amp;gt;
 &lt;/code&gt;&lt;/pre&gt;
 
-&lt;p&gt;}
-}&lt;/p&gt;
+&lt;h1 id=&#34;higher-order-components&#34;&gt;Higher order components&lt;/h1&gt;
 
-&lt;p&gt;const Person = (props) =&amp;gt; &lt;h4&gt; {props.person.name} &lt;/h4&gt;&lt;/p&gt;
+&lt;p&gt;Purpose of higher component is to share functionality or information between multiple components.&lt;/p&gt;
 
-&lt;pre&gt;&lt;code&gt;
-# Higher order components
-Purpose of higher component is to share functionality or information between multiple components.
+&lt;p&gt;Sole function is to take in a component and return a component.&lt;/p&gt;
 
-Sole function is to take in a component and return a component.
-&lt;/code&gt;&lt;/pre&gt;
-
-&lt;p&gt;const HOC = (InnerComponent) =&amp;gt; class extends React.Component {
+&lt;pre&gt;&lt;code&gt;const HOC = (InnerComponent) =&amp;gt; class extends React.Component {
   constructor() {
     super();
     this.state = {count: 0}
-  }&lt;/p&gt;
+  }
 
-&lt;p&gt;update() {
+  update() {
     this.setState({count: this.state.count + 1})
-  }&lt;/p&gt;
+  }
 
-&lt;p&gt;componentWillMount() {
-    console.log(&amp;lsquo;HOC will mount&amp;rsquo;)
-  }&lt;/p&gt;
-
-&lt;p&gt;render() {&lt;/p&gt;
-
-&lt;pre&gt;&lt;code&gt;// &amp;quot;...&amp;quot; spread this.props into this component
-// pass the props right on through
-
-//here we are passing props, state and update function to the component
-return(
-  &amp;lt;InnerComponent
-    {...this.props}
-    {...this.state}
-    update={this.update.bind(this)}
-  /&amp;gt;
-  )
-&lt;/code&gt;&lt;/pre&gt;
-
-&lt;p&gt;}
-}&lt;/p&gt;
-
-&lt;p&gt;//displays props and state passed to it.
-//uses function passed to it for onClick event
-const Button = HOC((props) =&amp;gt; &lt;button onClick={props.update}&gt;{props.children} , {props.count}&lt;/button&gt;)&lt;/p&gt;
-
-&lt;p&gt;class Label extends React.Component {
   componentWillMount() {
-    console.log(&amp;lsquo;Label will mount&amp;rsquo;)
-  }&lt;/p&gt;
+    console.log(&#39;HOC will mount&#39;)
+  }
 
-&lt;p&gt;render() {
-    return (
-      &lt;label onMouseMove={this.props.update}&gt;
-        {this.props.children} , {this.props.count}
-      &lt;/label&gt;
+
+  render() {
+
+    // &amp;quot;...&amp;quot; spread this.props into this component
+    // pass the props right on through
+
+    //here we are passing props, state and update function to the component
+    return(
+      &amp;lt;InnerComponent
+        {...this.props}
+        {...this.state}
+        update={this.update.bind(this)}
+      /&amp;gt;
       )
   }
-}&lt;/p&gt;
+}
 
-&lt;p&gt;const LabelHOC = HOC(Label)&lt;/p&gt;
+//displays props and state passed to it.
+//uses function passed to it for onClick event
+const Button = HOC((props) =&amp;gt; &amp;lt;button onClick={props.update}&amp;gt;{props.children} , {props.count}&amp;lt;/button&amp;gt;)
 
-&lt;pre&gt;&lt;code&gt;
-# JSX Deep dive
+class Label extends React.Component {
+  componentWillMount() {
+    console.log(&#39;Label will mount&#39;)
+  }
 
-JSX deep dive with babel *transpiler* to es2015.
+  render() {
+    return (
+      &amp;lt;label onMouseMove={this.props.update}&amp;gt;
+        {this.props.children} , {this.props.count}
+      &amp;lt;/label&amp;gt;
+      )
+  }
+}
 
-Does not work because you are returning 2 functions.
+const LabelHOC = HOC(Label)
 &lt;/code&gt;&lt;/pre&gt;
 
-&lt;p&gt;const App = (prop) =&amp;gt; {
-  return (
-    &lt;App /&gt;
-    &lt;App /&gt;
-    )
-}&lt;/p&gt;
+&lt;h1 id=&#34;jsx-deep-dive&#34;&gt;JSX Deep dive&lt;/h1&gt;
 
-&lt;p&gt;// with a single &lt;App /&gt; equivalent to
+&lt;p&gt;JSX deep dive with babel &lt;em&gt;transpiler&lt;/em&gt; to es2015.&lt;/p&gt;
+
+&lt;p&gt;Does not work because you are returning 2 functions.&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;const App = (prop) =&amp;gt; {
+  return (
+    &amp;lt;App /&amp;gt;
+    &amp;lt;App /&amp;gt;
+    )
+}
+
+// with a single &amp;lt;App /&amp;gt; equivalent to
 var App = function App(props) {
   return React.createElement(App, null);
-}&lt;/p&gt;
-
-&lt;pre&gt;&lt;code&gt;
-Wrap in a div tag.
+}
 &lt;/code&gt;&lt;/pre&gt;
 
-&lt;div&gt;
-  &lt;App /&gt;
-  &lt;App /&gt;
-&lt;/div&gt;
+&lt;p&gt;Wrap in a div tag.&lt;/p&gt;
 
-&lt;p&gt;var App = function App(props) {
+&lt;pre&gt;&lt;code&gt;
+&amp;lt;div&amp;gt;
+  &amp;lt;App /&amp;gt;
+  &amp;lt;App /&amp;gt;
+&amp;lt;/div&amp;gt;
+
+var App = function App(props) {
   return React.createElement(
-    &amp;ldquo;div&amp;rdquo;,
+    &amp;quot;div&amp;quot;,
     null,
     React.createElement(App, null),
     React.createElement(App, null)
     )
-}&lt;/p&gt;
-
-&lt;pre&gt;&lt;code&gt;
-With props and stuff.
+}
 &lt;/code&gt;&lt;/pre&gt;
 
-&lt;p&gt;var coolStyles = {
-  backgroundColor: &amp;lsquo;purple&amp;rsquo;,
-  color: &amp;lsquo;white&amp;rsquo;
-}&lt;/p&gt;
+&lt;p&gt;With props and stuff.&lt;/p&gt;
 
-&lt;div style={coolStyles}&gt;
-  &lt;a href=&#34;#&#34;
-    notrendered=&#34;x&#34; // include hyphen or use data-something convention for component to be rendered
+&lt;pre&gt;&lt;code&gt;var coolStyles = {
+  backgroundColor: &#39;purple&#39;,
+  color: &#39;white&#39;
+}
+
+&amp;lt;div style={coolStyles}&amp;gt;
+  &amp;lt;a href=&amp;quot;#&amp;quot;
+    notrendered=&amp;quot;x&amp;quot; // include hyphen or use data-something convention for component to be rendered
     onClick={update} //interpolation requires curly braces
-  &lt;/a&gt;
-&lt;/div&gt;
+  &amp;lt;/a&amp;gt;
+&amp;lt;/div&amp;gt;
 
-&lt;p&gt;React.createElement(
-  &amp;ldquo;div&amp;rdquo;,
+React.createElement(
+  &amp;quot;div&amp;quot;,
   { style: coolStyles },
   React.createElement(
-    &amp;ldquo;a&amp;rdquo;,
-    { href: &amp;ldquo;#&amp;rdquo;,
-    notrendered: &amp;ldquo;x&amp;rdquo;,
+    &amp;quot;a&amp;quot;,
+    { href: &amp;quot;#&amp;quot;,
+    notrendered: &amp;quot;x&amp;quot;,
     onClick: update
     })
-  );&lt;/p&gt;
-
-&lt;pre&gt;&lt;code&gt;
-# Children utilities
-
-Might want iterate through children
+  );
 
 &lt;/code&gt;&lt;/pre&gt;
 
-&lt;p&gt;class App extends React.Component {
+&lt;h1 id=&#34;children-utilities&#34;&gt;Children utilities&lt;/h1&gt;
+
+&lt;p&gt;Might want iterate through children&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;class App extends React.Component {
   render() {
     return (
-      &lt;Parent&gt;
-        &lt;div className=&#34;childA&#34;&gt;&lt;/div&gt;
-        &lt;div className=&#34;childB&#34;&gt;&lt;/div&gt;
-      &lt;/Parent&gt;
+      &amp;lt;Parent&amp;gt;
+        &amp;lt;div className=&amp;quot;childA&amp;quot;&amp;gt;&amp;lt;/div&amp;gt;
+        &amp;lt;div className=&amp;quot;childB&amp;quot;&amp;gt;&amp;lt;/div&amp;gt;
+      &amp;lt;/Parent&amp;gt;
       )
   }
-}&lt;/p&gt;
+}
 
-&lt;p&gt;class Parent extends React.Component {
+class Parent extends React.Component {
   render() {
     //line below fails as this.props.childen is just a single object.
     //let items = this.props.children.map(child =&amp;gt; child)
     let items = React.Children
       .map(this.props.childen, child =&amp;gt; child)
     let items = React.Children
-      .forEach(this.props.childen, child =&amp;gt; console.log(child.props.className))&lt;/p&gt;
+      .forEach(this.props.childen, child =&amp;gt; console.log(child.props.className))
 
-&lt;pre&gt;&lt;code&gt;//let items = React.Children.toArray(this.props.children)
+    //let items = React.Children.toArray(this.props.children)
 
-//throws error because expecting only 1 child.
-//let items = React.Children.only(this.props.childen)
+    //throws error because expecting only 1 child.
+    //let items = React.Children.only(this.props.childen)
 
-console.log(items)
-return null
+    console.log(items)
+    return null
+  }
+}
 &lt;/code&gt;&lt;/pre&gt;
 
-&lt;p&gt;}
-}&lt;/p&gt;
+&lt;h1 id=&#34;extend-functionality-of-children&#34;&gt;Extend functionality of children&lt;/h1&gt;
 
-&lt;pre&gt;&lt;code&gt;
-# Extend functionality of children
+&lt;p&gt;&lt;code&gt;this.props.children&lt;/code&gt; is just a descriptor of the children. You can&amp;rsquo;t actually modify anything.
+So to modify you need to create new elements.&lt;/p&gt;
 
-`this.props.children` is just a descriptor of the children. You can&#39;t actually modify anything.
-So to modify you need to create new elements.
-
-&lt;/code&gt;&lt;/pre&gt;
-
-&lt;p&gt;class Button extends React.Component {
+&lt;pre&gt;&lt;code&gt;class Button extends React.Component {
   constructor() {
     super();
-    this.state = {selected: &amp;lsquo;None&amp;rsquo;}
-  }&lt;/p&gt;
+    this.state = {selected: &#39;None&#39;}
+  }
 
-&lt;p&gt;selectItem(selected) {
+  selectItem(selected) {
     this.setState({selected})
-  }&lt;/p&gt;
+  }
 
-&lt;p&gt;render() {
+  render() {
     let fn = child =&amp;gt;
       React.cloneElement(child, {
           onClick: this.selectItem.bind(this, child.props.value)
-        })&lt;/p&gt;
+        })
 
-&lt;pre&gt;&lt;code&gt;let items = React.Children.map(this.props.children, fn);
-return (
-  &amp;lt;div&amp;gt;
-    &amp;lt;h2&amp;gt; You have Selected: {this.state.selected} &amp;lt;/h2&amp;gt;
-    {items}
-  &amp;lt;/div&amp;gt;
-  )
+    let items = React.Children.map(this.props.children, fn);
+    return (
+      &amp;lt;div&amp;gt;
+        &amp;lt;h2&amp;gt; You have Selected: {this.state.selected} &amp;lt;/h2&amp;gt;
+        {items}
+      &amp;lt;/div&amp;gt;
+      )
+  }
+}
 &lt;/code&gt;&lt;/pre&gt;
 
-&lt;p&gt;}
-}&lt;/p&gt;
+&lt;h1 id=&#34;reusable-and-composable-components&#34;&gt;Reusable and Composable components&lt;/h1&gt;
 
-&lt;pre&gt;&lt;code&gt;
-# Reusable and Composable components
+&lt;p&gt;A key tenant of react.&lt;/p&gt;
 
-A key tenant of react.
+&lt;p&gt;Old slider component using refs. Not really reusable.&lt;/p&gt;
 
-Old slider component using refs. Not really reusable.
-&lt;/code&gt;&lt;/pre&gt;
-
-&lt;p&gt;class App extends React.Component {
+&lt;pre&gt;&lt;code&gt;class App extends React.Component {
   constructor() {
     super();
     this.state =  {
@@ -635,39 +672,38 @@ Old slider component using refs. Not really reusable.
       green: ReactDOM.findDomeNode(this.refs.green.refs.inp).value,
       blue: ReactDOM.findDomeNode(this.refs.blue.refs.inp).value
       })
-  }&lt;/p&gt;
-
-&lt;p&gt;render() {
-    return (
-      &lt;div&gt;
-        &lt;Slider ref=&#34;red&#34; update={this.update} /&gt;
-        {this.state.red}
-        &lt;Slider ref=&#34;green&#34; update={this.update} /&gt;
-        {this.state.green}
-        &lt;Slider ref=&#34;blue&#34; update={this.update} /&gt;
-        {this.state.blue}&lt;br /&gt;
-      )
   }
-}&lt;/p&gt;
 
-&lt;p&gt;class Slider extends React.Component {
   render() {
     return (
-      &lt;div&gt;
-      &lt;input ref=&#34;inp&#34; type=&#34;range&#34;
-        min=&#34;0&#34;
-        max=&#34;255&#34;
-        onChange={this.props.update} /&gt;
-      &lt;/div&gt;
+      &amp;lt;div&amp;gt;
+        &amp;lt;Slider ref=&amp;quot;red&amp;quot; update={this.update} /&amp;gt;
+        {this.state.red}
+        &amp;lt;Slider ref=&amp;quot;green&amp;quot; update={this.update} /&amp;gt;
+        {this.state.green}
+        &amp;lt;Slider ref=&amp;quot;blue&amp;quot; update={this.update} /&amp;gt;
+        {this.state.blue}                
       )
   }
-}&lt;/p&gt;
+}
 
-&lt;pre&gt;&lt;code&gt;
-Now we try to create a more reusable component taking advantage of the similar apis between number input and range input.
+class Slider extends React.Component {
+  render() {
+    return (
+      &amp;lt;div&amp;gt;
+      &amp;lt;input ref=&amp;quot;inp&amp;quot; type=&amp;quot;range&amp;quot;
+        min=&amp;quot;0&amp;quot;
+        max=&amp;quot;255&amp;quot;
+        onChange={this.props.update} /&amp;gt;
+      &amp;lt;/div&amp;gt;
+      )
+  }
+}
 &lt;/code&gt;&lt;/pre&gt;
 
-&lt;p&gt;class App extends React.Component {
+&lt;p&gt;Now we try to create a more reusable component taking advantage of the similar apis between number input and range input.&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;class App extends React.Component {
   constructor() {
     super();
     this.state =  {
@@ -681,44 +717,44 @@ Now we try to create a more reusable component taking advantage of the similar a
     this.setState({
       red: ReactDOM.findDomeNode(this.refs.red.refs.inp).value,
       })
-  }&lt;/p&gt;
+  }
 
-&lt;p&gt;render() {
+  render() {
     return (
-      &lt;div&gt;
-        &lt;NumInput
-          ref=&#34;red&#34;
-          type=&#34;range&#34;
+      &amp;lt;div&amp;gt;
+        &amp;lt;NumInput
+          ref=&amp;quot;red&amp;quot;
+          type=&amp;quot;range&amp;quot;
           min={0}
           max={this.props.max}
           step={1}
           val={+this.state.red}
-          label=&#34;Red&#34;
-          update={this.update} /&gt;&lt;br /&gt;
+          label=&amp;quot;Red&amp;quot;
+          update={this.update} /&amp;gt;     
       )
   }
-}&lt;/p&gt;
+}
 
-&lt;p&gt;class NumInput extends React.Component {
+class NumInput extends React.Component {
   render() {
-    let label = this.props.label !== &amp;ldquo; ?
-      &lt;label&gt;{this.props.label}, {this.props.val}&lt;/label&gt;
+    let label = this.props.label !== &#39;&#39; ?
+      &amp;lt;label&amp;gt;{this.props.label}, {this.props.val}&amp;lt;/label&amp;gt;
     return (
-      &lt;div&gt;
-      &lt;input ref=&#34;inp&#34;
+      &amp;lt;div&amp;gt;
+      &amp;lt;input ref=&amp;quot;inp&amp;quot;
         type={this.props.type}
         min={this.props.min}
         max={this.props.max}
         step={this.props.step}
         defaultValue={this.props.val}
-        onChange={this.props.update} /&gt;
+        onChange={this.props.update} /&amp;gt;
         {label}
-      &lt;/div&gt;
+      &amp;lt;/div&amp;gt;
       )
   }
-}&lt;/p&gt;
+}
 
-&lt;p&gt;// Declare types (feels like input validation)
+// Declare types (feels like input validation)
 NumInput.propTypes = {
   min: React.PropTypes.number,
   max: React.PropTypes.number,
@@ -726,18 +762,18 @@ NumInput.propTypes = {
   val: React.PropTypes.number,
   label: React.PropTypes.string,
   update: React.PropTypes.func.isRequired, //update method type of func. is required.
-  type: React.PropTypes.oneOf([&amp;lsquo;number&amp;rsquo;, &amp;lsquo;range&amp;rsquo;]) // type array and only accepts number or range.
-}&lt;/p&gt;
+  type: React.PropTypes.oneOf([&#39;number&#39;, &#39;range&#39;]) // type array and only accepts number or range.
+}
 
-&lt;p&gt;NumInput.defaultProps = {
+NumInput.defaultProps = {
   min: 0,
   max: 0,
   step: 1,
   val: 0,
-  label: &amp;ldquo;,
-  type: &amp;lsquo;range&amp;rsquo;
+  label: &#39;&#39;,
+  type: &#39;range&#39;
 }
-```&lt;/p&gt;
+&lt;/code&gt;&lt;/pre&gt;
 </description>
     </item>
     

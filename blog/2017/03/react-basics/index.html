@@ -14,7 +14,7 @@
 <title>
 
 
-     Robin Lee - react basics 
+     Robin Lee - React Basics 
 
 </title>
 <link rel="canonical" href="https://robin-lee.github.io/blog/2017/03/react-basics/">
@@ -112,7 +112,7 @@
                 <div class="title-container">
                     <div class="page-heading">
 
-    react basics
+    React Basics
 
 </div>
 
@@ -120,11 +120,60 @@
                 </div>
                 <div class="meta">
                     <div class="date" title="Thu Mar 30 2017 17:40:03 SGT">Mar 30, 2017</div>
-                    <div class="reading-time"><div class="middot"></div>7 minutes read</div>
+                    <div class="reading-time"><div class="middot"></div>8 minutes read</div>
                 </div>
             </div>
             <div class="markdown">
                 
+
+<p>Edit 14/6/17: Fix formatting.</p>
+
+<p>ReactJS to learn React Native. Essentially, trying to follow the learning path here: <a href="https://reactjs.co/react-native-convention/">link</a></p>
+
+<p>Obviously, certain parts will be prioritised.</p>
+
+<h1 id="skeleton">Skeleton</h1>
+
+<p>App.js</p>
+
+<pre><code>import React from 'react';
+
+// Component with Stateless
+class App extends React.Component {
+    render() {
+        return &lt;h1&gt;Hello Guys&lt;/h1&gt;
+    }
+}
+
+// Stateless component
+// const App = () =&gt; &lt;h1&gt;Hello Eggheads&lt;/h1&gt;
+
+export default App;
+</code></pre>
+
+<p>index.html</p>
+
+<pre><code>&lt;!DOCTYPE html&gt;
+&lt;html lang=&quot;en&quot;&gt;
+&lt;head&gt;
+    &lt;meta charset=&quot;UTF-8&quot;&gt;
+    &lt;title&gt;Intro&lt;/title&gt;
+&lt;/head&gt;
+&lt;body&gt;
+    &lt;div id=&quot;app&quot;&gt;&lt;/div&gt;
+    &lt;script src=&quot;index.js&quot;&gt;&lt;/script&gt;
+&lt;/body&gt;
+&lt;/html&gt;
+</code></pre>
+
+<p>main.js</p>
+
+<pre><code>import React from 'react';
+import ReactDOM from 'react-dom';
+import App from './App';
+
+ReactDOM.render(&lt;App /&gt;, document.getElementById('app'));
+</code></pre>
 
 <h1 id="components">Components</h1>
 
@@ -383,11 +432,14 @@ class Input extends React.Component {
 }
 </code></pre>
 
-<p>Example (rough order):
-1. componentWillMount
-2. render
-3. componentDidMount
-4. componentWillUnmount</p>
+<p>Example (rough order):</p>
+
+<ol>
+<li>componentWillMount</li>
+<li>render</li>
+<li>componentDidMount</li>
+<li>componentWillUnmount</li>
+</ol>
 
 <pre><code>class App extends React.Component {
   constructor() {
@@ -429,14 +481,14 @@ class Input extends React.Component {
      clearInterval(this.increment)
    }
 }
-
-## Component update lifecycle
 </code></pre>
 
-<p>import React from &lsquo;react&rsquo;;
-import ReactDOM from &lsquo;react-dom&rsquo;;</p>
+<h2 id="component-update-lifecycle">Component update lifecycle</h2>
 
-<p>class App extends React.Component {
+<pre><code>import React from 'react';
+import ReactDOM from 'react-dom';
+
+class App extends React.Component {
   constructor(){
     super();
     this.update = this.update.bind(this);
@@ -444,8 +496,8 @@ import ReactDOM from &lsquo;react-dom&rsquo;;</p>
   }
   update(){
     ReactDOM.render(
-      <App val={this.props.val+1} />,
-      document.getElementById(&lsquo;app&rsquo;)
+      &lt;App val={this.props.val+1} /&gt;,
+      document.getElementById('app')
     );
   }
   componentWillReceiveProps(nextProps){
@@ -460,276 +512,261 @@ import ReactDOM from &lsquo;react-dom&rsquo;;</p>
   render(){
     console.log(this.state.increasing)
     return (
-      <button onClick={this.update}>
+      &lt;button onClick={this.update}&gt;
         {this.props.val}
-      </button>)
+      &lt;/button&gt;)
   }
   componentDidUpdate(prevProps, prevState) {
     // just as the arguments say.
-    console.log(&lsquo;prevProps&rsquo;, prevProps)
+    console.log('prevProps', prevProps)
   }
-}</p>
+}
 
-<p>App.defaultProps = { val: 0 }</p>
+App.defaultProps = { val: 0 }
 
-<p>export default App</p>
-
-<pre><code>
-# Dynamically generated components
-
+export default App
 </code></pre>
 
-<p>import React from &lsquo;react&rsquo;;</p>
+<h1 id="dynamically-generated-components">Dynamically generated components</h1>
 
-<p>class App extends React.Component {
+<pre><code>import React from 'react';
+
+class App extends React.Component {
   constructor() {
     super();
     this.state = {items: []}
-  }</p>
+  }
 
-<p>componentWillMount() {
-    fetch( &lsquo;<a href="http://swapi.co/api/people/?format=json'">http://swapi.co/api/people/?format=json'</a>)
+  componentWillMount() {
+    fetch( 'http://swapi.co/api/people/?format=json')
       .then( response =&gt; response.json() )
       .then( ({result: items}) =&gt; this.setState({items}) )
-  }</p>
+  }
 
-<p>filter(e) {
+  filter(e) {
     //takes event of an input
     this.setState({filter: e.target.value})
-  }</p>
+  }
 
-<p>render() {
+  render() {
     let items = this.state.items;
     if(this.state.filter) {
       items = items.filter( item =&gt;
         item.name.toLowerCase()
         .includes(this.state.filter.toLowerCase()))
-    }</p>
+    }
 
-<pre><code>//&quot;key&quot; is amongst siblings. therefore the &quot;key&quot; tag is placed here.
-//In the context of the Person h4 component it has no siblings.
-return (
-  &lt;div&gt;
-    &lt;input type=&quot;text&quot; onChange={this.filter.bind(this)} /&gt;
-    {items.map(item =&gt;
-      &lt;Person key={item.name} person={item} /&gt;)}
-  &lt;/div&gt;
-  )
+    //&quot;key&quot; is amongst siblings. therefore the &quot;key&quot; tag is placed here.
+    //In the context of the Person h4 component it has no siblings.
+    return (
+      &lt;div&gt;
+        &lt;input type=&quot;text&quot; onChange={this.filter.bind(this)} /&gt;
+        {items.map(item =&gt;
+          &lt;Person key={item.name} person={item} /&gt;)}
+      &lt;/div&gt;
+      )
+  }
+}
+
+const Person = (props) =&gt; &lt;h4&gt; {props.person.name} &lt;/h4&gt;
 </code></pre>
 
-<p>}
-}</p>
+<h1 id="higher-order-components">Higher order components</h1>
 
-<p>const Person = (props) =&gt; <h4> {props.person.name} </h4></p>
+<p>Purpose of higher component is to share functionality or information between multiple components.</p>
 
-<pre><code>
-# Higher order components
-Purpose of higher component is to share functionality or information between multiple components.
+<p>Sole function is to take in a component and return a component.</p>
 
-Sole function is to take in a component and return a component.
-</code></pre>
-
-<p>const HOC = (InnerComponent) =&gt; class extends React.Component {
+<pre><code>const HOC = (InnerComponent) =&gt; class extends React.Component {
   constructor() {
     super();
     this.state = {count: 0}
-  }</p>
+  }
 
-<p>update() {
+  update() {
     this.setState({count: this.state.count + 1})
-  }</p>
+  }
 
-<p>componentWillMount() {
-    console.log(&lsquo;HOC will mount&rsquo;)
-  }</p>
-
-<p>render() {</p>
-
-<pre><code>// &quot;...&quot; spread this.props into this component
-// pass the props right on through
-
-//here we are passing props, state and update function to the component
-return(
-  &lt;InnerComponent
-    {...this.props}
-    {...this.state}
-    update={this.update.bind(this)}
-  /&gt;
-  )
-</code></pre>
-
-<p>}
-}</p>
-
-<p>//displays props and state passed to it.
-//uses function passed to it for onClick event
-const Button = HOC((props) =&gt; <button onClick={props.update}>{props.children} , {props.count}</button>)</p>
-
-<p>class Label extends React.Component {
   componentWillMount() {
-    console.log(&lsquo;Label will mount&rsquo;)
-  }</p>
+    console.log('HOC will mount')
+  }
 
-<p>render() {
-    return (
-      <label onMouseMove={this.props.update}>
-        {this.props.children} , {this.props.count}
-      </label>
+
+  render() {
+
+    // &quot;...&quot; spread this.props into this component
+    // pass the props right on through
+
+    //here we are passing props, state and update function to the component
+    return(
+      &lt;InnerComponent
+        {...this.props}
+        {...this.state}
+        update={this.update.bind(this)}
+      /&gt;
       )
   }
-}</p>
+}
 
-<p>const LabelHOC = HOC(Label)</p>
+//displays props and state passed to it.
+//uses function passed to it for onClick event
+const Button = HOC((props) =&gt; &lt;button onClick={props.update}&gt;{props.children} , {props.count}&lt;/button&gt;)
 
-<pre><code>
-# JSX Deep dive
+class Label extends React.Component {
+  componentWillMount() {
+    console.log('Label will mount')
+  }
 
-JSX deep dive with babel *transpiler* to es2015.
+  render() {
+    return (
+      &lt;label onMouseMove={this.props.update}&gt;
+        {this.props.children} , {this.props.count}
+      &lt;/label&gt;
+      )
+  }
+}
 
-Does not work because you are returning 2 functions.
+const LabelHOC = HOC(Label)
 </code></pre>
 
-<p>const App = (prop) =&gt; {
-  return (
-    <App />
-    <App />
-    )
-}</p>
+<h1 id="jsx-deep-dive">JSX Deep dive</h1>
 
-<p>// with a single <App /> equivalent to
+<p>JSX deep dive with babel <em>transpiler</em> to es2015.</p>
+
+<p>Does not work because you are returning 2 functions.</p>
+
+<pre><code>const App = (prop) =&gt; {
+  return (
+    &lt;App /&gt;
+    &lt;App /&gt;
+    )
+}
+
+// with a single &lt;App /&gt; equivalent to
 var App = function App(props) {
   return React.createElement(App, null);
-}</p>
-
-<pre><code>
-Wrap in a div tag.
+}
 </code></pre>
 
-<div>
-  <App />
-  <App />
-</div>
+<p>Wrap in a div tag.</p>
 
-<p>var App = function App(props) {
+<pre><code>
+&lt;div&gt;
+  &lt;App /&gt;
+  &lt;App /&gt;
+&lt;/div&gt;
+
+var App = function App(props) {
   return React.createElement(
-    &ldquo;div&rdquo;,
+    &quot;div&quot;,
     null,
     React.createElement(App, null),
     React.createElement(App, null)
     )
-}</p>
-
-<pre><code>
-With props and stuff.
+}
 </code></pre>
 
-<p>var coolStyles = {
-  backgroundColor: &lsquo;purple&rsquo;,
-  color: &lsquo;white&rsquo;
-}</p>
+<p>With props and stuff.</p>
 
-<div style={coolStyles}>
-  <a href="#"
-    notrendered="x" // include hyphen or use data-something convention for component to be rendered
+<pre><code>var coolStyles = {
+  backgroundColor: 'purple',
+  color: 'white'
+}
+
+&lt;div style={coolStyles}&gt;
+  &lt;a href=&quot;#&quot;
+    notrendered=&quot;x&quot; // include hyphen or use data-something convention for component to be rendered
     onClick={update} //interpolation requires curly braces
-  </a>
-</div>
+  &lt;/a&gt;
+&lt;/div&gt;
 
-<p>React.createElement(
-  &ldquo;div&rdquo;,
+React.createElement(
+  &quot;div&quot;,
   { style: coolStyles },
   React.createElement(
-    &ldquo;a&rdquo;,
-    { href: &ldquo;#&rdquo;,
-    notrendered: &ldquo;x&rdquo;,
+    &quot;a&quot;,
+    { href: &quot;#&quot;,
+    notrendered: &quot;x&quot;,
     onClick: update
     })
-  );</p>
-
-<pre><code>
-# Children utilities
-
-Might want iterate through children
+  );
 
 </code></pre>
 
-<p>class App extends React.Component {
+<h1 id="children-utilities">Children utilities</h1>
+
+<p>Might want iterate through children</p>
+
+<pre><code>class App extends React.Component {
   render() {
     return (
-      <Parent>
-        <div className="childA"></div>
-        <div className="childB"></div>
-      </Parent>
+      &lt;Parent&gt;
+        &lt;div className=&quot;childA&quot;&gt;&lt;/div&gt;
+        &lt;div className=&quot;childB&quot;&gt;&lt;/div&gt;
+      &lt;/Parent&gt;
       )
   }
-}</p>
+}
 
-<p>class Parent extends React.Component {
+class Parent extends React.Component {
   render() {
     //line below fails as this.props.childen is just a single object.
     //let items = this.props.children.map(child =&gt; child)
     let items = React.Children
       .map(this.props.childen, child =&gt; child)
     let items = React.Children
-      .forEach(this.props.childen, child =&gt; console.log(child.props.className))</p>
+      .forEach(this.props.childen, child =&gt; console.log(child.props.className))
 
-<pre><code>//let items = React.Children.toArray(this.props.children)
+    //let items = React.Children.toArray(this.props.children)
 
-//throws error because expecting only 1 child.
-//let items = React.Children.only(this.props.childen)
+    //throws error because expecting only 1 child.
+    //let items = React.Children.only(this.props.childen)
 
-console.log(items)
-return null
+    console.log(items)
+    return null
+  }
+}
 </code></pre>
 
-<p>}
-}</p>
+<h1 id="extend-functionality-of-children">Extend functionality of children</h1>
 
-<pre><code>
-# Extend functionality of children
+<p><code>this.props.children</code> is just a descriptor of the children. You can&rsquo;t actually modify anything.
+So to modify you need to create new elements.</p>
 
-`this.props.children` is just a descriptor of the children. You can't actually modify anything.
-So to modify you need to create new elements.
-
-</code></pre>
-
-<p>class Button extends React.Component {
+<pre><code>class Button extends React.Component {
   constructor() {
     super();
-    this.state = {selected: &lsquo;None&rsquo;}
-  }</p>
+    this.state = {selected: 'None'}
+  }
 
-<p>selectItem(selected) {
+  selectItem(selected) {
     this.setState({selected})
-  }</p>
+  }
 
-<p>render() {
+  render() {
     let fn = child =&gt;
       React.cloneElement(child, {
           onClick: this.selectItem.bind(this, child.props.value)
-        })</p>
+        })
 
-<pre><code>let items = React.Children.map(this.props.children, fn);
-return (
-  &lt;div&gt;
-    &lt;h2&gt; You have Selected: {this.state.selected} &lt;/h2&gt;
-    {items}
-  &lt;/div&gt;
-  )
+    let items = React.Children.map(this.props.children, fn);
+    return (
+      &lt;div&gt;
+        &lt;h2&gt; You have Selected: {this.state.selected} &lt;/h2&gt;
+        {items}
+      &lt;/div&gt;
+      )
+  }
+}
 </code></pre>
 
-<p>}
-}</p>
+<h1 id="reusable-and-composable-components">Reusable and Composable components</h1>
 
-<pre><code>
-# Reusable and Composable components
+<p>A key tenant of react.</p>
 
-A key tenant of react.
+<p>Old slider component using refs. Not really reusable.</p>
 
-Old slider component using refs. Not really reusable.
-</code></pre>
-
-<p>class App extends React.Component {
+<pre><code>class App extends React.Component {
   constructor() {
     super();
     this.state =  {
@@ -745,39 +782,38 @@ Old slider component using refs. Not really reusable.
       green: ReactDOM.findDomeNode(this.refs.green.refs.inp).value,
       blue: ReactDOM.findDomeNode(this.refs.blue.refs.inp).value
       })
-  }</p>
-
-<p>render() {
-    return (
-      <div>
-        <Slider ref="red" update={this.update} />
-        {this.state.red}
-        <Slider ref="green" update={this.update} />
-        {this.state.green}
-        <Slider ref="blue" update={this.update} />
-        {this.state.blue}<br />
-      )
   }
-}</p>
 
-<p>class Slider extends React.Component {
   render() {
     return (
-      <div>
-      <input ref="inp" type="range"
-        min="0"
-        max="255"
-        onChange={this.props.update} />
-      </div>
+      &lt;div&gt;
+        &lt;Slider ref=&quot;red&quot; update={this.update} /&gt;
+        {this.state.red}
+        &lt;Slider ref=&quot;green&quot; update={this.update} /&gt;
+        {this.state.green}
+        &lt;Slider ref=&quot;blue&quot; update={this.update} /&gt;
+        {this.state.blue}                
       )
   }
-}</p>
+}
 
-<pre><code>
-Now we try to create a more reusable component taking advantage of the similar apis between number input and range input.
+class Slider extends React.Component {
+  render() {
+    return (
+      &lt;div&gt;
+      &lt;input ref=&quot;inp&quot; type=&quot;range&quot;
+        min=&quot;0&quot;
+        max=&quot;255&quot;
+        onChange={this.props.update} /&gt;
+      &lt;/div&gt;
+      )
+  }
+}
 </code></pre>
 
-<p>class App extends React.Component {
+<p>Now we try to create a more reusable component taking advantage of the similar apis between number input and range input.</p>
+
+<pre><code>class App extends React.Component {
   constructor() {
     super();
     this.state =  {
@@ -791,44 +827,44 @@ Now we try to create a more reusable component taking advantage of the similar a
     this.setState({
       red: ReactDOM.findDomeNode(this.refs.red.refs.inp).value,
       })
-  }</p>
+  }
 
-<p>render() {
+  render() {
     return (
-      <div>
-        <NumInput
-          ref="red"
-          type="range"
+      &lt;div&gt;
+        &lt;NumInput
+          ref=&quot;red&quot;
+          type=&quot;range&quot;
           min={0}
           max={this.props.max}
           step={1}
           val={+this.state.red}
-          label="Red"
-          update={this.update} /><br />
+          label=&quot;Red&quot;
+          update={this.update} /&gt;     
       )
   }
-}</p>
+}
 
-<p>class NumInput extends React.Component {
+class NumInput extends React.Component {
   render() {
-    let label = this.props.label !== &ldquo; ?
-      <label>{this.props.label}, {this.props.val}</label>
+    let label = this.props.label !== '' ?
+      &lt;label&gt;{this.props.label}, {this.props.val}&lt;/label&gt;
     return (
-      <div>
-      <input ref="inp"
+      &lt;div&gt;
+      &lt;input ref=&quot;inp&quot;
         type={this.props.type}
         min={this.props.min}
         max={this.props.max}
         step={this.props.step}
         defaultValue={this.props.val}
-        onChange={this.props.update} />
+        onChange={this.props.update} /&gt;
         {label}
-      </div>
+      &lt;/div&gt;
       )
   }
-}</p>
+}
 
-<p>// Declare types (feels like input validation)
+// Declare types (feels like input validation)
 NumInput.propTypes = {
   min: React.PropTypes.number,
   max: React.PropTypes.number,
@@ -836,18 +872,18 @@ NumInput.propTypes = {
   val: React.PropTypes.number,
   label: React.PropTypes.string,
   update: React.PropTypes.func.isRequired, //update method type of func. is required.
-  type: React.PropTypes.oneOf([&lsquo;number&rsquo;, &lsquo;range&rsquo;]) // type array and only accepts number or range.
-}</p>
+  type: React.PropTypes.oneOf(['number', 'range']) // type array and only accepts number or range.
+}
 
-<p>NumInput.defaultProps = {
+NumInput.defaultProps = {
   min: 0,
   max: 0,
   step: 1,
   val: 0,
-  label: &ldquo;,
-  type: &lsquo;range&rsquo;
+  label: '',
+  type: 'range'
 }
-```</p>
+</code></pre>
 
                 <br>
                 <p><a href="https://robin-lee.github.io/">Back to posts</a></p>
