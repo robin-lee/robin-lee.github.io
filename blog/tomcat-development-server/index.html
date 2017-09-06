@@ -1,123 +1,133 @@
 <!DOCTYPE html>
-<html lang="en-us">
+<html lang='en'>
 
 <head>
-<meta charset="utf-8">
-<meta http-equiv="X-UA-Compatible" content="chrome=1">
-<meta name="HandheldFriendly" content="True">
-<meta name="MobileOptimized" content="320">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<meta name="description" content="random adventures">
+  <meta charset='utf-8'>
+<meta name='viewport' content='width=device-width, initial-scale=1'>
+<meta name='description' content='I always wanted to learn some backend development seriously and finally I have the opportunity to do so. I have played around with server setup in the past but most of the information has been forgotten.
+This time round a development server will be setup in virtualbox using ubuntu server 14.04 LTS (support expires 2019). For 16.04 LTS, I think the apt-get command is replace with apt and there are many new changes&hellip; To save some time and focus on learning backend development sticking with 14.'>
 
-<base href="https://robin-lee.github.io/">
-<title>
+<meta property='og:title' content='Tomcat Development Server • Minimo'>
+<meta property='og:description' content='I always wanted to learn some backend development seriously and finally I have the opportunity to do so. I have played around with server setup in the past but most of the information has been forgotten.
+This time round a development server will be setup in virtualbox using ubuntu server 14.04 LTS (support expires 2019). For 16.04 LTS, I think the apt-get command is replace with apt and there are many new changes&hellip; To save some time and focus on learning backend development sticking with 14.'>
+<meta property='og:url' content='https://robin-lee.github.io/blog/tomcat-development-server/'>
+<meta property='og:site_name' content='Robin Lee'>
+<meta property='og:type' content='article'><meta property='article:section' content='Blog'><meta property='article:tag' content='tomcat'><meta property='article:tag' content='server'><meta property='article:tag' content='ubuntu'><meta property='article:tag' content='mysql'><meta property='article:tag' content='adminer'><meta property='article:tag' content='configuration'><meta property='article:tag' content='apache'><meta property='article:tag' content='virtualbox'><meta property='article:published_time' content='2016-08-11T23:13:48&#43;02:00'/><meta property='article:modified_time' content='2016-08-11T23:13:48&#43;02:00'/>
 
+<meta name="generator" content="Hugo 0.26" />
 
-     Tomcat Development Server 
+  <title>Tomcat Development Server • Minimo</title>
+  <link rel='canonical' href='https://robin-lee.github.io/blog/tomcat-development-server/'>
+  <link rel='icon' href='/favicon.ico'>
+<link rel='stylesheet' href='https://fonts.googleapis.com/css?family=Ubuntu:400,400i,700&subset=latin'>
+<link rel='stylesheet' href='/css/main.67a788c9.css'>
 
-</title>
-<link rel="canonical" href="https://robin-lee.github.io/blog/tomcat-development-server/">
+  <link rel='stylesheet' href='/css/prism.css'>
 
-
-<script type="text/javascript">
-    var baseURL = 'https:\/\/robin-lee.github.io\/';
-    var host = baseURL.substring(0, baseURL.length - 1).replace(/\//g, '');
-    if ((host === window.location.host) && (window.location.protocol !== 'https:')) {
-        window.location.protocol = 'https:';
-    }
-</script>
-
-
-
-
-
-<link rel="stylesheet" href="https://robin-lee.github.io/css/reset.css">
-<link rel="stylesheet" href="https://robin-lee.github.io/css/pygments.css">
-<link rel="stylesheet" href="https://robin-lee.github.io/css/main.css">
-
-
-    <link rel="stylesheet" href="https://robin-lee.github.io/css/override.css">
-
-
-
-
-
-<link rel="shortcut icon"
-
-    href="https://robin-lee.github.io/favicon.ico"
-
->
 
 
 
 </head>
 
 
-<body lang="en">
+<body class='page'>
+  <div class='site'>
+    <header id='header' class='header-container'>
+      <div class='site-header'>
+        <nav id='navmenu' aria-label='Main Menu'>
+  <ul class='main-menu'>
+    
+    <li>
+      <a href='/' 
+        
+      >Home</a>
+    </li>
+    
+    <li>
+      <a href='/about/' 
+        
+      >About</a>
+    </li>
+    
+    <li>
+      <a href='/portfolio/' 
+        
+      >Portfolio</a>
+    </li>
+    
+    <li>
+      <a href='https://github.com/robin-lee' 
+        
+      >Repo</a>
+    </li>
+    
+  </ul>
+</nav>
 
-<section class="header">
-    <div class="container">
-        <div class="content">
-            <a href="https://robin-lee.github.io/"><div class="name">Robin Lee</div></a>
-            <nav>
-                <ul>
-                    <a href="https://robin-lee.github.io/blog/"><li>Blog</li></a>
-                    <a href="https://robin-lee.github.io/about/"><li>About</li></a>
-                    
-                </ul>
-            </nav>
+        <div class='site-info'>
+          
+          <p class='site-title title'>Robin Lee</p>
+          
+          <p class='site-description'></p>
         </div>
-    </div>
-</section>
-
-<section class="icons">
-    <div class="container">
-        <div class="content">
-
-        
-            <a href="//github.com/robin-lee" target="_blank">
-                <i class="icon ion-social-github"></i>
-            </a>
-        
-
-        
-
-        
-            <a href="//sg.linkedin.com/in/robin-lee-2b70818a" target="_blank">
-                <i class="icon ion-social-linkedin"></i>
-            </a>
-        
-
-        
-
-        
-
-        
-        </div>
-    </div>
-</section>
+      </div>
+    </header>
 
 
-<section class="main post non-narrow zero-top-spacing">
-    <div class="container">
-        <div class="content">
-            <div class="front-matter">
-                <div class="title-container">
-                    <div class="page-heading">
+<main class='main'>
+  <article lang='en' class='entry'>
+    <header class='entry-header'>
+  <div class='entry-info'>
+    <h1 class='entry-title title'>Tomcat Development Server</h1>
+    
+  </div>
+  
+<div class='meta'>
+  <span class='posted-on'>
+    <svg class='icon' viewbox='0 0 24 24' stroke-linecap='round' stroke-linejoin='round' stroke-width='2' aria-hidden='true'>
+  
+  <rect x="3" y="4" width="18" height="18" rx="2" ry="2"/>
+  <line x1="16" y1="2" x2="16" y2="6"/>
+  <line x1="8" y1="2" x2="8" y2="6"/>
+  <line x1="3" y1="10" x2="21" y2="10"/>
+  
+</svg>
 
-    Tomcat Development Server
+    <span class='screen-reader'>Posted on </span>
+    <time class='date' datetime='2016-08-11T23:13:48&#43;02:00'>2016, Aug 11</time>
+  </span>
+  
+  <span class='byline'>
+    <svg class='icon' viewbox='0 0 24 24' stroke-linecap='round' stroke-linejoin='round' stroke-width='2' aria-hidden='true'>
+  
+  <path d="M21,21V20c0-2.76-4-5-9-5s-9,2.24-9,5v1"/>
+  <path d="M16,6.37A4,4,0,1,1,12.63,3,4,4,0,0,1,16,6.37Z"/>
+  
+</svg>
 
+    <span class='screen-reader'> by </span>
+    Minimo
+  </span>
+  
+  
+  <span class='reading-time'>
+    <svg class='icon' viewbox='0 0 24 24' stroke-linecap='round' stroke-linejoin='round' stroke-width='2' aria-hidden='true'>
+  
+  <circle cx="12" cy="12" r="10"/>
+  <polyline points="12 6 12 12 15 15"/> 
+  
+</svg>
+
+    5 mins read
+  </span>
+  
 </div>
 
-                    <div class="initials"><a href="https://robin-lee.github.io/">RL</a></div>
-                </div>
-                <div class="meta">
-                    <div class="date" title="Thu Aug 11 2016 23:13:48 CEST">Aug 11, 2016</div>
-                    <div class="reading-time"><div class="middot"></div>5 minutes read</div>
-                </div>
-            </div>
-            <div class="markdown">
-                
+
+</header>
+
+    <div class='entry-content'>
+  
 
 <p>I always wanted to learn some backend development seriously and finally I have the opportunity to do so. I have played around with server setup in the past but most of the information has been forgotten.</p>
 
@@ -296,7 +306,7 @@ esac
 <p>Give the script permissions:</p>
 
 <pre><code>sudo chmod 755 /etc/init.d/tomcat8
-sudo upate-rc.d tomcat8 defaults
+sudo update-rc.d tomcat8 defaults
 sudo reboot
 </code></pre>
 
@@ -320,32 +330,117 @@ sudo reboot
 
 <p>Phew, that is done.</p>
 
-                <br>
-                <p><a href="https://robin-lee.github.io/blog/">Back to posts</a></p>
-            </div>
-            <br>
-            <div class="disqus">
-                
-            </div>
+</div>
+
+    
+<footer class='entry-footer'>
+  
+    
+  
+    
+      
+      <div class='tags'>
+  <span class='tag-icon'>
+    <svg class='icon' viewbox='0 0 24 24' stroke-linecap='round' stroke-linejoin='round' stroke-width='2' aria-hidden='true'>
+  
+  <path d="M20.59,13.41l-7.17,7.17a2,2,0,0,1-2.83,0L2,12V2H12l8.59,8.59A2,2,0,0,1,20.59,13.41Z"/>
+  <line x1="7" y1="7" x2="7" y2="7"/>
+  
+</svg>
+
+  </span>
+  <span class='screen-reader'>Tags: </span><a class='tag' href='/tags/tomcat'>Tomcat</a>, <a class='tag' href='/tags/server'>Server</a>, <a class='tag' href='/tags/ubuntu'>Ubuntu</a>, <a class='tag' href='/tags/mysql'>Mysql</a>, <a class='tag' href='/tags/adminer'>Adminer</a>, <a class='tag' href='/tags/configuration'>Configuration</a>, <a class='tag' href='/tags/apache'>Apache</a>, <a class='tag' href='/tags/virtualbox'>Virtualbox</a></div>
+
+    
+  
+</footer>
+
+
+  </article>
+
+  
+    
+<nav class='entry-nav'>
+  <div class='entry-nav-links'><div class='prev-entry'>
+      <a href='https://robin-lee.github.io/blog/sockets/'>
+        <span aria-hidden='true'><svg class='icon' viewbox='0 0 24 24' stroke-linecap='round' stroke-linejoin='round' stroke-width='2' aria-hidden='true'>
+  
+  <line x1="20" y1="12" x2="4" y2="12"/>
+  <polyline points="10 18 4 12 10 6"/>
+  
+</svg>
+ Previous</span>
+        <span class='screen-reader'>Previous post: </span>Fundamentals: Sockets</a>
+    </div><div class='next-entry'>
+      <a href='https://robin-lee.github.io/blog/deploying-java-servlet-webapp-to-development-vm/'>
+        <span class='screen-reader'>Next post: </span>Developing and Deploying Java Servlet Webapp<span aria-hidden='true'>Next <svg class='icon' viewbox='0 0 24 24' stroke-linecap='round' stroke-linejoin='round' stroke-width='2' aria-hidden='true'>
+  
+  <line x1="4" y1="12" x2="20" y2="12"/>
+  <polyline points="14 6 20 12 14 18"/>
+  
+</svg>
+</span>
+      </a>
+    </div></div>
+</nav>
+
+
+  
+
+  
+    <div class='comments-container'>
+  
+</div>
+
+  
+</main>
+
+    <footer id='footer' class='footer-container'>
+      <div class='footer'>
+        <div class='social'>
+  <nav aria-label='Social Menu'>
+    <ul class='social-menu'><li>
+        <a href='https://github.com/robin-lee' target='_blank' rel='noopener'>
+          <span class='screen-reader'>Open Github account in new tab</span>
+          <svg class='icon' viewbox='0 0 24 24' stroke-linecap='round' stroke-linejoin='round' stroke-width='2' aria-hidden='true'>
+  
+  <path d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.87a3.37 3.37 0 0 0-.94-2.61c3.14-.35 6.44-1.54 6.44-7A5.44 5.44 0 0 0 20 4.77 5.07 5.07 0 0 0 19.91 1S18.73.65 16 2.48a13.38 13.38 0 0 0-7 0C6.27.65 5.09 1 5.09 1A5.07 5.07 0 0 0 5 4.77a5.44 5.44 0 0 0-1.5 3.78c0 5.42 3.3 6.61 6.44 7A3.37 3.37 0 0 0 9 18.13V22"/>
+  
+</svg>
+
+        </a>
+      </li><li>
+        <a href='https://linkedin.com/in/robin-lee-2b70818a' target='_blank' rel='noopener'>
+          <span class='screen-reader'>Open Linkedin account in new tab</span>
+          <svg class='icon' viewbox='0 0 24 24' stroke-linecap='round' stroke-linejoin='round' stroke-width='2' aria-hidden='true'>
+  
+  <path stroke-width="1.8" d="m5.839218,4.101561c0,1.211972 -0.974141,2.194011 -2.176459,2.194011s-2.176459,-0.982039 -2.176459,-2.194011c0,-1.211094 0.974141,-2.194011 2.176459,-2.194011s2.176459,0.982917 2.176459,2.194011zm0.017552,3.94922l-4.388022,0l0,14.04167l4.388022,0l0,-14.04167zm7.005038,0l-4.359939,0l0,14.04167l4.360816,0l0,-7.370999c0,-4.098413 5.291077,-4.433657 5.291077,0l0,7.370999l4.377491,0l0,-8.89101c0,-6.915523 -7.829986,-6.66365 -9.669445,-3.259423l0,-1.891237z"/>
+  
+</svg>
+
+        </a>
+      </li></ul>
+  </nav>
+</div>
+
+        <div class='copyright'>
+          <p>
+    
+  
+  &copy; 2017 Robin Lee</p>
+
         </div>
-    </div>
-</section>
+      </div>
+    </footer>
 
+  </div>
 
-
-<script type="text/javascript">
-var gaJsHost = (("https:" == document.location.protocol) ? "https://ssl." : "http://www.");
-document.write(unescape("%3Cscript src='" + gaJsHost + "google-analytics.com/ga.js' type='text/javascript'%3E%3C/script%3E"));
-</script>
-<script type="text/javascript">
-try {
-    var pageTracker = _gat._getTracker("XYZ");
-    pageTracker._trackPageview();
-} catch(err) {}
-</script>
-
-
+  <script src='/js/main.af838dd5.js'></script>
+  
+    <script src='/js/prism.js'></script>
+  
 
 </body>
+
 </html>
 

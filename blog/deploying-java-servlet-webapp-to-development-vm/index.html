@@ -1,0 +1,299 @@
+<!DOCTYPE html>
+<html lang='en'>
+
+<head>
+  <meta charset='utf-8'>
+<meta name='viewport' content='width=device-width, initial-scale=1'>
+<meta name='description' content='Developing You can find a few tutorials on how to create a basic (hello world) webapp with java servlets in eclipse so it will not be included here. As always my experience differs from such tutorials. It is never smooth sailing. You always have to configure or troubleshoot something even if your setup is exactly the same. The last time I did something with Servlets or JSP was in 2013 or 2014.'>
+
+<meta property='og:title' content='Developing and Deploying Java Servlet Webapp • Minimo'>
+<meta property='og:description' content='Developing You can find a few tutorials on how to create a basic (hello world) webapp with java servlets in eclipse so it will not be included here. As always my experience differs from such tutorials. It is never smooth sailing. You always have to configure or troubleshoot something even if your setup is exactly the same. The last time I did something with Servlets or JSP was in 2013 or 2014.'>
+<meta property='og:url' content='https://robin-lee.github.io/blog/deploying-java-servlet-webapp-to-development-vm/'>
+<meta property='og:site_name' content='Robin Lee'>
+<meta property='og:type' content='article'><meta property='article:section' content='Blog'><meta property='article:tag' content='deployment'><meta property='article:tag' content='servlet'><meta property='article:tag' content='java'><meta property='article:tag' content='tomcat'><meta property='article:tag' content='virutal machine'><meta property='article:published_time' content='2016-08-12T16:23:07&#43;02:00'/><meta property='article:modified_time' content='2016-08-12T16:23:07&#43;02:00'/>
+
+<meta name="generator" content="Hugo 0.26" />
+
+  <title>Developing and Deploying Java Servlet Webapp • Minimo</title>
+  <link rel='canonical' href='https://robin-lee.github.io/blog/deploying-java-servlet-webapp-to-development-vm/'>
+  <link rel='icon' href='/favicon.ico'>
+<link rel='stylesheet' href='https://fonts.googleapis.com/css?family=Ubuntu:400,400i,700&subset=latin'>
+<link rel='stylesheet' href='/css/main.67a788c9.css'>
+
+  <link rel='stylesheet' href='/css/prism.css'>
+
+
+
+
+</head>
+
+
+<body class='page'>
+  <div class='site'>
+    <header id='header' class='header-container'>
+      <div class='site-header'>
+        <nav id='navmenu' aria-label='Main Menu'>
+  <ul class='main-menu'>
+    
+    <li>
+      <a href='/' 
+        
+      >Home</a>
+    </li>
+    
+    <li>
+      <a href='/about/' 
+        
+      >About</a>
+    </li>
+    
+    <li>
+      <a href='/portfolio/' 
+        
+      >Portfolio</a>
+    </li>
+    
+    <li>
+      <a href='https://github.com/robin-lee' 
+        
+      >Repo</a>
+    </li>
+    
+  </ul>
+</nav>
+
+        <div class='site-info'>
+          
+          <p class='site-title title'>Robin Lee</p>
+          
+          <p class='site-description'></p>
+        </div>
+      </div>
+    </header>
+
+
+<main class='main'>
+  <article lang='en' class='entry'>
+    <header class='entry-header'>
+  <div class='entry-info'>
+    <h1 class='entry-title title'>Developing and Deploying Java Servlet Webapp</h1>
+    
+  </div>
+  
+<div class='meta'>
+  <span class='posted-on'>
+    <svg class='icon' viewbox='0 0 24 24' stroke-linecap='round' stroke-linejoin='round' stroke-width='2' aria-hidden='true'>
+  
+  <rect x="3" y="4" width="18" height="18" rx="2" ry="2"/>
+  <line x1="16" y1="2" x2="16" y2="6"/>
+  <line x1="8" y1="2" x2="8" y2="6"/>
+  <line x1="3" y1="10" x2="21" y2="10"/>
+  
+</svg>
+
+    <span class='screen-reader'>Posted on </span>
+    <time class='date' datetime='2016-08-12T16:23:07&#43;02:00'>2016, Aug 12</time>
+  </span>
+  
+  <span class='byline'>
+    <svg class='icon' viewbox='0 0 24 24' stroke-linecap='round' stroke-linejoin='round' stroke-width='2' aria-hidden='true'>
+  
+  <path d="M21,21V20c0-2.76-4-5-9-5s-9,2.24-9,5v1"/>
+  <path d="M16,6.37A4,4,0,1,1,12.63,3,4,4,0,0,1,16,6.37Z"/>
+  
+</svg>
+
+    <span class='screen-reader'> by </span>
+    Minimo
+  </span>
+  
+  
+  <span class='reading-time'>
+    <svg class='icon' viewbox='0 0 24 24' stroke-linecap='round' stroke-linejoin='round' stroke-width='2' aria-hidden='true'>
+  
+  <circle cx="12" cy="12" r="10"/>
+  <polyline points="12 6 12 12 15 15"/> 
+  
+</svg>
+
+    2 mins read
+  </span>
+  
+</div>
+
+
+</header>
+
+    <div class='entry-content'>
+  
+
+<h2 id="developing">Developing</h2>
+
+<p>You can find a few tutorials on how to create a basic (hello world) webapp with java servlets in eclipse so it will not be included here.
+As always my experience differs from such tutorials. It is never smooth sailing. You always have to configure or troubleshoot something even if your setup is <em>exactly</em> the same. The last time I did something with Servlets or JSP was in 2013 or 2014. I don&rsquo;t think I have my notes from then.</p>
+
+<p>This time round I had to do some tweaking to get Eclipse to recognise the tomcat server installed on OSX (not the VM, thats working well). For some reason it didn&rsquo;t recognize tomcat 8.5.*.</p>
+
+<pre><code>You have to patch catalina.jar, as this is version number the WTP adapter looks at. It's a quite useless check, and the adapter should allow you to start the server anyway, but nobody has though of that yet.
+
+For years and with every version of Tomcat this is always a problem.
+
+To patch you can do the following:
+
+cd [tomcat or tomee home]/lib
+mkdir catalina
+cd catalina/
+unzip ../catalina.jar
+vim org/apache/catalina/util/ServerInfo.properties
+Make sure it looks like the following (the version numbers all need to start with 8.0):
+
+server.info=Apache Tomcat/8.0.0
+server.number=8.0.0
+server.built=May 11 2016 21:49:07 UTC
+Then:
+
+jar uf ../catalina.jar org/apache/catalina/util/ServerInfo.properties
+cd ..
+rm -rf catalina
+</code></pre>
+
+<p><a href="http://stackoverflow.com/questions/37024876/how-to-use-tomcat-8-5-x-and-tomee-7-x-with-eclipse">stack link</a></p>
+
+<p>Once this was done, I could develop and test my webapp in Eclipse.</p>
+
+<h2 id="deploying">Deploying</h2>
+
+<p>To me, running the webapp in the IDE is not deploying. There were a few tutorials with misleading titles.</p>
+
+<p>I was told that to deploy an webapp is bascially copying a war archive into a directory for tomcat. To have a 2nd opinion, I found this <a href="http://www.vogella.com/tutorials/EclipseWTP/article.html">vogella tutorial</a>. Vogella has been consistent in providing great tutorials to help you get started.</p>
+
+<p>In Eclipse, you just right click on the root package for your webapp and export as a <code>war archive</code> and save it somewhere.</p>
+
+<p>To transfer the file to the VM:</p>
+
+<pre><code>scp &lt;filename&gt;.war tomcatuser@192.168.56.101:/home/&lt;vm user&gt;
+</code></pre>
+
+<p>And via ssh in <code>/opt/tomcat</code> (assuming you set up tomcat here and service is called tomcat8):</p>
+
+<pre><code>cp ~/&lt;filename&gt;.war webapps/
+sudo service tomcat8 restart
+</code></pre>
+
+<p>Now going to <code>&lt;url&gt;:8080/&lt;filename&gt;/&lt;classname&gt;</code> should load your webpage or whatever response you made.
+You could change the URL by specifying configurations in a <code>web.xml</code> but that will not be covered here&hellip; for now?</p>
+
+</div>
+
+    
+<footer class='entry-footer'>
+  
+    
+  
+    
+      
+      <div class='tags'>
+  <span class='tag-icon'>
+    <svg class='icon' viewbox='0 0 24 24' stroke-linecap='round' stroke-linejoin='round' stroke-width='2' aria-hidden='true'>
+  
+  <path d="M20.59,13.41l-7.17,7.17a2,2,0,0,1-2.83,0L2,12V2H12l8.59,8.59A2,2,0,0,1,20.59,13.41Z"/>
+  <line x1="7" y1="7" x2="7" y2="7"/>
+  
+</svg>
+
+  </span>
+  <span class='screen-reader'>Tags: </span><a class='tag' href='/tags/deployment'>Deployment</a>, <a class='tag' href='/tags/servlet'>Servlet</a>, <a class='tag' href='/tags/java'>Java</a>, <a class='tag' href='/tags/tomcat'>Tomcat</a>, <a class='tag' href='/tags/virutal-machine'>virutal machine</a></div>
+
+    
+  
+</footer>
+
+
+  </article>
+
+  
+    
+<nav class='entry-nav'>
+  <div class='entry-nav-links'><div class='prev-entry'>
+      <a href='https://robin-lee.github.io/blog/tomcat-development-server/'>
+        <span aria-hidden='true'><svg class='icon' viewbox='0 0 24 24' stroke-linecap='round' stroke-linejoin='round' stroke-width='2' aria-hidden='true'>
+  
+  <line x1="20" y1="12" x2="4" y2="12"/>
+  <polyline points="10 18 4 12 10 6"/>
+  
+</svg>
+ Previous</span>
+        <span class='screen-reader'>Previous post: </span>Tomcat Development Server</a>
+    </div><div class='next-entry'>
+      <a href='https://robin-lee.github.io/blog/cpp-basics-1/'>
+        <span class='screen-reader'>Next post: </span>Cpp Basics 1<span aria-hidden='true'>Next <svg class='icon' viewbox='0 0 24 24' stroke-linecap='round' stroke-linejoin='round' stroke-width='2' aria-hidden='true'>
+  
+  <line x1="4" y1="12" x2="20" y2="12"/>
+  <polyline points="14 6 20 12 14 18"/>
+  
+</svg>
+</span>
+      </a>
+    </div></div>
+</nav>
+
+
+  
+
+  
+    <div class='comments-container'>
+  
+</div>
+
+  
+</main>
+
+    <footer id='footer' class='footer-container'>
+      <div class='footer'>
+        <div class='social'>
+  <nav aria-label='Social Menu'>
+    <ul class='social-menu'><li>
+        <a href='https://github.com/robin-lee' target='_blank' rel='noopener'>
+          <span class='screen-reader'>Open Github account in new tab</span>
+          <svg class='icon' viewbox='0 0 24 24' stroke-linecap='round' stroke-linejoin='round' stroke-width='2' aria-hidden='true'>
+  
+  <path d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.87a3.37 3.37 0 0 0-.94-2.61c3.14-.35 6.44-1.54 6.44-7A5.44 5.44 0 0 0 20 4.77 5.07 5.07 0 0 0 19.91 1S18.73.65 16 2.48a13.38 13.38 0 0 0-7 0C6.27.65 5.09 1 5.09 1A5.07 5.07 0 0 0 5 4.77a5.44 5.44 0 0 0-1.5 3.78c0 5.42 3.3 6.61 6.44 7A3.37 3.37 0 0 0 9 18.13V22"/>
+  
+</svg>
+
+        </a>
+      </li><li>
+        <a href='https://linkedin.com/in/robin-lee-2b70818a' target='_blank' rel='noopener'>
+          <span class='screen-reader'>Open Linkedin account in new tab</span>
+          <svg class='icon' viewbox='0 0 24 24' stroke-linecap='round' stroke-linejoin='round' stroke-width='2' aria-hidden='true'>
+  
+  <path stroke-width="1.8" d="m5.839218,4.101561c0,1.211972 -0.974141,2.194011 -2.176459,2.194011s-2.176459,-0.982039 -2.176459,-2.194011c0,-1.211094 0.974141,-2.194011 2.176459,-2.194011s2.176459,0.982917 2.176459,2.194011zm0.017552,3.94922l-4.388022,0l0,14.04167l4.388022,0l0,-14.04167zm7.005038,0l-4.359939,0l0,14.04167l4.360816,0l0,-7.370999c0,-4.098413 5.291077,-4.433657 5.291077,0l0,7.370999l4.377491,0l0,-8.89101c0,-6.915523 -7.829986,-6.66365 -9.669445,-3.259423l0,-1.891237z"/>
+  
+</svg>
+
+        </a>
+      </li></ul>
+  </nav>
+</div>
+
+        <div class='copyright'>
+          <p>
+    
+  
+  &copy; 2017 Robin Lee</p>
+
+        </div>
+      </div>
+    </footer>
+
+  </div>
+
+  <script src='/js/main.af838dd5.js'></script>
+  
+    <script src='/js/prism.js'></script>
+  
+
+</body>
+
+</html>
+

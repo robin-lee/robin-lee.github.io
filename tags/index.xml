@@ -1,0 +1,320 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Tags on Robin Lee</title>
+    <link>https://robin-lee.github.io/tags/</link>
+    <description>Recent content in Tags on Robin Lee</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <lastBuildDate>Thu, 11 Aug 2016 23:13:48 +0200</lastBuildDate>
+    
+	<atom:link href="https://robin-lee.github.io/tags/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>Adminer</title>
+      <link>https://robin-lee.github.io/tags/adminer/</link>
+      <pubDate>Thu, 11 Aug 2016 23:13:48 +0200</pubDate>
+      
+      <guid>https://robin-lee.github.io/tags/adminer/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Agile</title>
+      <link>https://robin-lee.github.io/tags/agile/</link>
+      <pubDate>Sat, 23 Jul 2016 16:29:59 +0200</pubDate>
+      
+      <guid>https://robin-lee.github.io/tags/agile/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Android</title>
+      <link>https://robin-lee.github.io/tags/android/</link>
+      <pubDate>Wed, 27 Jul 2016 10:56:29 +0200</pubDate>
+      
+      <guid>https://robin-lee.github.io/tags/android/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Apache</title>
+      <link>https://robin-lee.github.io/tags/apache/</link>
+      <pubDate>Thu, 11 Aug 2016 23:13:48 +0200</pubDate>
+      
+      <guid>https://robin-lee.github.io/tags/apache/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Configuration</title>
+      <link>https://robin-lee.github.io/tags/configuration/</link>
+      <pubDate>Thu, 11 Aug 2016 23:13:48 +0200</pubDate>
+      
+      <guid>https://robin-lee.github.io/tags/configuration/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Cpp</title>
+      <link>https://robin-lee.github.io/tags/cpp/</link>
+      <pubDate>Fri, 19 Aug 2016 15:33:28 +0200</pubDate>
+      
+      <guid>https://robin-lee.github.io/tags/cpp/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Curl</title>
+      <link>https://robin-lee.github.io/tags/curl/</link>
+      <pubDate>Fri, 26 Aug 2016 16:03:00 +0200</pubDate>
+      
+      <guid>https://robin-lee.github.io/tags/curl/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Data visualization</title>
+      <link>https://robin-lee.github.io/tags/data-visualization/</link>
+      <pubDate>Fri, 03 Feb 2017 10:57:07 +0800</pubDate>
+      
+      <guid>https://robin-lee.github.io/tags/data-visualization/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Deployment</title>
+      <link>https://robin-lee.github.io/tags/deployment/</link>
+      <pubDate>Fri, 12 Aug 2016 16:23:07 +0200</pubDate>
+      
+      <guid>https://robin-lee.github.io/tags/deployment/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Development</title>
+      <link>https://robin-lee.github.io/tags/development/</link>
+      <pubDate>Wed, 27 Jul 2016 14:31:03 +0200</pubDate>
+      
+      <guid>https://robin-lee.github.io/tags/development/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Ffmpeg</title>
+      <link>https://robin-lee.github.io/tags/ffmpeg/</link>
+      <pubDate>Tue, 14 Feb 2017 22:59:25 +0800</pubDate>
+      
+      <guid>https://robin-lee.github.io/tags/ffmpeg/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>G&#43;&#43;</title>
+      <link>https://robin-lee.github.io/tags/g&#43;&#43;/</link>
+      <pubDate>Fri, 19 Aug 2016 15:33:28 +0200</pubDate>
+      
+      <guid>https://robin-lee.github.io/tags/g&#43;&#43;/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Gcc</title>
+      <link>https://robin-lee.github.io/tags/gcc/</link>
+      <pubDate>Fri, 19 Aug 2016 15:33:28 +0200</pubDate>
+      
+      <guid>https://robin-lee.github.io/tags/gcc/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Gradle</title>
+      <link>https://robin-lee.github.io/tags/gradle/</link>
+      <pubDate>Wed, 27 Jul 2016 10:56:29 +0200</pubDate>
+      
+      <guid>https://robin-lee.github.io/tags/gradle/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>H2</title>
+      <link>https://robin-lee.github.io/tags/h2/</link>
+      <pubDate>Fri, 26 Aug 2016 16:03:00 +0200</pubDate>
+      
+      <guid>https://robin-lee.github.io/tags/h2/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Java</title>
+      <link>https://robin-lee.github.io/tags/java/</link>
+      <pubDate>Fri, 12 Aug 2016 16:23:07 +0200</pubDate>
+      
+      <guid>https://robin-lee.github.io/tags/java/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Java</title>
+      <link>https://robin-lee.github.io/tags/java/</link>
+      <pubDate>Fri, 26 Aug 2016 16:03:00 +0200</pubDate>
+      
+      <guid>https://robin-lee.github.io/tags/java/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Make</title>
+      <link>https://robin-lee.github.io/tags/make/</link>
+      <pubDate>Fri, 19 Aug 2016 15:33:28 +0200</pubDate>
+      
+      <guid>https://robin-lee.github.io/tags/make/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Makefile</title>
+      <link>https://robin-lee.github.io/tags/makefile/</link>
+      <pubDate>Fri, 19 Aug 2016 15:33:28 +0200</pubDate>
+      
+      <guid>https://robin-lee.github.io/tags/makefile/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Mysql</title>
+      <link>https://robin-lee.github.io/tags/mysql/</link>
+      <pubDate>Mon, 19 Sep 2016 15:35:25 +0800</pubDate>
+      
+      <guid>https://robin-lee.github.io/tags/mysql/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Network</title>
+      <link>https://robin-lee.github.io/tags/network/</link>
+      <pubDate>Mon, 01 Aug 2016 11:59:12 +0200</pubDate>
+      
+      <guid>https://robin-lee.github.io/tags/network/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Reactjs</title>
+      <link>https://robin-lee.github.io/tags/reactjs/</link>
+      <pubDate>Thu, 30 Mar 2017 17:40:03 +0800</pubDate>
+      
+      <guid>https://robin-lee.github.io/tags/reactjs/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Server</title>
+      <link>https://robin-lee.github.io/tags/server/</link>
+      <pubDate>Thu, 11 Aug 2016 23:13:48 +0200</pubDate>
+      
+      <guid>https://robin-lee.github.io/tags/server/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Servlet</title>
+      <link>https://robin-lee.github.io/tags/servlet/</link>
+      <pubDate>Fri, 12 Aug 2016 16:23:07 +0200</pubDate>
+      
+      <guid>https://robin-lee.github.io/tags/servlet/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Sockets</title>
+      <link>https://robin-lee.github.io/tags/sockets/</link>
+      <pubDate>Mon, 01 Aug 2016 11:59:12 +0200</pubDate>
+      
+      <guid>https://robin-lee.github.io/tags/sockets/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Solid</title>
+      <link>https://robin-lee.github.io/tags/solid/</link>
+      <pubDate>Sat, 23 Jul 2016 14:46:47 +0200</pubDate>
+      
+      <guid>https://robin-lee.github.io/tags/solid/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Spring Boot</title>
+      <link>https://robin-lee.github.io/tags/spring-boot/</link>
+      <pubDate>Fri, 26 Aug 2016 16:03:00 +0200</pubDate>
+      
+      <guid>https://robin-lee.github.io/tags/spring-boot/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Tdd</title>
+      <link>https://robin-lee.github.io/tags/tdd/</link>
+      <pubDate>Wed, 27 Jul 2016 14:31:03 +0200</pubDate>
+      
+      <guid>https://robin-lee.github.io/tags/tdd/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Testing</title>
+      <link>https://robin-lee.github.io/tags/testing/</link>
+      <pubDate>Wed, 29 Mar 2017 18:55:10 +0800</pubDate>
+      
+      <guid>https://robin-lee.github.io/tags/testing/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Tomcat</title>
+      <link>https://robin-lee.github.io/tags/tomcat/</link>
+      <pubDate>Fri, 12 Aug 2016 16:23:07 +0200</pubDate>
+      
+      <guid>https://robin-lee.github.io/tags/tomcat/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Ubuntu</title>
+      <link>https://robin-lee.github.io/tags/ubuntu/</link>
+      <pubDate>Thu, 11 Aug 2016 23:13:48 +0200</pubDate>
+      
+      <guid>https://robin-lee.github.io/tags/ubuntu/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Uncle bob</title>
+      <link>https://robin-lee.github.io/tags/uncle-bob/</link>
+      <pubDate>Sat, 23 Jul 2016 14:46:47 +0200</pubDate>
+      
+      <guid>https://robin-lee.github.io/tags/uncle-bob/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Virtualbox</title>
+      <link>https://robin-lee.github.io/tags/virtualbox/</link>
+      <pubDate>Thu, 11 Aug 2016 23:13:48 +0200</pubDate>
+      
+      <guid>https://robin-lee.github.io/tags/virtualbox/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Virutal machine</title>
+      <link>https://robin-lee.github.io/tags/virutal-machine/</link>
+      <pubDate>Fri, 12 Aug 2016 16:23:07 +0200</pubDate>
+      
+      <guid>https://robin-lee.github.io/tags/virutal-machine/</guid>
+      <description></description>
+    </item>
+    
+  </channel>
+</rss>

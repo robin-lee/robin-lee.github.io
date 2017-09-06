@@ -1,124 +1,39 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes" ?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
-    <title>Robin Lee</title>
-    <link>https://robin-lee.github.io/tags/agile/index.xml</link>
-    <description>Recent content on Robin Lee</description>
+    <title>Agile on Robin Lee</title>
+    <link>https://robin-lee.github.io/tags/agile/</link>
+    <description>Recent content in Agile on Robin Lee</description>
     <generator>Hugo -- gohugo.io</generator>
-    <language>en-us</language>
-    <atom:link href="https://robin-lee.github.io/tags/agile/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Sat, 23 Jul 2016 16:29:59 +0200</lastBuildDate>
+    
+	<atom:link href="https://robin-lee.github.io/tags/agile/index.xml" rel="self" type="application/rss+xml" />
+    
     
     <item>
       <title>Agile Software Development</title>
-      <link>https://robin-lee.github.io/blog/2016/07/agile-software-development/</link>
+      <link>https://robin-lee.github.io/blog/agile/</link>
       <pubDate>Sat, 23 Jul 2016 16:29:59 +0200</pubDate>
       
-      <guid>https://robin-lee.github.io/blog/2016/07/agile-software-development/</guid>
-      <description>
-
-&lt;h1 id=&#34;what-is-agile-software-development&#34;&gt;What is Agile Software Development?&lt;/h1&gt;
-
-&lt;p&gt;It refers to adopting a set of practices or principles while developing software.&lt;/p&gt;
-
-&lt;blockquote&gt;
-&lt;p&gt;In early 2001, the Agile Alliance met to outine the values and principles that would allow software teams work together and respond to change.&lt;/p&gt;
-&lt;/blockquote&gt;
-
-&lt;p&gt;&lt;em&gt;Agile Software Development, Principles, Patterns and Practices.&lt;/em&gt;&lt;/p&gt;
-
-&lt;h1 id=&#34;things-that-got-my-attention&#34;&gt;Things that got my attention&lt;/h1&gt;
-
-&lt;p&gt;1.&lt;/p&gt;
-
-&lt;blockquote&gt;
-&lt;p&gt;Agiles processes promote sustainable development. The sponsors, developers and users should be able to maintain constant pace indefinitely.&lt;/p&gt;
-&lt;/blockquote&gt;
-
-&lt;p&gt;2.&lt;/p&gt;
-
-&lt;blockquote&gt;
-&lt;p&gt;An agile project is not run like a 50-yard dash; it is run like a marathon. They run at a fast, sustainable pace. Running too fast often leads to burnout, shortcuts and debacle. &amp;hellip; A team is not allowed to work overtime. The only exception is the last week in a release.&lt;/p&gt;
-&lt;/blockquote&gt;
-
-&lt;p&gt;3.&lt;/p&gt;
-
-&lt;blockquote&gt;
-&lt;p&gt;Splitting, Spiking and Velocity. Any story too big should be split in stories that aren&amp;rsquo;t too big. After splitting, it should be reestiamted.&lt;/p&gt;
-&lt;/blockquote&gt;
-
-&lt;p&gt;Velocity is something like &amp;ldquo;2 days per story point&amp;rdquo;.&lt;/p&gt;
-
-&lt;p&gt;Example:&lt;/p&gt;
-
-&lt;pre&gt;&lt;code&gt;-&amp;gt; Users can securely transfer money into, out of, and between their accounts.
-
-becomes
-
--&amp;gt; Users can login
--&amp;gt; Users can logout
--&amp;gt; Users can deposit money into their account
--&amp;gt; Users can withdraw money from their account
--&amp;gt; Users can transfer money from their account to another account
-&lt;/code&gt;&lt;/pre&gt;
-
-&lt;p&gt;4.&lt;/p&gt;
-
-&lt;blockquote&gt;
-&lt;p&gt;Intentional programming. You state your intent in a test before implementing it, making your intent as simple and readable as possible. The act of writing tests first is an act of discerning between design decisions. WumpusGame example: Integers instead of room object or game world?&lt;/p&gt;
-&lt;/blockquote&gt;
-
-&lt;p&gt;&lt;em&gt;White box test: A test that knows and depends on its internal structure. (unit)&lt;/em&gt;&lt;/p&gt;
-
-&lt;p&gt;&lt;em&gt;Black box test: A test that does&lt;/em&gt; &lt;strong&gt;&lt;em&gt;not&lt;/em&gt;&lt;/strong&gt; &lt;em&gt;know or depend on its internal structure. (acceptance)&lt;/em&gt;&lt;/p&gt;
-
-&lt;p&gt;5.&lt;/p&gt;
-
-&lt;blockquote&gt;
-&lt;p&gt;Always practice refactoring for every module you write and every module you maintain.&lt;/p&gt;
-&lt;/blockquote&gt;
-</description>
+      <guid>https://robin-lee.github.io/blog/agile/</guid>
+      <description>What is Agile Software Development? It refers to adopting a set of practices or principles while developing software.
+ In early 2001, the Agile Alliance met to outine the values and principles that would allow software teams work together and respond to change.
+ Agile Software Development, Principles, Patterns and Practices.
+Things that got my attention 1.
+ Agiles processes promote sustainable development. The sponsors, developers and users should be able to maintain constant pace indefinitely.</description>
     </item>
     
     <item>
       <title>SOLID Principles</title>
-      <link>https://robin-lee.github.io/blog/2016/07/solid-principles/</link>
+      <link>https://robin-lee.github.io/blog/solid/</link>
       <pubDate>Sat, 23 Jul 2016 14:46:47 +0200</pubDate>
       
-      <guid>https://robin-lee.github.io/blog/2016/07/solid-principles/</guid>
-      <description>
-
-&lt;p&gt;A set of principles to design or write &lt;strong&gt;classes&lt;/strong&gt;.&lt;/p&gt;
-
-&lt;h1 id=&#34;single-responsibility-principle&#34;&gt;Single Responsibility Principle&lt;/h1&gt;
-
-&lt;blockquote&gt;
-&lt;p&gt;A class should have one, and only one, reason to change.&lt;/p&gt;
-&lt;/blockquote&gt;
-
-&lt;h1 id=&#34;open-closed-principle&#34;&gt;Open - Closed Principle&lt;/h1&gt;
-
-&lt;blockquote&gt;
-&lt;p&gt;You should be able to extend a classes behavior, without modifying it.&lt;/p&gt;
-&lt;/blockquote&gt;
-
-&lt;h1 id=&#34;liskov-substitution-principle&#34;&gt;Liskov Substitution Principle&lt;/h1&gt;
-
-&lt;blockquote&gt;
-&lt;p&gt;Derived classes must be substitutable for their base classes.&lt;/p&gt;
-&lt;/blockquote&gt;
-
-&lt;h1 id=&#34;interface-segregation-principle&#34;&gt;Interface Segregation Principle&lt;/h1&gt;
-
-&lt;blockquote&gt;
-&lt;p&gt;Make fine grained interfaces that are client specific.&lt;/p&gt;
-&lt;/blockquote&gt;
-
-&lt;h1 id=&#34;dependency-inversion-principle&#34;&gt;Dependency Inversion Principle&lt;/h1&gt;
-
-&lt;blockquote&gt;
-&lt;p&gt;Depend on abstractions, not on concretions.&lt;/p&gt;
-&lt;/blockquote&gt;
-</description>
+      <guid>https://robin-lee.github.io/blog/solid/</guid>
+      <description>A set of principles to design or write classes.
+Single Responsibility Principle  A class should have one, and only one, reason to change.
+ Open - Closed Principle  You should be able to extend a classes behavior, without modifying it.
+ Liskov Substitution Principle  Derived classes must be substitutable for their base classes.
+ Interface Segregation Principle  Make fine grained interfaces that are client specific.</description>
     </item>
     
   </channel>

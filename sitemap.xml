@@ -1,38 +1,44 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes" ?>
-<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
+  xmlns:xhtml="http://www.w3.org/1999/xhtml">
   
   <url>
     <loc>https://robin-lee.github.io/</loc>
+    <lastmod>2017-09-06T19:08:21+08:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://robin-lee.github.io/blog/minimo-theme/</loc>
+    <lastmod>2017-09-06T19:08:21+08:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://robin-lee.github.io/blog/react-basics/</loc>
     <lastmod>2017-03-30T17:40:03+08:00</lastmod>
   </url>
   
   <url>
-    <loc>https://robin-lee.github.io/blog/2017/03/react-basics/</loc>
-    <lastmod>2017-03-30T17:40:03+08:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>https://robin-lee.github.io/blog/2017/03/demystifying-tests/</loc>
+    <loc>https://robin-lee.github.io/blog/demystifying-tests/</loc>
     <lastmod>2017-03-29T18:55:10+08:00</lastmod>
   </url>
   
   <url>
-    <loc>https://robin-lee.github.io/blog/2017/02/using-ffmpeg-to-join-videos/</loc>
+    <loc>https://robin-lee.github.io/blog/ffmpeg-joining-videos/</loc>
     <lastmod>2017-02-14T22:59:25+08:00</lastmod>
   </url>
   
   <url>
-    <loc>https://robin-lee.github.io/blog/2017/02/data-mining-capstone/</loc>
+    <loc>https://robin-lee.github.io/blog/data-mining-capstone/</loc>
     <lastmod>2017-02-10T09:18:21+08:00</lastmod>
   </url>
   
   <url>
-    <loc>https://robin-lee.github.io/blog/2017/02/4-principles-of-data-visualization/</loc>
+    <loc>https://robin-lee.github.io/blog/data-viz-capstone/</loc>
     <lastmod>2017-02-03T10:57:07+08:00</lastmod>
   </url>
   
   <url>
-    <loc>https://robin-lee.github.io/blog/2017/01/gradle-init-java/</loc>
+    <loc>https://robin-lee.github.io/blog/gradle-init-java/</loc>
     <lastmod>2017-01-29T22:11:02+08:00</lastmod>
   </url>
   
@@ -42,77 +48,77 @@
   </url>
   
   <url>
-    <loc>https://robin-lee.github.io/blog/2016/12/working-with-git-submodules/</loc>
+    <loc>https://robin-lee.github.io/blog/github-submodules/</loc>
     <lastmod>2016-12-29T12:25:26+08:00</lastmod>
   </url>
   
   <url>
-    <loc>https://robin-lee.github.io/blog/2016/11/google-devfest-2016/</loc>
+    <loc>https://robin-lee.github.io/blog/google-devfest-2016/</loc>
     <lastmod>2016-11-05T12:30:25+08:00</lastmod>
   </url>
   
   <url>
-    <loc>https://robin-lee.github.io/blog/2016/10/geek-camp-2016/</loc>
+    <loc>https://robin-lee.github.io/blog/geek-camp-2016/</loc>
     <lastmod>2016-10-29T10:46:49+08:00</lastmod>
   </url>
   
   <url>
-    <loc>https://robin-lee.github.io/blog/2016/09/mysql-cheatsheet/</loc>
+    <loc>https://robin-lee.github.io/blog/mysql-cheatsheet/</loc>
     <lastmod>2016-09-19T15:35:25+08:00</lastmod>
   </url>
   
   <url>
-    <loc>https://robin-lee.github.io/blog/2016/08/beginning-spring-boot-with-gradle/</loc>
+    <loc>https://robin-lee.github.io/blog/beginning-spring-boot/</loc>
     <lastmod>2016-08-26T16:03:00+02:00</lastmod>
   </url>
   
   <url>
-    <loc>https://robin-lee.github.io/blog/2016/08/cpp-basics-1/</loc>
+    <loc>https://robin-lee.github.io/blog/cpp-basics-1/</loc>
     <lastmod>2016-08-19T15:33:28+02:00</lastmod>
   </url>
   
   <url>
-    <loc>https://robin-lee.github.io/blog/2016/08/developing-and-deploying-java-servlet-webapp/</loc>
+    <loc>https://robin-lee.github.io/blog/deploying-java-servlet-webapp-to-development-vm/</loc>
     <lastmod>2016-08-12T16:23:07+02:00</lastmod>
   </url>
   
   <url>
-    <loc>https://robin-lee.github.io/blog/2016/08/tomcat-development-server/</loc>
+    <loc>https://robin-lee.github.io/blog/tomcat-development-server/</loc>
     <lastmod>2016-08-11T23:13:48+02:00</lastmod>
   </url>
   
   <url>
-    <loc>https://robin-lee.github.io/blog/2016/08/fundamentals-sockets/</loc>
+    <loc>https://robin-lee.github.io/blog/sockets/</loc>
     <lastmod>2016-08-01T11:59:12+02:00</lastmod>
   </url>
   
   <url>
-    <loc>https://robin-lee.github.io/blog/2016/07/growing-object-oriented-software-guided-by-tests-part-1/</loc>
+    <loc>https://robin-lee.github.io/blog/goosgbt-1/</loc>
     <lastmod>2016-07-27T14:31:03+02:00</lastmod>
   </url>
   
   <url>
-    <loc>https://robin-lee.github.io/blog/2016/07/gradle-and-gradle-init/</loc>
+    <loc>https://robin-lee.github.io/blog/gradle-init/</loc>
     <lastmod>2016-07-27T10:56:29+02:00</lastmod>
   </url>
   
   <url>
-    <loc>https://robin-lee.github.io/blog/2016/07/uncle-bob-said/</loc>
+    <loc>https://robin-lee.github.io/blog/uncle-bob-inspiration/</loc>
     <lastmod>2016-07-24T22:10:37+02:00</lastmod>
   </url>
   
   <url>
-    <loc>https://robin-lee.github.io/blog/2016/07/agile-software-development/</loc>
+    <loc>https://robin-lee.github.io/blog/agile/</loc>
     <lastmod>2016-07-23T16:29:59+02:00</lastmod>
   </url>
   
   <url>
-    <loc>https://robin-lee.github.io/blog/2016/07/solid-principles/</loc>
+    <loc>https://robin-lee.github.io/blog/solid/</loc>
     <lastmod>2016-07-23T14:46:47+02:00</lastmod>
   </url>
   
   <url>
-    <loc>https://robin-lee.github.io/blog/2016/07/gson-custom-deserializer/</loc>
+    <loc>https://robin-lee.github.io/blog/gson-custom-deserializer/</loc>
     <lastmod>2016-07-12T21:51:16+02:00</lastmod>
   </url>
   
@@ -122,23 +128,250 @@
   </url>
   
   <url>
-    <loc>https://robin-lee.github.io/blog/2016/07/hello-world/</loc>
+    <loc>https://robin-lee.github.io/blog/hello-world/</loc>
     <lastmod>2016-07-10T14:29:34+02:00</lastmod>
   </url>
   
   <url>
-    <loc>https://robin-lee.github.io/blog/2016/02/virtual-box-shared-folder/</loc>
+    <loc>https://robin-lee.github.io/blog/virtual-box-shared-folder/</loc>
     <lastmod>2016-02-06T21:41:18+08:00</lastmod>
   </url>
   
   <url>
-    <loc>https://robin-lee.github.io/blog/2016/02/forcing-display-edid/</loc>
+    <loc>https://robin-lee.github.io/blog/forcing-display-edid/</loc>
     <lastmod>2016-02-05T22:02:00+08:00</lastmod>
   </url>
   
   <url>
-    <loc>https://robin-lee.github.io/blog/2015/09/learning-regex/</loc>
+    <loc>https://robin-lee.github.io/blog/learning-regex/</loc>
     <lastmod>2015-09-15T23:21:45+08:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://robin-lee.github.io/tags/adminer/</loc>
+    <lastmod>2016-08-11T23:13:48+02:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>https://robin-lee.github.io/tags/agile/</loc>
+    <lastmod>2016-07-23T16:29:59+02:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>https://robin-lee.github.io/tags/android/</loc>
+    <lastmod>2016-07-27T10:56:29+02:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>https://robin-lee.github.io/tags/apache/</loc>
+    <lastmod>2016-08-11T23:13:48+02:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>https://robin-lee.github.io/blog/</loc>
+    <lastmod>2017-09-06T19:08:21+08:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>https://robin-lee.github.io/categories/</loc>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>https://robin-lee.github.io/tags/configuration/</loc>
+    <lastmod>2016-08-11T23:13:48+02:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>https://robin-lee.github.io/tags/cpp/</loc>
+    <lastmod>2016-08-19T15:33:28+02:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>https://robin-lee.github.io/tags/curl/</loc>
+    <lastmod>2016-08-26T16:03:00+02:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>https://robin-lee.github.io/tags/data-visualization/</loc>
+    <lastmod>2017-02-03T10:57:07+08:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>https://robin-lee.github.io/tags/deployment/</loc>
+    <lastmod>2016-08-12T16:23:07+02:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>https://robin-lee.github.io/tags/development/</loc>
+    <lastmod>2016-07-27T14:31:03+02:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>https://robin-lee.github.io/tags/ffmpeg/</loc>
+    <lastmod>2017-02-14T22:59:25+08:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>https://robin-lee.github.io/tags/g&#43;&#43;/</loc>
+    <lastmod>2016-08-19T15:33:28+02:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>https://robin-lee.github.io/tags/gcc/</loc>
+    <lastmod>2016-08-19T15:33:28+02:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>https://robin-lee.github.io/tags/gradle/</loc>
+    <lastmod>2016-07-27T10:56:29+02:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>https://robin-lee.github.io/tags/h2/</loc>
+    <lastmod>2016-08-26T16:03:00+02:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>https://robin-lee.github.io/tags/java/</loc>
+    <lastmod>2016-08-12T16:23:07+02:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>https://robin-lee.github.io/tags/java/</loc>
+    <lastmod>2016-08-26T16:03:00+02:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>https://robin-lee.github.io/tags/make/</loc>
+    <lastmod>2016-08-19T15:33:28+02:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>https://robin-lee.github.io/tags/makefile/</loc>
+    <lastmod>2016-08-19T15:33:28+02:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>https://robin-lee.github.io/tags/mysql/</loc>
+    <lastmod>2016-09-19T15:35:25+08:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>https://robin-lee.github.io/tags/network/</loc>
+    <lastmod>2016-08-01T11:59:12+02:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>https://robin-lee.github.io/page/</loc>
+    <lastmod>2017-01-23T18:09:13+08:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>https://robin-lee.github.io/tags/reactjs/</loc>
+    <lastmod>2017-03-30T17:40:03+08:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>https://robin-lee.github.io/tags/server/</loc>
+    <lastmod>2016-08-11T23:13:48+02:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>https://robin-lee.github.io/tags/servlet/</loc>
+    <lastmod>2016-08-12T16:23:07+02:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>https://robin-lee.github.io/tags/sockets/</loc>
+    <lastmod>2016-08-01T11:59:12+02:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>https://robin-lee.github.io/tags/solid/</loc>
+    <lastmod>2016-07-23T14:46:47+02:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>https://robin-lee.github.io/tags/spring-boot/</loc>
+    <lastmod>2016-08-26T16:03:00+02:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>https://robin-lee.github.io/tags/</loc>
+    <lastmod>2016-08-11T23:13:48+02:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>https://robin-lee.github.io/tags/tdd/</loc>
+    <lastmod>2016-07-27T14:31:03+02:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>https://robin-lee.github.io/tags/testing/</loc>
+    <lastmod>2017-03-29T18:55:10+08:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>https://robin-lee.github.io/tags/tomcat/</loc>
+    <lastmod>2016-08-12T16:23:07+02:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>https://robin-lee.github.io/tags/ubuntu/</loc>
+    <lastmod>2016-08-11T23:13:48+02:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>https://robin-lee.github.io/tags/uncle-bob/</loc>
+    <lastmod>2016-07-23T14:46:47+02:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>https://robin-lee.github.io/tags/virtualbox/</loc>
+    <lastmod>2016-08-11T23:13:48+02:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>https://robin-lee.github.io/tags/virutal-machine/</loc>
+    <lastmod>2016-08-12T16:23:07+02:00</lastmod>
+    <priority>0</priority>
   </url>
   
 </urlset>

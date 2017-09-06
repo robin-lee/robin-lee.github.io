@@ -1,0 +1,399 @@
+<!DOCTYPE html>
+<html lang='en'>
+
+<head>
+  <meta charset='utf-8'>
+<meta name='viewport' content='width=device-width, initial-scale=1'>
+<meta name='description' content='Algorithms and data structures are a central part of software development. I thought it would be reinforce the knowledge I have in this area. Competitions in this domain seem to favor cpp and knowing a variant of c better will certainly help when doing hardware programming. Hence, we eplore the basics of cpp before we move on to data structures and then algorithms.
+A series in cpp begins. Naturally, it involves more than just language.'>
+
+<meta property='og:title' content='Cpp Basics 1 • Minimo'>
+<meta property='og:description' content='Algorithms and data structures are a central part of software development. I thought it would be reinforce the knowledge I have in this area. Competitions in this domain seem to favor cpp and knowing a variant of c better will certainly help when doing hardware programming. Hence, we eplore the basics of cpp before we move on to data structures and then algorithms.
+A series in cpp begins. Naturally, it involves more than just language.'>
+<meta property='og:url' content='https://robin-lee.github.io/blog/cpp-basics-1/'>
+<meta property='og:site_name' content='Robin Lee'>
+<meta property='og:type' content='article'><meta property='article:section' content='Blog'><meta property='article:tag' content='cpp'><meta property='article:tag' content='make'><meta property='article:tag' content='makefile'><meta property='article:tag' content='gcc'><meta property='article:tag' content='g&#43;&#43;'><meta property='article:published_time' content='2016-08-19T15:33:28&#43;02:00'/><meta property='article:modified_time' content='2016-08-19T15:33:28&#43;02:00'/>
+
+<meta name="generator" content="Hugo 0.26" />
+
+  <title>Cpp Basics 1 • Minimo</title>
+  <link rel='canonical' href='https://robin-lee.github.io/blog/cpp-basics-1/'>
+  <link rel='icon' href='/favicon.ico'>
+<link rel='stylesheet' href='https://fonts.googleapis.com/css?family=Ubuntu:400,400i,700&subset=latin'>
+<link rel='stylesheet' href='/css/main.67a788c9.css'>
+
+  <link rel='stylesheet' href='/css/prism.css'>
+
+
+
+
+</head>
+
+
+<body class='page'>
+  <div class='site'>
+    <header id='header' class='header-container'>
+      <div class='site-header'>
+        <nav id='navmenu' aria-label='Main Menu'>
+  <ul class='main-menu'>
+    
+    <li>
+      <a href='/' 
+        
+      >Home</a>
+    </li>
+    
+    <li>
+      <a href='/about/' 
+        
+      >About</a>
+    </li>
+    
+    <li>
+      <a href='/portfolio/' 
+        
+      >Portfolio</a>
+    </li>
+    
+    <li>
+      <a href='https://github.com/robin-lee' 
+        
+      >Repo</a>
+    </li>
+    
+  </ul>
+</nav>
+
+        <div class='site-info'>
+          
+          <p class='site-title title'>Robin Lee</p>
+          
+          <p class='site-description'></p>
+        </div>
+      </div>
+    </header>
+
+
+<main class='main'>
+  <article lang='en' class='entry'>
+    <header class='entry-header'>
+  <div class='entry-info'>
+    <h1 class='entry-title title'>Cpp Basics 1</h1>
+    
+  </div>
+  
+<div class='meta'>
+  <span class='posted-on'>
+    <svg class='icon' viewbox='0 0 24 24' stroke-linecap='round' stroke-linejoin='round' stroke-width='2' aria-hidden='true'>
+  
+  <rect x="3" y="4" width="18" height="18" rx="2" ry="2"/>
+  <line x1="16" y1="2" x2="16" y2="6"/>
+  <line x1="8" y1="2" x2="8" y2="6"/>
+  <line x1="3" y1="10" x2="21" y2="10"/>
+  
+</svg>
+
+    <span class='screen-reader'>Posted on </span>
+    <time class='date' datetime='2016-08-19T15:33:28&#43;02:00'>2016, Aug 19</time>
+  </span>
+  
+  <span class='byline'>
+    <svg class='icon' viewbox='0 0 24 24' stroke-linecap='round' stroke-linejoin='round' stroke-width='2' aria-hidden='true'>
+  
+  <path d="M21,21V20c0-2.76-4-5-9-5s-9,2.24-9,5v1"/>
+  <path d="M16,6.37A4,4,0,1,1,12.63,3,4,4,0,0,1,16,6.37Z"/>
+  
+</svg>
+
+    <span class='screen-reader'> by </span>
+    Minimo
+  </span>
+  
+  
+  <span class='reading-time'>
+    <svg class='icon' viewbox='0 0 24 24' stroke-linecap='round' stroke-linejoin='round' stroke-width='2' aria-hidden='true'>
+  
+  <circle cx="12" cy="12" r="10"/>
+  <polyline points="12 6 12 12 15 15"/> 
+  
+</svg>
+
+    6 mins read
+  </span>
+  
+</div>
+
+
+</header>
+
+    <div class='entry-content'>
+  
+
+<p>Algorithms and data structures are a central part of software development. I thought it would be reinforce the knowledge I have in this area.
+Competitions in this domain seem to favor cpp and knowing a variant of c better will certainly help when doing <em>hardware programming</em>. Hence, we eplore the
+basics of cpp before we move on to data structures and then algorithms.</p>
+
+<p>A series in cpp begins. Naturally, it involves more than just language.</p>
+
+<p>Reference: Accelerated C++
+Note: This post is written largely in the context of using OSX (my laptop).</p>
+
+<h2 id="a-program">A program</h2>
+
+<pre><code class="language-c++">#include &lt;iostream&gt;
+#include &lt;string&gt;
+
+int main() {
+    {
+        const std::string s = &quot;Hot chocolate is nice.&quot;;
+        std::cout &lt;&lt; s &lt;&lt; std::endl;
+    }
+    {
+        const std::string s = &quot;COOP iced tea is nice!&quot;;
+        std::cout &lt;&lt; s &lt;&lt; std::endl;
+    }
+    return 0;
+}
+</code></pre>
+
+<p>A basic program might look like something above. <code>#include</code> libraries and send something to the output.</p>
+
+<p>Things to note here would be:
+- <code>std</code> namespace is used explicitly.
+- The first <code>::</code> used may be called the scope operator.
+- <code>&lt;&lt;</code> and its partner <code>&gt;&gt;</code> are <em>redirection</em> operators.
+- <code>{ }</code> brackets create scopes. You may consider them as <em>units</em>. The program runs here because there 2 units and they only access the variables within them.
+- <code>return 0</code>: 0 return value implies the program executed fine. Any other non-zero return value means an <strong><em>implementation</em></strong> <strong>defined failure</strong>..</p>
+
+<h2 id="makefile">Makefile</h2>
+
+<p>To run a program coded in cpp, you need to first compile the cpp code and then execute the resulting executable file.
+It can get quite repetive. To make things simpler it useful to have a script to automate the <em>build</em> process. Creating a Makefile for the <code>make</code> tool is one
+way you can achieve such automation. Some call it a <a href="https://www.cs.umd.edu/class/fall2002/cmsc214/Tutorial/makefile.html">Macro</a>.</p>
+
+<pre><code class="language-makefile">run: compile
+        ./play
+
+compile:
+        g++ play.cpp -o play
+</code></pre>
+
+<p>By default the tool <code>make</code> process the first target. By convention, the first target is called <code>all</code> (we are not following that here to be clear on how make works).
+The questions that arise now are: What is the format of a make file? What is target?</p>
+
+<p>A makefile has a format like so:</p>
+
+<pre><code class="language-makefile">target: dependencies
+[tab character] system command
+</code></pre>
+
+<p>Another way you can specify the default target is <a href="http://stackoverflow.com/a/30176470">link</a>:</p>
+
+<pre><code class="language-makefile">.DEFAULT_GOAL := mytarget
+</code></pre>
+
+<p>For a newer make &gt; 3.80:</p>
+
+<pre><code class="language-makefile">.PHONY: default
+default: mytarget ;
+</code></pre>
+
+<h2 id="gcc-vs-g">gcc vs g++</h2>
+
+<p>You could just do <code>make</code> in the same directory as your cpp code. An output file will be created which you can execute like <code>./the_output_file.out</code>.
+What I <strong><em>think</em></strong> happens is that <code>make</code> gets the default compiler for the cpp code. For OSX, in my case, it <em>should</em> be gcc.</p>
+
+<p>Anyway, whats important to know here is the difference between g++ and gcc as above we specified g++.</p>
+
+<p>Quoting a stackoverflow <a href="http://stackoverflow.com/a/173007">post</a>:</p>
+
+<pre><code>The main differences:
+
+1. gcc will compile: *.c/*.cpp files as C and C++ respectively.
+2. g++ will compile: *.c/*.cpp files but they will all be treated as C++ files.
+3. Also if you use g++ to link the object files it automatically links in the std C++ libraries (gcc does not do this).
+4. gcc compiling C files has less predefined macros.
+5. gcc compiling *.cpp and g++ compiling *.c/*.cpp files has a few extra macros.
+</code></pre>
+
+<p>Knowing the difference might just help you when you have one of those projects involving sensors or microcontrollers!</p>
+
+<h2 id="c-strings">C++ Strings</h2>
+
+<p>Frankly, at the moment I still do not understand enough about between strings and string literals. Being pragmatic,
+I will look at some practical use cases.</p>
+
+<pre><code class="language-cpp">#include &lt;string&gt;
+using std::string;
+
+string stringLiteral = &quot;characters enclose in double quotes and cannot span lines&quot;;
+
+//overloaded constructor to create a string with n of character.
+string repeatCharacter z(10, '*');
+
+//a string
+string someString = string(&quot;i am a string&quot;);
+
+</code></pre>
+
+<p>A <strong>string literal</strong> is a bunch of characters in doubles and they cannot span lines. Having some prior knowledge in C and C++, I would say that a string literal is <em>a series of characters in memory terminated by a null character <code>\0</code></em>. Maybe it would be better to call them character literal arrays.</p>
+
+<p>As for a <strong>string</strong>, you use a contructor <code>string(&quot;some text&quot;)</code>.</p>
+
+<p>A common use case with strings is to join them just like creating a sentence where you want to join words or phrases together.
+This is where you can see a difference (<a href="http://stackoverflow.com/questions/662918/how-do-i-concatenate-multiple-c-strings-on-one-line">refence link</a>):</p>
+
+<pre><code class="language-cpp">string stringLiteral1 = &quot;hello&quot;;
+string stringLiteral2 = &quot; world&quot;;
+
+//you cannot do because they are both string literals.
+string s = stringLiteral1 + stringLiteral2;
+
+//(A)convert them to strings
+string newstring = string(stringLiteral1) + string(stringLiteral2);
+
+//(B)or perhaps
+std::stringstream ss;
+ss &lt;&lt; &quot;Hello, world, &quot; &lt;&lt; myInt &lt;&lt; niceToSeeYouString;
+std::string s = ss.str();
+
+//(C)or using append; a little verbose?.
+std::string s;
+s.append(&quot;Hello world, &quot;);
+s.append(&quot;nice to see you, &quot;);
+s.append(&quot;or not.&quot;);
+</code></pre>
+
+<p>At a glance, I think I would prefer using method (A) or (B) to create dynamic strings. In a game prototype, NPCs could
+have a lengthly paragraph text to say depending on a player&rsquo;s actions. What if there really was a lot to output because the NPC
+is such a great storyteller?</p>
+
+<p>string::size_type could be useful if you have &gt; 32767 characters. The book says that it is good practice to use size_type for the
+size of strings since it was created for the purpose of <em>sizing</em> strings.</p>
+
+<pre><code>// size_type used intead of int
+const std::string::size_type cols = greeting.size() + pad * 2 + 2;
+</code></pre>
+
+<p>The last point for this post is off-topic from strings but it is relevant to cpp&hellip;
+Quoting the book:</p>
+
+<pre><code>One reason to count from 0 is that doing so encourages us to use asymmetric ranges to express intervals. For example, it is natural to use the range [0, rows) to describe the first for statement, as it is to use the range [1, rows] to describe the second one.
+Asymmetric ranges are usually easier to use than symmetric ones because of an important property: A range of the form [m, n) has n - m elements, and a range of the form [m, n] has n - m + 1 elements. So, for example, the number of elements in [0, rows) is obvious (i.e., rows - 0, or rows) but the number in [1, rows] is less so.
+This behavioral difference between asymmetric and symmetric ranges is particularly evident in the case of empty ranges: If we use asymmetric ranges, we can express an empty range as [n, n), in contrast to [n, n-1] for symmetric ranges. The possibility that the end of a range could ever be less than the beginning can cause no end of trouble in designing programs.
+</code></pre>
+
+</div>
+
+    
+<footer class='entry-footer'>
+  
+    
+  
+    
+      
+      <div class='tags'>
+  <span class='tag-icon'>
+    <svg class='icon' viewbox='0 0 24 24' stroke-linecap='round' stroke-linejoin='round' stroke-width='2' aria-hidden='true'>
+  
+  <path d="M20.59,13.41l-7.17,7.17a2,2,0,0,1-2.83,0L2,12V2H12l8.59,8.59A2,2,0,0,1,20.59,13.41Z"/>
+  <line x1="7" y1="7" x2="7" y2="7"/>
+  
+</svg>
+
+  </span>
+  <span class='screen-reader'>Tags: </span><a class='tag' href='/tags/cpp'>Cpp</a>, <a class='tag' href='/tags/make'>Make</a>, <a class='tag' href='/tags/makefile'>Makefile</a>, <a class='tag' href='/tags/gcc'>Gcc</a>, <a class='tag' href='/tags/g&#43;&#43;'>G&#43;&#43;</a></div>
+
+    
+  
+</footer>
+
+
+  </article>
+
+  
+    
+<nav class='entry-nav'>
+  <div class='entry-nav-links'><div class='prev-entry'>
+      <a href='https://robin-lee.github.io/blog/deploying-java-servlet-webapp-to-development-vm/'>
+        <span aria-hidden='true'><svg class='icon' viewbox='0 0 24 24' stroke-linecap='round' stroke-linejoin='round' stroke-width='2' aria-hidden='true'>
+  
+  <line x1="20" y1="12" x2="4" y2="12"/>
+  <polyline points="10 18 4 12 10 6"/>
+  
+</svg>
+ Previous</span>
+        <span class='screen-reader'>Previous post: </span>Developing and Deploying Java Servlet Webapp</a>
+    </div><div class='next-entry'>
+      <a href='https://robin-lee.github.io/blog/beginning-spring-boot/'>
+        <span class='screen-reader'>Next post: </span>Beginning Spring Boot with Gradle<span aria-hidden='true'>Next <svg class='icon' viewbox='0 0 24 24' stroke-linecap='round' stroke-linejoin='round' stroke-width='2' aria-hidden='true'>
+  
+  <line x1="4" y1="12" x2="20" y2="12"/>
+  <polyline points="14 6 20 12 14 18"/>
+  
+</svg>
+</span>
+      </a>
+    </div></div>
+</nav>
+
+
+  
+
+  
+    <div class='comments-container'>
+  
+</div>
+
+  
+</main>
+
+    <footer id='footer' class='footer-container'>
+      <div class='footer'>
+        <div class='social'>
+  <nav aria-label='Social Menu'>
+    <ul class='social-menu'><li>
+        <a href='https://github.com/robin-lee' target='_blank' rel='noopener'>
+          <span class='screen-reader'>Open Github account in new tab</span>
+          <svg class='icon' viewbox='0 0 24 24' stroke-linecap='round' stroke-linejoin='round' stroke-width='2' aria-hidden='true'>
+  
+  <path d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.87a3.37 3.37 0 0 0-.94-2.61c3.14-.35 6.44-1.54 6.44-7A5.44 5.44 0 0 0 20 4.77 5.07 5.07 0 0 0 19.91 1S18.73.65 16 2.48a13.38 13.38 0 0 0-7 0C6.27.65 5.09 1 5.09 1A5.07 5.07 0 0 0 5 4.77a5.44 5.44 0 0 0-1.5 3.78c0 5.42 3.3 6.61 6.44 7A3.37 3.37 0 0 0 9 18.13V22"/>
+  
+</svg>
+
+        </a>
+      </li><li>
+        <a href='https://linkedin.com/in/robin-lee-2b70818a' target='_blank' rel='noopener'>
+          <span class='screen-reader'>Open Linkedin account in new tab</span>
+          <svg class='icon' viewbox='0 0 24 24' stroke-linecap='round' stroke-linejoin='round' stroke-width='2' aria-hidden='true'>
+  
+  <path stroke-width="1.8" d="m5.839218,4.101561c0,1.211972 -0.974141,2.194011 -2.176459,2.194011s-2.176459,-0.982039 -2.176459,-2.194011c0,-1.211094 0.974141,-2.194011 2.176459,-2.194011s2.176459,0.982917 2.176459,2.194011zm0.017552,3.94922l-4.388022,0l0,14.04167l4.388022,0l0,-14.04167zm7.005038,0l-4.359939,0l0,14.04167l4.360816,0l0,-7.370999c0,-4.098413 5.291077,-4.433657 5.291077,0l0,7.370999l4.377491,0l0,-8.89101c0,-6.915523 -7.829986,-6.66365 -9.669445,-3.259423l0,-1.891237z"/>
+  
+</svg>
+
+        </a>
+      </li></ul>
+  </nav>
+</div>
+
+        <div class='copyright'>
+          <p>
+    
+  
+  &copy; 2017 Robin Lee</p>
+
+        </div>
+      </div>
+    </footer>
+
+  </div>
+
+  <script src='/js/main.af838dd5.js'></script>
+  
+    <script src='/js/prism.js'></script>
+  
+
+</body>
+
+</html>
+

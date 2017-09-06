@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Pages on Robin Lee</title>
+    <link>https://robin-lee.github.io/page/</link>
+    <description>Recent content in Pages on Robin Lee</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <lastBuildDate>Mon, 23 Jan 2017 18:09:13 +0800</lastBuildDate>
+    
+	<atom:link href="https://robin-lee.github.io/page/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>Portfolio</title>
+      <link>https://robin-lee.github.io/portfolio/</link>
+      <pubDate>Mon, 23 Jan 2017 18:09:13 +0800</pubDate>
+      
+      <guid>https://robin-lee.github.io/portfolio/</guid>
+      <description>A selection of work I have done.
+For companies LBASense Dashboard DFRC AG
+Programmed LBASense Dashboard according to UI mock-ups and published it on the Play Store. Adopted model-view-presenter within clean architecture and utilized Dagger 2, for DI, to enable testing.
+Other libraries used, include geospatial libraries, CrashAnalytics (Fabric&amp;rsquo;s team was acquired by Google; Jan 2017), MPCharts and OSMDroid for mapping.
+LBSaaS Smart Tour DFRC AG
+Developed the Android application for the EUREKA Eurostars project LBSaaS (E!</description>
+    </item>
+    
+    <item>
+      <title>About</title>
+      <link>https://robin-lee.github.io/about/</link>
+      <pubDate>Sun, 10 Jul 2016 15:04:30 +0200</pubDate>
+      
+      <guid>https://robin-lee.github.io/about/</guid>
+      <description>Robin is an undergraduate at SUTD.
+He likes tinkering with technologies and aims to become a great software engineer building applications that people love to use.
+Here he writes about his adventures with random things as well as shares his thoughts on various topics.</description>
+    </item>
+    
+  </channel>
+</rss>

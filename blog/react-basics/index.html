@@ -1,0 +1,1012 @@
+<!DOCTYPE html>
+<html lang='en'>
+
+<head>
+  <meta charset='utf-8'>
+<meta name='viewport' content='width=device-width, initial-scale=1'>
+<meta name='description' content='Edit 14/6/17: Fix formatting.
+ReactJS to learn React Native. Essentially, trying to follow the learning path here: link
+Obviously, certain parts will be prioritised.
+Skeleton App.js
+import React from &#39;react&#39;; // Component with Stateless class App extends React.Component { render() { return &lt;h1&gt;Hello Guys&lt;/h1&gt; } } // Stateless component // const App = () =&gt; &lt;h1&gt;Hello Eggheads&lt;/h1&gt; export default App;  index.html
+&lt;!DOCTYPE html&gt; &lt;html lang=&quot;en&quot;&gt; &lt;head&gt; &lt;meta charset=&quot;UTF-8&quot;&gt; &lt;title&gt;Intro&lt;/title&gt; &lt;/head&gt; &lt;body&gt; &lt;div id=&quot;app&quot;&gt;&lt;/div&gt; &lt;script src=&quot;index.'>
+
+<meta property='og:title' content='React Basics • Minimo'>
+<meta property='og:description' content='Edit 14/6/17: Fix formatting.
+ReactJS to learn React Native. Essentially, trying to follow the learning path here: link
+Obviously, certain parts will be prioritised.
+Skeleton App.js
+import React from &#39;react&#39;; // Component with Stateless class App extends React.Component { render() { return &lt;h1&gt;Hello Guys&lt;/h1&gt; } } // Stateless component // const App = () =&gt; &lt;h1&gt;Hello Eggheads&lt;/h1&gt; export default App;  index.html
+&lt;!DOCTYPE html&gt; &lt;html lang=&quot;en&quot;&gt; &lt;head&gt; &lt;meta charset=&quot;UTF-8&quot;&gt; &lt;title&gt;Intro&lt;/title&gt; &lt;/head&gt; &lt;body&gt; &lt;div id=&quot;app&quot;&gt;&lt;/div&gt; &lt;script src=&quot;index.'>
+<meta property='og:url' content='https://robin-lee.github.io/blog/react-basics/'>
+<meta property='og:site_name' content='Robin Lee'>
+<meta property='og:type' content='article'><meta property='article:section' content='Blog'><meta property='article:tag' content='reactjs'><meta property='article:published_time' content='2017-03-30T17:40:03&#43;08:00'/><meta property='article:modified_time' content='2017-03-30T17:40:03&#43;08:00'/>
+
+<meta name="generator" content="Hugo 0.26" />
+
+  <title>React Basics • Minimo</title>
+  <link rel='canonical' href='https://robin-lee.github.io/blog/react-basics/'>
+  <link rel='icon' href='/favicon.ico'>
+<link rel='stylesheet' href='https://fonts.googleapis.com/css?family=Ubuntu:400,400i,700&subset=latin'>
+<link rel='stylesheet' href='/css/main.67a788c9.css'>
+
+  <link rel='stylesheet' href='/css/prism.css'>
+
+
+
+
+</head>
+
+
+<body class='page'>
+  <div class='site'>
+    <header id='header' class='header-container'>
+      <div class='site-header'>
+        <nav id='navmenu' aria-label='Main Menu'>
+  <ul class='main-menu'>
+    
+    <li>
+      <a href='/' 
+        
+      >Home</a>
+    </li>
+    
+    <li>
+      <a href='/about/' 
+        
+      >About</a>
+    </li>
+    
+    <li>
+      <a href='/portfolio/' 
+        
+      >Portfolio</a>
+    </li>
+    
+    <li>
+      <a href='https://github.com/robin-lee' 
+        
+      >Repo</a>
+    </li>
+    
+  </ul>
+</nav>
+
+        <div class='site-info'>
+          
+          <p class='site-title title'>Robin Lee</p>
+          
+          <p class='site-description'></p>
+        </div>
+      </div>
+    </header>
+
+
+<main class='main'>
+  <article lang='en' class='entry'>
+    <header class='entry-header'>
+  <div class='entry-info'>
+    <h1 class='entry-title title'>React Basics</h1>
+    
+  </div>
+  
+<div class='meta'>
+  <span class='posted-on'>
+    <svg class='icon' viewbox='0 0 24 24' stroke-linecap='round' stroke-linejoin='round' stroke-width='2' aria-hidden='true'>
+  
+  <rect x="3" y="4" width="18" height="18" rx="2" ry="2"/>
+  <line x1="16" y1="2" x2="16" y2="6"/>
+  <line x1="8" y1="2" x2="8" y2="6"/>
+  <line x1="3" y1="10" x2="21" y2="10"/>
+  
+</svg>
+
+    <span class='screen-reader'>Posted on </span>
+    <time class='date' datetime='2017-03-30T17:40:03&#43;08:00'>2017, Mar 30</time>
+  </span>
+  
+  <span class='byline'>
+    <svg class='icon' viewbox='0 0 24 24' stroke-linecap='round' stroke-linejoin='round' stroke-width='2' aria-hidden='true'>
+  
+  <path d="M21,21V20c0-2.76-4-5-9-5s-9,2.24-9,5v1"/>
+  <path d="M16,6.37A4,4,0,1,1,12.63,3,4,4,0,0,1,16,6.37Z"/>
+  
+</svg>
+
+    <span class='screen-reader'> by </span>
+    Minimo
+  </span>
+  
+  
+  <span class='reading-time'>
+    <svg class='icon' viewbox='0 0 24 24' stroke-linecap='round' stroke-linejoin='round' stroke-width='2' aria-hidden='true'>
+  
+  <circle cx="12" cy="12" r="10"/>
+  <polyline points="12 6 12 12 15 15"/> 
+  
+</svg>
+
+    8 mins read
+  </span>
+  
+</div>
+
+
+</header>
+
+    <div class='entry-content'>
+  
+
+<p>Edit 14/6/17: Fix formatting.</p>
+
+<p>ReactJS to learn React Native. Essentially, trying to follow the learning path here: <a href="https://reactjs.co/react-native-convention/">link</a></p>
+
+<p>Obviously, certain parts will be prioritised.</p>
+
+<h1 id="skeleton">Skeleton</h1>
+
+<p>App.js</p>
+
+<pre><code class="language-js">import React from 'react';
+
+// Component with Stateless
+class App extends React.Component {
+    render() {
+        return &lt;h1&gt;Hello Guys&lt;/h1&gt;
+    }
+}
+
+// Stateless component
+// const App = () =&gt; &lt;h1&gt;Hello Eggheads&lt;/h1&gt;
+
+export default App;
+</code></pre>
+
+<p>index.html</p>
+
+<pre><code class="language-js">&lt;!DOCTYPE html&gt;
+&lt;html lang=&quot;en&quot;&gt;
+&lt;head&gt;
+    &lt;meta charset=&quot;UTF-8&quot;&gt;
+    &lt;title&gt;Intro&lt;/title&gt;
+&lt;/head&gt;
+&lt;body&gt;
+    &lt;div id=&quot;app&quot;&gt;&lt;/div&gt;
+    &lt;script src=&quot;index.js&quot;&gt;&lt;/script&gt;
+&lt;/body&gt;
+&lt;/html&gt;
+</code></pre>
+
+<p>main.js</p>
+
+<pre><code>import React from 'react';
+import ReactDOM from 'react-dom';
+import App from './App';
+
+ReactDOM.render(&lt;App /&gt;, document.getElementById('app'));
+</code></pre>
+
+<h1 id="components">Components</h1>
+
+<h2 id="base">Base</h2>
+
+<pre><code class="language-js">import { Component } from 'react'
+
+class Thing extends Component {
+  render() {
+    return &lt;h1&gt;Hello World!&lt;/h1&gt;
+  }
+}
+</code></pre>
+
+<h2 id="stateless-function">Stateless function</h2>
+
+<pre><code class="language-js">const Thing = () =&gt; &lt;h1&gt;Hello Darth Vader!&lt;/h1&gt;
+</code></pre>
+
+<h2 id="loading-children">Loading children</h2>
+
+<pre><code>const Thing = (props) =&gt; &lt;h1&gt;Hello Darth Vader! {props.children}&lt;/h1&gt;
+</code></pre>
+
+<h2 id="owner-ownee">Owner, Ownee</h2>
+
+<p>Entry in input updates h1.</p>
+
+<pre><code class="language-js">class Thing extends Component {
+  constructor() {
+    super()
+    this.state = {
+      stuff: &quot;this is the state stuff&quot;
+    }
+  }
+
+  update(e) {
+    //update with input value
+    this.setState({stuff: e.target.value})
+  }
+
+  render() {
+    return (
+        &lt;div&gt;
+          &lt;h1&gt;{this.state.stuff}&lt;/h1&gt;
+          &lt;input type=&quot;text&quot; onChange={this.update.bind(this)} /&gt;
+        &lt;/div&gt;
+      )
+  }
+}
+
+export default Thing
+</code></pre>
+
+<p>Multiple widgets access parent update method.
+Notice the update prop for Widget in the render method of Thing.</p>
+
+<pre><code class="language-js">class Thing extends Component {
+  constructor() {
+    super()
+    this.state = {
+      stuff: &quot;this is the state stuff&quot;
+    }
+  }
+
+  update(e) {
+    //update with input value
+    this.setState({stuff: e.target.value})
+  }
+
+  render() {
+    return (
+        &lt;div&gt;
+          &lt;h1&gt;{this.state.stuff}&lt;/h1&gt;
+          &lt;Widget type=&quot;text&quot; update={this.update.bind(this)} /&gt;
+          &lt;Widget type=&quot;text&quot; update={this.update.bind(this)} /&gt;
+          &lt;Widget type=&quot;text&quot; update={this.update.bind(this)} /&gt;
+        &lt;/div&gt;
+      )
+  }
+}
+
+const Widget = (props) =&gt;
+&lt;input type=&quot;text&quot; onChange={props.update} /&gt;
+
+export default Thing
+</code></pre>
+
+<h1 id="validation">Validation</h1>
+
+<h2 id="default-validation-proptypes">Default validation propTypes</h2>
+
+<pre><code class="language-js">const Thing extends Component {
+
+  render() {
+    let stuff = this.props.stuff
+    return (
+        &lt;h1&gt;{stuff}&lt;/h1&gt;
+      )
+  }
+}
+
+Thing.propTypes = {
+  stuff: React.PropTypes.string,
+  cat: React.PropTypes.number.isRequired
+}
+
+Thing.defaultProps = {
+  stuff: &quot;this is the default props&quot;
+}
+
+export default Thing
+
+
+//App.js render
+&lt;Thing cat={42} /&gt;
+</code></pre>
+
+<h2 id="custom-validation">Custom Validation</h2>
+
+<p>Instead of returning react propType, return a custom function.</p>
+
+<pre><code class="language-js">class Thing extends Component {
+
+  render() {
+    return (
+        &lt;Title info=&quot;important info!&quot;/&gt;
+      )
+  }
+}
+
+const Title = (props) =&gt; &lt;h1&gt;Title: {props.info}&lt;/h1&gt;
+
+Title.propTypes = {
+  text(props, propName, component) {
+    if(!(propName in props)) {
+      //ensure prop exists
+      // `` means evaluate variable in string
+      return new Error(`missing ${propName}`)
+    }
+    if(props[propName].length &lt; 6) {
+      return new Error(`${propName} is too short.`)
+    }
+  }
+}
+
+
+export default Thing
+</code></pre>
+
+<h1 id="refs-or-references">Refs or References</h1>
+
+<p>Refs are a way for us to reference a node or an <strong>instance</strong> of a component.
+Ref simply returns the <em>node</em> we are referencing.</p>
+
+<pre><code class="language-js">class App extends React.Component {
+  constructor() {
+    super();
+    this.state = { a: ''}
+  }
+
+  update() {
+    this.setState({
+      a: this.a.value,
+      b: this.refs.labelForInput2.value
+      })
+  }
+
+  render() {
+    return(
+      &lt;div&gt;
+        &lt;input
+          ref={ node =&gt; this.a = node }
+          type=&quot;text&quot;
+          onChange={this.update.bind(this)}
+        /&gt;
+        &lt;p&gt; {this.state.a} &lt;/p&gt;
+        &lt;input
+          ref=&quot;labelForInput2&quot;
+          type=&quot;text&quot;
+          onChange={this.update.bind(this)}
+        /&gt;
+        &lt;p&gt; {this.state.b} &lt;/p&gt;        
+      &lt;/div&gt;
+      )
+    })
+}
+</code></pre>
+
+<h2 id="reference-an-instance-of-another-component">Reference an instance of another component</h2>
+
+<pre><code class="language-js">import ReactDOM from 'react-dom';
+
+update() {
+  this.setState({
+    a: this.a.value,
+    b: this.refs.labelForInput2.value,
+    c: this.c.refs.inputRef.value
+  })
+}
+
+/**
+ * If there is only 1 element in render() for the other component.
+ * c: ReactDOM.findDOMNode(this.c).value works.
+ */
+
+
+render() {
+  return(
+    &lt;div&gt;
+      &lt;input
+        ref={ node =&gt; this.a = node }
+        type=&quot;text&quot;
+        onChange={this.update.bind(this)}
+      /&gt;
+      &lt;p&gt; {this.state.a} &lt;/p&gt;
+      &lt;input
+        ref=&quot;labelForInput2&quot;
+        type=&quot;text&quot;
+        onChange={this.update.bind(this)}
+      /&gt;
+      &lt;p&gt; {this.state.b} &lt;/p&gt;
+      &lt;input
+        ref={ component =&gt; this.c = component }
+        update={this.update.bind(this)}
+      /&gt;
+      &lt;p&gt; {this.state.c} &lt;/p&gt;            
+    &lt;/div&gt;
+    )
+  })
+
+class Input extends React.Component {
+  render() {
+    return (
+        &lt;div&gt;&lt;input ref=&quot;inputRef&quot; type=&quot;text&quot; onChange={this.props.update}/&gt;&lt;/div&gt;
+      )
+  }
+}
+</code></pre>
+
+<h1 id="component-lifecycle">Component Lifecycle</h1>
+
+<p>//Note:
+<code>getInitialState</code> deprecated in favor of declaring initial state value in constructor.
+<a href="http://stackoverflow.com/questions/33447149/class-extends-react-component-cant-use-getinitialstate-in-react">Link</a>.</p>
+
+<pre><code class="language-js">export default class Loginform extends React.Component {
+  constructor(props, context) {
+    super(props, context);
+
+    this.state = {
+      name: '',
+      password: ''
+    };
+  };
+}
+</code></pre>
+
+<p>Example (rough order):</p>
+
+<ol>
+<li>componentWillMount</li>
+<li>render</li>
+<li>componentDidMount</li>
+<li>componentWillUnmount</li>
+</ol>
+
+<pre><code class="language-js">class App extends React.Component {
+  constructor() {
+    super()
+    this.state = {gryffindorPoints: 0}
+    this.update = this.update.bind(this)
+  }
+
+  update() {
+    this.setState({ gryffindorPoints: this.state.gryffindorPoints + 1})
+  }
+
+  componentWillMount() {
+    //only fires once for component
+    console.log('componentWillMount')
+
+    //can set state before component is rendered
+    this.setState({multiplier: 2})
+  }
+
+  render() {
+    console.log('render')
+    return &lt;button onClick={this.update&gt;{this.state.gryffindorPoints}&lt;/button&gt;
+  }
+
+  componentDidMount() {
+    //fires once component mounted to DOM
+    console.log('componentDidMount')
+
+    //multiply every 500ms
+    this.increment = setInterval(this.update, 500)
+  }  
+
+   componentWillUnmount() {
+     //Called when ReactDOM.unmountComponentAtNode(...) is fired.
+     console.log('componentWillUnmount')
+
+     //can use to clean update when unmounting
+     clearInterval(this.increment)
+   }
+}
+</code></pre>
+
+<h2 id="component-update-lifecycle">Component update lifecycle</h2>
+
+<pre><code class="language-js">import React from 'react';
+import ReactDOM from 'react-dom';
+
+class App extends React.Component {
+  constructor(){
+    super();
+    this.update = this.update.bind(this);
+    this.state = {increasing: false}
+  }
+  update(){
+    ReactDOM.render(
+      &lt;App val={this.props.val+1} /&gt;,
+      document.getElementById('app')
+    );
+  }
+  componentWillReceiveProps(nextProps){
+    //new properties are coming in? then you have nextProps
+    this.setState({increasing: nextProps.val &gt; this.props.val})
+  }
+  shouldComponentUpdate(nextProps, nextState) {
+    // does NOT prevent state or props from being updated.
+    // only prevents re-render if not a multiple of 5.
+    return nextProps.val % 5 === 0;
+  }
+  render(){
+    console.log(this.state.increasing)
+    return (
+      &lt;button onClick={this.update}&gt;
+        {this.props.val}
+      &lt;/button&gt;)
+  }
+  componentDidUpdate(prevProps, prevState) {
+    // just as the arguments say.
+    console.log('prevProps', prevProps)
+  }
+}
+
+App.defaultProps = { val: 0 }
+
+export default App
+</code></pre>
+
+<h1 id="dynamically-generated-components">Dynamically generated components</h1>
+
+<pre><code class="language-js">import React from 'react';
+
+class App extends React.Component {
+  constructor() {
+    super();
+    this.state = {items: []}
+  }
+
+  componentWillMount() {
+    fetch( 'http://swapi.co/api/people/?format=json')
+      .then( response =&gt; response.json() )
+      .then( ({result: items}) =&gt; this.setState({items}) )
+  }
+
+  filter(e) {
+    //takes event of an input
+    this.setState({filter: e.target.value})
+  }
+
+  render() {
+    let items = this.state.items;
+    if(this.state.filter) {
+      items = items.filter( item =&gt;
+        item.name.toLowerCase()
+        .includes(this.state.filter.toLowerCase()))
+    }
+
+    //&quot;key&quot; is amongst siblings. therefore the &quot;key&quot; tag is placed here.
+    //In the context of the Person h4 component it has no siblings.
+    return (
+      &lt;div&gt;
+        &lt;input type=&quot;text&quot; onChange={this.filter.bind(this)} /&gt;
+        {items.map(item =&gt;
+          &lt;Person key={item.name} person={item} /&gt;)}
+      &lt;/div&gt;
+      )
+  }
+}
+
+const Person = (props) =&gt; &lt;h4&gt; {props.person.name} &lt;/h4&gt;
+</code></pre>
+
+<h1 id="higher-order-components">Higher order components</h1>
+
+<p>Purpose of higher component is to share functionality or information between multiple components.</p>
+
+<p>Sole function is to take in a component and return a component.</p>
+
+<pre><code class="language-js">const HOC = (InnerComponent) =&gt; class extends React.Component {
+  constructor() {
+    super();
+    this.state = {count: 0}
+  }
+
+  update() {
+    this.setState({count: this.state.count + 1})
+  }
+
+  componentWillMount() {
+    console.log('HOC will mount')
+  }
+
+
+  render() {
+
+    // &quot;...&quot; spread this.props into this component
+    // pass the props right on through
+
+    //here we are passing props, state and update function to the component
+    return(
+      &lt;InnerComponent
+        {...this.props}
+        {...this.state}
+        update={this.update.bind(this)}
+      /&gt;
+      )
+  }
+}
+
+//displays props and state passed to it.
+//uses function passed to it for onClick event
+const Button = HOC((props) =&gt; &lt;button onClick={props.update}&gt;{props.children} , {props.count}&lt;/button&gt;)
+
+class Label extends React.Component {
+  componentWillMount() {
+    console.log('Label will mount')
+  }
+
+  render() {
+    return (
+      &lt;label onMouseMove={this.props.update}&gt;
+        {this.props.children} , {this.props.count}
+      &lt;/label&gt;
+      )
+  }
+}
+
+const LabelHOC = HOC(Label)
+</code></pre>
+
+<h1 id="jsx-deep-dive">JSX Deep dive</h1>
+
+<p>JSX deep dive with babel <em>transpiler</em> to es2015.</p>
+
+<p>Does not work because you are returning 2 functions.</p>
+
+<pre><code class="language-js">const App = (prop) =&gt; {
+  return (
+    &lt;App /&gt;
+    &lt;App /&gt;
+    )
+}
+
+// with a single &lt;App /&gt; equivalent to
+var App = function App(props) {
+  return React.createElement(App, null);
+}
+</code></pre>
+
+<p>Wrap in a div tag.</p>
+
+<pre><code class="language-js">
+&lt;div&gt;
+  &lt;App /&gt;
+  &lt;App /&gt;
+&lt;/div&gt;
+
+var App = function App(props) {
+  return React.createElement(
+    &quot;div&quot;,
+    null,
+    React.createElement(App, null),
+    React.createElement(App, null)
+    )
+}
+</code></pre>
+
+<p>With props and stuff.</p>
+
+<pre><code>var coolStyles = {
+  backgroundColor: 'purple',
+  color: 'white'
+}
+
+&lt;div style={coolStyles}&gt;
+  &lt;a href=&quot;#&quot;
+    notrendered=&quot;x&quot; // include hyphen or use data-something convention for component to be rendered
+    onClick={update} //interpolation requires curly braces
+  &lt;/a&gt;
+&lt;/div&gt;
+
+React.createElement(
+  &quot;div&quot;,
+  { style: coolStyles },
+  React.createElement(
+    &quot;a&quot;,
+    { href: &quot;#&quot;,
+    notrendered: &quot;x&quot;,
+    onClick: update
+    })
+  );
+
+</code></pre>
+
+<h1 id="children-utilities">Children utilities</h1>
+
+<p>Might want iterate through children</p>
+
+<pre><code class="language-js">class App extends React.Component {
+  render() {
+    return (
+      &lt;Parent&gt;
+        &lt;div className=&quot;childA&quot;&gt;&lt;/div&gt;
+        &lt;div className=&quot;childB&quot;&gt;&lt;/div&gt;
+      &lt;/Parent&gt;
+      )
+  }
+}
+
+class Parent extends React.Component {
+  render() {
+    //line below fails as this.props.childen is just a single object.
+    //let items = this.props.children.map(child =&gt; child)
+    let items = React.Children
+      .map(this.props.childen, child =&gt; child)
+    let items = React.Children
+      .forEach(this.props.childen, child =&gt; console.log(child.props.className))
+
+    //let items = React.Children.toArray(this.props.children)
+
+    //throws error because expecting only 1 child.
+    //let items = React.Children.only(this.props.childen)
+
+    console.log(items)
+    return null
+  }
+}
+</code></pre>
+
+<h1 id="extend-functionality-of-children">Extend functionality of children</h1>
+
+<p><code>this.props.children</code> is just a descriptor of the children. You can&rsquo;t actually modify anything.
+So to modify you need to create new elements.</p>
+
+<pre><code class="language-js">class Button extends React.Component {
+  constructor() {
+    super();
+    this.state = {selected: 'None'}
+  }
+
+  selectItem(selected) {
+    this.setState({selected})
+  }
+
+  render() {
+    let fn = child =&gt;
+      React.cloneElement(child, {
+          onClick: this.selectItem.bind(this, child.props.value)
+        })
+
+    let items = React.Children.map(this.props.children, fn);
+    return (
+      &lt;div&gt;
+        &lt;h2&gt; You have Selected: {this.state.selected} &lt;/h2&gt;
+        {items}
+      &lt;/div&gt;
+      )
+  }
+}
+</code></pre>
+
+<h1 id="reusable-and-composable-components">Reusable and Composable components</h1>
+
+<p>A key tenant of react.</p>
+
+<p>Old slider component using refs. Not really reusable.</p>
+
+<pre><code class="language-js">class App extends React.Component {
+  constructor() {
+    super();
+    this.state =  {
+      red: 0,
+      green: 0,
+      blue: 0
+    }
+    this.update = this.update.bind(this)
+  }
+  update(e) {
+    this.setState({
+      red: ReactDOM.findDomeNode(this.refs.red.refs.inp).value,
+      green: ReactDOM.findDomeNode(this.refs.green.refs.inp).value,
+      blue: ReactDOM.findDomeNode(this.refs.blue.refs.inp).value
+      })
+  }
+
+  render() {
+    return (
+      &lt;div&gt;
+        &lt;Slider ref=&quot;red&quot; update={this.update} /&gt;
+        {this.state.red}
+        &lt;Slider ref=&quot;green&quot; update={this.update} /&gt;
+        {this.state.green}
+        &lt;Slider ref=&quot;blue&quot; update={this.update} /&gt;
+        {this.state.blue}                
+      )
+  }
+}
+
+class Slider extends React.Component {
+  render() {
+    return (
+      &lt;div&gt;
+      &lt;input ref=&quot;inp&quot; type=&quot;range&quot;
+        min=&quot;0&quot;
+        max=&quot;255&quot;
+        onChange={this.props.update} /&gt;
+      &lt;/div&gt;
+      )
+  }
+}
+</code></pre>
+
+<p>Now we try to create a more reusable component taking advantage of the similar apis between number input and range input.</p>
+
+<pre><code class="language-js">class App extends React.Component {
+  constructor() {
+    super();
+    this.state =  {
+      red: 0,
+      green: 0,
+      blue: 0
+    }
+    this.update = this.update.bind(this)
+  }
+  update(e) {
+    this.setState({
+      red: ReactDOM.findDomeNode(this.refs.red.refs.inp).value,
+      })
+  }
+
+  render() {
+    return (
+      &lt;div&gt;
+        &lt;NumInput
+          ref=&quot;red&quot;
+          type=&quot;range&quot;
+          min={0}
+          max={this.props.max}
+          step={1}
+          val={+this.state.red}
+          label=&quot;Red&quot;
+          update={this.update} /&gt;     
+      )
+  }
+}
+
+class NumInput extends React.Component {
+  render() {
+    let label = this.props.label !== '' ?
+      &lt;label&gt;{this.props.label}, {this.props.val}&lt;/label&gt;
+    return (
+      &lt;div&gt;
+      &lt;input ref=&quot;inp&quot;
+        type={this.props.type}
+        min={this.props.min}
+        max={this.props.max}
+        step={this.props.step}
+        defaultValue={this.props.val}
+        onChange={this.props.update} /&gt;
+        {label}
+      &lt;/div&gt;
+      )
+  }
+}
+
+// Declare types (feels like input validation)
+NumInput.propTypes = {
+  min: React.PropTypes.number,
+  max: React.PropTypes.number,
+  step: React.PropTypes.number,
+  val: React.PropTypes.number,
+  label: React.PropTypes.string,
+  update: React.PropTypes.func.isRequired, //update method type of func. is required.
+  type: React.PropTypes.oneOf(['number', 'range']) // type array and only accepts number or range.
+}
+
+NumInput.defaultProps = {
+  min: 0,
+  max: 0,
+  step: 1,
+  val: 0,
+  label: '',
+  type: 'range'
+}
+</code></pre>
+
+</div>
+
+    
+<footer class='entry-footer'>
+  
+    
+  
+    
+      
+      <div class='tags'>
+  <span class='tag-icon'>
+    <svg class='icon' viewbox='0 0 24 24' stroke-linecap='round' stroke-linejoin='round' stroke-width='2' aria-hidden='true'>
+  
+  <path d="M20.59,13.41l-7.17,7.17a2,2,0,0,1-2.83,0L2,12V2H12l8.59,8.59A2,2,0,0,1,20.59,13.41Z"/>
+  <line x1="7" y1="7" x2="7" y2="7"/>
+  
+</svg>
+
+  </span>
+  <span class='screen-reader'>Tags: </span><a class='tag' href='/tags/reactjs'>Reactjs</a></div>
+
+    
+  
+</footer>
+
+
+  </article>
+
+  
+    
+<nav class='entry-nav'>
+  <div class='entry-nav-links'><div class='prev-entry'>
+      <a href='https://robin-lee.github.io/blog/demystifying-tests/'>
+        <span aria-hidden='true'><svg class='icon' viewbox='0 0 24 24' stroke-linecap='round' stroke-linejoin='round' stroke-width='2' aria-hidden='true'>
+  
+  <line x1="20" y1="12" x2="4" y2="12"/>
+  <polyline points="10 18 4 12 10 6"/>
+  
+</svg>
+ Previous</span>
+        <span class='screen-reader'>Previous post: </span>Demystifying Tests</a>
+    </div><div class='next-entry'>
+      <a href='https://robin-lee.github.io/blog/minimo-theme/'>
+        <span class='screen-reader'>Next post: </span>Minimo Theme<span aria-hidden='true'>Next <svg class='icon' viewbox='0 0 24 24' stroke-linecap='round' stroke-linejoin='round' stroke-width='2' aria-hidden='true'>
+  
+  <line x1="4" y1="12" x2="20" y2="12"/>
+  <polyline points="14 6 20 12 14 18"/>
+  
+</svg>
+</span>
+      </a>
+    </div></div>
+</nav>
+
+
+  
+
+  
+    <div class='comments-container'>
+  
+</div>
+
+  
+</main>
+
+    <footer id='footer' class='footer-container'>
+      <div class='footer'>
+        <div class='social'>
+  <nav aria-label='Social Menu'>
+    <ul class='social-menu'><li>
+        <a href='https://github.com/robin-lee' target='_blank' rel='noopener'>
+          <span class='screen-reader'>Open Github account in new tab</span>
+          <svg class='icon' viewbox='0 0 24 24' stroke-linecap='round' stroke-linejoin='round' stroke-width='2' aria-hidden='true'>
+  
+  <path d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.87a3.37 3.37 0 0 0-.94-2.61c3.14-.35 6.44-1.54 6.44-7A5.44 5.44 0 0 0 20 4.77 5.07 5.07 0 0 0 19.91 1S18.73.65 16 2.48a13.38 13.38 0 0 0-7 0C6.27.65 5.09 1 5.09 1A5.07 5.07 0 0 0 5 4.77a5.44 5.44 0 0 0-1.5 3.78c0 5.42 3.3 6.61 6.44 7A3.37 3.37 0 0 0 9 18.13V22"/>
+  
+</svg>
+
+        </a>
+      </li><li>
+        <a href='https://linkedin.com/in/robin-lee-2b70818a' target='_blank' rel='noopener'>
+          <span class='screen-reader'>Open Linkedin account in new tab</span>
+          <svg class='icon' viewbox='0 0 24 24' stroke-linecap='round' stroke-linejoin='round' stroke-width='2' aria-hidden='true'>
+  
+  <path stroke-width="1.8" d="m5.839218,4.101561c0,1.211972 -0.974141,2.194011 -2.176459,2.194011s-2.176459,-0.982039 -2.176459,-2.194011c0,-1.211094 0.974141,-2.194011 2.176459,-2.194011s2.176459,0.982917 2.176459,2.194011zm0.017552,3.94922l-4.388022,0l0,14.04167l4.388022,0l0,-14.04167zm7.005038,0l-4.359939,0l0,14.04167l4.360816,0l0,-7.370999c0,-4.098413 5.291077,-4.433657 5.291077,0l0,7.370999l4.377491,0l0,-8.89101c0,-6.915523 -7.829986,-6.66365 -9.669445,-3.259423l0,-1.891237z"/>
+  
+</svg>
+
+        </a>
+      </li></ul>
+  </nav>
+</div>
+
+        <div class='copyright'>
+          <p>
+    
+  
+  &copy; 2017 Robin Lee</p>
+
+        </div>
+      </div>
+    </footer>
+
+  </div>
+
+  <script src='/js/main.af838dd5.js'></script>
+  
+    <script src='/js/prism.js'></script>
+  
+
+</body>
+
+</html>
+

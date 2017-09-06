@@ -1,167 +1,23 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes" ?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
-    <title>Robin Lee</title>
-    <link>https://robin-lee.github.io/tags/make/index.xml</link>
-    <description>Recent content on Robin Lee</description>
+    <title>Make on Robin Lee</title>
+    <link>https://robin-lee.github.io/tags/make/</link>
+    <description>Recent content in Make on Robin Lee</description>
     <generator>Hugo -- gohugo.io</generator>
-    <language>en-us</language>
-    <atom:link href="https://robin-lee.github.io/tags/make/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Fri, 19 Aug 2016 15:33:28 +0200</lastBuildDate>
+    
+	<atom:link href="https://robin-lee.github.io/tags/make/index.xml" rel="self" type="application/rss+xml" />
+    
     
     <item>
       <title>Cpp Basics 1</title>
-      <link>https://robin-lee.github.io/blog/2016/08/cpp-basics-1/</link>
+      <link>https://robin-lee.github.io/blog/cpp-basics-1/</link>
       <pubDate>Fri, 19 Aug 2016 15:33:28 +0200</pubDate>
       
-      <guid>https://robin-lee.github.io/blog/2016/08/cpp-basics-1/</guid>
-      <description>
-
-&lt;p&gt;Algorithms and data structures are a central part of software development. I thought it would be reinforce the knowledge I have in this area.
-Competitions in this domain seem to favor cpp and knowing a variant of c better will certainly help when doing &lt;em&gt;hardware programming&lt;/em&gt;. Hence, we eplore the
-basics of cpp before we move on to data structures and then algorithms.&lt;/p&gt;
-
-&lt;p&gt;A series in cpp begins. Naturally, it involves more than just language.&lt;/p&gt;
-
-&lt;p&gt;Reference: Accelerated C++
-Note: This post is written largely in the context of using OSX (my laptop).&lt;/p&gt;
-
-&lt;h2 id=&#34;a-program&#34;&gt;A program&lt;/h2&gt;
-&lt;div class=&#34;highlight&#34; style=&#34;background: #ffffff&#34;&gt;&lt;pre style=&#34;line-height: 125%&#34;&gt;&lt;span&gt;&lt;/span&gt;&lt;span style=&#34;color: #557799&#34;&gt;#include&lt;/span&gt; &lt;span style=&#34;color: #888888&#34;&gt;&amp;lt;iostream&amp;gt;&lt;/span&gt;&lt;span style=&#34;color: #557799&#34;&gt;&lt;/span&gt;
-&lt;span style=&#34;color: #557799&#34;&gt;#include&lt;/span&gt; &lt;span style=&#34;color: #888888&#34;&gt;&amp;lt;string&amp;gt;&lt;/span&gt;&lt;span style=&#34;color: #557799&#34;&gt;&lt;/span&gt;
-
-&lt;span style=&#34;color: #333399; font-weight: bold&#34;&gt;int&lt;/span&gt; &lt;span style=&#34;color: #0066BB; font-weight: bold&#34;&gt;main&lt;/span&gt;() {
-    {
-        &lt;span style=&#34;color: #008800; font-weight: bold&#34;&gt;const&lt;/span&gt; std&lt;span style=&#34;color: #333333&#34;&gt;::&lt;/span&gt;string s &lt;span style=&#34;color: #333333&#34;&gt;=&lt;/span&gt; &lt;span style=&#34;background-color: #fff0f0&#34;&gt;&amp;quot;Hot chocolate is nice.&amp;quot;&lt;/span&gt;;
-        std&lt;span style=&#34;color: #333333&#34;&gt;::&lt;/span&gt;cout &lt;span style=&#34;color: #333333&#34;&gt;&amp;lt;&amp;lt;&lt;/span&gt; s &lt;span style=&#34;color: #333333&#34;&gt;&amp;lt;&amp;lt;&lt;/span&gt; std&lt;span style=&#34;color: #333333&#34;&gt;::&lt;/span&gt;endl;
-    }
-    {
-        &lt;span style=&#34;color: #008800; font-weight: bold&#34;&gt;const&lt;/span&gt; std&lt;span style=&#34;color: #333333&#34;&gt;::&lt;/span&gt;string s &lt;span style=&#34;color: #333333&#34;&gt;=&lt;/span&gt; &lt;span style=&#34;background-color: #fff0f0&#34;&gt;&amp;quot;COOP iced tea is nice!&amp;quot;&lt;/span&gt;;
-        std&lt;span style=&#34;color: #333333&#34;&gt;::&lt;/span&gt;cout &lt;span style=&#34;color: #333333&#34;&gt;&amp;lt;&amp;lt;&lt;/span&gt; s &lt;span style=&#34;color: #333333&#34;&gt;&amp;lt;&amp;lt;&lt;/span&gt; std&lt;span style=&#34;color: #333333&#34;&gt;::&lt;/span&gt;endl;
-    }
-    &lt;span style=&#34;color: #008800; font-weight: bold&#34;&gt;return&lt;/span&gt; &lt;span style=&#34;color: #0000DD; font-weight: bold&#34;&gt;0&lt;/span&gt;;
-}
-&lt;/pre&gt;&lt;/div&gt;
-
-&lt;p&gt;A basic program might look like something above. &lt;code&gt;#include&lt;/code&gt; libraries and send something to the output.&lt;/p&gt;
-
-&lt;p&gt;Things to note here would be:
-- &lt;code&gt;std&lt;/code&gt; namespace is used explicitly.
-- The first &lt;code&gt;::&lt;/code&gt; used may be called the scope operator.
-- &lt;code&gt;&amp;lt;&amp;lt;&lt;/code&gt; and its partner &lt;code&gt;&amp;gt;&amp;gt;&lt;/code&gt; are &lt;em&gt;redirection&lt;/em&gt; operators.
-- &lt;code&gt;{ }&lt;/code&gt; brackets create scopes. You may consider them as &lt;em&gt;units&lt;/em&gt;. The program runs here because there 2 units and they only access the variables within them.
-- &lt;code&gt;return 0&lt;/code&gt;: 0 return value implies the program executed fine. Any other non-zero return value means an &lt;strong&gt;&lt;em&gt;implementation&lt;/em&gt;&lt;/strong&gt; &lt;strong&gt;defined failure&lt;/strong&gt;..&lt;/p&gt;
-
-&lt;h2 id=&#34;makefile&#34;&gt;Makefile&lt;/h2&gt;
-
-&lt;p&gt;To run a program coded in cpp, you need to first compile the cpp code and then execute the resulting executable file.
-It can get quite repetive. To make things simpler it useful to have a script to automate the &lt;em&gt;build&lt;/em&gt; process. Creating a Makefile for the &lt;code&gt;make&lt;/code&gt; tool is one
-way you can achieve such automation. Some call it a &lt;a href=&#34;https://www.cs.umd.edu/class/fall2002/cmsc214/Tutorial/makefile.html&#34;&gt;Macro&lt;/a&gt;.&lt;/p&gt;
-&lt;div class=&#34;highlight&#34; style=&#34;background: #ffffff&#34;&gt;&lt;pre style=&#34;line-height: 125%&#34;&gt;&lt;span&gt;&lt;/span&gt;&lt;span style=&#34;color: #0066BB; font-weight: bold&#34;&gt;run&lt;/span&gt;&lt;span style=&#34;color: #333333&#34;&gt;:&lt;/span&gt; compile
-        ./play
-
-&lt;span style=&#34;color: #0066BB; font-weight: bold&#34;&gt;compile&lt;/span&gt;&lt;span style=&#34;color: #333333&#34;&gt;:&lt;/span&gt;
-        g++ play.cpp -o play
-&lt;/pre&gt;&lt;/div&gt;
-
-&lt;p&gt;By default the tool &lt;code&gt;make&lt;/code&gt; process the first target. By convention, the first target is called &lt;code&gt;all&lt;/code&gt; (we are not following that here to be clear on how make works).
-The questions that arise now are: What is the format of a make file? What is target?&lt;/p&gt;
-
-&lt;p&gt;A makefile has a format like so:&lt;/p&gt;
-&lt;div class=&#34;highlight&#34; style=&#34;background: #ffffff&#34;&gt;&lt;pre style=&#34;line-height: 125%&#34;&gt;&lt;span&gt;&lt;/span&gt;&lt;span style=&#34;color: #0066BB; font-weight: bold&#34;&gt;target&lt;/span&gt;&lt;span style=&#34;color: #333333&#34;&gt;:&lt;/span&gt; dependencies
-&lt;span style=&#34;color: #FF0000; background-color: #FFAAAA&#34;&gt;[tab&lt;/span&gt; &lt;span style=&#34;color: #FF0000; background-color: #FFAAAA&#34;&gt;character]&lt;/span&gt; &lt;span style=&#34;color: #FF0000; background-color: #FFAAAA&#34;&gt;system&lt;/span&gt; &lt;span style=&#34;color: #FF0000; background-color: #FFAAAA&#34;&gt;command&lt;/span&gt;
-&lt;/pre&gt;&lt;/div&gt;
-
-&lt;p&gt;Another way you can specify the default target is &lt;a href=&#34;http://stackoverflow.com/a/30176470&#34;&gt;link&lt;/a&gt;:&lt;/p&gt;
-&lt;div class=&#34;highlight&#34; style=&#34;background: #ffffff&#34;&gt;&lt;pre style=&#34;line-height: 125%&#34;&gt;&lt;span&gt;&lt;/span&gt;&lt;span style=&#34;color: #996633&#34;&gt;.DEFAULT_GOAL&lt;/span&gt; &lt;span style=&#34;color: #333333&#34;&gt;:=&lt;/span&gt; mytarget
-&lt;/pre&gt;&lt;/div&gt;
-
-&lt;p&gt;For a newer make &amp;gt; 3.80:&lt;/p&gt;
-&lt;div class=&#34;highlight&#34; style=&#34;background: #ffffff&#34;&gt;&lt;pre style=&#34;line-height: 125%&#34;&gt;&lt;span&gt;&lt;/span&gt;&lt;span style=&#34;color: #0066BB; font-weight: bold&#34;&gt;.PHONY&lt;/span&gt;&lt;span style=&#34;color: #333333&#34;&gt;:&lt;/span&gt; default
-&lt;span style=&#34;color: #0066BB; font-weight: bold&#34;&gt;default&lt;/span&gt;&lt;span style=&#34;color: #333333&#34;&gt;:&lt;/span&gt; mytarget ;
-&lt;/pre&gt;&lt;/div&gt;
-
-&lt;h2 id=&#34;gcc-vs-g&#34;&gt;gcc vs g++&lt;/h2&gt;
-
-&lt;p&gt;You could just do &lt;code&gt;make&lt;/code&gt; in the same directory as your cpp code. An output file will be created which you can execute like &lt;code&gt;./the_output_file.out&lt;/code&gt;.
-What I &lt;strong&gt;&lt;em&gt;think&lt;/em&gt;&lt;/strong&gt; happens is that &lt;code&gt;make&lt;/code&gt; gets the default compiler for the cpp code. For OSX, in my case, it &lt;em&gt;should&lt;/em&gt; be gcc.&lt;/p&gt;
-
-&lt;p&gt;Anyway, whats important to know here is the difference between g++ and gcc as above we specified g++.&lt;/p&gt;
-
-&lt;p&gt;Quoting a stackoverflow &lt;a href=&#34;http://stackoverflow.com/a/173007&#34;&gt;post&lt;/a&gt;:&lt;/p&gt;
-
-&lt;pre&gt;&lt;code&gt;The main differences:
-
-1. gcc will compile: *.c/*.cpp files as C and C++ respectively.
-2. g++ will compile: *.c/*.cpp files but they will all be treated as C++ files.
-3. Also if you use g++ to link the object files it automatically links in the std C++ libraries (gcc does not do this).
-4. gcc compiling C files has less predefined macros.
-5. gcc compiling *.cpp and g++ compiling *.c/*.cpp files has a few extra macros.
-&lt;/code&gt;&lt;/pre&gt;
-
-&lt;p&gt;Knowing the difference might just help you when you have one of those projects involving sensors or microcontrollers!&lt;/p&gt;
-
-&lt;h2 id=&#34;c-strings&#34;&gt;C++ Strings&lt;/h2&gt;
-
-&lt;p&gt;Frankly, at the moment I still do not understand enough about between strings and string literals. Being pragmatic,
-I will look at some practical use cases.&lt;/p&gt;
-&lt;div class=&#34;highlight&#34; style=&#34;background: #ffffff&#34;&gt;&lt;pre style=&#34;line-height: 125%&#34;&gt;&lt;span&gt;&lt;/span&gt;&lt;span style=&#34;color: #557799&#34;&gt;#include&lt;/span&gt; &lt;span style=&#34;color: #888888&#34;&gt;&amp;lt;string&amp;gt;&lt;/span&gt;&lt;span style=&#34;color: #557799&#34;&gt;&lt;/span&gt;
-&lt;span style=&#34;color: #008800; font-weight: bold&#34;&gt;using&lt;/span&gt; std&lt;span style=&#34;color: #333333&#34;&gt;::&lt;/span&gt;string;
-
-string stringLiteral &lt;span style=&#34;color: #333333&#34;&gt;=&lt;/span&gt; &lt;span style=&#34;background-color: #fff0f0&#34;&gt;&amp;quot;characters enclose in double quotes and cannot span lines&amp;quot;&lt;/span&gt;;
-
-&lt;span style=&#34;color: #888888&#34;&gt;//overloaded constructor to create a string with n of character.&lt;/span&gt;
-string repeatCharacter &lt;span style=&#34;color: #0066BB; font-weight: bold&#34;&gt;z&lt;/span&gt;(&lt;span style=&#34;color: #0000DD; font-weight: bold&#34;&gt;10&lt;/span&gt;, &lt;span style=&#34;color: #0044DD&#34;&gt;&amp;#39;*&amp;#39;&lt;/span&gt;);
-
-&lt;span style=&#34;color: #888888&#34;&gt;//a string&lt;/span&gt;
-string someString &lt;span style=&#34;color: #333333&#34;&gt;=&lt;/span&gt; string(&lt;span style=&#34;background-color: #fff0f0&#34;&gt;&amp;quot;i am a string&amp;quot;&lt;/span&gt;);
-&lt;/pre&gt;&lt;/div&gt;
-
-&lt;p&gt;A &lt;strong&gt;string literal&lt;/strong&gt; is a bunch of characters in doubles and they cannot span lines. Having some prior knowledge in C and C++, I would say that a string literal is &lt;em&gt;a series of characters in memory terminated by a null character &lt;code&gt;\0&lt;/code&gt;&lt;/em&gt;. Maybe it would be better to call them character literal arrays.&lt;/p&gt;
-
-&lt;p&gt;As for a &lt;strong&gt;string&lt;/strong&gt;, you use a contructor &lt;code&gt;string(&amp;quot;some text&amp;quot;)&lt;/code&gt;.&lt;/p&gt;
-
-&lt;p&gt;A common use case with strings is to join them just like creating a sentence where you want to join words or phrases together.
-This is where you can see a difference (&lt;a href=&#34;http://stackoverflow.com/questions/662918/how-do-i-concatenate-multiple-c-strings-on-one-line&#34;&gt;refence link&lt;/a&gt;):&lt;/p&gt;
-&lt;div class=&#34;highlight&#34; style=&#34;background: #ffffff&#34;&gt;&lt;pre style=&#34;line-height: 125%&#34;&gt;&lt;span&gt;&lt;/span&gt;string stringLiteral1 &lt;span style=&#34;color: #333333&#34;&gt;=&lt;/span&gt; &lt;span style=&#34;background-color: #fff0f0&#34;&gt;&amp;quot;hello&amp;quot;&lt;/span&gt;;
-string stringLiteral2 &lt;span style=&#34;color: #333333&#34;&gt;=&lt;/span&gt; &lt;span style=&#34;background-color: #fff0f0&#34;&gt;&amp;quot; world&amp;quot;&lt;/span&gt;;
-
-&lt;span style=&#34;color: #888888&#34;&gt;//you cannot do because they are both string literals.&lt;/span&gt;
-string s &lt;span style=&#34;color: #333333&#34;&gt;=&lt;/span&gt; stringLiteral1 &lt;span style=&#34;color: #333333&#34;&gt;+&lt;/span&gt; stringLiteral2;
-
-&lt;span style=&#34;color: #888888&#34;&gt;//(A)convert them to strings&lt;/span&gt;
-string newstring &lt;span style=&#34;color: #333333&#34;&gt;=&lt;/span&gt; string(stringLiteral1) &lt;span style=&#34;color: #333333&#34;&gt;+&lt;/span&gt; string(stringLiteral2);
-
-&lt;span style=&#34;color: #888888&#34;&gt;//(B)or perhaps&lt;/span&gt;
-std&lt;span style=&#34;color: #333333&#34;&gt;::&lt;/span&gt;stringstream ss;
-ss &lt;span style=&#34;color: #333333&#34;&gt;&amp;lt;&amp;lt;&lt;/span&gt; &lt;span style=&#34;background-color: #fff0f0&#34;&gt;&amp;quot;Hello, world, &amp;quot;&lt;/span&gt; &lt;span style=&#34;color: #333333&#34;&gt;&amp;lt;&amp;lt;&lt;/span&gt; myInt &lt;span style=&#34;color: #333333&#34;&gt;&amp;lt;&amp;lt;&lt;/span&gt; niceToSeeYouString;
-std&lt;span style=&#34;color: #333333&#34;&gt;::&lt;/span&gt;string s &lt;span style=&#34;color: #333333&#34;&gt;=&lt;/span&gt; ss.str();
-
-&lt;span style=&#34;color: #888888&#34;&gt;//(C)or using append; a little verbose?.&lt;/span&gt;
-std&lt;span style=&#34;color: #333333&#34;&gt;::&lt;/span&gt;string s;
-s.append(&lt;span style=&#34;background-color: #fff0f0&#34;&gt;&amp;quot;Hello world, &amp;quot;&lt;/span&gt;);
-s.append(&lt;span style=&#34;background-color: #fff0f0&#34;&gt;&amp;quot;nice to see you, &amp;quot;&lt;/span&gt;);
-s.append(&lt;span style=&#34;background-color: #fff0f0&#34;&gt;&amp;quot;or not.&amp;quot;&lt;/span&gt;);
-&lt;/pre&gt;&lt;/div&gt;
-
-&lt;p&gt;At a glance, I think I would prefer using method (A) or (B) to create dynamic strings. In a game prototype, NPCs could
-have a lengthly paragraph text to say depending on a player&amp;rsquo;s actions. What if there really was a lot to output because the NPC
-is such a great storyteller?&lt;/p&gt;
-
-&lt;p&gt;string::size_type could be useful if you have &amp;gt; 32767 characters. The book says that it is good practice to use size_type for the
-size of strings since it was created for the purpose of &lt;em&gt;sizing&lt;/em&gt; strings.&lt;/p&gt;
-
-&lt;pre&gt;&lt;code&gt;// size_type used intead of int
-const std::string::size_type cols = greeting.size() + pad * 2 + 2;
-&lt;/code&gt;&lt;/pre&gt;
-
-&lt;p&gt;The last point for this post is off-topic from strings but it is relevant to cpp&amp;hellip;
-Quoting the book:&lt;/p&gt;
-
-&lt;pre&gt;&lt;code&gt;One reason to count from 0 is that doing so encourages us to use asymmetric ranges to express intervals. For example, it is natural to use the range [0, rows) to describe the first for statement, as it is to use the range [1, rows] to describe the second one.
-Asymmetric ranges are usually easier to use than symmetric ones because of an important property: A range of the form [m, n) has n - m elements, and a range of the form [m, n] has n - m + 1 elements. So, for example, the number of elements in [0, rows) is obvious (i.e., rows - 0, or rows) but the number in [1, rows] is less so.
-This behavioral difference between asymmetric and symmetric ranges is particularly evident in the case of empty ranges: If we use asymmetric ranges, we can express an empty range as [n, n), in contrast to [n, n-1] for symmetric ranges. The possibility that the end of a range could ever be less than the beginning can cause no end of trouble in designing programs.
-&lt;/code&gt;&lt;/pre&gt;
-</description>
+      <guid>https://robin-lee.github.io/blog/cpp-basics-1/</guid>
+      <description>Algorithms and data structures are a central part of software development. I thought it would be reinforce the knowledge I have in this area. Competitions in this domain seem to favor cpp and knowing a variant of c better will certainly help when doing hardware programming. Hence, we eplore the basics of cpp before we move on to data structures and then algorithms.
+A series in cpp begins. Naturally, it involves more than just language.</description>
     </item>
     
   </channel>

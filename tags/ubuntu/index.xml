@@ -1,222 +1,23 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes" ?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
-    <title>Robin Lee</title>
-    <link>https://robin-lee.github.io/tags/ubuntu/index.xml</link>
-    <description>Recent content on Robin Lee</description>
+    <title>Ubuntu on Robin Lee</title>
+    <link>https://robin-lee.github.io/tags/ubuntu/</link>
+    <description>Recent content in Ubuntu on Robin Lee</description>
     <generator>Hugo -- gohugo.io</generator>
-    <language>en-us</language>
-    <atom:link href="https://robin-lee.github.io/tags/ubuntu/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Thu, 11 Aug 2016 23:13:48 +0200</lastBuildDate>
+    
+	<atom:link href="https://robin-lee.github.io/tags/ubuntu/index.xml" rel="self" type="application/rss+xml" />
+    
     
     <item>
       <title>Tomcat Development Server</title>
-      <link>https://robin-lee.github.io/blog/2016/08/tomcat-development-server/</link>
+      <link>https://robin-lee.github.io/blog/tomcat-development-server/</link>
       <pubDate>Thu, 11 Aug 2016 23:13:48 +0200</pubDate>
       
-      <guid>https://robin-lee.github.io/blog/2016/08/tomcat-development-server/</guid>
-      <description>
-
-&lt;p&gt;I always wanted to learn some backend development seriously and finally I have the opportunity to do so. I have played around with server setup in the past but most of the information has been forgotten.&lt;/p&gt;
-
-&lt;p&gt;This time round a development server will be setup in virtualbox using ubuntu server 14.04 LTS (support expires 2019). For 16.04 LTS, I think the &lt;code&gt;apt-get&lt;/code&gt; command is replace with &lt;code&gt;apt&lt;/code&gt; and there are many new changes&amp;hellip; To save some time and focus on learning backend development sticking with 14.04 LTS is the better choice.&lt;/p&gt;
-
-&lt;p&gt;Technologies used are:&lt;/p&gt;
-
-&lt;ul&gt;
-&lt;li&gt;Apache2: Web layer, sits infront of tomcat&lt;/li&gt;
-&lt;li&gt;MySQL: Relational database&lt;/li&gt;
-&lt;li&gt;Tomcat: Java app server&lt;/li&gt;
-&lt;li&gt;Adminer: Web tool to manage MySQL&lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;p&gt;Also,&lt;/p&gt;
-
-&lt;ul&gt;
-&lt;li&gt;VirtualBox&lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;h2 id=&#34;virtualbox&#34;&gt;VirtualBox&lt;/h2&gt;
-
-&lt;p&gt;I installed an image of ubuntu server 14.04 LTS.
-Then I had to configure the network setting so that I would be able to access the web server hosted on the VM.&lt;/p&gt;
-
-&lt;p&gt;The steps were:&lt;/p&gt;
-
-&lt;ol&gt;
-&lt;li&gt;Go to preferences for VirtualBox.&lt;/li&gt;
-&lt;li&gt;Networks &amp;gt; Host-only networks.&lt;/li&gt;
-&lt;li&gt;Ensure there is an entry vboxnet0 (with whatever ip range you want).&lt;/li&gt;
-&lt;li&gt;Add a new adapter under network settings &lt;strong&gt;for VM&lt;/strong&gt;.&lt;/li&gt;
-&lt;li&gt;Set it to host-only.&lt;/li&gt;
-&lt;li&gt;Start up VM and configure &lt;code&gt;/etc/network/interfaces&lt;/code&gt;. (VM and Vbox settings have no relation hence you have to configure the new adapter here too)&lt;/li&gt;
-&lt;/ol&gt;
-
-&lt;p&gt;How to configure &lt;code&gt;/etc/network/interfaces&lt;/code&gt;:&lt;/p&gt;
-
-&lt;pre&gt;&lt;code&gt;# This file describes the network interfaces available on your system
-# and how to activate them. For more information, see interfaces(5).
-
-# The loopback network interface
-auto lo
-iface lo inet loopback
-
-# The primary network interface
-auto eth0
-iface eth0 inet dhcp
-
-auto eth1
-iface eth1 inet dhcp
-&lt;/code&gt;&lt;/pre&gt;
-
-&lt;p&gt;Originally, there was only eth0. You have to add eth1 too. (Special thanks: Vitor)&lt;/p&gt;
-
-&lt;p&gt;After changing the settings, you can reboot the system. Although&amp;hellip; It might be possible to do &lt;code&gt;sudo ifdown eth1&lt;/code&gt; and &lt;code&gt;sudo ifup eth1&lt;/code&gt;.&lt;/p&gt;
-
-&lt;h2 id=&#34;apache2&#34;&gt;Apache2&lt;/h2&gt;
-
-&lt;p&gt;This was easy to setup. It gets complicated if you  want to configure it for a production environment though. (Further reading to be done)&lt;/p&gt;
-
-&lt;pre&gt;&lt;code&gt;sudo apt-get install apache2
-&lt;/code&gt;&lt;/pre&gt;
-
-&lt;h2 id=&#34;mysql&#34;&gt;MySQL&lt;/h2&gt;
-
-&lt;p&gt;You could do &lt;code&gt;sudo apt-get install mysql-server&lt;/code&gt; and it will work fine. However, I wanted a newer version mysql 5.7 so I had to download a newer APT package from the MySQL APT repository and then run the commands below.&lt;/p&gt;
-
-&lt;pre&gt;&lt;code&gt;sudo dpkg -i &amp;lt;mysql-apt-file&amp;gt;.deb
-sudo apt-get update
-sudo apt-get install mysql-server
-&lt;/code&gt;&lt;/pre&gt;
-
-&lt;ul&gt;
-&lt;li&gt;&lt;a href=&#34;http://serverfault.com/questions/752063/how-can-i-install-mysql-5-7-9-to-ubuntu-14-04&#34;&gt;Serverfault mysql reference&lt;/a&gt;&lt;/li&gt;
-&lt;li&gt;&lt;a href=&#34;https://www.digitalocean.com/community/tutorials/how-to-install-mysql-on-ubuntu-14-04&#34;&gt;Digital ocean mysql reference&lt;/a&gt;&lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;h2 id=&#34;adminer&#34;&gt;Adminer&lt;/h2&gt;
-
-&lt;p&gt;phpMyAdmin is a popular tool people use to view MySQL database instances and it is known to have many security flaws. Adminer is an alternative. I had to try a few times to set this up. For some reason I kept getting 404 errors. Eventually, it worked after I tried retarting from a clean slate 2-3 times. There might have been some miscofigured files lying around (not clean slate). Unfortunately, apt-get doesn&amp;rsquo;t give you the latest version.&lt;/p&gt;
-
-&lt;pre&gt;&lt;code&gt;sudo apt-get install adminer
-sudo ln -s /etc/adminer/apache.conf /etc/apache2/conf-available/adminer.conf
-sudo a2enconf adminer.conf
-sudo service apache2 reload
-&lt;/code&gt;&lt;/pre&gt;
-
-&lt;p&gt;&lt;a href=&#34;https://www.leaseweb.com/labs/2014/06/install-adminer-manually-ubuntu-14-04/&#34;&gt;Link for manual installation&lt;/a&gt;&lt;/p&gt;
-
-&lt;h2 id=&#34;tomcat&#34;&gt;Tomcat&lt;/h2&gt;
-
-&lt;p&gt;Tomcat requires java. Hence, install java before installing tomcat. Next, it is good practice to run the server as another user (security) but this can be annoying to get right. If you are not too familiar with the linux system and do not have a large repertoire of commandline commands as well as not a deep/intermediate understanding of the commands it will be a challenge.&lt;/p&gt;
-
-&lt;pre&gt;&lt;code&gt;sudo apt-get update
-sudo apt-get install default-jdk
-
-sudo groupadd tomcat
-sudo useradd -s /bin/false -g tomcat -d /opt/tomcat tomcat
-
-wget &amp;lt;link to tomcat binary&amp;gt;
-sudo mkdir /opt/tomcat
-sudo tar xvf apache-tomcat-8*tar.gz -C /opt/tomcat --strip-components=1
-cd /opt/tomcat
-
-# We put the tomcat user as the owner of the folder of tomcat:
-sudo chown -R tomcat:tomcat /opt/tomcat
-# Users can not modify the configuration of tomcat:
-sudo chmod -R g+r /opt/tomcat/conf
-# Users can modify the other folders:
-sudo chmod -R g+w /opt/tomcat/conf
-sudo chmod -R g+w /opt/tomcat/logs
-sudo chmod -R g+w /opt/tomcat/temp
-sudo chmod -R g+w /opt/tomcat/webapps
-sudo chmod -R g+w /opt/tomcat/work
-# Activate the sticky-bit for new files keep permissions defined:
-sudo chmod -R g+s /opt/tomcat/conf
-sudo chmod -R g+s /opt/tomcat/logs
-sudo chmod -R g+s /opt/tomcat/temp
-sudo chmod -R g+s /opt/tomcat/webapps
-sudo chmod -R g+s /opt/tomcat/work
-&lt;/code&gt;&lt;/pre&gt;
-
-&lt;p&gt;You might get a permission denied message when trying to &lt;code&gt;cd&lt;/code&gt; into logs or one of the folders&amp;hellip;&lt;/p&gt;
-
-&lt;pre&gt;&lt;code&gt;sudo usermod -a -G tomcat &amp;lt;your username&amp;gt;
-exit
-&lt;/code&gt;&lt;/pre&gt;
-
-&lt;p&gt;&lt;code&gt;exit&lt;/code&gt; till you are logged out then relog for permission changes to take place. You need to be in the tomcat group to have access.&lt;/p&gt;
-
-&lt;p&gt;&lt;a href=&#34;http://superuser.com/questions/632618/best-practice-for-access-permission-to-users-for-apache-tomcat&#34;&gt;More on permissions&lt;/a&gt;&lt;/p&gt;
-
-&lt;p&gt;&lt;code&gt;/opt&lt;/code&gt; is for third-party applications that don&amp;rsquo;t rely on any dependencies outside the scope of said package. &lt;code&gt;/usr/local&lt;/code&gt; is for packages installed on this machine outside the scope of the distribution package manager. &lt;a href=&#34;http://askubuntu.com/questions/34880/use-of-opt-and-usr-local-directories-in-the-context-of-a-pc&#34;&gt;link&lt;/a&gt;&lt;/p&gt;
-
-&lt;p&gt;After all that you need to make a script that will run on startup.
-The script will be placed in &lt;code&gt;/etc/init.d/&amp;lt;name&amp;gt;&lt;/code&gt;. &lt;code&gt;update-rc.d&lt;/code&gt; will be of help.
-(So may commands to know)&lt;/p&gt;
-
-&lt;p&gt;&lt;code&gt;tomcat8&lt;/code&gt; script:&lt;/p&gt;
-
-&lt;pre&gt;&lt;code&gt;#!/bin/bash
-
-### References:
-### http://askubuntu.com/questions/223944/how-to-automatically-restart-tomcat7-on-system-reboots/224402
-### http://superuser.com/questions/632618/best-practice-for-access-permission-to-users-for-apache-tomcat
-###
-
-### BEGIN INIT INFO
-# Provides:        tomcat8
-# Required-Start:  $network
-# Required-Stop:   $network
-# Default-Start:   2 3 4 5
-# Default-Stop:    0 1 6
-# Short-Description: Start/Stop Tomcat server
-### END INIT INFO
-
-JAVA_HOME=/usr/lib/jvm/java-7-openjdk-amd64
-PATH=/sbin:/bin:/usr/sbin:/usr/bin
-
-start() {
- sh /opt/tomcat/bin/startup.sh
-}
-
-stop() {
- sh /opt/tomcat/bin/shutdown.sh
-}
-
-case $1 in
-  start|stop) $1;;
-  restart) stop; start;;
-  *) echo &amp;quot;Run as $0 &amp;lt;start|stop|restart&amp;gt;&amp;quot;; exit 1;;
-esac
-&lt;/code&gt;&lt;/pre&gt;
-
-&lt;p&gt;Give the script permissions:&lt;/p&gt;
-
-&lt;pre&gt;&lt;code&gt;sudo chmod 755 /etc/init.d/tomcat8
-sudo update-rc.d tomcat8 defaults
-sudo reboot
-&lt;/code&gt;&lt;/pre&gt;
-
-&lt;p&gt;Use like &lt;code&gt;service tomcat8 &amp;lt;stop|start|restart&amp;gt;&lt;/code&gt;.&lt;/p&gt;
-
-&lt;p&gt;&lt;em&gt;If you wish may use a fancier &lt;a href=&#34;https://gist.github.com/miglen/5590986&#34;&gt;script&lt;/a&gt;.&lt;/em&gt;&lt;/p&gt;
-
-&lt;h2 id=&#34;testing-setup&#34;&gt;Testing setup&lt;/h2&gt;
-
-&lt;p&gt;Default port for tomcat is 8080. Test &lt;code&gt;curl 127.0.0.1:8080&lt;/code&gt;. You should see the default tomcat webpage.&lt;/p&gt;
-
-&lt;pre&gt;&lt;code&gt;ipconfig | grep addr
-&lt;/code&gt;&lt;/pre&gt;
-
-&lt;p&gt;Now get the ip for you virtual machine and see if you can access apache, adminer and tomcat from your host machine&amp;rsquo;s web browser.&lt;/p&gt;
-
-&lt;pre&gt;&lt;code&gt;&amp;lt;ip address&amp;gt;
-&amp;lt;ip address&amp;gt;/adminer
-&amp;lt;ip address&amp;gt;:8080
-&lt;/code&gt;&lt;/pre&gt;
-
-&lt;p&gt;Phew, that is done.&lt;/p&gt;
-</description>
+      <guid>https://robin-lee.github.io/blog/tomcat-development-server/</guid>
+      <description>I always wanted to learn some backend development seriously and finally I have the opportunity to do so. I have played around with server setup in the past but most of the information has been forgotten.
+This time round a development server will be setup in virtualbox using ubuntu server 14.04 LTS (support expires 2019). For 16.04 LTS, I think the apt-get command is replace with apt and there are many new changes&amp;hellip; To save some time and focus on learning backend development sticking with 14.</description>
     </item>
     
   </channel>

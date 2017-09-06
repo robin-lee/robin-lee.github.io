@@ -1,0 +1,468 @@
+<!DOCTYPE html>
+<html lang='en'>
+
+<head>
+  <meta charset='utf-8'>
+<meta name='viewport' content='width=device-width, initial-scale=1'>
+<meta name='description' content='My rough notes on talk &amp; workshop conducted by Christopher Rex. Code most by Sahil. QA ThoughtWorks 7 years.
+Met Narain*, consultant for banks. He said the design and implementation of software is most important followed by knowledge of languages.
+Met Raju*, ThoughtWorks. General conversation about school and ThoughtWorks. They have about 80 people here. &lt; 20% operations.
+Met Ika*, ThoughtWorks testing. Brought me to office.
+github
+Office 97 Browser &lt;-&gt; Monolithic App &lt;-&gt; Db'>
+
+<meta property='og:title' content='Demystifying Tests • Minimo'>
+<meta property='og:description' content='My rough notes on talk &amp; workshop conducted by Christopher Rex. Code most by Sahil. QA ThoughtWorks 7 years.
+Met Narain*, consultant for banks. He said the design and implementation of software is most important followed by knowledge of languages.
+Met Raju*, ThoughtWorks. General conversation about school and ThoughtWorks. They have about 80 people here. &lt; 20% operations.
+Met Ika*, ThoughtWorks testing. Brought me to office.
+github
+Office 97 Browser &lt;-&gt; Monolithic App &lt;-&gt; Db'>
+<meta property='og:url' content='https://robin-lee.github.io/blog/demystifying-tests/'>
+<meta property='og:site_name' content='Robin Lee'>
+<meta property='og:type' content='article'><meta property='article:section' content='Blog'><meta property='article:tag' content='testing'><meta property='article:published_time' content='2017-03-29T18:55:10&#43;08:00'/><meta property='article:modified_time' content='2017-03-29T18:55:10&#43;08:00'/>
+
+<meta name="generator" content="Hugo 0.26" />
+
+  <title>Demystifying Tests • Minimo</title>
+  <link rel='canonical' href='https://robin-lee.github.io/blog/demystifying-tests/'>
+  <link rel='icon' href='/favicon.ico'>
+<link rel='stylesheet' href='https://fonts.googleapis.com/css?family=Ubuntu:400,400i,700&subset=latin'>
+<link rel='stylesheet' href='/css/main.67a788c9.css'>
+
+  <link rel='stylesheet' href='/css/prism.css'>
+
+
+
+
+</head>
+
+
+<body class='page'>
+  <div class='site'>
+    <header id='header' class='header-container'>
+      <div class='site-header'>
+        <nav id='navmenu' aria-label='Main Menu'>
+  <ul class='main-menu'>
+    
+    <li>
+      <a href='/' 
+        
+      >Home</a>
+    </li>
+    
+    <li>
+      <a href='/about/' 
+        
+      >About</a>
+    </li>
+    
+    <li>
+      <a href='/portfolio/' 
+        
+      >Portfolio</a>
+    </li>
+    
+    <li>
+      <a href='https://github.com/robin-lee' 
+        
+      >Repo</a>
+    </li>
+    
+  </ul>
+</nav>
+
+        <div class='site-info'>
+          
+          <p class='site-title title'>Robin Lee</p>
+          
+          <p class='site-description'></p>
+        </div>
+      </div>
+    </header>
+
+
+<main class='main'>
+  <article lang='en' class='entry'>
+    <header class='entry-header'>
+  <div class='entry-info'>
+    <h1 class='entry-title title'>Demystifying Tests</h1>
+    
+  </div>
+  
+<div class='meta'>
+  <span class='posted-on'>
+    <svg class='icon' viewbox='0 0 24 24' stroke-linecap='round' stroke-linejoin='round' stroke-width='2' aria-hidden='true'>
+  
+  <rect x="3" y="4" width="18" height="18" rx="2" ry="2"/>
+  <line x1="16" y1="2" x2="16" y2="6"/>
+  <line x1="8" y1="2" x2="8" y2="6"/>
+  <line x1="3" y1="10" x2="21" y2="10"/>
+  
+</svg>
+
+    <span class='screen-reader'>Posted on </span>
+    <time class='date' datetime='2017-03-29T18:55:10&#43;08:00'>2017, Mar 29</time>
+  </span>
+  
+  <span class='byline'>
+    <svg class='icon' viewbox='0 0 24 24' stroke-linecap='round' stroke-linejoin='round' stroke-width='2' aria-hidden='true'>
+  
+  <path d="M21,21V20c0-2.76-4-5-9-5s-9,2.24-9,5v1"/>
+  <path d="M16,6.37A4,4,0,1,1,12.63,3,4,4,0,0,1,16,6.37Z"/>
+  
+</svg>
+
+    <span class='screen-reader'> by </span>
+    Minimo
+  </span>
+  
+  
+  <span class='reading-time'>
+    <svg class='icon' viewbox='0 0 24 24' stroke-linecap='round' stroke-linejoin='round' stroke-width='2' aria-hidden='true'>
+  
+  <circle cx="12" cy="12" r="10"/>
+  <polyline points="12 6 12 12 15 15"/> 
+  
+</svg>
+
+    7 mins read
+  </span>
+  
+</div>
+
+
+</header>
+
+    <div class='entry-content'>
+  
+
+<p>My rough notes on talk &amp; workshop conducted by Christopher Rex. Code most by Sahil.
+QA ThoughtWorks 7 years.</p>
+
+<p>Met Narain*, consultant for banks. He said the design and implementation of software is most important followed by knowledge of languages.</p>
+
+<p>Met Raju*, ThoughtWorks. General conversation about school and ThoughtWorks. They have about 80 people here. &lt; 20% operations.</p>
+
+<p>Met Ika*, ThoughtWorks testing. Brought me to office.</p>
+
+<p><a href="http://github.com/christopher-rex/sample-test-pyramid">github</a></p>
+
+<p>Office 97
+Browser &lt;-&gt; <strong>Monolithic App</strong> &lt;-&gt; Db</p>
+
+<p>API Gateway -&gt; Still can get away with testing UI</p>
+
+<h1 id="problem-function-testing">Problem Function Testing</h1>
+
+<p>Alexa. Voice enabled device.</p>
+
+<p>Apps put into Alex domain. How to test?</p>
+
+<p>Basically, you can&rsquo;t stick to one layer to test it. Just speaking to it doesn&rsquo;t work.
+Too many variables/inconsistencies.</p>
+
+<p>Goal: come up with <strong>sensible test</strong> approach for IoT devices.</p>
+
+<h1 id="evolution-of-automated-testing">Evolution of Automated testing</h1>
+
+<ol>
+<li>Manual testing</li>
+<li>Automated testing</li>
+<li>Continuous integration server: Build, test, result (feedback), deploy (maybes)</li>
+</ol>
+
+<h1 id="problem-automation">Problem Automation</h1>
+
+<p><strong>Always Red, Painfully slow build</strong></p>
+
+<p>Rohit: Many problems&hellip; Sometimes have to wait for GUI. System upgrade then build fails.</p>
+
+<p>Developer has to wait for the feedback for the build. He can&rsquo;t go away&hellip;
+He would have already moved on to the new build.</p>
+
+<p>We would like to have a more <strong>efficient automation suite</strong>.</p>
+
+<h1 id="common-approach">Common approach</h1>
+
+<p>Using test pyramid. Using multiple layers. Go about testing in logic in each layer.</p>
+
+<p>Stub testing is one layer in the test pyramid.</p>
+
+<p>If I have a list of requirements how do I map them to tests in each layer?
+Christopher and Saye* came up with a github project with 4 layers of testing.</p>
+
+<p>Goals today:</p>
+
+<ol>
+<li>Building deeper understanding of AUT (layered approach to testing)</li>
+<li>Testing for right logic in right layer (sensible functional testing, efficient automation testing)</li>
+</ol>
+
+<h1 id="project">Project</h1>
+
+<p>Simple application. sample-test-pyramid.
+Login, coupon page.</p>
+
+<h2 id="tests">Tests</h2>
+
+<h3 id="login-functionality">Login Functionality</h3>
+
+<p>Think of acceptance criterions. Expected functionality that is required to be built.</p>
+
+<ol>
+<li>Should be able to login if account is verified.
+&hellip;</li>
+</ol>
+
+<p>In extended case, super user going to the right page is a valid test scenario.</p>
+
+<p><strong>How to test?</strong>*
+You need data first (mock). After a long time, you get a lot of scenarios.
+To manage this you need to come up with a good testing approach.</p>
+
+<p>Testing approach
+1. How can we approach testing this user-auth feature?
+2. Do we have enough information to to define&hellip;</p>
+
+<p>First, thing to know&hellip; You need to know application architecture.</p>
+
+<p>In this case, we have
+User interaction layer, Service layer</p>
+
+<p>(End to end layer)</p>
+
+<p>User interaction layer:
+- Web application
+API wire-up logic
+Presentation logic</p>
+
+<p>Service Layer:
+- User Service
+- Coupon Service
+ Domain Logic</p>
+
+<p><code>process? lsof -i:4567</code>
+Check if jetty is still running on port 4567?</p>
+
+<p><code>./up</code> convenience script to bring up server. For java it uses gradle. For js it uses node.</p>
+
+<p>Using postman without going through UI tests run much faster. You modularize your tests. Only when there is a change in the layer then you perform the tests for that layer or service. Don&rsquo;t need to repeat tests unless you make a change. Advantage of making a test in seclusion.</p>
+
+<p>Test UI layer without Service layer? Stub the response (for both stubbed user service and stubbed coupon service).</p>
+
+<p>Tool used Stubby4j. Define YAML config. Says what to respond for a request (Seems like you need to record it).</p>
+
+<p>There could be validation in presentation layer (hence, presentation logic).</p>
+
+<p>Thick client, then there may not be a lot of communication going to the backend.</p>
+
+<p>Do you want to be held up if the service layer is in the process of upgrading and not working?
+No. Stubs overcome this. You can continue developing and testing. The developers already know the <em>contract</em> the backend team is supposed to fulfill. Gives team autonomy to build their layer.</p>
+
+<p>Choices:
+- E2E
+- Stubbed (Comprehensive layer that includes UI logic. Anything that doesn&rsquo;t hit the server.)
+- Service</p>
+
+<p>One convention we can use is the one used in <code>cucumber</code>.</p>
+
+<p>The flow: Login -&gt; Coupon page.
+Without stub you would not be able to go from login to coupon page.</p>
+
+<p>Reason for &ldquo;Verify Successful Login&rdquo; as E2E because you need to communicate with server and you also need to show unauthorized on the UI.</p>
+
+<p>&hellip;</p>
+
+<h1 id="applying-layered-testing-approach">Applying Layered Testing Approach</h1>
+
+<p>Don&rsquo;t need to test Alex Service, Kitchen Light (Philips Hue) because they are well tested by their teams.</p>
+
+<p>We just need to test the boundary. Then we need 1 more E2E to make sure our software works well in real life.
+With proper understanding of architecture of application you can simplify your tests. You need a deeper understanding of the application.</p>
+
+<p>&lt;&lt; Ends functional testing portion &gt;&gt;</p>
+
+<p>Now we move into automation. Before, going there&hellip;
+Zooming into user service there is a unit layer. (Router &gt; Handlers (Ping, Login) &gt; Repository).
+Unit tests uses mocks (e.g. mockRepository).</p>
+
+<p>SparkServer?</p>
+
+<p>Within integration tests, SparkServer is constructed as a functional component not the actual Db.</p>
+
+<p>User journey better expressed in BDD so we use <code>cucumber</code>. Can run tests for each layer because they are tagged (e2e, stub).</p>
+
+<h1 id="test-automation-layered">Test Automation - Layered</h1>
+
+<p><image></p>
+
+<p><chart>
+Stubbed Webapp Tests most number of tests. Shows you it is a thick client. Lots of tests on UI layer.</p>
+
+<h1 id="ci-build-monitor">CI Build Monitor</h1>
+
+<p>Unit tests failing. But rest green? Error has not propagated up.</p>
+
+<p>Integration test failing. Rest green. Business logic in service layer is failing. Could be due to lift and shift of logic passing unit tests but haven&rsquo;t actually updated unit tests. However, QA for integration layer could have updated it already.</p>
+
+<p>E2E or stubbed test is failing. E.g. route has changed or response schema has changed. Schema upgrade. UI logic or presentation logic has gone for a test.</p>
+
+<p>Just by looking at CI you know what the problem is at each time.</p>
+
+<h1 id="interesting-scenario-for-coupon">Interesting scenario for coupon</h1>
+
+<p>Verify coupon page is not accessible without login. (go to url directly)</p>
+
+<p>Also, think about concurrent coupon validation.</p>
+
+<h1 id="qna">QnA</h1>
+
+<p>(Q&rsquo;s from narain)</p>
+
+<p>Q: More expensive to have acceptance at UI level, cheaper at the unit level. If I have a thick client application, in terms of automation, and you&rsquo;re refactoring the entire thing to get the right density of tests for each layer.</p>
+
+<p>A: There might be tool to migrate tests to another layer. We use JUnit, unit and integration. Cucumber can also do unit and integration. If business level ppl then cucumber makes sense.</p>
+
+<p>RephraseQ: Any other automation frameworks (mental frameworks)? What approach should you take?</p>
+
+<p>A: It depends on how long lasting the code base will be. New? Many years in operation? If delivery is going to be real soon how much sense does it make to migrate the tests to lower layers&hellip; Maybe not much. If longer roadmap, probably good to invest in the automation framework.</p>
+
+<p>Q: Application is more UI based but developers are not. This framework is unit up&hellip;</p>
+
+<p>A: Built a suite, a framework, of 3000 tests. These tests were all on the UI layer. It was a big deal. When app grew it became expensive to manage. Industry has grown&hellip; determined its not wise to have too many tests in the UI layer. (Raju)</p>
+
+<p>A: Root cause analysis for defects. Then categorized which defects can be defended in which layer. Then risk analysis to determine which defects to write tests for.</p>
+
+<p>Q: Who should be writing these unit tests and integration? Large organizations don&rsquo;t have agile. Whats the costs benefit analysis?</p>
+
+<p>A: Yes its difficult to justify the cost of changing everything. Start building the right way. Old apps refactor to use the new way as you touch them. Progressive change. Present cost benefit to organization then let them decide.</p>
+
+<p>A: Treat unit tests as black box. Focus more on integration test. If integration test failure then he goes to unit test to see if its covered in unit tests. Ask himself why not covered. Write it himself or ask a dev to do it.</p>
+
+<p>(Interesting graphic: Ice-cream cone anti-pattern. watirmelon.blog)
+Christopher: Beware of recording too many request, responses. Try to prevent the anti-pattern from happening.</p>
+
+<p>(Mention of slow tool. QTP. Falls into an anti-pattern. Write more tests to the extent that you dont know the architecture of your application. RFT. Migration tools to migrate QTP to RFT. All failing because they are building this ice-cream cone.)</p>
+
+<p>Q (me): How would you test streaming data like stock information, audio or video?</p>
+
+<p>A: Good question. Haven&rsquo;t had experience there but theoretically you still can stub it.
+A (Ika): In my experience you can stub it.</p>
+
+<p>A (Christopher): Has had a pre-prod scenario to test a few E2E scenarios.</p>
+
+</div>
+
+    
+<footer class='entry-footer'>
+  
+    
+  
+    
+      
+      <div class='tags'>
+  <span class='tag-icon'>
+    <svg class='icon' viewbox='0 0 24 24' stroke-linecap='round' stroke-linejoin='round' stroke-width='2' aria-hidden='true'>
+  
+  <path d="M20.59,13.41l-7.17,7.17a2,2,0,0,1-2.83,0L2,12V2H12l8.59,8.59A2,2,0,0,1,20.59,13.41Z"/>
+  <line x1="7" y1="7" x2="7" y2="7"/>
+  
+</svg>
+
+  </span>
+  <span class='screen-reader'>Tags: </span><a class='tag' href='/tags/testing'>Testing</a></div>
+
+    
+  
+</footer>
+
+
+  </article>
+
+  
+    
+<nav class='entry-nav'>
+  <div class='entry-nav-links'><div class='prev-entry'>
+      <a href='https://robin-lee.github.io/blog/ffmpeg-joining-videos/'>
+        <span aria-hidden='true'><svg class='icon' viewbox='0 0 24 24' stroke-linecap='round' stroke-linejoin='round' stroke-width='2' aria-hidden='true'>
+  
+  <line x1="20" y1="12" x2="4" y2="12"/>
+  <polyline points="10 18 4 12 10 6"/>
+  
+</svg>
+ Previous</span>
+        <span class='screen-reader'>Previous post: </span>Using ffmpeg to join videos</a>
+    </div><div class='next-entry'>
+      <a href='https://robin-lee.github.io/blog/react-basics/'>
+        <span class='screen-reader'>Next post: </span>React Basics<span aria-hidden='true'>Next <svg class='icon' viewbox='0 0 24 24' stroke-linecap='round' stroke-linejoin='round' stroke-width='2' aria-hidden='true'>
+  
+  <line x1="4" y1="12" x2="20" y2="12"/>
+  <polyline points="14 6 20 12 14 18"/>
+  
+</svg>
+</span>
+      </a>
+    </div></div>
+</nav>
+
+
+  
+
+  
+    <div class='comments-container'>
+  
+</div>
+
+  
+</main>
+
+    <footer id='footer' class='footer-container'>
+      <div class='footer'>
+        <div class='social'>
+  <nav aria-label='Social Menu'>
+    <ul class='social-menu'><li>
+        <a href='https://github.com/robin-lee' target='_blank' rel='noopener'>
+          <span class='screen-reader'>Open Github account in new tab</span>
+          <svg class='icon' viewbox='0 0 24 24' stroke-linecap='round' stroke-linejoin='round' stroke-width='2' aria-hidden='true'>
+  
+  <path d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.87a3.37 3.37 0 0 0-.94-2.61c3.14-.35 6.44-1.54 6.44-7A5.44 5.44 0 0 0 20 4.77 5.07 5.07 0 0 0 19.91 1S18.73.65 16 2.48a13.38 13.38 0 0 0-7 0C6.27.65 5.09 1 5.09 1A5.07 5.07 0 0 0 5 4.77a5.44 5.44 0 0 0-1.5 3.78c0 5.42 3.3 6.61 6.44 7A3.37 3.37 0 0 0 9 18.13V22"/>
+  
+</svg>
+
+        </a>
+      </li><li>
+        <a href='https://linkedin.com/in/robin-lee-2b70818a' target='_blank' rel='noopener'>
+          <span class='screen-reader'>Open Linkedin account in new tab</span>
+          <svg class='icon' viewbox='0 0 24 24' stroke-linecap='round' stroke-linejoin='round' stroke-width='2' aria-hidden='true'>
+  
+  <path stroke-width="1.8" d="m5.839218,4.101561c0,1.211972 -0.974141,2.194011 -2.176459,2.194011s-2.176459,-0.982039 -2.176459,-2.194011c0,-1.211094 0.974141,-2.194011 2.176459,-2.194011s2.176459,0.982917 2.176459,2.194011zm0.017552,3.94922l-4.388022,0l0,14.04167l4.388022,0l0,-14.04167zm7.005038,0l-4.359939,0l0,14.04167l4.360816,0l0,-7.370999c0,-4.098413 5.291077,-4.433657 5.291077,0l0,7.370999l4.377491,0l0,-8.89101c0,-6.915523 -7.829986,-6.66365 -9.669445,-3.259423l0,-1.891237z"/>
+  
+</svg>
+
+        </a>
+      </li></ul>
+  </nav>
+</div>
+
+        <div class='copyright'>
+          <p>
+    
+  
+  &copy; 2017 Robin Lee</p>
+
+        </div>
+      </div>
+    </footer>
+
+  </div>
+
+  <script src='/js/main.af838dd5.js'></script>
+  
+    <script src='/js/prism.js'></script>
+  
+
+</body>
+
+</html>
+

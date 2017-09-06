@@ -1,0 +1,330 @@
+<!DOCTYPE html>
+<html lang='en'>
+
+<head>
+  <meta charset='utf-8'>
+<meta name='viewport' content='width=device-width, initial-scale=1'>
+<meta name='description' content='In this series, I consolidate points from the GOOSGBT book and may comment on some of them. The post may not be coherent as I am extracting fragments I consider useful or enlightening.
+Stackoverflow post to read: link
+Levels of testing  Acceptance: Does the whole system work? Integration: Does our code work against code we can&rsquo;t change? Unit: Do our objects do the right thing, are they convenient to work with?'>
+
+<meta property='og:title' content='Growing Object Oriented Software, Guided by Tests Part 1 • Minimo'>
+<meta property='og:description' content='In this series, I consolidate points from the GOOSGBT book and may comment on some of them. The post may not be coherent as I am extracting fragments I consider useful or enlightening.
+Stackoverflow post to read: link
+Levels of testing  Acceptance: Does the whole system work? Integration: Does our code work against code we can&rsquo;t change? Unit: Do our objects do the right thing, are they convenient to work with?'>
+<meta property='og:url' content='https://robin-lee.github.io/blog/goosgbt-1/'>
+<meta property='og:site_name' content='Robin Lee'>
+<meta property='og:type' content='article'><meta property='article:section' content='Blog'><meta property='article:tag' content='tdd'><meta property='article:tag' content='java'><meta property='article:tag' content='development'><meta property='article:published_time' content='2016-07-27T14:31:03&#43;02:00'/><meta property='article:modified_time' content='2016-07-27T14:31:03&#43;02:00'/>
+
+<meta name="generator" content="Hugo 0.26" />
+
+  <title>Growing Object Oriented Software, Guided by Tests Part 1 • Minimo</title>
+  <link rel='canonical' href='https://robin-lee.github.io/blog/goosgbt-1/'>
+  <link rel='icon' href='/favicon.ico'>
+<link rel='stylesheet' href='https://fonts.googleapis.com/css?family=Ubuntu:400,400i,700&subset=latin'>
+<link rel='stylesheet' href='/css/main.67a788c9.css'>
+
+  <link rel='stylesheet' href='/css/prism.css'>
+
+
+
+
+</head>
+
+
+<body class='page'>
+  <div class='site'>
+    <header id='header' class='header-container'>
+      <div class='site-header'>
+        <nav id='navmenu' aria-label='Main Menu'>
+  <ul class='main-menu'>
+    
+    <li>
+      <a href='/' 
+        
+      >Home</a>
+    </li>
+    
+    <li>
+      <a href='/about/' 
+        
+      >About</a>
+    </li>
+    
+    <li>
+      <a href='/portfolio/' 
+        
+      >Portfolio</a>
+    </li>
+    
+    <li>
+      <a href='https://github.com/robin-lee' 
+        
+      >Repo</a>
+    </li>
+    
+  </ul>
+</nav>
+
+        <div class='site-info'>
+          
+          <p class='site-title title'>Robin Lee</p>
+          
+          <p class='site-description'></p>
+        </div>
+      </div>
+    </header>
+
+
+<main class='main'>
+  <article lang='en' class='entry'>
+    <header class='entry-header'>
+  <div class='entry-info'>
+    <h1 class='entry-title title'>Growing Object Oriented Software, Guided by Tests Part 1</h1>
+    
+  </div>
+  
+<div class='meta'>
+  <span class='posted-on'>
+    <svg class='icon' viewbox='0 0 24 24' stroke-linecap='round' stroke-linejoin='round' stroke-width='2' aria-hidden='true'>
+  
+  <rect x="3" y="4" width="18" height="18" rx="2" ry="2"/>
+  <line x1="16" y1="2" x2="16" y2="6"/>
+  <line x1="8" y1="2" x2="8" y2="6"/>
+  <line x1="3" y1="10" x2="21" y2="10"/>
+  
+</svg>
+
+    <span class='screen-reader'>Posted on </span>
+    <time class='date' datetime='2016-07-27T14:31:03&#43;02:00'>2016, Jul 27</time>
+  </span>
+  
+  <span class='byline'>
+    <svg class='icon' viewbox='0 0 24 24' stroke-linecap='round' stroke-linejoin='round' stroke-width='2' aria-hidden='true'>
+  
+  <path d="M21,21V20c0-2.76-4-5-9-5s-9,2.24-9,5v1"/>
+  <path d="M16,6.37A4,4,0,1,1,12.63,3,4,4,0,0,1,16,6.37Z"/>
+  
+</svg>
+
+    <span class='screen-reader'> by </span>
+    Minimo
+  </span>
+  
+  
+  <span class='reading-time'>
+    <svg class='icon' viewbox='0 0 24 24' stroke-linecap='round' stroke-linejoin='round' stroke-width='2' aria-hidden='true'>
+  
+  <circle cx="12" cy="12" r="10"/>
+  <polyline points="12 6 12 12 15 15"/> 
+  
+</svg>
+
+    4 mins read
+  </span>
+  
+</div>
+
+
+</header>
+
+    <div class='entry-content'>
+  
+
+<p>In this series, I consolidate points from the GOOSGBT book and may comment on some of them.
+The post may not be coherent as I am extracting fragments I consider useful or enlightening.</p>
+
+<p>Stackoverflow post to read: <a href="http://stackoverflow.com/questions/920992/unit-test-adoption/924639#924639">link</a></p>
+
+<h2 id="levels-of-testing">Levels of testing</h2>
+
+<ul>
+<li>Acceptance: Does the whole system work?</li>
+<li>Integration: Does our code work against code we can&rsquo;t change?</li>
+<li>Unit: Do our objects do the right thing, are they convenient to work with?</li>
+</ul>
+
+<h2 id="support-for-tdd-with-mock-objects">Support for TDD with mock objects</h2>
+
+<p>The essential steps for creating a test:</p>
+
+<ul>
+<li>Create any required mock objects.</li>
+<li>Create any real objects, including the target object.</li>
+<li>Specify how you expect the mock objects to be called by the target object.</li>
+<li>Call the triggering method(s) on the target object.</li>
+<li>Assert that any resulting values are valid and that all the expected calls have been made.</li>
+</ul>
+
+<p>The important point, as we stress repeatedly throughout this book, is to make clear the intention of every test, distinguishing between the tested functionality, the supporting infrastructure, and the object structure.</p>
+
+<h2 id="test-fixture">Test Fixture</h2>
+
+<p>A test fixture is the fixed state that exists at the start of a test. A test fixture ensures that a test is repeatable—every time a test is run it starts in the same state so it should produce the same results. A fixture may be set up before the test runs and torn down after it has finished. Think of <code>@Before</code> and <code>@After</code>.</p>
+
+<h2 id="mocking">Mocking</h2>
+
+<p><em>Notes here are for jMock2. In the neigbourhood of page 26.</em></p>
+
+<p>A mockery represents the context of the object under test, its neighboring objects; mock objects stand in for the real neighbors of the object under test while the test runs; and expectations describe how the object under test should invoke its neighbors during the test.</p>
+
+<p>Note that the test does not require any assertions. This is quite common in mock object tests.</p>
+
+<h2 id="walking-skeleton">Walking Skeleton</h2>
+
+<p>We can’t automate the build, deploy, and test cycle without some idea of the overall structure. We don’t need much detail yet, just a broad-brush picture of what major system components will be needed to support the first planned release and how they will communicate.</p>
+
+<p>We need a high-level view of the client’s requirements, both functional and non- functional, to guide our choices.</p>
+
+<h2 id="unit-test-behaviour-not-methods">Unit-Test Behaviour Not Methods</h2>
+
+<p>Many developers who adopt TDD find their early tests hard to understand when they revisit them later, and one common mistake is thinking about testing methods. A test called testBidAccepted() tells us what it does, but not what it’s for.</p>
+
+<p>We do better when we focus on the <strong>features that the object under test should provide</strong>, each of which may require collaboration with its neighbors and calling more than one of its methods. We need to know how to use the class to achieve a goal, *<strong>not</strong> how to exercise all the paths through its code*.</p>
+
+<p><code>sniperJoinsAuctionUntilAuctionCloses()</code></p>
+
+<h1 id="object-oriented-style">Object - Oriented Style</h1>
+
+<p>We value code that is easy to maintain over code that is easy to write.1 Imple- menting a feature in the most direct way can damage the maintainability of the system, for example by making the code difficult to understand or by introducing hidden dependencies between components. Balancing immediate and longer-term concerns is often tricky, but we’ve seen too many teams that can no longer deliver because their system is too brittle.</p>
+
+<p>We don’t want technical concepts to leak into the application model, so we write interfaces to describe its relationships with the outside world in its terminology (Cockburn’s ports). Then we write bridges between the application core and each technical domain (Cockburn’s adapters). This is related to what Eric Evans calls an “anticorruption layer” [Evans03].</p>
+
+<h2 id="achieving-object-oriented-design">Achieving Object Oriented Design</h2>
+
+<p>Breaking off, Budding out, Bundling up</p>
+
+<p>Budding Out.</p>
+
+<p>We think of this as “on-demand” design: we “pull” interfaces and their imple- mentations into existence from the needs of the client, rather than “pushing” out the features that we think a class should provide.</p>
+
+<h2 id="building-up-to-higher-level-programming">Building up to higher level programming</h2>
+
+<p>The declarative layer describes what the code will do, while the implementation layer describes how the code does it. The declarative layer is, in effect, a small domain-specific language embedded (in this case) in Java.</p>
+
+<h2 id="building-on-third-party-code">Building on Third Party Code</h2>
+
+<h3 id="only-mock-objects-you-own">Only mock objects you own</h3>
+
+<blockquote>
+<p>When we use third-party code we often do not have a deep understanding of how it works. Even if we have the source available, we rarely have time to read it thoroughly enough to explore all its quirks. We can read its documentation, which is often incomplete or incorrect.</p>
+</blockquote>
+
+<p>Yeah tell me about it.</p>
+
+<p>Part 2 will be on the worked example.</p>
+
+</div>
+
+    
+<footer class='entry-footer'>
+  
+    
+  
+    
+      
+      <div class='tags'>
+  <span class='tag-icon'>
+    <svg class='icon' viewbox='0 0 24 24' stroke-linecap='round' stroke-linejoin='round' stroke-width='2' aria-hidden='true'>
+  
+  <path d="M20.59,13.41l-7.17,7.17a2,2,0,0,1-2.83,0L2,12V2H12l8.59,8.59A2,2,0,0,1,20.59,13.41Z"/>
+  <line x1="7" y1="7" x2="7" y2="7"/>
+  
+</svg>
+
+  </span>
+  <span class='screen-reader'>Tags: </span><a class='tag' href='/tags/tdd'>Tdd</a>, <a class='tag' href='/tags/java'>Java</a>, <a class='tag' href='/tags/development'>Development</a></div>
+
+    
+  
+</footer>
+
+
+  </article>
+
+  
+    
+<nav class='entry-nav'>
+  <div class='entry-nav-links'><div class='prev-entry'>
+      <a href='https://robin-lee.github.io/blog/gradle-init/'>
+        <span aria-hidden='true'><svg class='icon' viewbox='0 0 24 24' stroke-linecap='round' stroke-linejoin='round' stroke-width='2' aria-hidden='true'>
+  
+  <line x1="20" y1="12" x2="4" y2="12"/>
+  <polyline points="10 18 4 12 10 6"/>
+  
+</svg>
+ Previous</span>
+        <span class='screen-reader'>Previous post: </span>Gradle and gradle init</a>
+    </div><div class='next-entry'>
+      <a href='https://robin-lee.github.io/blog/sockets/'>
+        <span class='screen-reader'>Next post: </span>Fundamentals: Sockets<span aria-hidden='true'>Next <svg class='icon' viewbox='0 0 24 24' stroke-linecap='round' stroke-linejoin='round' stroke-width='2' aria-hidden='true'>
+  
+  <line x1="4" y1="12" x2="20" y2="12"/>
+  <polyline points="14 6 20 12 14 18"/>
+  
+</svg>
+</span>
+      </a>
+    </div></div>
+</nav>
+
+
+  
+
+  
+    <div class='comments-container'>
+  
+</div>
+
+  
+</main>
+
+    <footer id='footer' class='footer-container'>
+      <div class='footer'>
+        <div class='social'>
+  <nav aria-label='Social Menu'>
+    <ul class='social-menu'><li>
+        <a href='https://github.com/robin-lee' target='_blank' rel='noopener'>
+          <span class='screen-reader'>Open Github account in new tab</span>
+          <svg class='icon' viewbox='0 0 24 24' stroke-linecap='round' stroke-linejoin='round' stroke-width='2' aria-hidden='true'>
+  
+  <path d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.87a3.37 3.37 0 0 0-.94-2.61c3.14-.35 6.44-1.54 6.44-7A5.44 5.44 0 0 0 20 4.77 5.07 5.07 0 0 0 19.91 1S18.73.65 16 2.48a13.38 13.38 0 0 0-7 0C6.27.65 5.09 1 5.09 1A5.07 5.07 0 0 0 5 4.77a5.44 5.44 0 0 0-1.5 3.78c0 5.42 3.3 6.61 6.44 7A3.37 3.37 0 0 0 9 18.13V22"/>
+  
+</svg>
+
+        </a>
+      </li><li>
+        <a href='https://linkedin.com/in/robin-lee-2b70818a' target='_blank' rel='noopener'>
+          <span class='screen-reader'>Open Linkedin account in new tab</span>
+          <svg class='icon' viewbox='0 0 24 24' stroke-linecap='round' stroke-linejoin='round' stroke-width='2' aria-hidden='true'>
+  
+  <path stroke-width="1.8" d="m5.839218,4.101561c0,1.211972 -0.974141,2.194011 -2.176459,2.194011s-2.176459,-0.982039 -2.176459,-2.194011c0,-1.211094 0.974141,-2.194011 2.176459,-2.194011s2.176459,0.982917 2.176459,2.194011zm0.017552,3.94922l-4.388022,0l0,14.04167l4.388022,0l0,-14.04167zm7.005038,0l-4.359939,0l0,14.04167l4.360816,0l0,-7.370999c0,-4.098413 5.291077,-4.433657 5.291077,0l0,7.370999l4.377491,0l0,-8.89101c0,-6.915523 -7.829986,-6.66365 -9.669445,-3.259423l0,-1.891237z"/>
+  
+</svg>
+
+        </a>
+      </li></ul>
+  </nav>
+</div>
+
+        <div class='copyright'>
+          <p>
+    
+  
+  &copy; 2017 Robin Lee</p>
+
+        </div>
+      </div>
+    </footer>
+
+  </div>
+
+  <script src='/js/main.af838dd5.js'></script>
+  
+    <script src='/js/prism.js'></script>
+  
+
+</body>
+
+</html>
+

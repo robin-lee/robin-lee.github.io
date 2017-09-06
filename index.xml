@@ -1,1268 +1,97 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes" ?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
-    <title>Robin Lee</title>
-    <link>https://robin-lee.github.io/index.xml</link>
-    <description>Recent content on Robin Lee</description>
+    <title>Home on Robin Lee</title>
+    <link>https://robin-lee.github.io/</link>
+    <description>Recent content in Home on Robin Lee</description>
     <generator>Hugo -- gohugo.io</generator>
-    <language>en-us</language>
-    <lastBuildDate>Thu, 30 Mar 2017 17:40:03 +0800</lastBuildDate>
-    <atom:link href="https://robin-lee.github.io/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Wed, 06 Sep 2017 19:08:21 +0800</lastBuildDate>
+    
+	<atom:link href="https://robin-lee.github.io/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>Minimo Theme</title>
+      <link>https://robin-lee.github.io/blog/minimo-theme/</link>
+      <pubDate>Wed, 06 Sep 2017 19:08:21 +0800</pubDate>
+      
+      <guid>https://robin-lee.github.io/blog/minimo-theme/</guid>
+      <description>Whew. I haven&amp;rsquo;t blogged in a while. To kick things off I&amp;rsquo;ve updated the theme to minimo.</description>
+    </item>
     
     <item>
       <title>React Basics</title>
-      <link>https://robin-lee.github.io/blog/2017/03/react-basics/</link>
+      <link>https://robin-lee.github.io/blog/react-basics/</link>
       <pubDate>Thu, 30 Mar 2017 17:40:03 +0800</pubDate>
       
-      <guid>https://robin-lee.github.io/blog/2017/03/react-basics/</guid>
-      <description>
-
-&lt;p&gt;Edit 14/6/17: Fix formatting.&lt;/p&gt;
-
-&lt;p&gt;ReactJS to learn React Native. Essentially, trying to follow the learning path here: &lt;a href=&#34;https://reactjs.co/react-native-convention/&#34;&gt;link&lt;/a&gt;&lt;/p&gt;
-
-&lt;p&gt;Obviously, certain parts will be prioritised.&lt;/p&gt;
-
-&lt;h1 id=&#34;skeleton&#34;&gt;Skeleton&lt;/h1&gt;
-
-&lt;p&gt;App.js&lt;/p&gt;
-
-&lt;pre&gt;&lt;code&gt;import React from &#39;react&#39;;
-
-// Component with Stateless
-class App extends React.Component {
-    render() {
-        return &amp;lt;h1&amp;gt;Hello Guys&amp;lt;/h1&amp;gt;
-    }
-}
-
-// Stateless component
-// const App = () =&amp;gt; &amp;lt;h1&amp;gt;Hello Eggheads&amp;lt;/h1&amp;gt;
-
-export default App;
-&lt;/code&gt;&lt;/pre&gt;
-
-&lt;p&gt;index.html&lt;/p&gt;
-
-&lt;pre&gt;&lt;code&gt;&amp;lt;!DOCTYPE html&amp;gt;
-&amp;lt;html lang=&amp;quot;en&amp;quot;&amp;gt;
-&amp;lt;head&amp;gt;
-    &amp;lt;meta charset=&amp;quot;UTF-8&amp;quot;&amp;gt;
-    &amp;lt;title&amp;gt;Intro&amp;lt;/title&amp;gt;
-&amp;lt;/head&amp;gt;
-&amp;lt;body&amp;gt;
-    &amp;lt;div id=&amp;quot;app&amp;quot;&amp;gt;&amp;lt;/div&amp;gt;
-    &amp;lt;script src=&amp;quot;index.js&amp;quot;&amp;gt;&amp;lt;/script&amp;gt;
-&amp;lt;/body&amp;gt;
-&amp;lt;/html&amp;gt;
-&lt;/code&gt;&lt;/pre&gt;
-
-&lt;p&gt;main.js&lt;/p&gt;
-
-&lt;pre&gt;&lt;code&gt;import React from &#39;react&#39;;
-import ReactDOM from &#39;react-dom&#39;;
-import App from &#39;./App&#39;;
-
-ReactDOM.render(&amp;lt;App /&amp;gt;, document.getElementById(&#39;app&#39;));
-&lt;/code&gt;&lt;/pre&gt;
-
-&lt;h1 id=&#34;components&#34;&gt;Components&lt;/h1&gt;
-
-&lt;h2 id=&#34;base&#34;&gt;Base&lt;/h2&gt;
-
-&lt;pre&gt;&lt;code&gt;import { Component } from &#39;react&#39;
-
-class Thing extends Component {
-  render() {
-    return &amp;lt;h1&amp;gt;Hello World!&amp;lt;/h1&amp;gt;
-  }
-}
-&lt;/code&gt;&lt;/pre&gt;
-
-&lt;h2 id=&#34;stateless-function&#34;&gt;Stateless function&lt;/h2&gt;
-
-&lt;pre&gt;&lt;code&gt;const Thing = () =&amp;gt; &amp;lt;h1&amp;gt;Hello Darth Vader!&amp;lt;/h1&amp;gt;
-&lt;/code&gt;&lt;/pre&gt;
-
-&lt;h2 id=&#34;loading-children&#34;&gt;Loading children&lt;/h2&gt;
-
-&lt;pre&gt;&lt;code&gt;const Thing = (props) =&amp;gt; &amp;lt;h1&amp;gt;Hello Darth Vader! {props.children}&amp;lt;/h1&amp;gt;
-&lt;/code&gt;&lt;/pre&gt;
-
-&lt;h2 id=&#34;owner-ownee&#34;&gt;Owner, Ownee&lt;/h2&gt;
-
-&lt;p&gt;Entry in input updates h1.&lt;/p&gt;
-
-&lt;pre&gt;&lt;code&gt;class Thing extends Component {
-  constructor() {
-    super()
-    this.state = {
-      stuff: &amp;quot;this is the state stuff&amp;quot;
-    }
-  }
-
-  update(e) {
-    //update with input value
-    this.setState({stuff: e.target.value})
-  }
-
-  render() {
-    return (
-        &amp;lt;div&amp;gt;
-          &amp;lt;h1&amp;gt;{this.state.stuff}&amp;lt;/h1&amp;gt;
-          &amp;lt;input type=&amp;quot;text&amp;quot; onChange={this.update.bind(this)} /&amp;gt;
-        &amp;lt;/div&amp;gt;
-      )
-  }
-}
-
-export default Thing
-&lt;/code&gt;&lt;/pre&gt;
-
-&lt;p&gt;Multiple widgets access parent update method.
-Notice the update prop for Widget in the render method of Thing.&lt;/p&gt;
-
-&lt;pre&gt;&lt;code&gt;class Thing extends Component {
-  constructor() {
-    super()
-    this.state = {
-      stuff: &amp;quot;this is the state stuff&amp;quot;
-    }
-  }
-
-  update(e) {
-    //update with input value
-    this.setState({stuff: e.target.value})
-  }
-
-  render() {
-    return (
-        &amp;lt;div&amp;gt;
-          &amp;lt;h1&amp;gt;{this.state.stuff}&amp;lt;/h1&amp;gt;
-          &amp;lt;Widget type=&amp;quot;text&amp;quot; update={this.update.bind(this)} /&amp;gt;
-          &amp;lt;Widget type=&amp;quot;text&amp;quot; update={this.update.bind(this)} /&amp;gt;
-          &amp;lt;Widget type=&amp;quot;text&amp;quot; update={this.update.bind(this)} /&amp;gt;
-        &amp;lt;/div&amp;gt;
-      )
-  }
-}
-
-const Widget = (props) =&amp;gt;
-&amp;lt;input type=&amp;quot;text&amp;quot; onChange={props.update} /&amp;gt;
-
-export default Thing
-&lt;/code&gt;&lt;/pre&gt;
-
-&lt;h1 id=&#34;validation&#34;&gt;Validation&lt;/h1&gt;
-
-&lt;h2 id=&#34;default-validation-proptypes&#34;&gt;Default validation propTypes&lt;/h2&gt;
-
-&lt;pre&gt;&lt;code&gt;const Thing extends Component {
-
-  render() {
-    let stuff = this.props.stuff
-    return (
-        &amp;lt;h1&amp;gt;{stuff}&amp;lt;/h1&amp;gt;
-      )
-  }
-}
-
-Thing.propTypes = {
-  stuff: React.PropTypes.string,
-  cat: React.PropTypes.number.isRequired
-}
-
-Thing.defaultProps = {
-  stuff: &amp;quot;this is the default props&amp;quot;
-}
-
-export default Thing
-
-
-//App.js render
-&amp;lt;Thing cat={42} /&amp;gt;
-&lt;/code&gt;&lt;/pre&gt;
-
-&lt;h2 id=&#34;custom-validation&#34;&gt;Custom Validation&lt;/h2&gt;
-
-&lt;p&gt;Instead of returning react propType, return a custom function.&lt;/p&gt;
-
-&lt;pre&gt;&lt;code&gt;class Thing extends Component {
-
-  render() {
-    return (
-        &amp;lt;Title info=&amp;quot;important info!&amp;quot;/&amp;gt;
-      )
-  }
-}
-
-const Title = (props) =&amp;gt; &amp;lt;h1&amp;gt;Title: {props.info}&amp;lt;/h1&amp;gt;
-
-Title.propTypes = {
-  text(props, propName, component) {
-    if(!(propName in props)) {
-      //ensure prop exists
-      // `` means evaluate variable in string
-      return new Error(`missing ${propName}`)
-    }
-    if(props[propName].length &amp;lt; 6) {
-      return new Error(`${propName} is too short.`)
-    }
-  }
-}
-
-
-export default Thing
-&lt;/code&gt;&lt;/pre&gt;
-
-&lt;h1 id=&#34;refs-or-references&#34;&gt;Refs or References&lt;/h1&gt;
-
-&lt;p&gt;Refs are a way for us to reference a node or an &lt;strong&gt;instance&lt;/strong&gt; of a component.
-Ref simply returns the &lt;em&gt;node&lt;/em&gt; we are referencing.&lt;/p&gt;
-
-&lt;pre&gt;&lt;code&gt;class App extends React.Component {
-  constructor() {
-    super();
-    this.state = { a: &#39;&#39;}
-  }
-
-  update() {
-    this.setState({
-      a: this.a.value,
-      b: this.refs.labelForInput2.value
-      })
-  }
-
-  render() {
-    return(
-      &amp;lt;div&amp;gt;
-        &amp;lt;input
-          ref={ node =&amp;gt; this.a = node }
-          type=&amp;quot;text&amp;quot;
-          onChange={this.update.bind(this)}
-        /&amp;gt;
-        &amp;lt;p&amp;gt; {this.state.a} &amp;lt;/p&amp;gt;
-        &amp;lt;input
-          ref=&amp;quot;labelForInput2&amp;quot;
-          type=&amp;quot;text&amp;quot;
-          onChange={this.update.bind(this)}
-        /&amp;gt;
-        &amp;lt;p&amp;gt; {this.state.b} &amp;lt;/p&amp;gt;        
-      &amp;lt;/div&amp;gt;
-      )
-    })
-}
-&lt;/code&gt;&lt;/pre&gt;
-
-&lt;h2 id=&#34;reference-an-instance-of-another-component&#34;&gt;Reference an instance of another component&lt;/h2&gt;
-
-&lt;pre&gt;&lt;code&gt;import ReactDOM from &#39;react-dom&#39;;
-
-update() {
-  this.setState({
-    a: this.a.value,
-    b: this.refs.labelForInput2.value,
-    c: this.c.refs.inputRef.value
-  })
-}
-
-/**
- * If there is only 1 element in render() for the other component.
- * c: ReactDOM.findDOMNode(this.c).value works.
- */
-
-
-render() {
-  return(
-    &amp;lt;div&amp;gt;
-      &amp;lt;input
-        ref={ node =&amp;gt; this.a = node }
-        type=&amp;quot;text&amp;quot;
-        onChange={this.update.bind(this)}
-      /&amp;gt;
-      &amp;lt;p&amp;gt; {this.state.a} &amp;lt;/p&amp;gt;
-      &amp;lt;input
-        ref=&amp;quot;labelForInput2&amp;quot;
-        type=&amp;quot;text&amp;quot;
-        onChange={this.update.bind(this)}
-      /&amp;gt;
-      &amp;lt;p&amp;gt; {this.state.b} &amp;lt;/p&amp;gt;
-      &amp;lt;input
-        ref={ component =&amp;gt; this.c = component }
-        update={this.update.bind(this)}
-      /&amp;gt;
-      &amp;lt;p&amp;gt; {this.state.c} &amp;lt;/p&amp;gt;            
-    &amp;lt;/div&amp;gt;
-    )
-  })
-
-class Input extends React.Component {
-  render() {
-    return (
-        &amp;lt;div&amp;gt;&amp;lt;input ref=&amp;quot;inputRef&amp;quot; type=&amp;quot;text&amp;quot; onChange={this.props.update}/&amp;gt;&amp;lt;/div&amp;gt;
-      )
-  }
-}
-&lt;/code&gt;&lt;/pre&gt;
-
-&lt;h1 id=&#34;component-lifecycle&#34;&gt;Component Lifecycle&lt;/h1&gt;
-
-&lt;p&gt;//Note:
-&lt;code&gt;getInitialState&lt;/code&gt; deprecated in favor of declaring initial state value in constructor.
-&lt;a href=&#34;http://stackoverflow.com/questions/33447149/class-extends-react-component-cant-use-getinitialstate-in-react&#34;&gt;Link&lt;/a&gt;.&lt;/p&gt;
-
-&lt;pre&gt;&lt;code&gt;export default class Loginform extends React.Component {
-  constructor(props, context) {
-    super(props, context);
-
-    this.state = {
-      name: &#39;&#39;,
-      password: &#39;&#39;
-    };
-  };
-}
-&lt;/code&gt;&lt;/pre&gt;
-
-&lt;p&gt;Example (rough order):&lt;/p&gt;
-
-&lt;ol&gt;
-&lt;li&gt;componentWillMount&lt;/li&gt;
-&lt;li&gt;render&lt;/li&gt;
-&lt;li&gt;componentDidMount&lt;/li&gt;
-&lt;li&gt;componentWillUnmount&lt;/li&gt;
-&lt;/ol&gt;
-
-&lt;pre&gt;&lt;code&gt;class App extends React.Component {
-  constructor() {
-    super()
-    this.state = {gryffindorPoints: 0}
-    this.update = this.update.bind(this)
-  }
-
-  update() {
-    this.setState({ gryffindorPoints: this.state.gryffindorPoints + 1})
-  }
-
-  componentWillMount() {
-    //only fires once for component
-    console.log(&#39;componentWillMount&#39;)
-
-    //can set state before component is rendered
-    this.setState({multiplier: 2})
-  }
-
-  render() {
-    console.log(&#39;render&#39;)
-    return &amp;lt;button onClick={this.update&amp;gt;{this.state.gryffindorPoints}&amp;lt;/button&amp;gt;
-  }
-
-  componentDidMount() {
-    //fires once component mounted to DOM
-    console.log(&#39;componentDidMount&#39;)
-
-    //multiply every 500ms
-    this.increment = setInterval(this.update, 500)
-  }  
-
-   componentWillUnmount() {
-     //Called when ReactDOM.unmountComponentAtNode(...) is fired.
-     console.log(&#39;componentWillUnmount&#39;)
-
-     //can use to clean update when unmounting
-     clearInterval(this.increment)
-   }
-}
-&lt;/code&gt;&lt;/pre&gt;
-
-&lt;h2 id=&#34;component-update-lifecycle&#34;&gt;Component update lifecycle&lt;/h2&gt;
-
-&lt;pre&gt;&lt;code&gt;import React from &#39;react&#39;;
-import ReactDOM from &#39;react-dom&#39;;
-
-class App extends React.Component {
-  constructor(){
-    super();
-    this.update = this.update.bind(this);
-    this.state = {increasing: false}
-  }
-  update(){
-    ReactDOM.render(
-      &amp;lt;App val={this.props.val+1} /&amp;gt;,
-      document.getElementById(&#39;app&#39;)
-    );
-  }
-  componentWillReceiveProps(nextProps){
-    //new properties are coming in? then you have nextProps
-    this.setState({increasing: nextProps.val &amp;gt; this.props.val})
-  }
-  shouldComponentUpdate(nextProps, nextState) {
-    // does NOT prevent state or props from being updated.
-    // only prevents re-render if not a multiple of 5.
-    return nextProps.val % 5 === 0;
-  }
-  render(){
-    console.log(this.state.increasing)
-    return (
-      &amp;lt;button onClick={this.update}&amp;gt;
-        {this.props.val}
-      &amp;lt;/button&amp;gt;)
-  }
-  componentDidUpdate(prevProps, prevState) {
-    // just as the arguments say.
-    console.log(&#39;prevProps&#39;, prevProps)
-  }
-}
-
-App.defaultProps = { val: 0 }
-
-export default App
-&lt;/code&gt;&lt;/pre&gt;
-
-&lt;h1 id=&#34;dynamically-generated-components&#34;&gt;Dynamically generated components&lt;/h1&gt;
-
-&lt;pre&gt;&lt;code&gt;import React from &#39;react&#39;;
-
-class App extends React.Component {
-  constructor() {
-    super();
-    this.state = {items: []}
-  }
-
-  componentWillMount() {
-    fetch( &#39;http://swapi.co/api/people/?format=json&#39;)
-      .then( response =&amp;gt; response.json() )
-      .then( ({result: items}) =&amp;gt; this.setState({items}) )
-  }
-
-  filter(e) {
-    //takes event of an input
-    this.setState({filter: e.target.value})
-  }
-
-  render() {
-    let items = this.state.items;
-    if(this.state.filter) {
-      items = items.filter( item =&amp;gt;
-        item.name.toLowerCase()
-        .includes(this.state.filter.toLowerCase()))
-    }
-
-    //&amp;quot;key&amp;quot; is amongst siblings. therefore the &amp;quot;key&amp;quot; tag is placed here.
-    //In the context of the Person h4 component it has no siblings.
-    return (
-      &amp;lt;div&amp;gt;
-        &amp;lt;input type=&amp;quot;text&amp;quot; onChange={this.filter.bind(this)} /&amp;gt;
-        {items.map(item =&amp;gt;
-          &amp;lt;Person key={item.name} person={item} /&amp;gt;)}
-      &amp;lt;/div&amp;gt;
-      )
-  }
-}
-
-const Person = (props) =&amp;gt; &amp;lt;h4&amp;gt; {props.person.name} &amp;lt;/h4&amp;gt;
-&lt;/code&gt;&lt;/pre&gt;
-
-&lt;h1 id=&#34;higher-order-components&#34;&gt;Higher order components&lt;/h1&gt;
-
-&lt;p&gt;Purpose of higher component is to share functionality or information between multiple components.&lt;/p&gt;
-
-&lt;p&gt;Sole function is to take in a component and return a component.&lt;/p&gt;
-
-&lt;pre&gt;&lt;code&gt;const HOC = (InnerComponent) =&amp;gt; class extends React.Component {
-  constructor() {
-    super();
-    this.state = {count: 0}
-  }
-
-  update() {
-    this.setState({count: this.state.count + 1})
-  }
-
-  componentWillMount() {
-    console.log(&#39;HOC will mount&#39;)
-  }
-
-
-  render() {
-
-    // &amp;quot;...&amp;quot; spread this.props into this component
-    // pass the props right on through
-
-    //here we are passing props, state and update function to the component
-    return(
-      &amp;lt;InnerComponent
-        {...this.props}
-        {...this.state}
-        update={this.update.bind(this)}
-      /&amp;gt;
-      )
-  }
-}
-
-//displays props and state passed to it.
-//uses function passed to it for onClick event
-const Button = HOC((props) =&amp;gt; &amp;lt;button onClick={props.update}&amp;gt;{props.children} , {props.count}&amp;lt;/button&amp;gt;)
-
-class Label extends React.Component {
-  componentWillMount() {
-    console.log(&#39;Label will mount&#39;)
-  }
-
-  render() {
-    return (
-      &amp;lt;label onMouseMove={this.props.update}&amp;gt;
-        {this.props.children} , {this.props.count}
-      &amp;lt;/label&amp;gt;
-      )
-  }
-}
-
-const LabelHOC = HOC(Label)
-&lt;/code&gt;&lt;/pre&gt;
-
-&lt;h1 id=&#34;jsx-deep-dive&#34;&gt;JSX Deep dive&lt;/h1&gt;
-
-&lt;p&gt;JSX deep dive with babel &lt;em&gt;transpiler&lt;/em&gt; to es2015.&lt;/p&gt;
-
-&lt;p&gt;Does not work because you are returning 2 functions.&lt;/p&gt;
-
-&lt;pre&gt;&lt;code&gt;const App = (prop) =&amp;gt; {
-  return (
-    &amp;lt;App /&amp;gt;
-    &amp;lt;App /&amp;gt;
-    )
-}
-
-// with a single &amp;lt;App /&amp;gt; equivalent to
-var App = function App(props) {
-  return React.createElement(App, null);
-}
-&lt;/code&gt;&lt;/pre&gt;
-
-&lt;p&gt;Wrap in a div tag.&lt;/p&gt;
-
-&lt;pre&gt;&lt;code&gt;
-&amp;lt;div&amp;gt;
-  &amp;lt;App /&amp;gt;
-  &amp;lt;App /&amp;gt;
-&amp;lt;/div&amp;gt;
-
-var App = function App(props) {
-  return React.createElement(
-    &amp;quot;div&amp;quot;,
-    null,
-    React.createElement(App, null),
-    React.createElement(App, null)
-    )
-}
-&lt;/code&gt;&lt;/pre&gt;
-
-&lt;p&gt;With props and stuff.&lt;/p&gt;
-
-&lt;pre&gt;&lt;code&gt;var coolStyles = {
-  backgroundColor: &#39;purple&#39;,
-  color: &#39;white&#39;
-}
-
-&amp;lt;div style={coolStyles}&amp;gt;
-  &amp;lt;a href=&amp;quot;#&amp;quot;
-    notrendered=&amp;quot;x&amp;quot; // include hyphen or use data-something convention for component to be rendered
-    onClick={update} //interpolation requires curly braces
-  &amp;lt;/a&amp;gt;
-&amp;lt;/div&amp;gt;
-
-React.createElement(
-  &amp;quot;div&amp;quot;,
-  { style: coolStyles },
-  React.createElement(
-    &amp;quot;a&amp;quot;,
-    { href: &amp;quot;#&amp;quot;,
-    notrendered: &amp;quot;x&amp;quot;,
-    onClick: update
-    })
-  );
-
-&lt;/code&gt;&lt;/pre&gt;
-
-&lt;h1 id=&#34;children-utilities&#34;&gt;Children utilities&lt;/h1&gt;
-
-&lt;p&gt;Might want iterate through children&lt;/p&gt;
-
-&lt;pre&gt;&lt;code&gt;class App extends React.Component {
-  render() {
-    return (
-      &amp;lt;Parent&amp;gt;
-        &amp;lt;div className=&amp;quot;childA&amp;quot;&amp;gt;&amp;lt;/div&amp;gt;
-        &amp;lt;div className=&amp;quot;childB&amp;quot;&amp;gt;&amp;lt;/div&amp;gt;
-      &amp;lt;/Parent&amp;gt;
-      )
-  }
-}
-
-class Parent extends React.Component {
-  render() {
-    //line below fails as this.props.childen is just a single object.
-    //let items = this.props.children.map(child =&amp;gt; child)
-    let items = React.Children
-      .map(this.props.childen, child =&amp;gt; child)
-    let items = React.Children
-      .forEach(this.props.childen, child =&amp;gt; console.log(child.props.className))
-
-    //let items = React.Children.toArray(this.props.children)
-
-    //throws error because expecting only 1 child.
-    //let items = React.Children.only(this.props.childen)
-
-    console.log(items)
-    return null
-  }
-}
-&lt;/code&gt;&lt;/pre&gt;
-
-&lt;h1 id=&#34;extend-functionality-of-children&#34;&gt;Extend functionality of children&lt;/h1&gt;
-
-&lt;p&gt;&lt;code&gt;this.props.children&lt;/code&gt; is just a descriptor of the children. You can&amp;rsquo;t actually modify anything.
-So to modify you need to create new elements.&lt;/p&gt;
-
-&lt;pre&gt;&lt;code&gt;class Button extends React.Component {
-  constructor() {
-    super();
-    this.state = {selected: &#39;None&#39;}
-  }
-
-  selectItem(selected) {
-    this.setState({selected})
-  }
-
-  render() {
-    let fn = child =&amp;gt;
-      React.cloneElement(child, {
-          onClick: this.selectItem.bind(this, child.props.value)
-        })
-
-    let items = React.Children.map(this.props.children, fn);
-    return (
-      &amp;lt;div&amp;gt;
-        &amp;lt;h2&amp;gt; You have Selected: {this.state.selected} &amp;lt;/h2&amp;gt;
-        {items}
-      &amp;lt;/div&amp;gt;
-      )
-  }
-}
-&lt;/code&gt;&lt;/pre&gt;
-
-&lt;h1 id=&#34;reusable-and-composable-components&#34;&gt;Reusable and Composable components&lt;/h1&gt;
-
-&lt;p&gt;A key tenant of react.&lt;/p&gt;
-
-&lt;p&gt;Old slider component using refs. Not really reusable.&lt;/p&gt;
-
-&lt;pre&gt;&lt;code&gt;class App extends React.Component {
-  constructor() {
-    super();
-    this.state =  {
-      red: 0,
-      green: 0,
-      blue: 0
-    }
-    this.update = this.update.bind(this)
-  }
-  update(e) {
-    this.setState({
-      red: ReactDOM.findDomeNode(this.refs.red.refs.inp).value,
-      green: ReactDOM.findDomeNode(this.refs.green.refs.inp).value,
-      blue: ReactDOM.findDomeNode(this.refs.blue.refs.inp).value
-      })
-  }
-
-  render() {
-    return (
-      &amp;lt;div&amp;gt;
-        &amp;lt;Slider ref=&amp;quot;red&amp;quot; update={this.update} /&amp;gt;
-        {this.state.red}
-        &amp;lt;Slider ref=&amp;quot;green&amp;quot; update={this.update} /&amp;gt;
-        {this.state.green}
-        &amp;lt;Slider ref=&amp;quot;blue&amp;quot; update={this.update} /&amp;gt;
-        {this.state.blue}                
-      )
-  }
-}
-
-class Slider extends React.Component {
-  render() {
-    return (
-      &amp;lt;div&amp;gt;
-      &amp;lt;input ref=&amp;quot;inp&amp;quot; type=&amp;quot;range&amp;quot;
-        min=&amp;quot;0&amp;quot;
-        max=&amp;quot;255&amp;quot;
-        onChange={this.props.update} /&amp;gt;
-      &amp;lt;/div&amp;gt;
-      )
-  }
-}
-&lt;/code&gt;&lt;/pre&gt;
-
-&lt;p&gt;Now we try to create a more reusable component taking advantage of the similar apis between number input and range input.&lt;/p&gt;
-
-&lt;pre&gt;&lt;code&gt;class App extends React.Component {
-  constructor() {
-    super();
-    this.state =  {
-      red: 0,
-      green: 0,
-      blue: 0
-    }
-    this.update = this.update.bind(this)
-  }
-  update(e) {
-    this.setState({
-      red: ReactDOM.findDomeNode(this.refs.red.refs.inp).value,
-      })
-  }
-
-  render() {
-    return (
-      &amp;lt;div&amp;gt;
-        &amp;lt;NumInput
-          ref=&amp;quot;red&amp;quot;
-          type=&amp;quot;range&amp;quot;
-          min={0}
-          max={this.props.max}
-          step={1}
-          val={+this.state.red}
-          label=&amp;quot;Red&amp;quot;
-          update={this.update} /&amp;gt;     
-      )
-  }
-}
-
-class NumInput extends React.Component {
-  render() {
-    let label = this.props.label !== &#39;&#39; ?
-      &amp;lt;label&amp;gt;{this.props.label}, {this.props.val}&amp;lt;/label&amp;gt;
-    return (
-      &amp;lt;div&amp;gt;
-      &amp;lt;input ref=&amp;quot;inp&amp;quot;
-        type={this.props.type}
-        min={this.props.min}
-        max={this.props.max}
-        step={this.props.step}
-        defaultValue={this.props.val}
-        onChange={this.props.update} /&amp;gt;
-        {label}
-      &amp;lt;/div&amp;gt;
-      )
-  }
-}
-
-// Declare types (feels like input validation)
-NumInput.propTypes = {
-  min: React.PropTypes.number,
-  max: React.PropTypes.number,
-  step: React.PropTypes.number,
-  val: React.PropTypes.number,
-  label: React.PropTypes.string,
-  update: React.PropTypes.func.isRequired, //update method type of func. is required.
-  type: React.PropTypes.oneOf([&#39;number&#39;, &#39;range&#39;]) // type array and only accepts number or range.
-}
-
-NumInput.defaultProps = {
-  min: 0,
-  max: 0,
-  step: 1,
-  val: 0,
-  label: &#39;&#39;,
-  type: &#39;range&#39;
-}
-&lt;/code&gt;&lt;/pre&gt;
-</description>
+      <guid>https://robin-lee.github.io/blog/react-basics/</guid>
+      <description>Edit 14/6/17: Fix formatting.
+ReactJS to learn React Native. Essentially, trying to follow the learning path here: link
+Obviously, certain parts will be prioritised.
+Skeleton App.js
+import React from &#39;react&#39;; // Component with Stateless class App extends React.Component { render() { return &amp;lt;h1&amp;gt;Hello Guys&amp;lt;/h1&amp;gt; } } // Stateless component // const App = () =&amp;gt; &amp;lt;h1&amp;gt;Hello Eggheads&amp;lt;/h1&amp;gt; export default App;  index.html
+&amp;lt;!DOCTYPE html&amp;gt; &amp;lt;html lang=&amp;quot;en&amp;quot;&amp;gt; &amp;lt;head&amp;gt; &amp;lt;meta charset=&amp;quot;UTF-8&amp;quot;&amp;gt; &amp;lt;title&amp;gt;Intro&amp;lt;/title&amp;gt; &amp;lt;/head&amp;gt; &amp;lt;body&amp;gt; &amp;lt;div id=&amp;quot;app&amp;quot;&amp;gt;&amp;lt;/div&amp;gt; &amp;lt;script src=&amp;quot;index.</description>
     </item>
     
     <item>
       <title>Demystifying Tests</title>
-      <link>https://robin-lee.github.io/blog/2017/03/demystifying-tests/</link>
+      <link>https://robin-lee.github.io/blog/demystifying-tests/</link>
       <pubDate>Wed, 29 Mar 2017 18:55:10 +0800</pubDate>
       
-      <guid>https://robin-lee.github.io/blog/2017/03/demystifying-tests/</guid>
-      <description>
-
-&lt;p&gt;My rough notes on talk &amp;amp; workshop conducted by Christopher Rex. Code most by Sahil.
-QA ThoughtWorks 7 years.&lt;/p&gt;
-
-&lt;p&gt;Met Narain*, consultant for banks. He said the design and implementation of software is most important followed by knowledge of languages.&lt;/p&gt;
-
-&lt;p&gt;Met Raju*, ThoughtWorks. General conversation about school and ThoughtWorks. They have about 80 people here. &amp;lt; 20% operations.&lt;/p&gt;
-
-&lt;p&gt;Met Ika*, ThoughtWorks testing. Brought me to office.&lt;/p&gt;
-
-&lt;p&gt;&lt;a href=&#34;http://github.com/christopher-rex/sample-test-pyramid&#34;&gt;github&lt;/a&gt;&lt;/p&gt;
-
-&lt;p&gt;Office 97
-Browser &amp;lt;-&amp;gt; &lt;strong&gt;Monolithic App&lt;/strong&gt; &amp;lt;-&amp;gt; Db&lt;/p&gt;
-
-&lt;p&gt;API Gateway -&amp;gt; Still can get away with testing UI&lt;/p&gt;
-
-&lt;h1 id=&#34;problem-function-testing&#34;&gt;Problem Function Testing&lt;/h1&gt;
-
-&lt;p&gt;Alexa. Voice enabled device.&lt;/p&gt;
-
-&lt;p&gt;Apps put into Alex domain. How to test?&lt;/p&gt;
-
-&lt;p&gt;Basically, you can&amp;rsquo;t stick to one layer to test it. Just speaking to it doesn&amp;rsquo;t work.
-Too many variables/inconsistencies.&lt;/p&gt;
-
-&lt;p&gt;Goal: come up with &lt;strong&gt;sensible test&lt;/strong&gt; approach for IoT devices.&lt;/p&gt;
-
-&lt;h1 id=&#34;evolution-of-automated-testing&#34;&gt;Evolution of Automated testing&lt;/h1&gt;
-
-&lt;ol&gt;
-&lt;li&gt;Manual testing&lt;/li&gt;
-&lt;li&gt;Automated testing&lt;/li&gt;
-&lt;li&gt;Continuous integration server: Build, test, result (feedback), deploy (maybes)&lt;/li&gt;
-&lt;/ol&gt;
-
-&lt;h1 id=&#34;problem-automation&#34;&gt;Problem Automation&lt;/h1&gt;
-
-&lt;p&gt;&lt;strong&gt;Always Red, Painfully slow build&lt;/strong&gt;&lt;/p&gt;
-
-&lt;p&gt;Rohit: Many problems&amp;hellip; Sometimes have to wait for GUI. System upgrade then build fails.&lt;/p&gt;
-
-&lt;p&gt;Developer has to wait for the feedback for the build. He can&amp;rsquo;t go away&amp;hellip;
-He would have already moved on to the new build.&lt;/p&gt;
-
-&lt;p&gt;We would like to have a more &lt;strong&gt;efficient automation suite&lt;/strong&gt;.&lt;/p&gt;
-
-&lt;h1 id=&#34;common-approach&#34;&gt;Common approach&lt;/h1&gt;
-
-&lt;p&gt;Using test pyramid. Using multiple layers. Go about testing in logic in each layer.&lt;/p&gt;
-
-&lt;p&gt;Stub testing is one layer in the test pyramid.&lt;/p&gt;
-
-&lt;p&gt;If I have a list of requirements how do I map them to tests in each layer?
-Christopher and Saye* came up with a github project with 4 layers of testing.&lt;/p&gt;
-
-&lt;p&gt;Goals today:&lt;/p&gt;
-
-&lt;ol&gt;
-&lt;li&gt;Building deeper understanding of AUT (layered approach to testing)&lt;/li&gt;
-&lt;li&gt;Testing for right logic in right layer (sensible functional testing, efficient automation testing)&lt;/li&gt;
-&lt;/ol&gt;
-
-&lt;h1 id=&#34;project&#34;&gt;Project&lt;/h1&gt;
-
-&lt;p&gt;Simple application. sample-test-pyramid.
-Login, coupon page.&lt;/p&gt;
-
-&lt;h2 id=&#34;tests&#34;&gt;Tests&lt;/h2&gt;
-
-&lt;h3 id=&#34;login-functionality&#34;&gt;Login Functionality&lt;/h3&gt;
-
-&lt;p&gt;Think of acceptance criterions. Expected functionality that is required to be built.&lt;/p&gt;
-
-&lt;ol&gt;
-&lt;li&gt;Should be able to login if account is verified.
-&amp;hellip;&lt;/li&gt;
-&lt;/ol&gt;
-
-&lt;p&gt;In extended case, super user going to the right page is a valid test scenario.&lt;/p&gt;
-
-&lt;p&gt;&lt;strong&gt;How to test?&lt;/strong&gt;*
-You need data first (mock). After a long time, you get a lot of scenarios.
-To manage this you need to come up with a good testing approach.&lt;/p&gt;
-
-&lt;p&gt;Testing approach
-1. How can we approach testing this user-auth feature?
-2. Do we have enough information to to define&amp;hellip;&lt;/p&gt;
-
-&lt;p&gt;First, thing to know&amp;hellip; You need to know application architecture.&lt;/p&gt;
-
-&lt;p&gt;In this case, we have
-User interaction layer, Service layer&lt;/p&gt;
-
-&lt;p&gt;(End to end layer)&lt;/p&gt;
-
-&lt;p&gt;User interaction layer:
-- Web application
-API wire-up logic
-Presentation logic&lt;/p&gt;
-
-&lt;p&gt;Service Layer:
-- User Service
-- Coupon Service
- Domain Logic&lt;/p&gt;
-
-&lt;p&gt;&lt;code&gt;process? lsof -i:4567&lt;/code&gt;
-Check if jetty is still running on port 4567?&lt;/p&gt;
-
-&lt;p&gt;&lt;code&gt;./up&lt;/code&gt; convenience script to bring up server. For java it uses gradle. For js it uses node.&lt;/p&gt;
-
-&lt;p&gt;Using postman without going through UI tests run much faster. You modularize your tests. Only when there is a change in the layer then you perform the tests for that layer or service. Don&amp;rsquo;t need to repeat tests unless you make a change. Advantage of making a test in seclusion.&lt;/p&gt;
-
-&lt;p&gt;Test UI layer without Service layer? Stub the response (for both stubbed user service and stubbed coupon service).&lt;/p&gt;
-
-&lt;p&gt;Tool used Stubby4j. Define YAML config. Says what to respond for a request (Seems like you need to record it).&lt;/p&gt;
-
-&lt;p&gt;There could be validation in presentation layer (hence, presentation logic).&lt;/p&gt;
-
-&lt;p&gt;Thick client, then there may not be a lot of communication going to the backend.&lt;/p&gt;
-
-&lt;p&gt;Do you want to be held up if the service layer is in the process of upgrading and not working?
-No. Stubs overcome this. You can continue developing and testing. The developers already know the &lt;em&gt;contract&lt;/em&gt; the backend team is supposed to fulfill. Gives team autonomy to build their layer.&lt;/p&gt;
-
-&lt;p&gt;Choices:
-- E2E
-- Stubbed (Comprehensive layer that includes UI logic. Anything that doesn&amp;rsquo;t hit the server.)
-- Service&lt;/p&gt;
-
-&lt;p&gt;One convention we can use is the one used in &lt;code&gt;cucumber&lt;/code&gt;.&lt;/p&gt;
-
-&lt;p&gt;The flow: Login -&amp;gt; Coupon page.
-Without stub you would not be able to go from login to coupon page.&lt;/p&gt;
-
-&lt;p&gt;Reason for &amp;ldquo;Verify Successful Login&amp;rdquo; as E2E because you need to communicate with server and you also need to show unauthorized on the UI.&lt;/p&gt;
-
-&lt;p&gt;&amp;hellip;&lt;/p&gt;
-
-&lt;h1 id=&#34;applying-layered-testing-approach&#34;&gt;Applying Layered Testing Approach&lt;/h1&gt;
-
-&lt;p&gt;Don&amp;rsquo;t need to test Alex Service, Kitchen Light (Philips Hue) because they are well tested by their teams.&lt;/p&gt;
-
-&lt;p&gt;We just need to test the boundary. Then we need 1 more E2E to make sure our software works well in real life.
-With proper understanding of architecture of application you can simplify your tests. You need a deeper understanding of the application.&lt;/p&gt;
-
-&lt;p&gt;&amp;lt;&amp;lt; Ends functional testing portion &amp;gt;&amp;gt;&lt;/p&gt;
-
-&lt;p&gt;Now we move into automation. Before, going there&amp;hellip;
-Zooming into user service there is a unit layer. (Router &amp;gt; Handlers (Ping, Login) &amp;gt; Repository).
-Unit tests uses mocks (e.g. mockRepository).&lt;/p&gt;
-
-&lt;p&gt;SparkServer?&lt;/p&gt;
-
-&lt;p&gt;Within integration tests, SparkServer is constructed as a functional component not the actual Db.&lt;/p&gt;
-
-&lt;p&gt;User journey better expressed in BDD so we use &lt;code&gt;cucumber&lt;/code&gt;. Can run tests for each layer because they are tagged (e2e, stub).&lt;/p&gt;
-
-&lt;h1 id=&#34;test-automation-layered&#34;&gt;Test Automation - Layered&lt;/h1&gt;
-
-&lt;p&gt;&lt;image&gt;&lt;/p&gt;
-
-&lt;p&gt;&lt;chart&gt;
-Stubbed Webapp Tests most number of tests. Shows you it is a thick client. Lots of tests on UI layer.&lt;/p&gt;
-
-&lt;h1 id=&#34;ci-build-monitor&#34;&gt;CI Build Monitor&lt;/h1&gt;
-
-&lt;p&gt;Unit tests failing. But rest green? Error has not propagated up.&lt;/p&gt;
-
-&lt;p&gt;Integration test failing. Rest green. Business logic in service layer is failing. Could be due to lift and shift of logic passing unit tests but haven&amp;rsquo;t actually updated unit tests. However, QA for integration layer could have updated it already.&lt;/p&gt;
-
-&lt;p&gt;E2E or stubbed test is failing. E.g. route has changed or response schema has changed. Schema upgrade. UI logic or presentation logic has gone for a test.&lt;/p&gt;
-
-&lt;p&gt;Just by looking at CI you know what the problem is at each time.&lt;/p&gt;
-
-&lt;h1 id=&#34;interesting-scenario-for-coupon&#34;&gt;Interesting scenario for coupon&lt;/h1&gt;
-
-&lt;p&gt;Verify coupon page is not accessible without login. (go to url directly)&lt;/p&gt;
-
-&lt;p&gt;Also, think about concurrent coupon validation.&lt;/p&gt;
-
-&lt;h1 id=&#34;qna&#34;&gt;QnA&lt;/h1&gt;
-
-&lt;p&gt;(Q&amp;rsquo;s from narain)&lt;/p&gt;
-
-&lt;p&gt;Q: More expensive to have acceptance at UI level, cheaper at the unit level. If I have a thick client application, in terms of automation, and you&amp;rsquo;re refactoring the entire thing to get the right density of tests for each layer.&lt;/p&gt;
-
-&lt;p&gt;A: There might be tool to migrate tests to another layer. We use JUnit, unit and integration. Cucumber can also do unit and integration. If business level ppl then cucumber makes sense.&lt;/p&gt;
-
-&lt;p&gt;RephraseQ: Any other automation frameworks (mental frameworks)? What approach should you take?&lt;/p&gt;
-
-&lt;p&gt;A: It depends on how long lasting the code base will be. New? Many years in operation? If delivery is going to be real soon how much sense does it make to migrate the tests to lower layers&amp;hellip; Maybe not much. If longer roadmap, probably good to invest in the automation framework.&lt;/p&gt;
-
-&lt;p&gt;Q: Application is more UI based but developers are not. This framework is unit up&amp;hellip;&lt;/p&gt;
-
-&lt;p&gt;A: Built a suite, a framework, of 3000 tests. These tests were all on the UI layer. It was a big deal. When app grew it became expensive to manage. Industry has grown&amp;hellip; determined its not wise to have too many tests in the UI layer. (Raju)&lt;/p&gt;
-
-&lt;p&gt;A: Root cause analysis for defects. Then categorized which defects can be defended in which layer. Then risk analysis to determine which defects to write tests for.&lt;/p&gt;
-
-&lt;p&gt;Q: Who should be writing these unit tests and integration? Large organizations don&amp;rsquo;t have agile. Whats the costs benefit analysis?&lt;/p&gt;
-
-&lt;p&gt;A: Yes its difficult to justify the cost of changing everything. Start building the right way. Old apps refactor to use the new way as you touch them. Progressive change. Present cost benefit to organization then let them decide.&lt;/p&gt;
-
-&lt;p&gt;A: Treat unit tests as black box. Focus more on integration test. If integration test failure then he goes to unit test to see if its covered in unit tests. Ask himself why not covered. Write it himself or ask a dev to do it.&lt;/p&gt;
-
-&lt;p&gt;(Interesting graphic: Ice-cream cone anti-pattern. watirmelon.blog)
-Christopher: Beware of recording too many request, responses. Try to prevent the anti-pattern from happening.&lt;/p&gt;
-
-&lt;p&gt;(Mention of slow tool. QTP. Falls into an anti-pattern. Write more tests to the extent that you dont know the architecture of your application. RFT. Migration tools to migrate QTP to RFT. All failing because they are building this ice-cream cone.)&lt;/p&gt;
-
-&lt;p&gt;Q (me): How would you test streaming data like stock information, audio or video?&lt;/p&gt;
-
-&lt;p&gt;A: Good question. Haven&amp;rsquo;t had experience there but theoretically you still can stub it.
-A (Ika): In my experience you can stub it.&lt;/p&gt;
-
-&lt;p&gt;A (Christopher): Has had a pre-prod scenario to test a few E2E scenarios.&lt;/p&gt;
-</description>
+      <guid>https://robin-lee.github.io/blog/demystifying-tests/</guid>
+      <description>My rough notes on talk &amp;amp; workshop conducted by Christopher Rex. Code most by Sahil. QA ThoughtWorks 7 years.
+Met Narain*, consultant for banks. He said the design and implementation of software is most important followed by knowledge of languages.
+Met Raju*, ThoughtWorks. General conversation about school and ThoughtWorks. They have about 80 people here. &amp;lt; 20% operations.
+Met Ika*, ThoughtWorks testing. Brought me to office.
+github
+Office 97 Browser &amp;lt;-&amp;gt; Monolithic App &amp;lt;-&amp;gt; Db</description>
     </item>
     
     <item>
       <title>Using ffmpeg to join videos</title>
-      <link>https://robin-lee.github.io/blog/2017/02/using-ffmpeg-to-join-videos/</link>
+      <link>https://robin-lee.github.io/blog/ffmpeg-joining-videos/</link>
       <pubDate>Tue, 14 Feb 2017 22:59:25 +0800</pubDate>
       
-      <guid>https://robin-lee.github.io/blog/2017/02/using-ffmpeg-to-join-videos/</guid>
-      <description>
-
-&lt;p&gt;For a project, I had to join videos. Is there a tool that can help me? Yes.
-ffmpeg.&lt;/p&gt;
-
-&lt;h2 id=&#34;how-to-join-videos-with-ffmpeg&#34;&gt;How to join videos with ffmpeg?&lt;/h2&gt;
-
-&lt;p&gt;ffmpeg has a concat command you can use. There are 2 modes demux and concat.
-&lt;code&gt;demux&lt;/code&gt; is newer and &lt;em&gt;better&lt;/em&gt; while &lt;code&gt;concat&lt;/code&gt; is older and is support in older
-ffmpeg versions.&lt;/p&gt;
-
-&lt;p&gt;&lt;a href=&#34;https://trac.ffmpeg.org/wiki/Concatenate&#34;&gt;ffmpeg concatenate&lt;/a&gt;&lt;/p&gt;
-
-&lt;h3 id=&#34;for-joining-same-codec-and-similar-dimensions&#34;&gt;For joining same codec and similar dimensions&lt;/h3&gt;
-
-&lt;p&gt;Step 1: Create list of videos you want to join in a txt file.&lt;/p&gt;
-
-&lt;pre&gt;&lt;code&gt;file &#39;meow.mp4&#39;
-file &#39;woof.mp4&#39;
-file &#39;pewpew.mp4&#39;
-&lt;/code&gt;&lt;/pre&gt;
-
-&lt;p&gt;Step 2: Execute the following command&lt;/p&gt;
-
-&lt;pre&gt;&lt;code&gt;ffmpeg -f concat -safe 0 -i vidlist.txt -c copy output.mp4
-&lt;/code&gt;&lt;/pre&gt;
-
-&lt;p&gt;Step 3: Enjoy the longer video.&lt;/p&gt;
-
-&lt;h2 id=&#34;further-exploration&#34;&gt;Further exploration&lt;/h2&gt;
-
-&lt;p&gt;[](&lt;a href=&#34;http://stackoverflow.com/questions/18141055/ffmpeg-commands-to-concatenate-different-type-and-resolution-videos-into-1-video&#34;&gt;http://stackoverflow.com/questions/18141055/ffmpeg-commands-to-concatenate-different-type-and-resolution-videos-into-1-video&lt;/a&gt;)&lt;/p&gt;
-
-&lt;p&gt;[](&lt;a href=&#34;http://stackoverflow.com/questions/13754802/how-to-use-ffmpeg-to-concatenate-two-videos-of-different-aspect-ratios&#34;&gt;http://stackoverflow.com/questions/13754802/how-to-use-ffmpeg-to-concatenate-two-videos-of-different-aspect-ratios&lt;/a&gt;)&lt;/p&gt;
-</description>
+      <guid>https://robin-lee.github.io/blog/ffmpeg-joining-videos/</guid>
+      <description>For a project, I had to join videos. Is there a tool that can help me? Yes. ffmpeg.
+How to join videos with ffmpeg? ffmpeg has a concat command you can use. There are 2 modes demux and concat. demux is newer and better while concat is older and is support in older ffmpeg versions.
+ffmpeg concatenate
+For joining same codec and similar dimensions Step 1: Create list of videos you want to join in a txt file.</description>
     </item>
     
     <item>
       <title>Data mining capstone</title>
-      <link>https://robin-lee.github.io/blog/2017/02/data-mining-capstone/</link>
+      <link>https://robin-lee.github.io/blog/data-mining-capstone/</link>
       <pubDate>Fri, 10 Feb 2017 09:18:21 +0800</pubDate>
       
-      <guid>https://robin-lee.github.io/blog/2017/02/data-mining-capstone/</guid>
-      <description>
-
-&lt;p&gt;Snippets of the data mining class.&lt;/p&gt;
-
-&lt;h2 id=&#34;techniques&#34;&gt;Techniques&lt;/h2&gt;
-
-&lt;ul&gt;
-&lt;li&gt;Frequency itemset mining&lt;/li&gt;
-&lt;li&gt;Associated rules discovery&lt;/li&gt;
-&lt;li&gt;Cluster analysis&lt;/li&gt;
-&lt;li&gt;Outlier detection&lt;/li&gt;
-&lt;li&gt;Classifier building&lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;h2 id=&#34;association-rules-discovery&#34;&gt;Association Rules Discovery&lt;/h2&gt;
-
-&lt;p&gt;Example of association rule.&lt;/p&gt;
-
-&lt;p&gt;Supermarket. Purchase history of people.&lt;/p&gt;
-
-&lt;ul&gt;
-&lt;li&gt;large set of items. things sold.&lt;/li&gt;
-&lt;li&gt;large set of baskets. each basket is a subset of items.&lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;table&gt;
-&lt;thead&gt;
-&lt;tr&gt;
-&lt;th align=&#34;left&#34;&gt;id&lt;/th&gt;
-&lt;th align=&#34;left&#34;&gt;items&lt;/th&gt;
-&lt;/tr&gt;
-&lt;/thead&gt;
-
-&lt;tbody&gt;
-&lt;tr&gt;
-&lt;td align=&#34;left&#34;&gt;1&lt;/td&gt;
-&lt;td align=&#34;left&#34;&gt;Bread, Coke, Milk&lt;/td&gt;
-&lt;/tr&gt;
-
-&lt;tr&gt;
-&lt;td align=&#34;left&#34;&gt;2&lt;/td&gt;
-&lt;td align=&#34;left&#34;&gt;Beer, Bread&lt;/td&gt;
-&lt;/tr&gt;
-
-&lt;tr&gt;
-&lt;td align=&#34;left&#34;&gt;3&lt;/td&gt;
-&lt;td align=&#34;left&#34;&gt;Beer, Coke, Diaper, Milk&lt;/td&gt;
-&lt;/tr&gt;
-&lt;/tbody&gt;
-&lt;/table&gt;
-
-&lt;p&gt;Association rules. People bought {x,y,z} tend to buy {v,w} with very high probability.&lt;/p&gt;
-
-&lt;p&gt;Essentially, recommendation system from Machine Learning.&lt;/p&gt;
-
-&lt;h2 id=&#34;rule-measures-support-and-confidence&#34;&gt;Rule Measures: Support and Confidence&lt;/h2&gt;
-
-&lt;ul&gt;
-&lt;li&gt;Support, s, probability that a transaction contains { X &amp;amp; Y &amp;amp; Z}.&lt;/li&gt;
-&lt;li&gt;Confidence, c, conditional probability that a transaction having {X &amp;amp; Y} also contains Z.&lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;p&gt;Low support means low number of transactions have {X &amp;amp; Y &amp;amp; Z}.&lt;/p&gt;
-
-&lt;p&gt;Good rule has high support and high confidence.&lt;/p&gt;
-
-&lt;h2 id=&#34;interesting-association-rules&#34;&gt;Interesting Association rules&lt;/h2&gt;
-
-&lt;ul&gt;
-&lt;li&gt;Not all high confidence rules are interesting.
-
-&lt;ul&gt;
-&lt;li&gt;The rules X -&amp;gt; Milk may have high confidence for many itemsets X, because milk is just purchased very often and the confidence is very high.&lt;/li&gt;
-&lt;/ul&gt;&lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;h1 id=&#34;good-clustering&#34;&gt;Good clustering&lt;/h1&gt;
-
-&lt;ul&gt;
-&lt;li&gt;High intra class similarity&lt;/li&gt;
-&lt;li&gt;Low inter-class similarity&lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;p&gt;Distance functions: Euclidean, Cosine, Jaccard, Edit distance.&lt;/p&gt;
-
-&lt;h1 id=&#34;clustering-algorithms&#34;&gt;Clustering algorithms&lt;/h1&gt;
-
-&lt;ul&gt;
-&lt;li&gt;Partitioning, Hierarchy algorithm, Density, Grid based&lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;h2 id=&#34;random-stuff&#34;&gt;Random stuff&lt;/h2&gt;
-
-&lt;p&gt;Roy goes bowling in vivo.&lt;/p&gt;
-
-&lt;p&gt;My very educated mother just served us nine pizzas.&lt;/p&gt;
-</description>
+      <guid>https://robin-lee.github.io/blog/data-mining-capstone/</guid>
+      <description>Snippets of the data mining class.
+Techniques  Frequency itemset mining Associated rules discovery Cluster analysis Outlier detection Classifier building  Association Rules Discovery Example of association rule.
+Supermarket. Purchase history of people.
+ large set of items. things sold. large set of baskets. each basket is a subset of items.     id items     1 Bread, Coke, Milk   2 Beer, Bread   3 Beer, Coke, Diaper, Milk    Association rules.</description>
     </item>
     
     <item>
       <title>4 Principles of Data Visualization</title>
-      <link>https://robin-lee.github.io/blog/2017/02/4-principles-of-data-visualization/</link>
+      <link>https://robin-lee.github.io/blog/data-viz-capstone/</link>
       <pubDate>Fri, 03 Feb 2017 10:57:07 +0800</pubDate>
       
-      <guid>https://robin-lee.github.io/blog/2017/02/4-principles-of-data-visualization/</guid>
-      <description>
-
-&lt;h2 id=&#34;1-above-all-else-show-the-data&#34;&gt;1. Above all else, show the data&lt;/h2&gt;
-
-&lt;p&gt;Minimize the administrative items on screen, maximize the information presented.&lt;/p&gt;
-
-&lt;h2 id=&#34;2-prioritize-the-information&#34;&gt;2. Prioritize the information&lt;/h2&gt;
-
-&lt;p&gt;Determine 3-5 most important information.
-Highlight them.&lt;/p&gt;
-
-&lt;h2 id=&#34;3-relate-the-information&#34;&gt;3. Relate the information&lt;/h2&gt;
-
-&lt;p&gt;Juxtapose, compose and reference the data so it is more meaningful.&lt;/p&gt;
-
-&lt;h2 id=&#34;4-leverage-the-interactivity&#34;&gt;4. Leverage the interactivity&lt;/h2&gt;
-
-&lt;p&gt;Overview, zoom, filter. You can reveal information gradually so it is not too clouded.&lt;/p&gt;
-
-&lt;h2 id=&#34;general&#34;&gt;General&lt;/h2&gt;
-
-&lt;ul&gt;
-&lt;li&gt;List, Categorise, Prioritise.&lt;/li&gt;
-&lt;li&gt;How could the core data be more useful by showing related data around it?&lt;/li&gt;
-&lt;li&gt;Do lots of &lt;strong&gt;sketching&lt;/strong&gt;. Have to see it to have a better idea how it can be revised.&lt;/li&gt;
-&lt;li&gt;In what way can interactivity be used?&lt;/li&gt;
-&lt;li&gt;Color-coding?&lt;/li&gt;
-&lt;li&gt;Inspiration: &lt;a href=&#34;http://www.webdesignerdepot.com/2009/06/50-great-examples-of-data-visualization/&#34;&gt;50 great examples&lt;/a&gt;&lt;/li&gt;
-&lt;/ul&gt;
-</description>
+      <guid>https://robin-lee.github.io/blog/data-viz-capstone/</guid>
+      <description>1. Above all else, show the data Minimize the administrative items on screen, maximize the information presented.
+2. Prioritize the information Determine 3-5 most important information. Highlight them.
+3. Relate the information Juxtapose, compose and reference the data so it is more meaningful.
+4. Leverage the interactivity Overview, zoom, filter. You can reveal information gradually so it is not too clouded.
+General  List, Categorise, Prioritise. How could the core data be more useful by showing related data around it?</description>
     </item>
     
     <item>
       <title>Gradle Init Java</title>
-      <link>https://robin-lee.github.io/blog/2017/01/gradle-init-java/</link>
+      <link>https://robin-lee.github.io/blog/gradle-init-java/</link>
       <pubDate>Sun, 29 Jan 2017 22:11:02 +0800</pubDate>
       
-      <guid>https://robin-lee.github.io/blog/2017/01/gradle-init-java/</guid>
-      <description>
-
-&lt;p&gt;Instead of starting a Java project using IntelliJ I experimented with the gradle
-init plugin. Recall: &lt;code&gt;gradle init --type java-library&lt;/code&gt;. Originally, the idea was
-to have an easy way to start a project for Java but frankly speaking using an IDE
-already makes it easy enough. Although&amp;hellip; I like being able to do &lt;code&gt;gradle run&lt;/code&gt; in
-terminal to execute my code.&lt;/p&gt;
-
-&lt;h2 id=&#34;generated-build-gradle&#34;&gt;Generated build.gradle&lt;/h2&gt;
-
-&lt;pre&gt;&lt;code&gt;apply plugin: &#39;java&#39;
-
-
-repositories {
-    // Use &#39;jcenter&#39; for resolving your dependencies.
-    // You can declare any Maven/Ivy/file repository here.
-    jcenter()
-}
-
-dependencies {
-    // The production code uses the SLF4J logging API at compile time
-    compile &#39;org.slf4j:slf4j-api:1.7.21&#39;
-
-    testCompile &#39;junit:junit:4.12&#39;
-}
-&lt;/code&gt;&lt;/pre&gt;
-
-&lt;p&gt;The above build.gradle doesn&amp;rsquo;t make it easy to work with the project in IntelliJ.
-We have to make some modifications.&lt;/p&gt;
-
-&lt;h2 id=&#34;modified-build-gradle&#34;&gt;Modified build.gradle&lt;/h2&gt;
-
-&lt;ol&gt;
-&lt;li&gt;Add IDEA plugin: Generate idea project files.&lt;/li&gt;
-&lt;li&gt;Add application plugin: Enable &lt;code&gt;gradle run&lt;/code&gt;.&lt;/li&gt;
-&lt;li&gt;Set the main class to be executed.&lt;/li&gt;
-&lt;/ol&gt;
-
-&lt;pre&gt;&lt;code&gt;apply plugin:&#39;application&#39;
-mainClassName = &amp;quot;Main&amp;quot;
-
-apply plugin: &#39;idea&#39;
-
-apply plugin: &#39;java&#39;
-
-repositories {
-    // Use &#39;jcenter&#39; for resolving your dependencies.
-    // You can declare any Maven/Ivy/file repository here.
-    jcenter()
-}
-
-dependencies {
-
-    compile gradleApi()
-
-    compile &#39;org.slf4j:slf4j-api:1.7.21&#39;
-
-    testCompile &#39;junit:junit:4.12&#39;
-}
-&lt;/code&gt;&lt;/pre&gt;
-
-&lt;h2 id=&#34;execution&#34;&gt;Execution&lt;/h2&gt;
-
-&lt;p&gt;After setting up, you can run &lt;code&gt;gradle build&lt;/code&gt; in terminal and open the project
-in IntelliJ (I am using the community edition). After making modifications you
-can execute the tests with &lt;code&gt;gradle test&lt;/code&gt; and execute the main program with
-&lt;code&gt;gradle run&lt;/code&gt;.&lt;/p&gt;
-</description>
+      <guid>https://robin-lee.github.io/blog/gradle-init-java/</guid>
+      <description>Instead of starting a Java project using IntelliJ I experimented with the gradle init plugin. Recall: gradle init --type java-library. Originally, the idea was to have an easy way to start a project for Java but frankly speaking using an IDE already makes it easy enough. Although&amp;hellip; I like being able to do gradle run in terminal to execute my code.
+Generated build.gradle apply plugin: &#39;java&#39; repositories { // Use &#39;jcenter&#39; for resolving your dependencies.</description>
     </item>
     
     <item>
@@ -1271,1755 +100,230 @@ can execute the tests with &lt;code&gt;gradle test&lt;/code&gt; and execute the 
       <pubDate>Mon, 23 Jan 2017 18:09:13 +0800</pubDate>
       
       <guid>https://robin-lee.github.io/portfolio/</guid>
-      <description>
-
-&lt;p&gt;A selection of work I have done.&lt;/p&gt;
-
-&lt;h1 id=&#34;for-companies&#34;&gt;For companies&lt;/h1&gt;
-
-&lt;hr /&gt;
-
-&lt;h2 id=&#34;lbasense-dashboard&#34;&gt;LBASense Dashboard&lt;/h2&gt;
-
-&lt;p&gt;DFRC AG&lt;/p&gt;
-
-&lt;p&gt;Programmed LBASense Dashboard according to UI mock-ups and published it on the Play Store.
-Adopted model-view-presenter within clean architecture and utilized Dagger 2, for DI, to enable testing.&lt;/p&gt;
-
-&lt;p&gt;Other libraries used, include geospatial libraries, CrashAnalytics (Fabric&amp;rsquo;s team was acquired by Google; Jan 2017), MPCharts and OSMDroid for mapping.&lt;/p&gt;
-
-&lt;p&gt;&lt;img src=&#34;https://robin-lee.github.io/images/lbasense2.jpg&#34; width=&#34;250&#34; alt=&#34;Screenshot 2&#34;&gt;
-&lt;img src=&#34;https://robin-lee.github.io/images/lbasense3.jpg&#34; width=&#34;250&#34; alt=&#34;Screenshot 3&#34;&gt;&lt;/p&gt;
-
-&lt;h2 id=&#34;lbsaas-smart-tour&#34;&gt;LBSaaS Smart Tour&lt;/h2&gt;
-
-&lt;p&gt;DFRC AG&lt;/p&gt;
-
-&lt;p&gt;Developed the Android application for the EUREKA Eurostars project LBSaaS (E!9010) which aims to better shopper and shop relationships using Augmented Reality(AR), gamification and virtual coupons.&lt;/p&gt;
-
-&lt;p&gt;&lt;img src=&#34;https://robin-lee.github.io/images/lbsaas2.jpg&#34; width=&#34;250&#34; alt=&#34;Screenshot 2&#34;&gt;
-&lt;img src=&#34;https://robin-lee.github.io/images/lbsaas3.jpg&#34; width=&#34;250&#34; alt=&#34;Screenshot 3&#34;&gt;&lt;/p&gt;
-
-&lt;h2 id=&#34;shop-owner-admin-app&#34;&gt;Shop Owner Admin App&lt;/h2&gt;
-
-&lt;p&gt;DFRC AG&lt;/p&gt;
-
-&lt;p&gt;Created the application for &lt;em&gt;shop owners&lt;/em&gt; to update the content for significant locations.&lt;/p&gt;
-
-&lt;p&gt;&lt;img src=&#34;https://robin-lee.github.io/images/shopowneradmin2.jpg&#34; width=&#34;250&#34; alt=&#34;Screenshot 2&#34;&gt;
-&lt;img src=&#34;https://robin-lee.github.io/images/shopowneradmin3.jpg&#34; width=&#34;250&#34; alt=&#34;Screenshot 3&#34;&gt;&lt;/p&gt;
-
-&lt;h2 id=&#34;dealparkinglot&#34;&gt;DealParkingLot&lt;/h2&gt;
-
-&lt;p&gt;BP Singapore&lt;/p&gt;
-
-&lt;p&gt;Developed a hybrid and cross-platform (iOS and Android) mobile application using IonicJS for traders to confirm deals.
-Collaborated with a diverse team (SG, India, UK and USA) to gather requirements and feedback. Also, modified Cordova plugins in Obj-C and Java for certificate pinning.&lt;/p&gt;
-
-&lt;p&gt;&lt;img src=&#34;https://robin-lee.github.io/images/bp1.jpg&#34; width=&#34;250&#34; alt=&#34;Screenshot 1&#34;&gt;
-&lt;img src=&#34;https://robin-lee.github.io/images/bp2.jpg&#34; width=&#34;250&#34; alt=&#34;Screenshot 2&#34;&gt;&lt;/p&gt;
-
-&lt;h3 id=&#34;additional-prototypes&#34;&gt;Additional prototypes&lt;/h3&gt;
-
-&lt;p&gt;BP Singapore&lt;/p&gt;
-
-&lt;ul&gt;
-&lt;li&gt;Unit converter: Quick and easy way to convert units for oil and other commodities.&lt;/li&gt;
-&lt;li&gt;Ships To Go: Enables operators to track ships on the move.&lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;h1 id=&#34;for-school&#34;&gt;For school&lt;/h1&gt;
-
-&lt;hr /&gt;
-
-&lt;h2 id=&#34;books-r-us&#34;&gt;Books R&amp;rsquo; Us&lt;/h2&gt;
-
-&lt;p&gt;The classic book store project that schools give you. Built using Flask.
-Initial project was started using flask cookie-cutter to adopt &lt;em&gt;better&lt;/em&gt; practices.
-It has some unit and integration tests which is important for long term project maintenance.&lt;/p&gt;
-
-&lt;p&gt;&lt;img src=&#34;https://robin-lee.github.io/images/booksrus.png&#34; alt=&#34;Screenshot 1&#34;&gt;&lt;/p&gt;
-
-&lt;h2 id=&#34;oh-no-its-zombies-oniz&#34;&gt;Oh No Its Zombies (ONIZ)&lt;/h2&gt;
-
-&lt;p&gt;A multiplayer Android game. Uses Google Game Services and LibGDX.&lt;/p&gt;
-
-&lt;p&gt;&lt;img src=&#34;https://robin-lee.github.io/images/oniz1.png&#34; width=&#34;250&#34; alt=&#34;Screenshot 1&#34;&gt;
-&lt;img src=&#34;https://robin-lee.github.io/images/oniz2.png&#34; width=&#34;250&#34; alt=&#34;Screenshot 2&#34;&gt;&lt;/p&gt;
-
-&lt;p&gt;&lt;img src=&#34;https://robin-lee.github.io/images/oniz3.png&#34; width=&#34;250&#34; alt=&#34;Screenshot 3&#34;&gt;
-&lt;img src=&#34;https://robin-lee.github.io/images/oniz4.png&#34; width=&#34;250&#34; alt=&#34;Screenshot 4&#34;&gt;&lt;/p&gt;
-</description>
+      <description>A selection of work I have done.
+For companies LBASense Dashboard DFRC AG
+Programmed LBASense Dashboard according to UI mock-ups and published it on the Play Store. Adopted model-view-presenter within clean architecture and utilized Dagger 2, for DI, to enable testing.
+Other libraries used, include geospatial libraries, CrashAnalytics (Fabric&amp;rsquo;s team was acquired by Google; Jan 2017), MPCharts and OSMDroid for mapping.
+LBSaaS Smart Tour DFRC AG
+Developed the Android application for the EUREKA Eurostars project LBSaaS (E!</description>
     </item>
     
     <item>
       <title>Working with git submodules</title>
-      <link>https://robin-lee.github.io/blog/2016/12/working-with-git-submodules/</link>
+      <link>https://robin-lee.github.io/blog/github-submodules/</link>
       <pubDate>Thu, 29 Dec 2016 12:25:26 +0800</pubDate>
       
-      <guid>https://robin-lee.github.io/blog/2016/12/working-with-git-submodules/</guid>
-      <description>
-
-&lt;p&gt;After I did a clean install of OSX on my laptop I had to clone my blog repository and setup submodules again.
-This serves as a quick reference should I need to manage submodules again.&lt;/p&gt;
-
-&lt;p&gt;&lt;a href=&#34;https://github.com/blog/2104-working-with-submodules&#34;&gt;GitHub: Working with submodules&lt;/a&gt;&lt;/p&gt;
-
-&lt;h1 id=&#34;removing&#34;&gt;Removing&lt;/h1&gt;
-
-&lt;pre&gt;&lt;code&gt;git submodule deinit &amp;lt;asubmodule&amp;gt;    
-git rm &amp;lt;asubmodule&amp;gt;
-# Note: asubmodule (no trailing slash)
-&lt;/code&gt;&lt;/pre&gt;
-
-&lt;pre&gt;&lt;code&gt;# or, if you want to leave it in your working tree
-git rm --cached &amp;lt;asubmodule&amp;gt;
-rm -rf .git/modules/&amp;lt;asubmodule&amp;gt;
-&lt;/code&gt;&lt;/pre&gt;
-
-&lt;p&gt;&lt;a href=&#34;http://stackoverflow.com/questions/29850029/what-is-the-current-way-to-remove-a-git-submodule&#34;&gt;Stackoverflow reference&lt;/a&gt;&lt;/p&gt;
-
-&lt;h1 id=&#34;adding&#34;&gt;Adding&lt;/h1&gt;
-
-&lt;pre&gt;&lt;code&gt;# add entire gh-page repo to public folder
-git submodule add -b master git@github.com:&amp;lt;username&amp;gt;/&amp;lt;username&amp;gt;.github.io.git public
-
-# adding a repo to a path
-git submodule add git@&amp;lt;github.com or bitbucket etc.&amp;gt;:&amp;lt;repo&amp;gt; &amp;lt;path like lib/billboard&amp;gt;
-&lt;/code&gt;&lt;/pre&gt;
-
-&lt;p&gt;&lt;a href=&#34;https://chrisjean.com/git-submodules-adding-using-removing-and-updating/&#34;&gt;link to chrisjean&lt;/a&gt;&lt;/p&gt;
-
-&lt;h1 id=&#34;updating&#34;&gt;Updating&lt;/h1&gt;
-
-&lt;pre&gt;&lt;code&gt;git submodule update --init --recursive
-
-# or when cloning for the first
-git clone --recursive &amp;lt;project url&amp;gt;
-&lt;/code&gt;&lt;/pre&gt;
-</description>
+      <guid>https://robin-lee.github.io/blog/github-submodules/</guid>
+      <description>After I did a clean install of OSX on my laptop I had to clone my blog repository and setup submodules again. This serves as a quick reference should I need to manage submodules again.
+GitHub: Working with submodules
+Removing git submodule deinit &amp;lt;asubmodule&amp;gt; git rm &amp;lt;asubmodule&amp;gt; # Note: asubmodule (no trailing slash)  # or, if you want to leave it in your working tree git rm --cached &amp;lt;asubmodule&amp;gt; rm -rf .</description>
     </item>
     
     <item>
       <title>Google DevFest 2016</title>
-      <link>https://robin-lee.github.io/blog/2016/11/google-devfest-2016/</link>
+      <link>https://robin-lee.github.io/blog/google-devfest-2016/</link>
       <pubDate>Sat, 05 Nov 2016 12:30:25 +0800</pubDate>
       
-      <guid>https://robin-lee.github.io/blog/2016/11/google-devfest-2016/</guid>
-      <description>
-
-&lt;h2 id=&#34;foreword&#34;&gt;Foreword&lt;/h2&gt;
-
-&lt;p&gt;These are my rough notes from Google DevFest 2016.&lt;/p&gt;
-
-&lt;h2 id=&#34;pre-devfest&#34;&gt;Pre-DevFest&lt;/h2&gt;
-
-&lt;p&gt;Met Gerard from gLabs and Kai from Grab.&lt;/p&gt;
-
-&lt;h3 id=&#34;mockable&#34;&gt;Mockable&lt;/h3&gt;
-
-&lt;p&gt;Test http responses. Stub. Dummy object.&lt;/p&gt;
-
-&lt;h1 id=&#34;welcome-and-gdg-sg-report&#34;&gt;Welcome and GDG-SG Report&lt;/h1&gt;
-
-&lt;p&gt;Mr.Bharathi manages GDG-SG.&lt;/p&gt;
-
-&lt;p&gt;Events:&lt;/p&gt;
-
-&lt;ul&gt;
-&lt;li&gt;I/O Extended: Recap I/O (Q3)&lt;/li&gt;
-&lt;li&gt;GCP Next (Q2, cloud)&lt;/li&gt;
-&lt;li&gt;Study Jams: Basic course on android. (Q1, Q4)&lt;/li&gt;
-&lt;li&gt;Women Techmakers&lt;/li&gt;
-&lt;li&gt;DevFest (Q4)&lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;h2 id=&#34;google-developers-last-6-months&#34;&gt;Google Developers (last 6 months)&lt;/h2&gt;
-
-&lt;ul&gt;
-&lt;li&gt;Firebase (database stuff transform to ecosystem)&lt;/li&gt;
-&lt;li&gt;Android7.0 (Dooze, multiwindow, Vulcan API for games)&lt;/li&gt;
-&lt;li&gt;GCP (Google Cloud Platform)&lt;/li&gt;
-&lt;li&gt;Machine Learning and other stuff&lt;/li&gt;
-&lt;li&gt;&amp;hellip;&lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;p&gt;Facebook page is more active &lt;a href=&#34;http://bit.ly/gdg.sg&#34;&gt;http://bit.ly/gdg.sg&lt;/a&gt;&lt;/p&gt;
-
-&lt;p&gt;Firebase Pitch. Firebase Dev Summit 7th Nov Berlin Germany. Livestream available.&lt;/p&gt;
-
-&lt;p&gt;Android Pay: SG, HK, AUS.&lt;/p&gt;
-
-&lt;p&gt;Associate Android Developer Certification. (Google?)&lt;/p&gt;
-
-&lt;p&gt;GCP 2017 Singapore, Sydney, Mumbai and Tokyo. Getting support.&lt;/p&gt;
-
-&lt;p&gt;Google cloud editor. StackDriver. Chrome Payment API.&lt;/p&gt;
-
-&lt;p&gt;Accelerated Mobile Pages (AMP). Goal: Same speed as native applications.&lt;/p&gt;
-
-&lt;p&gt;Progressive Web Apps (PWA): Some features like push notifications faster&lt;/p&gt;
-
-&lt;p&gt;TensorFlow 0.9: Run neural networks on device itself. iOS. Android&lt;/p&gt;
-
-&lt;p&gt;DayDream: VR Platform&lt;/p&gt;
-
-&lt;p&gt;Google Home: Like Alexa? But powered by Google Assistant.&lt;/p&gt;
-
-&lt;h2 id=&#34;making-a-difference-through-technopreneurship&#34;&gt;Making a difference through Technopreneurship&lt;/h2&gt;
-
-&lt;p&gt;Regional Director, Edmas Neo, Infocomm Investments Pte Ltd. They are a Venture Capital under ministry of finance managing a 200M fund.&lt;/p&gt;
-
-&lt;p&gt;TAG.Pass (Methodology)&lt;/p&gt;
-
-&lt;p&gt;Ideation -&amp;gt; Accelaration -&amp;gt; Incubation -&amp;gt; Expansion&lt;/p&gt;
-
-&lt;p&gt;Now: with IDA to coach Startups.&lt;/p&gt;
-
-&lt;p&gt;Framing your mind. Change perspective -&amp;gt; New solutions.&lt;/p&gt;
-
-&lt;p&gt;NTU CAS (Career Aspiration Survery) 2010&lt;/p&gt;
-
-&lt;ul&gt;
-&lt;li&gt;&amp;lt;8% Entrepreneur&lt;/li&gt;
-&lt;li&gt;21% Leadership/Manager&lt;/li&gt;
-&lt;li&gt;71% Professional&lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;p&gt;Stuff about technology and innovation being important and showing govt/foreign govt articles.
-Epistemological Bias?&lt;/p&gt;
-
-&lt;p&gt;17th Global startup ecosystem ranking
-Innovative cities.&lt;/p&gt;
-
-&lt;p&gt;You can also find entrepreneurs to work for: Technopreneur Action Group (TAG)&lt;/p&gt;
-
-&lt;h2 id=&#34;making-your-cool-app-awesome&#34;&gt;Making your cool app awesome&lt;/h2&gt;
-
-&lt;p&gt;Mr Stefan Hogendoorn from Netherlands (Google Developer Expert, Co-founder, Qlouder Amsterdam)&lt;/p&gt;
-
-&lt;p&gt;@shogendoorn, stefan@qlouder.com.&lt;/p&gt;
-
-&lt;h3 id=&#34;the-cool-app&#34;&gt;The Cool App&lt;/h3&gt;
-
-&lt;p&gt;A feed search for twitter. Get twitter message by topic. Used to get a quick overview of a topic.&lt;/p&gt;
-
-&lt;p&gt;Polymer - declaratively create a web application.&lt;/p&gt;
-
-&lt;h4 id=&#34;architecture&#34;&gt;Architecture&lt;/h4&gt;
-
-&lt;p&gt;Polymer client connects to python flask server which in term connects to twitter.
-Good reason why the python app is inbetween (to be explained).&lt;/p&gt;
-
-&lt;p&gt;(shows barebones app. not cool.)&lt;/p&gt;
-
-&lt;p&gt;COOL? add Google Cloud Platform stuff.&lt;/p&gt;
-
-&lt;p&gt;&lt;strong&gt;Adding interaction: Firebase (Realtime database).&lt;/strong&gt;&lt;/p&gt;
-
-&lt;p&gt;Polymer client connects to &lt;em&gt;Firebase&lt;/em&gt; and to python flask server which in term connects to twitter and &lt;em&gt;Firebase&lt;/em&gt;&lt;/p&gt;
-
-&lt;p&gt;Observation: While typing polymer pulls data from Firebase. Realtime interaction.&lt;/p&gt;
-
-&lt;p&gt;COOLER? Machine Learning.&lt;/p&gt;
-
-&lt;p&gt;GCP has ML stuff. Google visionary. Google photos already using google visionary api (Groups by food, people).&lt;/p&gt;
-
-&lt;p&gt;&lt;Insert techinical difficulties showing code&gt;&lt;/p&gt;
-
-&lt;p&gt;Gets url of image from tweet. Base64 encode it then send it to the vision API.&lt;/p&gt;
-
-&lt;blockquote&gt;
-&lt;p&gt;&amp;ldquo;At a hackathon, winning team got images from a video stream then sent to the API to determine if people in images were bored or something.&amp;rdquo;&lt;/p&gt;
-&lt;/blockquote&gt;
-
-&lt;h2 id=&#34;acccelerated-mobile-pages-amp-an-overview&#34;&gt;Acccelerated Mobile Pages (AMP) - An Overview&lt;/h2&gt;
-
-&lt;p&gt;Mr Arudea Mahartianto (Google)&lt;/p&gt;
-
-&lt;p&gt;Shift to mobile. Messages from mother to buy groceries etc. (used to be calls? idk.)&lt;/p&gt;
-
-&lt;p&gt;Problem: Content consumption can be frustrating.&lt;/p&gt;
-
-&lt;p&gt;Examples:&lt;/p&gt;
-
-&lt;ul&gt;
-&lt;li&gt;Slow-loading pages.&lt;/li&gt;
-&lt;li&gt;Unresponsive experiences.&lt;/li&gt;
-&lt;li&gt;Unexpected content reflow.&lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;p&gt;53% of people abandon a website that takes more than 3 seconds to load.
-People also question credibility of website.&lt;/p&gt;
-
-&lt;p&gt;We need something that is: Fast, easy to implement, mobile friendly, embrace open web, enable monetization.&lt;/p&gt;
-
-&lt;p&gt;&lt;strong&gt;Enter AMP&lt;/strong&gt;&lt;/p&gt;
-
-&lt;h4 id=&#34;how-it-works&#34;&gt;How it works?&lt;/h4&gt;
-
-&lt;p&gt;Does not allow third party javascript&amp;hellip; Okay you can use it in sandboxed amp-iframes.&lt;/p&gt;
-
-&lt;p&gt;Limitations for a good reason:&lt;/p&gt;
-
-&lt;ul&gt;
-&lt;li&gt;No custom js except in sandboxed iframe&lt;/li&gt;
-&lt;li&gt;No scrolling elements&lt;/li&gt;
-&lt;li&gt;Max 50KB inline stylesheet&lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;p&gt;Many add-ons.&lt;/p&gt;
-
-&lt;h2 id=&#34;10-design-principles-to-make-an-additive-app&#34;&gt;10 Design Principles to Make an Additive App&lt;/h2&gt;
-
-&lt;p&gt;Mr Borrys Hasian (Google Expert in UX/UI and a mentor for Google Launchpad Accelerator in Silicon Valley).&lt;/p&gt;
-
-&lt;p&gt;Only 5 UI/UX google experts in SEA.&lt;/p&gt;
-
-&lt;blockquote&gt;
-&lt;p&gt;Upper limit of apps people use a month is 30 apps. - Nielsen&lt;/p&gt;
-&lt;/blockquote&gt;
-
-&lt;p&gt;Inspiration: Don norman, Dieter ram, Tom kelly&lt;/p&gt;
-
-&lt;p&gt;What is your product about? How you should start your app design?
-&amp;gt; Instagram is a simple way to capture and share the world&amp;rsquo;s moments.&lt;/p&gt;
-
-&lt;h4 id=&#34;making-your-app-fun&#34;&gt;Making your app fun&lt;/h4&gt;
-
-&lt;p&gt;&lt;strong&gt;Rewards of the tribe - gratification from others&lt;/strong&gt;
-For example: some intereaction between user and community around.&lt;/p&gt;
-
-&lt;p&gt;Make it fun with different pleasures:&lt;/p&gt;
-
-&lt;ul&gt;
-&lt;li&gt;Physio&lt;/li&gt;
-&lt;li&gt;Socio&lt;/li&gt;
-&lt;li&gt;Psycho&lt;/li&gt;
-&lt;li&gt;Ideo&lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;p&gt;&lt;strong&gt;Rewards of the hunt (material goods, money or information)&lt;/strong&gt;
-Like scrolling a feed then you reveal more.&lt;/p&gt;
-
-&lt;p&gt;&lt;strong&gt;Rewards of the self (mastery, completion, competency, consistency)&lt;/strong&gt;
-Make them feel like an expert. How to get people to contribute content, get followers.&lt;/p&gt;
-
-&lt;p&gt;&lt;strong&gt;External Triggers&lt;/strong&gt; to get people to use your app. E.g. Facebook. Basically, marketing stratgem.&lt;/p&gt;
-
-&lt;p&gt;&lt;strong&gt;Conversions&lt;/strong&gt; How to bring user from beginner stage to an advanced stage.
-Guided usage of the app. Start your first story. Share with friends.
-Clear start screen to bring users in: &amp;ldquo;Find people you know&amp;rdquo;.&lt;/p&gt;
-
-&lt;p&gt;&lt;strong&gt;Doing needs to be easier than thinking&lt;/strong&gt;. Take a photo then UI shows filter options.&lt;/p&gt;
-
-&lt;p&gt;&lt;strong&gt;Different context&lt;/strong&gt;. Drive different actions. Profile page? Prompt to take a photo for profile.&lt;/p&gt;
-
-&lt;p&gt;Floating Action Button forces you to think what key actions are for this page. Drive user action.&lt;/p&gt;
-
-&lt;p&gt;Many of us are creating apps without knowing whether or not it&amp;rsquo;ll be useful for the users.&lt;/p&gt;
-
-&lt;p&gt;How to make it simple?&lt;/p&gt;
-
-&lt;blockquote&gt;
-&lt;p&gt;Antoine de Saint-Exupery quote on perfection.&lt;/p&gt;
-&lt;/blockquote&gt;
-
-&lt;p&gt;At Rakuten he cut off &lt;em&gt;67% of items on screen&lt;/em&gt;. Doubled conversion rate. Paradox of what to click.&lt;/p&gt;
-
-&lt;p&gt;Nice comforting transitions. (Instagram login page on mobile)&lt;/p&gt;
-
-&lt;h4 id=&#34;how-do-we-measure&#34;&gt;How do we measure?&lt;/h4&gt;
-
-&lt;p&gt;Emotional Design Score. Get them to agree/disagree with qns for each of the 10 points.&lt;/p&gt;
-
-&lt;p&gt;Visceral, Behavioural and Reflective.&lt;/p&gt;
-
-&lt;blockquote&gt;
-&lt;p&gt;Less but better&lt;/p&gt;
-&lt;/blockquote&gt;
-
-&lt;p&gt;Q: Why Instagram&amp;rsquo;s new logo is more colorful.&lt;/p&gt;
-
-&lt;p&gt;A guess. Plain white figure ground. Then people will focus more on images. So draws attention.&lt;/p&gt;
-
-&lt;p&gt;&lt;em&gt;Some question I didn&amp;rsquo;t catch.&lt;/em&gt;
-&lt;em&gt;Some law&lt;/em&gt;. 64% of users will use the product if certain number of early adopters use the product.
-Suggestion make it easy for expert user first before &lt;em&gt;simplifying for common user&lt;/em&gt;. Common users don&amp;rsquo;t know what they want.&lt;/p&gt;
-
-&lt;p&gt;On Snapchat. Somebody didn&amp;rsquo;t find it easy but this dude is probably not in the target audience. The younger group does feel that it is instant. Compact short content.&lt;/p&gt;
-
-&lt;p&gt;Q: User experience for chatbot.&lt;/p&gt;
-
-&lt;p&gt;Rising customer service startup in indonesia. They are moving towards it.
-He thinks its evolving to that direction. Can suggest products.&lt;/p&gt;
-
-&lt;p&gt;Something about email. Email is a huge channel. Depends on target audience.&lt;/p&gt;
-
-&lt;p&gt;On &lt;strong&gt;Inbox&lt;/strong&gt;. Came from Google Labs. Useful when traveling. I agree.&lt;/p&gt;
-
-&lt;h2 id=&#34;achieving-developer-happiness-by-automating-the-android-tests-workflows&#34;&gt;Achieving developer happiness by Automating the Android Tests &amp;amp; Workflows&lt;/h2&gt;
-
-&lt;p&gt;Mr Khang Toh (CTO, PicoCandy)&lt;/p&gt;
-
-&lt;p&gt;Sell stickers in managing apps. If we need stickers they have SDKs. Work with Messenger, Viber, BBM, Kakao talk.&lt;/p&gt;
-
-&lt;p&gt;In terms of development process. How do you make your team happy?&lt;/p&gt;
-
-&lt;blockquote&gt;
-&lt;p&gt;If its worth doing once, its probably worth automating it but it needs to be clean otherwise you get an automated mess.&lt;/p&gt;
-&lt;/blockquote&gt;
-
-&lt;p&gt;&lt;strong&gt;Continuous Delivery&lt;/strong&gt;&lt;/p&gt;
-
-&lt;p&gt;Do things in &lt;strong&gt;short cycles&lt;/strong&gt; and release &lt;em&gt;fast&lt;/em&gt;.&lt;/p&gt;
-
-&lt;p&gt;Key to automating: Testing, builds, distribution.&lt;/p&gt;
-
-&lt;p&gt;3 steps to automating your tests:&lt;/p&gt;
-
-&lt;ul&gt;
-&lt;li&gt;Code Architecture: MVP (&lt;strong&gt;YES!!!&lt;/strong&gt;)&lt;/li&gt;
-&lt;li&gt;Dependency Injection &amp;amp; Mocks: To be able to test and test well (&lt;strong&gt;YES!!!&lt;/strong&gt;)&lt;/li&gt;
-&lt;li&gt;Automate UI Testing: eg Espresso ( T_T how to do this right?)&lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;p&gt;Some code.
-Android code testing lab. &lt;strong&gt;I DID THIS !!!&lt;/strong&gt;&lt;/p&gt;
-
-&lt;p&gt;Dependency injection with build flavors.&lt;/p&gt;
-
-&lt;p&gt;ArgumentCaptor to simulating callbacks.&lt;/p&gt;
-
-&lt;p&gt;&lt;strong&gt;Why automate UI Testing?&lt;/strong&gt;&lt;/p&gt;
-
-&lt;p&gt;Because it is most expensive.&lt;/p&gt;
-
-&lt;p&gt;Increasing cost -&amp;gt;&lt;/p&gt;
-
-&lt;p&gt;Unit -&amp;gt; Service -&amp;gt; UI&lt;/p&gt;
-
-&lt;p&gt;&lt;strong&gt;Espresso&lt;/strong&gt;&lt;/p&gt;
-
-&lt;p&gt;Familiar Instrument testing? This different.&lt;/p&gt;
-
-&lt;p&gt;&lt;strong&gt;Continuous Delivery&lt;/strong&gt;&lt;/p&gt;
-
-&lt;p&gt;CircleCI. Jenkins used to be bad but now its a lot better.
-Firebase also has a test lab.&lt;/p&gt;
-
-&lt;p&gt;&lt;strong&gt;Automate builds and distribution&lt;/strong&gt;&lt;/p&gt;
-
-&lt;p&gt;Using fastlane. Can get screenshots for all &lt;strong&gt;locales&lt;/strong&gt;.&lt;/p&gt;
-
-&lt;h2 id=&#34;android-pay-integration-an-implementation-overview&#34;&gt;Android Pay Integration - An Implementation Overview&lt;/h2&gt;
-
-&lt;p&gt;Mr Kenneth Andersson (Director of Engineering, Grab)/ WEE Weing Kai (Mobile Team, Grab)&lt;/p&gt;
-
-&lt;h3 id=&#34;android-pay-vs-traditonal-credit-card&#34;&gt;Android Pay vs Traditonal Credit Card&lt;/h3&gt;
-
-&lt;p&gt;Stripe as gateway provider in Singapore.
-Android Pays only allows one token to be charged only one time. Every transaction you need a new token
-More secure.&lt;/p&gt;
-
-&lt;h3 id=&#34;android-pay-flow&#34;&gt;Android Pay Flow&lt;/h3&gt;
-
-&lt;p&gt;MaskedWalletRequest: Either use a fragment they provide (some button) or make your own then do a manual request (diff method call).&lt;/p&gt;
-
-&lt;p&gt;FullWalletRequest: Can be configured to use third party gateway like Stripe or BrainTree.&lt;/p&gt;
-
-&lt;p&gt;Both requests must be successful. Then you get a token.&lt;/p&gt;
-
-&lt;p&gt;&lt;strong&gt;Android Pay&lt;/strong&gt;&lt;/p&gt;
-
-&lt;ol&gt;
-&lt;li&gt;Scheduled as a feature work&lt;/li&gt;
-&lt;li&gt;Deprioritized due to toher work&lt;/li&gt;
-&lt;li&gt;Turned into a Grabathon project (Grab&amp;rsquo;s internal hackathon)&lt;/li&gt;
-&lt;li&gt;Released a week later - launch in record time (24h).&lt;/li&gt;
-&lt;/ol&gt;
-
-&lt;p&gt;A lot of support from Google team. Thumbs up. A few online meetings. 3 calls (SG, London, MountainView). Different time.&lt;/p&gt;
-
-&lt;p&gt;Challenges:&lt;/p&gt;
-
-&lt;ul&gt;
-&lt;li&gt;Allow user to add android pay&lt;/li&gt;
-&lt;li&gt;Allow users to change card&lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;p&gt;&lt;strong&gt;To change card you need to make another MaskedWallet request. No well documented.&lt;/strong&gt;&lt;/p&gt;
-
-&lt;p&gt;&lt;strong&gt;This flow is for physical products. A service can also be considered a physical product.&lt;/strong&gt;&lt;/p&gt;
-
-&lt;p&gt;Why Android Pay? Some people prefer an international brand.&lt;/p&gt;
-
-&lt;h2 id=&#34;under-the-hood-of-android-quick-review&#34;&gt;Under the Hood of Android - Quick Review&lt;/h2&gt;
-
-&lt;p&gt;Mr Jason Zaman (Contributor,  Gentoo Linux)&lt;/p&gt;
-
-&lt;p&gt;Much much lower. Slides &lt;a href=&#34;http://blog.perfinion.com/&#34;&gt;http://blog.perfinion.com/&lt;/a&gt;&lt;/p&gt;
-
-&lt;p&gt;Android Runtime used to be Dalvik now it is ART.&lt;/p&gt;
-</description>
+      <guid>https://robin-lee.github.io/blog/google-devfest-2016/</guid>
+      <description>Foreword These are my rough notes from Google DevFest 2016.
+Pre-DevFest Met Gerard from gLabs and Kai from Grab.
+Mockable Test http responses. Stub. Dummy object.
+Welcome and GDG-SG Report Mr.Bharathi manages GDG-SG.
+Events:
+ I/O Extended: Recap I/O (Q3) GCP Next (Q2, cloud) Study Jams: Basic course on android. (Q1, Q4) Women Techmakers DevFest (Q4)  Google Developers (last 6 months)  Firebase (database stuff transform to ecosystem) Android7.</description>
     </item>
     
     <item>
       <title>Geek Camp 2016</title>
-      <link>https://robin-lee.github.io/blog/2016/10/geek-camp-2016/</link>
+      <link>https://robin-lee.github.io/blog/geek-camp-2016/</link>
       <pubDate>Sat, 29 Oct 2016 10:46:49 +0800</pubDate>
       
-      <guid>https://robin-lee.github.io/blog/2016/10/geek-camp-2016/</guid>
-      <description>
-
-&lt;h2 id=&#34;schedule&#34;&gt;Schedule&lt;/h2&gt;
-
-&lt;ul&gt;
-&lt;li&gt;The Magic Behind Engineers.SG — Michael Cheng&lt;/li&gt;
-&lt;li&gt;An Unexpected Use for a Cardboard Box: Listening to the Moon — Roland Turner&lt;/li&gt;
-&lt;li&gt;Evolving Careers: How I Switched My Role from an Admin to a Javascript Developer — Leticia Choo&lt;/li&gt;
-&lt;li&gt;Create a 3D Game Engine for Pebble Smartwatch — Shipeng Xu&lt;/li&gt;
-&lt;li&gt;Rust: Make System Programming Great Again! — Omer Iqbal&lt;/li&gt;
-&lt;li&gt;I left.&lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;h2 id=&#34;the-magic-behind-engineers-sg&#34;&gt;The Magic Behind Engineers.SG&lt;/h2&gt;
-
-&lt;p&gt;Sharing about the &lt;em&gt;magic&lt;/em&gt; behind the scenes.
-@coderkungfu&lt;/p&gt;
-
-&lt;p&gt;With Singapore Power now. &lt;a href=&#34;https://www.techinasia.com/singapore-power-sau-sheong&#34;&gt;link&lt;/a&gt;&lt;/p&gt;
-
-&lt;p&gt;Motivation: Marketing problem for engineers in Singapore.&lt;/p&gt;
-
-&lt;p&gt;Goal: Tell more about Engineers in Singapore via Videos&lt;/p&gt;
-
-&lt;h3 id=&#34;streamline-capture-workflow&#34;&gt;Streamline Capture Workflow&lt;/h3&gt;
-
-&lt;ul&gt;
-&lt;li&gt;Capture all inputs (video, screen, audio)&lt;/li&gt;
-&lt;li&gt;Feed sources into a laptop via USB&lt;/li&gt;
-&lt;li&gt;Post production&lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;pre&gt;&lt;code&gt;Presenter laptop -&amp;gt; Video splitter -&amp;gt; Video input
-
-Video splitter -&amp;gt; screen capture tool, webcam, condenser(microphone)
-&lt;/code&gt;&lt;/pre&gt;
-
-&lt;p&gt;Important to hear what speaker is saying &lt;em&gt;clearly&lt;/em&gt;. So process audio!
-Shell script for processing audio: ffmpeg, SoX.&lt;/p&gt;
-
-&lt;h3 id=&#34;humans&#34;&gt;Humans&lt;/h3&gt;
-
-&lt;p&gt;Pre-meetup Procedures.&lt;/p&gt;
-
-&lt;ul&gt;
-&lt;li&gt;Get permissions from organizers and presenters.&lt;/li&gt;
-&lt;li&gt;Volunteers sign up for time slot.&lt;/li&gt;
-&lt;li&gt;Logistics.&lt;/li&gt;
-&lt;li&gt;Setup time.&lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;p&gt;Organizers don&amp;rsquo;t really have a pool of volunteers they can rely on.
-So it was better to setup a pool of volunteers to go around. (40+ now)&lt;/p&gt;
-
-&lt;p&gt;OBS: Open Broadcaster Software! Yes!&lt;/p&gt;
-
-&lt;h3 id=&#34;considerations&#34;&gt;Considerations&lt;/h3&gt;
-
-&lt;p&gt;He wanted to avoid having the presenter download software just to be able to do a screencapture. Tried to build a workflow with QuickTime (MAC).&lt;/p&gt;
-
-&lt;p&gt;Backup system. Why? Because it is running windows. Backup video and audio to reconstruct stuff.
-Slides and audio is most important.&lt;/p&gt;
-
-&lt;p&gt;Luggage for transporting gear. Lots of stuff and its heavy. Better to have something sturdy to transport stuff over &lt;em&gt;difficult terrain&lt;/em&gt;. Go to mustafa!&lt;/p&gt;
-
-&lt;h3 id=&#34;thoughts&#34;&gt;Thoughts&lt;/h3&gt;
-
-&lt;p&gt;Seems like a mash of hardware and software is needed to get things working. He started with something then improved it over time.&lt;/p&gt;
-
-&lt;h2 id=&#34;an-unexpected-use-for-a-cardboard-box-listening-to-the-moon&#34;&gt;An Unexpected Use for a Cardboard Box: Listening to the Moon&lt;/h2&gt;
-
-&lt;p&gt;Satellites.&lt;/p&gt;
-
-&lt;h3 id=&#34;satellite-orbits&#34;&gt;Satellite Orbits&lt;/h3&gt;
-
-&lt;p&gt;Polar LEO - where most ameteur satellies are.
-&lt;em&gt;LEO: Low earth orbit&lt;/em&gt;&lt;/p&gt;
-
-&lt;h3 id=&#34;objective&#34;&gt;Objective&lt;/h3&gt;
-
-&lt;p&gt;Bounce satellite signals off the moon.&lt;/p&gt;
-
-&lt;h3 id=&#34;stuff&#34;&gt;Stuff&lt;/h3&gt;
-
-&lt;p&gt;Listen to Jupiter. Source of HF radio emissions in the solar system.&lt;/p&gt;
-
-&lt;p&gt;You get a &amp;ldquo;nice&amp;rdquo; cup if you manage to establish 2 way communication with Mars.&lt;/p&gt;
-
-&lt;h3 id=&#34;intermediate-steps&#34;&gt;Intermediate steps&lt;/h3&gt;
-
-&lt;p&gt;Going from lower orbits to higher orbits.&lt;/p&gt;
-
-&lt;ul&gt;
-&lt;li&gt;LEO&lt;/li&gt;
-&lt;li&gt;GSO/Molniya&lt;/li&gt;
-&lt;li&gt;?&lt;/li&gt;
-&lt;li&gt;EME&lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;p&gt;Special satellite dish to look for reconnaisse satellite orbitting the moon. Looks at 100th of all the sounds &lt;em&gt;coming&lt;/em&gt; from the sky.
-eg. Gate3way&lt;/p&gt;
-
-&lt;p&gt;&lt;strong&gt;AA2TX&lt;/strong&gt;: Close to spec of commercial dishes&lt;/p&gt;
-
-&lt;ul&gt;
-&lt;li&gt;60cm cardboard box.&lt;/li&gt;
-&lt;li&gt;2400MHZ&lt;/li&gt;
-&lt;li&gt;20dBi&lt;/li&gt;
-&lt;li&gt;S-Band LNB/DC&lt;/li&gt;
-&lt;li&gt;Any coax&lt;/li&gt;
-&lt;li&gt;Amateur transceiver&lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;h3 id=&#34;interesting-stuff&#34;&gt;Interesting stuff&lt;/h3&gt;
-
-&lt;p&gt;Helical structure of antenna. Polarisation.
-Circular magnetic field. Better as you don&amp;rsquo;t know the orientation of the satellite.&lt;/p&gt;
-
-&lt;p&gt;Linear structure means you got to sync them. Must point right.&lt;/p&gt;
-
-&lt;p&gt;Signal recevied is a billionth of a watt. Cardboard box and LNA amplifiy it.
-Coax loses about 30% of it.&lt;/p&gt;
-
-&lt;p&gt;Noise is a problem.
-Entire sky is emitted radiation at a very low level. It matters in this case.
-Moon is freezing (here assumed to be -25C).&lt;/p&gt;
-
-&lt;h2 id=&#34;evolving-careers-how-i-switched-my-role-from-an-admin-to-a-javascript-developer&#34;&gt;Evolving Careers: How I Switched My Role from an Admin to a Javascript Developer&lt;/h2&gt;
-
-&lt;p&gt;&lt;a href=&#34;http://BillHsu.github.io&#34;&gt;BillHsu.github.io&lt;/a&gt;&lt;/p&gt;
-
-&lt;p&gt;Drawings.
-Life story.
-Bad dev practices.
-Learning journey.&lt;/p&gt;
-
-&lt;h2 id=&#34;create-a-3d-game-engine-for-pebble-smartwatch&#34;&gt;Create a 3D Game Engine for Pebble Smartwatch&lt;/h2&gt;
-
-&lt;p&gt;Todo:&lt;/p&gt;
-
-&lt;ul&gt;
-&lt;li&gt;Generic way of rendering 3d images for Pebble&lt;/li&gt;
-&lt;li&gt;Flexible&lt;/li&gt;
-&lt;li&gt;High frame rate&lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;p&gt;Breakdown the problem.&lt;/p&gt;
-
-&lt;p&gt;A smaller problem.
-Demonstrate concept of being able to create a game.
-Display 3D model on the watch.&lt;/p&gt;
-
-&lt;p&gt;First. Look at hardware specs.
-64 epaper.
-144x168.
-ST Micro STM32F439ZG 180MHz ARM (100MHz limit. Battery.)
-Bluetooth Module.
-Has a Lattice LP1K FPGA.&lt;/p&gt;
-
-&lt;p&gt;Watch side APIs: C, JavaScript (JerryScript, Samsung, IoT)&lt;/p&gt;
-
-&lt;p&gt;Phone side: JS, iOS, Android&lt;/p&gt;
-
-&lt;p&gt;2 ways:&lt;/p&gt;
-
-&lt;p&gt;Phone side rendering.
-Render on phone then send to watch. But bluetooth is slow.&lt;/p&gt;
-
-&lt;p&gt;Watch side rendering.
-Send the 3D vertices to watch. Rendering done on watch side. But CPU not very powerful.&lt;/p&gt;
-
-&lt;p&gt;Each pixel will be 1 byte(8bits)
-144x168 = ~24 kilobytes for each image&lt;/p&gt;
-
-&lt;p&gt;Bluetooth 2.1 max rate is 3Mbps. ~360KB/s (kilobytes). So maybe 10FPS?
-But you can&amp;rsquo;t use all the bytes. Some checksum&amp;hellip; etc.&lt;/p&gt;
-
-&lt;p&gt;Pebble max buffer size is 8KB? But he tested only could sent ~1.8KB.&lt;/p&gt;
-
-&lt;h3 id=&#34;pebblekit-js&#34;&gt;Pebblekit JS&lt;/h3&gt;
-
-&lt;p&gt;Create own WebGL as it is not supported.&lt;/p&gt;
-
-&lt;p&gt;Looking at a 3d bunny made of triangles. Just add more triangles to make it more realistic.&lt;/p&gt;
-
-&lt;p&gt;3D renderer you just need 1 function to draw a triangle then you can do anything you want.
-Every 3d triangle is mapped to a 2d triangle so after all we need a function to draw a 2d triangle.
-Process is called rasterization.&lt;/p&gt;
-
-&lt;p&gt;Previous talk &amp;ldquo;A 3D renderer in JavaScript&amp;rdquo;.&lt;/p&gt;
-
-&lt;p&gt;Sending buffer over took 8000ms while rendering took 250ms.
-Reducing image resolution&amp;hellip; 400ms to send 250ms to render. So 2 FPS.&lt;/p&gt;
-
-&lt;h2 id=&#34;rust-make-system-programming-great-again&#34;&gt;Rust: Make System Programming Great Again!&lt;/h2&gt;
-
-&lt;p&gt;How many of you have touched systems programming since university?
-Well&amp;hellip; It sucks.&lt;/p&gt;
-
-&lt;h3 id=&#34;heartbleed&#34;&gt;Heartbleed&lt;/h3&gt;
-
-&lt;p&gt;Buffer overflow. Missing bound check. &lt;code&gt;if length &amp;lt;  X&lt;/code&gt;.
-Shellshock. Goto fail gotofail.&lt;/p&gt;
-
-&lt;p&gt;c, c++ used to implement these libraries give you too much freedom.&lt;/p&gt;
-
-&lt;p&gt;We are concerned about memory safety.&lt;/p&gt;
-
-&lt;ul&gt;
-&lt;li&gt;Buffer overflows -&amp;gt; corrupt adjacents.&lt;/li&gt;
-&lt;li&gt;Buffer over-reads -&amp;gt; reveal sensitive data.&lt;/li&gt;
-&lt;li&gt;Dangling Pointers -&amp;gt; address of a deleted object&lt;/li&gt;
-&lt;li&gt;Double free -&amp;gt; Corrupt the heap&lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;h3 id=&#34;garbage-collection&#34;&gt;Garbage collection&lt;/h3&gt;
-
-&lt;p&gt;Generational mark &amp;amp; sweep. JVM style.
-Non-deterministic destruction.
-Resource like video but you want to destroy a particular file. You don&amp;rsquo;t know when itll be destroyed.
-Needs a lot more memory to be efficient. (3-4 times of actual application)
-Sweep pass touches almost all RAM leading to power inefficiency. (Android!)
-GC pauses not acceptable for hard realtime systems (Airplanes!)&lt;/p&gt;
-
-&lt;h3 id=&#34;enter-rust&#34;&gt;Enter Rust&lt;/h3&gt;
-
-&lt;pre&gt;&lt;code&gt;fn main() {
-    println!(&amp;quot;Hello world! Easier than C! We win!&amp;quot;);
-}
-&lt;/code&gt;&lt;/pre&gt;
-
-&lt;p&gt;! mark to distinguish macro from normal method/function calls.&lt;/p&gt;
-
-&lt;p&gt;Systems programming lang:&lt;/p&gt;
-
-&lt;ul&gt;
-&lt;li&gt;Safety&lt;/li&gt;
-&lt;li&gt;Speed&lt;/li&gt;
-&lt;li&gt;Concurrency&lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;p&gt;Immutability by default&lt;/p&gt;
-
-&lt;pre&gt;&lt;code&gt;let x = 9;
-x = 10;
-//fails
-
-let mut y = 10;
-y = 5;
-&lt;/code&gt;&lt;/pre&gt;
-
-&lt;p&gt;Strongly typed w inference&lt;/p&gt;
-
-&lt;pre&gt;&lt;code&gt;let x: i32 = 42;
-let y = 42;
-&lt;/code&gt;&lt;/pre&gt;
-
-&lt;p&gt;Vectors.
-Resizable array. Store content on heap. Macros: Like C preprocessors.&lt;/p&gt;
-
-&lt;pre&gt;&lt;code&gt;let v = vec![1,2,3,4,5] // v: Vec&amp;lt;i32&amp;gt;
-&lt;/code&gt;&lt;/pre&gt;
-
-&lt;h3 id=&#34;rust-philosopy&#34;&gt;Rust philosopy&lt;/h3&gt;
-
-&lt;p&gt;Zero cost abstractions
-Zero performance cost.&lt;/p&gt;
-
-&lt;h3 id=&#34;rust-memory-model&#34;&gt;Rust memory model&lt;/h3&gt;
-
-&lt;h4 id=&#34;ownership&#34;&gt;Ownership&lt;/h4&gt;
-
-&lt;p&gt;You own something. So you take care of it.&lt;/p&gt;
-
-&lt;pre&gt;&lt;code&gt;fn foo() {
-    // variables own the resource.
-    let v = vec![1, 2, 3];
-}
-&lt;/code&gt;&lt;/pre&gt;
-
-&lt;p&gt;Once binding goes out of scope, Rust will free the bound resources. Default behaviour.&lt;/p&gt;
-
-&lt;p&gt;There is only ONE binding to a given resource&lt;/p&gt;
-
-&lt;pre&gt;&lt;code&gt;let v = vec![1, 2, 3];
-let v2 = v;
-println!(&amp;quot;v[0] is: {}&amp;quot;, v[0]);
-
-//error: use of moved value: v
-//multiple bindings.
-&lt;/code&gt;&lt;/pre&gt;
-
-&lt;h4 id=&#34;ownership-move-semantics&#34;&gt;Ownership: move semantics&lt;/h4&gt;
-
-&lt;pre&gt;&lt;code&gt;fn take(v: Vec&amp;lt;i32&amp;gt;) {
-
-}
-let v = vec![1 ,2, 3];
-take(v);
-
-//compile error. wtf?
-&lt;/code&gt;&lt;/pre&gt;
-
-&lt;pre&gt;&lt;code&gt;let trumpVotes = vec![1, 2, 3];
-let mut fakeMore = trumpVotes;
-fakeMore.push(4);
-// does not compile because your stack has different sizes (trumpVotes, fakeMore) for same heap address.
-&lt;/code&gt;&lt;/pre&gt;
-
-&lt;p&gt;Primitives implement Copy&lt;/p&gt;
-
-&lt;pre&gt;&lt;code&gt;let v = 1;
-let v2 = v;
-println!(&amp;quot;v is :{}&amp;quot;, v);
-&lt;/code&gt;&lt;/pre&gt;
-
-&lt;p&gt;Inefficient. So not used in production.&lt;/p&gt;
-
-&lt;p&gt;How to pass to function&lt;/p&gt;
-
-&lt;pre&gt;&lt;code&gt;let v1 = ...
-let v2 = ...
-
-let (v1, v2, ans) = foo(v1, v2)
-&lt;/code&gt;&lt;/pre&gt;
-
-&lt;h4 id=&#34;borrowing&#34;&gt;Borrowing&lt;/h4&gt;
-
-&lt;pre&gt;&lt;code&gt;fn foo(v1: &amp;amp;Vec&amp;lt;i32&amp;gt;, v2: &amp;amp;Vec&amp;lt;i32&amp;gt;) -&amp;gt; ...
-
-let answer = foo(&amp;amp;v1, &amp;amp;v2);
-&lt;/code&gt;&lt;/pre&gt;
-
-&lt;pre&gt;&lt;code&gt;fn foo(v: &amp;amp;Vec&amp;lt;i32&amp;gt;) {
-    v.push(5)
-}
-&lt;/code&gt;&lt;/pre&gt;
-
-&lt;p&gt;You can&amp;rsquo;t mutate stuff easily.&lt;/p&gt;
-
-&lt;pre&gt;&lt;code&gt;fn main() {
-    let mut x = 5;
-    let y = &amp;amp;mut x;
-    *y += 1;
-    println!(&amp;quot;x is :{}&amp;quot;, x);
-    // fails.
-    // data race. println! creates an immutable reference.
-    // y is mutable.
-}
-&lt;/code&gt;&lt;/pre&gt;
-
-&lt;ul&gt;
-&lt;li&gt;access content of the reference.&lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;h4 id=&#34;borrowing-rules&#34;&gt;Borrowing Rules&lt;/h4&gt;
-
-&lt;ul&gt;
-&lt;li&gt;Any borrow must last for a scope not greater than owner (Refence must not live longer than res they refer to)&lt;/li&gt;
-&lt;li&gt;You can only have 1 mutable reference at any time&lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;p&gt;&amp;lsquo;data race&amp;rsquo;. 2 or more pointer accessing 1 memory location at the same time where at least 1 of them is writing and operations are not synchronized.&lt;/p&gt;
-
-&lt;p&gt;&lt;strong&gt;Immutability is a property of the binding not the data.&lt;/strong&gt;&lt;/p&gt;
-
-&lt;h3 id=&#34;static-vs-dynamic-dispatch&#34;&gt;Static vs Dynamic Dispatch&lt;/h3&gt;
-
-&lt;h4 id=&#34;static&#34;&gt;Static&lt;/h4&gt;
-
-&lt;p&gt;Dont need to manually calc address of function.
-Matters because of optimizations you can do like &lt;strong&gt;inlining&lt;/strong&gt;.&lt;/p&gt;
-
-&lt;pre&gt;&lt;code&gt;add 3 5
-&lt;/code&gt;&lt;/pre&gt;
-
-&lt;h4 id=&#34;dynamic&#34;&gt;Dynamic&lt;/h4&gt;
-
-&lt;p&gt;Address of function has to be evaluated at compile time.&lt;/p&gt;
-
-&lt;p&gt;By default last expression will return.&lt;/p&gt;
-
-&lt;h4 id=&#34;stuff-1&#34;&gt;Stuff&lt;/h4&gt;
-
-&lt;p&gt;&lt;code&gt;u8&lt;/code&gt; is bytes.&lt;/p&gt;
-
-&lt;p&gt;&lt;code&gt;monomorphization&lt;/code&gt; for static dispatch. Can bloat codesize.&lt;/p&gt;
-
-&lt;h3 id=&#34;thoughts-1&#34;&gt;Thoughts&lt;/h3&gt;
-
-&lt;p&gt;Rust makes you fail a lot&amp;hellip; with good intentions?&lt;/p&gt;
-</description>
+      <guid>https://robin-lee.github.io/blog/geek-camp-2016/</guid>
+      <description>Schedule  The Magic Behind Engineers.SG — Michael Cheng An Unexpected Use for a Cardboard Box: Listening to the Moon — Roland Turner Evolving Careers: How I Switched My Role from an Admin to a Javascript Developer — Leticia Choo Create a 3D Game Engine for Pebble Smartwatch — Shipeng Xu Rust: Make System Programming Great Again! — Omer Iqbal I left.  The Magic Behind Engineers.SG Sharing about the magic behind the scenes.</description>
     </item>
     
     <item>
       <title>MySQL Cheatsheet</title>
-      <link>https://robin-lee.github.io/blog/2016/09/mysql-cheatsheet/</link>
+      <link>https://robin-lee.github.io/blog/mysql-cheatsheet/</link>
       <pubDate>Mon, 19 Sep 2016 15:35:25 +0800</pubDate>
       
-      <guid>https://robin-lee.github.io/blog/2016/09/mysql-cheatsheet/</guid>
-      <description>&lt;p&gt;A cheatsheet. Enough said.&lt;/p&gt;
-
-&lt;pre&gt;&lt;code&gt;show databases;
-
-select database();
-
-show tables;
-
-create table cats (cid CHAR(20), name CHAR(30), breed CHAR(20), age INTEGER, cuteness REAL)
-
-insert into cats (cid, name, breed, age, cuteness)
-values (1, &#39;coolcat&#39;, &#39;garfield&#39;, 999, 3.14159265953)
-
-delete
-from cats cat
-where cat.name = &#39;gary&#39;
-
-update cats cat
-set cat.age = cat.age + 1, cat.cuteness = cat.cuteness + 999
-where cat.cid = 1
-// where clause is applied first
-// can use &amp;gt;=
-
-create table students (sid CHAR(20),
-                        name CHAR(30),
-                        login CHAR(30),
-                        age INTEGER,
-                        gpa REAL,
-                        UNIQUE (name, age),
-                        CONSTRAINT StudentKey PRIMARY KEY (sid)
-                        )
-&lt;/code&gt;&lt;/pre&gt;
-</description>
+      <guid>https://robin-lee.github.io/blog/mysql-cheatsheet/</guid>
+      <description>A cheatsheet. Enough said.
+show databases; select database(); show tables; create table cats (cid CHAR(20), name CHAR(30), breed CHAR(20), age INTEGER, cuteness REAL) insert into cats (cid, name, breed, age, cuteness) values (1, &#39;coolcat&#39;, &#39;garfield&#39;, 999, 3.14159265953) delete from cats cat where cat.name = &#39;gary&#39; update cats cat set cat.age = cat.age + 1, cat.cuteness = cat.cuteness + 999 where cat.cid = 1 // where clause is applied first // can use &amp;gt;= create table students (sid CHAR(20), name CHAR(30), login CHAR(30), age INTEGER, gpa REAL, UNIQUE (name, age), CONSTRAINT StudentKey PRIMARY KEY (sid) )  </description>
     </item>
     
     <item>
       <title>Beginning Spring Boot with Gradle</title>
-      <link>https://robin-lee.github.io/blog/2016/08/beginning-spring-boot-with-gradle/</link>
+      <link>https://robin-lee.github.io/blog/beginning-spring-boot/</link>
       <pubDate>Fri, 26 Aug 2016 16:03:00 +0200</pubDate>
       
-      <guid>https://robin-lee.github.io/blog/2016/08/beginning-spring-boot-with-gradle/</guid>
-      <description>
-
-&lt;p&gt;Spring Boot with Gradle because Maven is too verbose.&lt;/p&gt;
-
-&lt;p&gt;When I was looking for tutorials, it seemed like using gradle with Spring Boot is the lesser walked path.
-However, I think going down this path enables me to understand gradle better. This will be useful for Android development too.&lt;/p&gt;
-
-&lt;p&gt;It is to be noted that Spring has some integrations with the paid version of the IntelliJ IDEA IDE. As I am using the community edition, I will use the Spring CLI to setup the project. Furthermore, it simulates the scenario where you are a contractor and you have a one off project that requires Spring Boot. You might not like spending a few hundred dollars on a new IDE which you will have to spend time getting familiar with. IntelliJ IDEA Community Edition is great for writing code once you have the initial setup done.&lt;/p&gt;
-
-&lt;p&gt;&lt;em&gt;Update:&lt;/em&gt; This post is much messier than I expected. I jumped ahead to build my photo blog. So much configuration and testing was involved in this side project. As such I do not think this post will make much sense for the general reader. If you happen to be trying something more than a hello world or step-by-step tutorial this might be of help.&lt;/p&gt;
-
-&lt;p&gt;References:&lt;/p&gt;
-
-&lt;ul&gt;
-&lt;li&gt;&lt;a href=&#34;http://docs.spring.io/spring-boot/docs/current/reference/html/cli-using-the-cli.html&#34;&gt;Spring Boot Docs&lt;/a&gt;&lt;/li&gt;
-&lt;li&gt;&lt;a href=&#34;https://www.amazon.com/Pro-Spring-Boot-Felipe-Gutierrez/dp/1484214323/ref=sr_1_1?s=books&amp;amp;ie=UTF8&amp;amp;qid=1471961344&amp;amp;sr=1-1&#34;&gt;Pro Spring Boot by Felipe Gutierrez of PivotalLabs&lt;/a&gt;&lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;h1 id=&#34;setup&#34;&gt;Setup&lt;/h1&gt;
-
-&lt;p&gt;The assumption here is that you have sprint boot already installed to your commandline.&lt;/p&gt;
-
-&lt;p&gt;Using the &lt;code&gt;spring init&lt;/code&gt; command:&lt;/p&gt;
-
-&lt;pre&gt;&lt;code&gt;spring init --build=gradle --java-version=1.8 --dependencies=web,thymeleaf --package=codes.robin.spring --artifactId=codes.robin.spring --groupId=codes.robin.spring --packaging=war --name=spring-boot-web -x
-
-spring init --build=gradle -d=jpa,h2 -g=codes.robin.spring -a=simple-jpa-app --package-name=code.robin.spring -name=simple-jpa-app --packaging=war
-
-spring init --build=gradle -d=web,thymeleaf,data-jpa,data-rest -g=codes.robin.spring -a=spring-boot-journal --package-name=codes.robin.spring -name=spring-boot-journal -x
-&lt;/code&gt;&lt;/pre&gt;
-
-&lt;p&gt;&lt;code&gt;-x&lt;/code&gt; extracts the project into your current directory if location is not specified.&lt;/p&gt;
-
-&lt;p&gt;&lt;a href=&#34;http://docs.spring.io/spring-boot/docs/current/reference/html/cli-using-the-cli.html&#34;&gt;Spring Boot CLI Docs&lt;/a&gt;&lt;/p&gt;
-
-&lt;h1 id=&#34;running-configurations&#34;&gt;Running &amp;amp; Configurations&lt;/h1&gt;
-
-&lt;pre&gt;&lt;code&gt;gradle build
-
-gradle bootRun
-&lt;/code&gt;&lt;/pre&gt;
-
-&lt;p&gt;Try &lt;code&gt;localhost:8080&lt;/code&gt;.&lt;/p&gt;
-
-&lt;p&gt;1 way to change port:&lt;/p&gt;
-
-&lt;pre&gt;&lt;code&gt;myapp/
-    src/
-    gradle/
-    config/
-        application.properties # add a line &amp;quot;server.port=8090&amp;quot;
-&lt;/code&gt;&lt;/pre&gt;
-
-&lt;p&gt;&lt;a href=&#34;http://stackoverflow.com/questions/21083170/spring-boot-how-to-configure-port&#34;&gt;Stack link&lt;/a&gt;&lt;/p&gt;
-
-&lt;p&gt;You can retrieve the values of the properties in the file by using the following annotation:&lt;/p&gt;
-
-&lt;pre&gt;&lt;code&gt;@Value(&amp;quot;${server.port}&amp;quot;)
-private String port;
-&lt;/code&gt;&lt;/pre&gt;
-
-&lt;p&gt;Spring also offers a way to configure separate profiles using application-{profile}.properties files. This is really useful if you have different environments. You really should have separate environments for dev and prod.&lt;/p&gt;
-
-&lt;pre&gt;&lt;code&gt;application-dev.properties
-    server.ip=localhost
-
-application-prod.properties
-    server.ip=http//cool-server.com
-
-gradle bootRun -Dspring.profiles.active=dev
-&lt;/code&gt;&lt;/pre&gt;
-
-&lt;h2 id=&#34;not-so-minimum-code&#34;&gt;(Not so) Minimum code&lt;/h2&gt;
-
-&lt;h3 id=&#34;folder-structure&#34;&gt;Folder structure&lt;/h3&gt;
-
-&lt;pre&gt;&lt;code&gt;src/
-  domain # Models
-  repository # Repository, JPA/Custom Queries
-  web # Controllers
-&lt;/code&gt;&lt;/pre&gt;
-
-&lt;h3 id=&#34;controller&#34;&gt;Controller&lt;/h3&gt;
-
-&lt;p&gt;Using Spring &lt;code&gt;@Controller&lt;/code&gt; annotation.&lt;/p&gt;
-
-&lt;p&gt;&lt;code&gt;@RestController&lt;/code&gt; could be used too. &lt;a href=&#34;http://docs.spring.io/spring/docs/current/javadoc-api/org/springframework/web/bind/annotation/RestController.html&#34;&gt;link&lt;/a&gt;&lt;/p&gt;
-
-&lt;p&gt;A convenience annotation that is itself annotated with @Controller and @ResponseBody.
-Types that carry this annotation are treated as controllers where @RequestMapping methods assume @ResponseBody semantics by default. Additionally, if you want to set response codes. Just pass &lt;code&gt;HttpServletResponse response&lt;/code&gt; to the method like &lt;code&gt;someMethod(ttpServletResponse response)&lt;/code&gt; and set &lt;code&gt;response.setStatus(HttpServletResponse.SC_ACCEPTED);&lt;/code&gt;. &lt;a href=&#34;http://stackoverflow.com/questions/24292373/spring-boot-rest-controller-how-to-return-different-http-status-codes&#34;&gt;link&lt;/a&gt;&lt;/p&gt;
-
-&lt;p&gt;&lt;code&gt;@ModelAttribute&lt;/code&gt; tells Spring to use its default web data binder to populate an instance of something with data from the HttpServletRequest. Choosing to pass this data back to the view is up to the programmer. When you have a method annotated with @ModelAttribute, it is being called every time code hits that servlet. When you have @ModelAttribute as one of the method&amp;rsquo;s parameters, we are talking about incoming Http form data-binding. &lt;a href=&#34;http://stackoverflow.com/questions/29370581/spring-mvc-please-explain-difference-between-requestparam-and-modelattribute&#34;&gt;link&lt;/a&gt; &lt;a href=&#34;http://stackoverflow.com/questions/29370581/spring-mvc-please-explain-difference-between-requestparam-and-modelattribute&#34;&gt;link&lt;/a&gt; &lt;a href=&#34;http://stackoverflow.com/questions/3423262/what-is-modelattribute-in-spring-mvc&#34;&gt;link&lt;/a&gt; &lt;a href=&#34;http://stackoverflow.com/questions/8688135/modelattribute-annotation-when-to-use-it/26916920#26916920&#34;&gt;very detailed link&lt;/a&gt;&lt;/p&gt;
-
-&lt;ul&gt;
-&lt;li&gt;TODO: &lt;code&gt;ResponseEntity&amp;lt;?&amp;gt;&lt;/code&gt; vs &lt;code&gt;@ResponseBody&lt;/code&gt;. When to use?&lt;/li&gt;
-&lt;li&gt;TODO: Pagination? Instead of loading all image posts at once, load them in stages.&lt;/li&gt;
-&lt;/ul&gt;
-&lt;div class=&#34;highlight&#34; style=&#34;background: #ffffff&#34;&gt;&lt;pre style=&#34;line-height: 125%&#34;&gt;&lt;span&gt;&lt;/span&gt;&lt;span style=&#34;color: #555555; font-weight: bold&#34;&gt;@Controller&lt;/span&gt;
-&lt;span style=&#34;color: #008800; font-weight: bold&#34;&gt;public&lt;/span&gt; &lt;span style=&#34;color: #008800; font-weight: bold&#34;&gt;class&lt;/span&gt; &lt;span style=&#34;color: #BB0066; font-weight: bold&#34;&gt;BasicController&lt;/span&gt; &lt;span style=&#34;color: #333333&#34;&gt;{&lt;/span&gt;
-
-    &lt;span style=&#34;color: #888888&#34;&gt;//This is similar to @Inject (part of the JSR-330)&lt;/span&gt;
-    &lt;span style=&#34;color: #888888&#34;&gt;//http://stackoverflow.com/questions/19414734/understanding-spring-autowired-usage&lt;/span&gt;
-    &lt;span style=&#34;color: #555555; font-weight: bold&#34;&gt;@Autowired&lt;/span&gt;
-    SomeRespository repo&lt;span style=&#34;color: #333333&#34;&gt;;&lt;/span&gt;
-
-    &lt;span style=&#34;color: #555555; font-weight: bold&#34;&gt;@RequestMapping&lt;/span&gt;&lt;span style=&#34;color: #333333&#34;&gt;(&lt;/span&gt;&lt;span style=&#34;background-color: #fff0f0&#34;&gt;&amp;quot;/&amp;quot;&lt;/span&gt;&lt;span style=&#34;color: #333333&#34;&gt;)&lt;/span&gt;
-    &lt;span style=&#34;color: #555555; font-weight: bold&#34;&gt;@ResponseBody&lt;/span&gt;
-    &lt;span style=&#34;color: #008800; font-weight: bold&#34;&gt;public&lt;/span&gt; String &lt;span style=&#34;color: #0066BB; font-weight: bold&#34;&gt;index&lt;/span&gt;&lt;span style=&#34;color: #333333&#34;&gt;(){&lt;/span&gt;
-        &lt;span style=&#34;color: #888888&#34;&gt;//return NAME of html page (eg. index.html)&lt;/span&gt;
-        &lt;span style=&#34;color: #008800; font-weight: bold&#34;&gt;return&lt;/span&gt; &lt;span style=&#34;background-color: #fff0f0&#34;&gt;&amp;quot;Greetings from spring boot!&amp;quot;&lt;/span&gt;&lt;span style=&#34;color: #333333&#34;&gt;;&lt;/span&gt;
-    &lt;span style=&#34;color: #333333&#34;&gt;}&lt;/span&gt;
-
-    &lt;span style=&#34;color: #555555; font-weight: bold&#34;&gt;@RequestMapping&lt;/span&gt;&lt;span style=&#34;color: #333333&#34;&gt;(&lt;/span&gt;value &lt;span style=&#34;color: #333333&#34;&gt;=&lt;/span&gt; &lt;span style=&#34;background-color: #fff0f0&#34;&gt;&amp;quot;/someResource&amp;quot;&lt;/span&gt;&lt;span style=&#34;color: #333333&#34;&gt;,&lt;/span&gt; method &lt;span style=&#34;color: #333333&#34;&gt;=&lt;/span&gt; RequestMethod&lt;span style=&#34;color: #333333&#34;&gt;.&lt;/span&gt;&lt;span style=&#34;color: #0000CC&#34;&gt;GET&lt;/span&gt;&lt;span style=&#34;color: #333333&#34;&gt;)&lt;/span&gt;
-    &lt;span style=&#34;color: #008800; font-weight: bold&#34;&gt;public&lt;/span&gt; &lt;span style=&#34;color: #333399; font-weight: bold&#34;&gt;void&lt;/span&gt; &lt;span style=&#34;color: #0066BB; font-weight: bold&#34;&gt;someResource&lt;/span&gt;&lt;span style=&#34;color: #333333&#34;&gt;(&lt;/span&gt;HttpServletResponse response&lt;span style=&#34;color: #333333&#34;&gt;)&lt;/span&gt; &lt;span style=&#34;color: #333333&#34;&gt;{&lt;/span&gt;
-        &lt;span style=&#34;color: #888888&#34;&gt;//can change this to by default return a list?&lt;/span&gt;
-        response&lt;span style=&#34;color: #333333&#34;&gt;.&lt;/span&gt;&lt;span style=&#34;color: #0000CC&#34;&gt;setStatus&lt;/span&gt;&lt;span style=&#34;color: #333333&#34;&gt;(&lt;/span&gt;HttpServletResponse&lt;span style=&#34;color: #333333&#34;&gt;.&lt;/span&gt;&lt;span style=&#34;color: #0000CC&#34;&gt;SC_OK&lt;/span&gt;&lt;span style=&#34;color: #333333&#34;&gt;);&lt;/span&gt;
-        &lt;span style=&#34;color: #008800; font-weight: bold&#34;&gt;try&lt;/span&gt; &lt;span style=&#34;color: #333333&#34;&gt;{&lt;/span&gt;
-            response&lt;span style=&#34;color: #333333&#34;&gt;.&lt;/span&gt;&lt;span style=&#34;color: #0000CC&#34;&gt;getWriter&lt;/span&gt;&lt;span style=&#34;color: #333333&#34;&gt;().&lt;/span&gt;&lt;span style=&#34;color: #0000CC&#34;&gt;write&lt;/span&gt;&lt;span style=&#34;color: #333333&#34;&gt;(&lt;/span&gt;&lt;span style=&#34;background-color: #fff0f0&#34;&gt;&amp;quot;Some useful message.&amp;quot;&lt;/span&gt;&lt;span style=&#34;color: #333333&#34;&gt;);&lt;/span&gt;
-            response&lt;span style=&#34;color: #333333&#34;&gt;.&lt;/span&gt;&lt;span style=&#34;color: #0000CC&#34;&gt;getWriter&lt;/span&gt;&lt;span style=&#34;color: #333333&#34;&gt;().&lt;/span&gt;&lt;span style=&#34;color: #0000CC&#34;&gt;flush&lt;/span&gt;&lt;span style=&#34;color: #333333&#34;&gt;();&lt;/span&gt;
-            response&lt;span style=&#34;color: #333333&#34;&gt;.&lt;/span&gt;&lt;span style=&#34;color: #0000CC&#34;&gt;getWriter&lt;/span&gt;&lt;span style=&#34;color: #333333&#34;&gt;().&lt;/span&gt;&lt;span style=&#34;color: #0000CC&#34;&gt;close&lt;/span&gt;&lt;span style=&#34;color: #333333&#34;&gt;();&lt;/span&gt;
-        &lt;span style=&#34;color: #333333&#34;&gt;}&lt;/span&gt; &lt;span style=&#34;color: #008800; font-weight: bold&#34;&gt;catch&lt;/span&gt; &lt;span style=&#34;color: #333333&#34;&gt;(&lt;/span&gt;Exception ex&lt;span style=&#34;color: #333333&#34;&gt;)&lt;/span&gt; &lt;span style=&#34;color: #333333&#34;&gt;{&lt;/span&gt;
-            log&lt;span style=&#34;color: #333333&#34;&gt;.&lt;/span&gt;&lt;span style=&#34;color: #0000CC&#34;&gt;error&lt;/span&gt;&lt;span style=&#34;color: #333333&#34;&gt;(&lt;/span&gt;&lt;span style=&#34;background-color: #fff0f0&#34;&gt;&amp;quot;Argh, the AIs are rebelling! &amp;quot;&lt;/span&gt;&lt;span style=&#34;color: #333333&#34;&gt;,&lt;/span&gt; ex&lt;span style=&#34;color: #333333&#34;&gt;);&lt;/span&gt;
-        &lt;span style=&#34;color: #333333&#34;&gt;}&lt;/span&gt;
-
-    &lt;span style=&#34;color: #333333&#34;&gt;}&lt;/span&gt;
-
-    &lt;span style=&#34;color: #555555; font-weight: bold&#34;&gt;@RequestMapping&lt;/span&gt;&lt;span style=&#34;color: #333333&#34;&gt;(&lt;/span&gt;value &lt;span style=&#34;color: #333333&#34;&gt;=&lt;/span&gt; &lt;span style=&#34;background-color: #fff0f0&#34;&gt;&amp;quot;/upload&amp;quot;&lt;/span&gt;&lt;span style=&#34;color: #333333&#34;&gt;,&lt;/span&gt; method &lt;span style=&#34;color: #333333&#34;&gt;=&lt;/span&gt; RequestMethod&lt;span style=&#34;color: #333333&#34;&gt;.&lt;/span&gt;&lt;span style=&#34;color: #0000CC&#34;&gt;POST&lt;/span&gt;&lt;span style=&#34;color: #333333&#34;&gt;)&lt;/span&gt;
-    &lt;span style=&#34;color: #555555; font-weight: bold&#34;&gt;@ResponseBody&lt;/span&gt;
-    &lt;span style=&#34;color: #008800; font-weight: bold&#34;&gt;public&lt;/span&gt; ResponseEntity&lt;span style=&#34;color: #333333&#34;&gt;&amp;lt;?&amp;gt;&lt;/span&gt; uploadFile&lt;span style=&#34;color: #333333&#34;&gt;(&lt;/span&gt;
-            &lt;span style=&#34;color: #555555; font-weight: bold&#34;&gt;@RequestParam&lt;/span&gt;&lt;span style=&#34;color: #333333&#34;&gt;(&lt;/span&gt;&lt;span style=&#34;background-color: #fff0f0&#34;&gt;&amp;quot;file&amp;quot;&lt;/span&gt;&lt;span style=&#34;color: #333333&#34;&gt;)&lt;/span&gt; MultipartFile file&lt;span style=&#34;color: #333333&#34;&gt;,&lt;/span&gt; &lt;span style=&#34;color: #555555; font-weight: bold&#34;&gt;@RequestParam&lt;/span&gt;&lt;span style=&#34;color: #333333&#34;&gt;(&lt;/span&gt;value &lt;span style=&#34;color: #333333&#34;&gt;=&lt;/span&gt; &lt;span style=&#34;background-color: #fff0f0&#34;&gt;&amp;quot;description&amp;quot;&lt;/span&gt;&lt;span style=&#34;color: #333333&#34;&gt;,&lt;/span&gt; required &lt;span style=&#34;color: #333333&#34;&gt;=&lt;/span&gt; &lt;span style=&#34;color: #008800; font-weight: bold&#34;&gt;true&lt;/span&gt;&lt;span style=&#34;color: #333333&#34;&gt;)&lt;/span&gt; String description&lt;span style=&#34;color: #333333&#34;&gt;)&lt;/span&gt; &lt;span style=&#34;color: #333333&#34;&gt;{&lt;/span&gt;
-
-        &lt;span style=&#34;color: #008800; font-weight: bold&#34;&gt;try&lt;/span&gt; &lt;span style=&#34;color: #333333&#34;&gt;{&lt;/span&gt;
-          &lt;span style=&#34;color: #888888&#34;&gt;// process multipart file&lt;/span&gt;
-        &lt;span style=&#34;color: #333333&#34;&gt;}&lt;/span&gt; &lt;span style=&#34;color: #008800; font-weight: bold&#34;&gt;catch&lt;/span&gt; &lt;span style=&#34;color: #333333&#34;&gt;(&lt;/span&gt;Exception e&lt;span style=&#34;color: #333333&#34;&gt;)&lt;/span&gt; &lt;span style=&#34;color: #333333&#34;&gt;{&lt;/span&gt;
-            System&lt;span style=&#34;color: #333333&#34;&gt;.&lt;/span&gt;&lt;span style=&#34;color: #0000CC&#34;&gt;out&lt;/span&gt;&lt;span style=&#34;color: #333333&#34;&gt;.&lt;/span&gt;&lt;span style=&#34;color: #0000CC&#34;&gt;println&lt;/span&gt;&lt;span style=&#34;color: #333333&#34;&gt;(&lt;/span&gt;e&lt;span style=&#34;color: #333333&#34;&gt;.&lt;/span&gt;&lt;span style=&#34;color: #0000CC&#34;&gt;getMessage&lt;/span&gt;&lt;span style=&#34;color: #333333&#34;&gt;());&lt;/span&gt;
-            &lt;span style=&#34;color: #008800; font-weight: bold&#34;&gt;return&lt;/span&gt; &lt;span style=&#34;color: #008800; font-weight: bold&#34;&gt;new&lt;/span&gt; ResponseEntity&lt;span style=&#34;color: #333333&#34;&gt;&amp;lt;&amp;gt;(&lt;/span&gt;HttpStatus&lt;span style=&#34;color: #333333&#34;&gt;.&lt;/span&gt;&lt;span style=&#34;color: #0000CC&#34;&gt;BAD_REQUEST&lt;/span&gt;&lt;span style=&#34;color: #333333&#34;&gt;);&lt;/span&gt;
-        &lt;span style=&#34;color: #333333&#34;&gt;}&lt;/span&gt;
-        &lt;span style=&#34;color: #008800; font-weight: bold&#34;&gt;return&lt;/span&gt; &lt;span style=&#34;color: #008800; font-weight: bold&#34;&gt;new&lt;/span&gt; ResponseEntity&lt;span style=&#34;color: #333333&#34;&gt;&amp;lt;&amp;gt;(&lt;/span&gt;HttpStatus&lt;span style=&#34;color: #333333&#34;&gt;.&lt;/span&gt;&lt;span style=&#34;color: #0000CC&#34;&gt;OK&lt;/span&gt;&lt;span style=&#34;color: #333333&#34;&gt;);&lt;/span&gt;
-    &lt;span style=&#34;color: #333333&#34;&gt;}&lt;/span&gt;
-
-    &lt;span style=&#34;color: #555555; font-weight: bold&#34;&gt;@RequestMapping&lt;/span&gt;&lt;span style=&#34;color: #333333&#34;&gt;(&lt;/span&gt;value &lt;span style=&#34;color: #333333&#34;&gt;=&lt;/span&gt; &lt;span style=&#34;background-color: #fff0f0&#34;&gt;&amp;quot;/submitInfo&amp;quot;&lt;/span&gt;&lt;span style=&#34;color: #333333&#34;&gt;,&lt;/span&gt; method &lt;span style=&#34;color: #333333&#34;&gt;=&lt;/span&gt; RequestMethod&lt;span style=&#34;color: #333333&#34;&gt;.&lt;/span&gt;&lt;span style=&#34;color: #0000CC&#34;&gt;POST&lt;/span&gt;&lt;span style=&#34;color: #333333&#34;&gt;)&lt;/span&gt;
-    &lt;span style=&#34;color: #555555; font-weight: bold&#34;&gt;@ResponseBody&lt;/span&gt;
-    &lt;span style=&#34;color: #008800; font-weight: bold&#34;&gt;public&lt;/span&gt; String &lt;span style=&#34;color: #0066BB; font-weight: bold&#34;&gt;someInfoFromAForm&lt;/span&gt;&lt;span style=&#34;color: #333333&#34;&gt;(&lt;/span&gt;&lt;span style=&#34;color: #555555; font-weight: bold&#34;&gt;@ModelAttribute&lt;/span&gt; SomeObject someObject&lt;span style=&#34;color: #333333&#34;&gt;)&lt;/span&gt; &lt;span style=&#34;color: #333333&#34;&gt;{&lt;/span&gt;
-      &lt;span style=&#34;color: #888888&#34;&gt;//ModelAttribute is not actually required here&lt;/span&gt;
-
-      &lt;span style=&#34;color: #888888&#34;&gt;//use getters&lt;/span&gt;
-
-      &lt;span style=&#34;color: #008800; font-weight: bold&#34;&gt;return&lt;/span&gt; payload&lt;span style=&#34;color: #333333&#34;&gt;;&lt;/span&gt;
-    &lt;span style=&#34;color: #333333&#34;&gt;}&lt;/span&gt;
-
-&lt;span style=&#34;color: #333333&#34;&gt;}&lt;/span&gt;
-&lt;/pre&gt;&lt;/div&gt;
-
-&lt;p&gt;References:
--&lt;a href=&#34;https://github.com/jdmr/fileUpload/blob/master/src/main/java/org/davidmendoza/fileUpload/web/ImageController.java&#34;&gt;davidmendoza&lt;/a&gt;
--&lt;a href=&#34;https://github.com/netgloo/spring-boot-samples/blob/master/spring-boot-file-upload-with-ajax/src/main/java/netgloo/controllers/MainController.java&#34;&gt;netgloo&lt;/a&gt;&lt;/p&gt;
-
-&lt;h3 id=&#34;repository&#34;&gt;Repository&lt;/h3&gt;
-&lt;div class=&#34;highlight&#34; style=&#34;background: #ffffff&#34;&gt;&lt;pre style=&#34;line-height: 125%&#34;&gt;&lt;span&gt;&lt;/span&gt;&lt;span style=&#34;color: #008800; font-weight: bold&#34;&gt;public&lt;/span&gt; &lt;span style=&#34;color: #008800; font-weight: bold&#34;&gt;interface&lt;/span&gt; &lt;span style=&#34;color: #BB0066; font-weight: bold&#34;&gt;SomeRepository&lt;/span&gt; &lt;span style=&#34;color: #008800; font-weight: bold&#34;&gt;extends&lt;/span&gt; JpaRepository&lt;span style=&#34;color: #333333&#34;&gt;&amp;lt;&lt;/span&gt;SomeObject&lt;span style=&#34;color: #333333&#34;&gt;,&lt;/span&gt; Long&lt;span style=&#34;color: #333333&#34;&gt;&amp;gt;&lt;/span&gt; &lt;span style=&#34;color: #333333&#34;&gt;{&lt;/span&gt;
-&lt;span style=&#34;color: #333333&#34;&gt;}&lt;/span&gt;
-
-&lt;span style=&#34;color: #888888&#34;&gt;//examples&lt;/span&gt;
-repo&lt;span style=&#34;color: #333333&#34;&gt;.&lt;/span&gt;&lt;span style=&#34;color: #0000CC&#34;&gt;save&lt;/span&gt;&lt;span style=&#34;color: #333333&#34;&gt;(&lt;/span&gt;SomeObject&lt;span style=&#34;color: #333333&#34;&gt;);&lt;/span&gt;
-repo&lt;span style=&#34;color: #333333&#34;&gt;.&lt;/span&gt;&lt;span style=&#34;color: #0000CC&#34;&gt;findAll&lt;/span&gt;&lt;span style=&#34;color: #333333&#34;&gt;();&lt;/span&gt;
-repo&lt;span style=&#34;color: #333333&#34;&gt;.&lt;/span&gt;&lt;span style=&#34;color: #0000CC&#34;&gt;getOne&lt;/span&gt;&lt;span style=&#34;color: #333333&#34;&gt;((&lt;/span&gt;&lt;span style=&#34;color: #333399; font-weight: bold&#34;&gt;long&lt;/span&gt;&lt;span style=&#34;color: #333333&#34;&gt;)&lt;/span&gt; id&lt;span style=&#34;color: #333333&#34;&gt;);&lt;/span&gt;
-&lt;/pre&gt;&lt;/div&gt;
-
-&lt;p&gt;Extended from:&lt;/p&gt;
-&lt;div class=&#34;highlight&#34; style=&#34;background: #ffffff&#34;&gt;&lt;pre style=&#34;line-height: 125%&#34;&gt;&lt;span&gt;&lt;/span&gt;&lt;span style=&#34;color: #008800; font-weight: bold&#34;&gt;public&lt;/span&gt; &lt;span style=&#34;color: #008800; font-weight: bold&#34;&gt;interface&lt;/span&gt; &lt;span style=&#34;color: #BB0066; font-weight: bold&#34;&gt;JpaRepository&lt;/span&gt;&lt;span style=&#34;color: #333333&#34;&gt;&amp;lt;&lt;/span&gt;T&lt;span style=&#34;color: #333333&#34;&gt;,&lt;/span&gt; ID &lt;span style=&#34;color: #008800; font-weight: bold&#34;&gt;extends&lt;/span&gt; Serializable&lt;span style=&#34;color: #333333&#34;&gt;&amp;gt;&lt;/span&gt; &lt;span style=&#34;color: #008800; font-weight: bold&#34;&gt;extends&lt;/span&gt; PagingAndSortingRepository&lt;span style=&#34;color: #333333&#34;&gt;&amp;lt;&lt;/span&gt;T&lt;span style=&#34;color: #333333&#34;&gt;,&lt;/span&gt; ID&lt;span style=&#34;color: #333333&#34;&gt;&amp;gt;&lt;/span&gt; &lt;span style=&#34;color: #333333&#34;&gt;{&lt;/span&gt;
-    List&lt;span style=&#34;color: #333333&#34;&gt;&amp;lt;&lt;/span&gt;T&lt;span style=&#34;color: #333333&#34;&gt;&amp;gt;&lt;/span&gt; &lt;span style=&#34;color: #0066BB; font-weight: bold&#34;&gt;findAll&lt;/span&gt;&lt;span style=&#34;color: #333333&#34;&gt;();&lt;/span&gt;
-    List&lt;span style=&#34;color: #333333&#34;&gt;&amp;lt;&lt;/span&gt;T&lt;span style=&#34;color: #333333&#34;&gt;&amp;gt;&lt;/span&gt; &lt;span style=&#34;color: #0066BB; font-weight: bold&#34;&gt;findAll&lt;/span&gt;&lt;span style=&#34;color: #333333&#34;&gt;(&lt;/span&gt;Sort sort&lt;span style=&#34;color: #333333&#34;&gt;);&lt;/span&gt;
-    List&lt;span style=&#34;color: #333333&#34;&gt;&amp;lt;&lt;/span&gt;T&lt;span style=&#34;color: #333333&#34;&gt;&amp;gt;&lt;/span&gt; &lt;span style=&#34;color: #0066BB; font-weight: bold&#34;&gt;findAll&lt;/span&gt;&lt;span style=&#34;color: #333333&#34;&gt;(&lt;/span&gt;Iterable&lt;span style=&#34;color: #333333&#34;&gt;&amp;lt;&lt;/span&gt;ID&lt;span style=&#34;color: #333333&#34;&gt;&amp;gt;&lt;/span&gt; ids&lt;span style=&#34;color: #333333&#34;&gt;);&lt;/span&gt;
-    &lt;span style=&#34;color: #333333&#34;&gt;&amp;lt;&lt;/span&gt;S &lt;span style=&#34;color: #008800; font-weight: bold&#34;&gt;extends&lt;/span&gt; T&lt;span style=&#34;color: #333333&#34;&gt;&amp;gt;&lt;/span&gt; List&lt;span style=&#34;color: #333333&#34;&gt;&amp;lt;&lt;/span&gt;S&lt;span style=&#34;color: #333333&#34;&gt;&amp;gt;&lt;/span&gt; &lt;span style=&#34;color: #0066BB; font-weight: bold&#34;&gt;save&lt;/span&gt;&lt;span style=&#34;color: #333333&#34;&gt;(&lt;/span&gt;Iterable&lt;span style=&#34;color: #333333&#34;&gt;&amp;lt;&lt;/span&gt;S&lt;span style=&#34;color: #333333&#34;&gt;&amp;gt;&lt;/span&gt; entities&lt;span style=&#34;color: #333333&#34;&gt;);&lt;/span&gt;
-    &lt;span style=&#34;color: #333399; font-weight: bold&#34;&gt;void&lt;/span&gt; &lt;span style=&#34;color: #0066BB; font-weight: bold&#34;&gt;flush&lt;/span&gt;&lt;span style=&#34;color: #333333&#34;&gt;();&lt;/span&gt;
-    &lt;span style=&#34;color: #333333&#34;&gt;&amp;lt;&lt;/span&gt;S &lt;span style=&#34;color: #008800; font-weight: bold&#34;&gt;extends&lt;/span&gt; T&lt;span style=&#34;color: #333333&#34;&gt;&amp;gt;&lt;/span&gt; S &lt;span style=&#34;color: #0066BB; font-weight: bold&#34;&gt;saveAndFlush&lt;/span&gt;&lt;span style=&#34;color: #333333&#34;&gt;(&lt;/span&gt;S entity&lt;span style=&#34;color: #333333&#34;&gt;);&lt;/span&gt;
-    &lt;span style=&#34;color: #333399; font-weight: bold&#34;&gt;void&lt;/span&gt; &lt;span style=&#34;color: #0066BB; font-weight: bold&#34;&gt;deleteInBatch&lt;/span&gt;&lt;span style=&#34;color: #333333&#34;&gt;(&lt;/span&gt;Iterable&lt;span style=&#34;color: #333333&#34;&gt;&amp;lt;&lt;/span&gt;T&lt;span style=&#34;color: #333333&#34;&gt;&amp;gt;&lt;/span&gt; entities&lt;span style=&#34;color: #333333&#34;&gt;);&lt;/span&gt;
-    &lt;span style=&#34;color: #333399; font-weight: bold&#34;&gt;void&lt;/span&gt; &lt;span style=&#34;color: #0066BB; font-weight: bold&#34;&gt;deleteAllInBatch&lt;/span&gt;&lt;span style=&#34;color: #333333&#34;&gt;();&lt;/span&gt;
-    T &lt;span style=&#34;color: #0066BB; font-weight: bold&#34;&gt;getOne&lt;/span&gt;&lt;span style=&#34;color: #333333&#34;&gt;(&lt;/span&gt;ID id&lt;span style=&#34;color: #333333&#34;&gt;);&lt;/span&gt;
-&lt;span style=&#34;color: #333333&#34;&gt;}&lt;/span&gt;
-&lt;/pre&gt;&lt;/div&gt;
-
-&lt;h3 id=&#34;domain&#34;&gt;Domain&lt;/h3&gt;
-
-&lt;p&gt;Using JPA you need to have &lt;code&gt;@Entity&lt;/code&gt;.
-&lt;code&gt;@Transient&lt;/code&gt; means it won&amp;rsquo;t be added to database. Some metadata.&lt;/p&gt;
-
-&lt;pre&gt;&lt;code&gt;@Entity
-public class SomeObject {
-
-  @Id
-  @GeneratedValue(strategy= GenerationType.AUTO)
-  private Long id;
-
-  private String description;
-  private Date created;
-
-  @Transient
-  private SimpleDateFormat format = new SimpleDateFormat(&amp;quot;MM/dd/yyyy&amp;quot;);
-
-  public SomeObject(String description, String date) throws ParseException{
-      this.description = description;
-      this.created = format.parse(date);
-  }
-
-  public SomeObject() {}
-
-  //getters &amp;amp; setters
-
-}
-&lt;/code&gt;&lt;/pre&gt;
-
-&lt;h2 id=&#34;useful-things&#34;&gt;Useful things&lt;/h2&gt;
-
-&lt;h3 id=&#34;curl-to-post-json&#34;&gt;cURL to post json&lt;/h3&gt;
-
-&lt;pre&gt;&lt;code&gt;curl -X POST -d &#39;{&amp;quot;title&amp;quot;:&amp;quot;Test Spring Boot&amp;quot;,&amp;quot;created&amp;quot;:&amp;quot;06/18/2016&amp;quot;,&amp;quot;summary&amp;quot;:&amp;quot;Create Unit
-Test for Spring Boot&amp;quot;}&#39; -H &amp;quot;Content-Type: application/json&amp;quot; http://localhost:8080/journal
-&lt;/code&gt;&lt;/pre&gt;
-
-&lt;h3 id=&#34;testing&#34;&gt;Testing&lt;/h3&gt;
-
-&lt;p&gt;If you do &lt;code&gt;gradle test&lt;/code&gt; it runs the tests and generates a html report in the &lt;code&gt;build/tests&lt;/code&gt; folder.
-It would be nice to see the results immediately in terminal. &lt;a href=&#34;https://www.mkyong.com/gradle/gradle-display-test-results-in-console/&#34;&gt;link&lt;/a&gt;
-Add the following to &lt;code&gt;build.gradle&lt;/code&gt;:&lt;/p&gt;
-
-&lt;pre&gt;&lt;code&gt;test {
-    //we want display the following test events
-    testLogging {
-        events &amp;quot;PASSED&amp;quot;, &amp;quot;STARTED&amp;quot;, &amp;quot;FAILED&amp;quot;, &amp;quot;SKIPPED&amp;quot;
-    }
-}
-&lt;/code&gt;&lt;/pre&gt;
-
-&lt;h3 id=&#34;accessing-h2-in-memory-test-database&#34;&gt;Accessing H2 In-Memory Test Database&lt;/h3&gt;
-
-&lt;p&gt;Ensure &lt;code&gt;application.properties&lt;/code&gt; has:&lt;/p&gt;
-
-&lt;pre&gt;&lt;code&gt;spring.h2.console.enabled=true
-&lt;/code&gt;&lt;/pre&gt;
-
-&lt;p&gt;Go to &lt;code&gt;http://localhost:8080/h2-console/&lt;/code&gt;.&lt;/p&gt;
-
-&lt;pre&gt;&lt;code&gt;By default it will have the org.h2.Driver driver class, which is the connection URL as
-jdbc:h2:mem:testdb and the
-username: sa
-password: empty
-to connect to the H2 engine.
-&lt;/code&gt;&lt;/pre&gt;
-
-&lt;h3 id=&#34;using-curl-to-upload-post-data-with-files&#34;&gt;Using cURL to upload post data with files&lt;/h3&gt;
-
-&lt;p&gt;&lt;a href=&#34;http://stackoverflow.com/questions/12667797/using-curl-to-upload-post-data-with-files&#34;&gt;Link&lt;/a&gt;&lt;/p&gt;
-
-&lt;p&gt;Use &lt;code&gt;-F&lt;/code&gt; option:&lt;/p&gt;
-
-&lt;pre&gt;&lt;code&gt;-F/--form &amp;lt;name=content&amp;gt; Specify HTTP multipart POST data (H)`
-&lt;/code&gt;&lt;/pre&gt;
-
-&lt;pre&gt;&lt;code&gt;curl \
-  -F &amp;quot;userid=1&amp;quot; \
-  -F &amp;quot;filecomment=This is an image file&amp;quot; \
-  -F &amp;quot;image=@/home/user1/Desktop/test.jpg&amp;quot; \
-  localhost/uploader.php
-&lt;/code&gt;&lt;/pre&gt;
-
-&lt;pre&gt;&lt;code&gt;curl -i -X POST -H &amp;quot;Content-Type: multipart/form-data&amp;quot;
--F &amp;quot;data=@test.mp3&amp;quot; http://mysuperserver/media/1234/upload/
-
-# when userid is cached as part of form
-curl -i -X POST -H &amp;quot;Content-Type: multipart/form-data&amp;quot; -F &amp;quot;data=@test.mp3;userid=1234&amp;quot; http://localhost:8080/upload/
-
-curl -i -X POST -H &amp;quot;Content-Type: multipart/form-data&amp;quot; -F file=@phoduckdp.jpg -F description=blah http://localhost:8080/upload/
-
-curl -v -F description=value1 -F file=@phoduckdp.jpg http://localhost:8080/upload/
-
-# GET verbose
-curl -v http://localhost:8080/photos
-&lt;/code&gt;&lt;/pre&gt;
-
-&lt;h3 id=&#34;curl-with-auth&#34;&gt;cURL with auth&lt;/h3&gt;
-
-&lt;pre&gt;&lt;code&gt;curl -i localhost:8080/oauth/token -d &amp;quot;grant_type=password&amp;amp;scope=read&amp;amp;username=springb
-oot&amp;amp;password=isawesome&amp;quot; -u acd167f6-04f8-4306-a118-03e2356f73aa:2dd4bec5-fe62-4568-94a1-
-c31ac3c4eb4e
-
-curl -i -H &amp;quot;Authorization: bearer f1d362f2-b167-41d9-a411-35f8ba7f0454&amp;quot; localhost:8080/api
-&lt;/code&gt;&lt;/pre&gt;
-
-&lt;h3 id=&#34;mysql&#34;&gt;MySQL&lt;/h3&gt;
-
-&lt;p&gt;Assuming you have it installed on OSX.&lt;/p&gt;
-
-&lt;pre&gt;&lt;code&gt;brew info mysql
-
-To have launchd start mysql now and restart at login:
-  brew services start mysql
-Or, if you don&#39;t want/need a background service you can just run:
-  mysql.server start
-
-To stop
-  mysql.server stop
-&lt;/code&gt;&lt;/pre&gt;
-
-&lt;h3 id=&#34;getting-properties-config&#34;&gt;Getting properties/config&lt;/h3&gt;
-
-&lt;pre&gt;&lt;code&gt;@Value(&amp;quot;${file.upload.directory}&amp;quot;)
-private String fileUploadDirectory;
-
-//OR
-
-String directory = env.getProperty(&amp;quot;file.upload.directory&amp;quot;);
-&lt;/code&gt;&lt;/pre&gt;
-
-&lt;h3 id=&#34;optional-url-path&#34;&gt;Optional URL path&lt;/h3&gt;
-
-&lt;p&gt;&lt;a href=&#34;http://stackoverflow.com/questions/4904092/with-spring-3-0-can-i-make-an-optional-path-variable&#34;&gt;link&lt;/a&gt;&lt;/p&gt;
-
-&lt;h3 id=&#34;livereload-setup&#34;&gt;LiveReload setup&lt;/h3&gt;
-
-&lt;p&gt;&lt;em&gt;Update:&lt;/em&gt; In the end I just included the &lt;code&gt;devtools&lt;/code&gt; dependency and used the &lt;code&gt;make&lt;/code&gt; command in the IDE before refreshing in the browser. Static files are still updated. However, when it comes to javascript I prefer having a setup that enables me to see the changes immediately (actually livereloading) so I think developing the UI &amp;amp; frontend in a separate project would be better.&lt;/p&gt;
-
-&lt;p&gt;&lt;a href=&#34;https://dzone.com/articles/continuous-auto-restart-with-spring-boot-devtools&#34;&gt;link&lt;/a&gt;&lt;/p&gt;
-
-&lt;p&gt;Add to build.gradle;&lt;/p&gt;
-
-&lt;pre&gt;&lt;code&gt;configurations {
-    dev
-}
-
-# under dependencies
-dev(&amp;quot;org.springframework.boot:spring-boot-devtools&amp;quot;)
-
-
-# hmm
-bootRun {
-    // Use Spring Boot DevTool only when we run Gradle bootRun task
-    classpath = sourceSets.main.runtimeClasspath + configurations.dev
-}
-&lt;/code&gt;&lt;/pre&gt;
-
-&lt;h3 id=&#34;h2-database-config&#34;&gt;H2 Database config&lt;/h3&gt;
-
-&lt;p&gt;If nothing is specified in &lt;code&gt;application.properties&lt;/code&gt;, h2 uses in mem.&lt;/p&gt;
-
-&lt;pre&gt;&lt;code&gt;spring.datasource.url = jdbc:h2:mem:testdb
-&lt;/code&gt;&lt;/pre&gt;
-
-&lt;p&gt;A persistent db can be useful for testing. This setting doesn&amp;rsquo;t work nicely with &lt;code&gt;gradle build --continuous&lt;/code&gt;.&lt;/p&gt;
-
-&lt;pre&gt;&lt;code&gt;spring.datasource.url=jdbc:h2:~/test;DB_CLOSE_DELAY=-1;DB_CLOSE_ON_EXIT=FALSE
-spring.jpa.hibernate.ddl-auto=update
-&lt;/code&gt;&lt;/pre&gt;
-
-&lt;h3 id=&#34;sample-application-properties&#34;&gt;Sample &lt;code&gt;application.properties&lt;/code&gt;&lt;/h3&gt;
-
-&lt;pre&gt;&lt;code&gt;file.upload.directory=/home/someuser/tomcat-data-directory
-
-spring.h2.console.enabled=true
-
-#JPA-Hibernate
-spring.jpa.show-sql = true
-spring.jpa.hibernate.ddl-auto=update
-spring.jpa.hibernate.naming-strategy = org.hibernate.cfg.ImprovedNamingStrategy
-spring.jpa.properties.hibernate.dialect = org.hibernate.dialect.MySQL5Dialect
-
-spring.datasource.url=jdbc:h2:/home/someuser/tomcat-data-directory/testdb;DB_CLOSE_ON_EXIT=FALSE
-
-#Spring DataSource SQL
-#spring.datasource.url = jdbc:mysql://localhost:3306/cooldatabase
-#spring.datasource.username = root
-#spring.datasource.password =
-
-spring.datasource.testWhileIdle = true
-spring.datasource.validationQuery = SELECT 1
-&lt;/code&gt;&lt;/pre&gt;
-</description>
+      <guid>https://robin-lee.github.io/blog/beginning-spring-boot/</guid>
+      <description>Spring Boot with Gradle because Maven is too verbose.
+When I was looking for tutorials, it seemed like using gradle with Spring Boot is the lesser walked path. However, I think going down this path enables me to understand gradle better. This will be useful for Android development too.
+It is to be noted that Spring has some integrations with the paid version of the IntelliJ IDEA IDE. As I am using the community edition, I will use the Spring CLI to setup the project.</description>
     </item>
     
     <item>
       <title>Cpp Basics 1</title>
-      <link>https://robin-lee.github.io/blog/2016/08/cpp-basics-1/</link>
+      <link>https://robin-lee.github.io/blog/cpp-basics-1/</link>
       <pubDate>Fri, 19 Aug 2016 15:33:28 +0200</pubDate>
       
-      <guid>https://robin-lee.github.io/blog/2016/08/cpp-basics-1/</guid>
-      <description>
-
-&lt;p&gt;Algorithms and data structures are a central part of software development. I thought it would be reinforce the knowledge I have in this area.
-Competitions in this domain seem to favor cpp and knowing a variant of c better will certainly help when doing &lt;em&gt;hardware programming&lt;/em&gt;. Hence, we eplore the
-basics of cpp before we move on to data structures and then algorithms.&lt;/p&gt;
-
-&lt;p&gt;A series in cpp begins. Naturally, it involves more than just language.&lt;/p&gt;
-
-&lt;p&gt;Reference: Accelerated C++
-Note: This post is written largely in the context of using OSX (my laptop).&lt;/p&gt;
-
-&lt;h2 id=&#34;a-program&#34;&gt;A program&lt;/h2&gt;
-&lt;div class=&#34;highlight&#34; style=&#34;background: #ffffff&#34;&gt;&lt;pre style=&#34;line-height: 125%&#34;&gt;&lt;span&gt;&lt;/span&gt;&lt;span style=&#34;color: #557799&#34;&gt;#include&lt;/span&gt; &lt;span style=&#34;color: #888888&#34;&gt;&amp;lt;iostream&amp;gt;&lt;/span&gt;&lt;span style=&#34;color: #557799&#34;&gt;&lt;/span&gt;
-&lt;span style=&#34;color: #557799&#34;&gt;#include&lt;/span&gt; &lt;span style=&#34;color: #888888&#34;&gt;&amp;lt;string&amp;gt;&lt;/span&gt;&lt;span style=&#34;color: #557799&#34;&gt;&lt;/span&gt;
-
-&lt;span style=&#34;color: #333399; font-weight: bold&#34;&gt;int&lt;/span&gt; &lt;span style=&#34;color: #0066BB; font-weight: bold&#34;&gt;main&lt;/span&gt;() {
-    {
-        &lt;span style=&#34;color: #008800; font-weight: bold&#34;&gt;const&lt;/span&gt; std&lt;span style=&#34;color: #333333&#34;&gt;::&lt;/span&gt;string s &lt;span style=&#34;color: #333333&#34;&gt;=&lt;/span&gt; &lt;span style=&#34;background-color: #fff0f0&#34;&gt;&amp;quot;Hot chocolate is nice.&amp;quot;&lt;/span&gt;;
-        std&lt;span style=&#34;color: #333333&#34;&gt;::&lt;/span&gt;cout &lt;span style=&#34;color: #333333&#34;&gt;&amp;lt;&amp;lt;&lt;/span&gt; s &lt;span style=&#34;color: #333333&#34;&gt;&amp;lt;&amp;lt;&lt;/span&gt; std&lt;span style=&#34;color: #333333&#34;&gt;::&lt;/span&gt;endl;
-    }
-    {
-        &lt;span style=&#34;color: #008800; font-weight: bold&#34;&gt;const&lt;/span&gt; std&lt;span style=&#34;color: #333333&#34;&gt;::&lt;/span&gt;string s &lt;span style=&#34;color: #333333&#34;&gt;=&lt;/span&gt; &lt;span style=&#34;background-color: #fff0f0&#34;&gt;&amp;quot;COOP iced tea is nice!&amp;quot;&lt;/span&gt;;
-        std&lt;span style=&#34;color: #333333&#34;&gt;::&lt;/span&gt;cout &lt;span style=&#34;color: #333333&#34;&gt;&amp;lt;&amp;lt;&lt;/span&gt; s &lt;span style=&#34;color: #333333&#34;&gt;&amp;lt;&amp;lt;&lt;/span&gt; std&lt;span style=&#34;color: #333333&#34;&gt;::&lt;/span&gt;endl;
-    }
-    &lt;span style=&#34;color: #008800; font-weight: bold&#34;&gt;return&lt;/span&gt; &lt;span style=&#34;color: #0000DD; font-weight: bold&#34;&gt;0&lt;/span&gt;;
-}
-&lt;/pre&gt;&lt;/div&gt;
-
-&lt;p&gt;A basic program might look like something above. &lt;code&gt;#include&lt;/code&gt; libraries and send something to the output.&lt;/p&gt;
-
-&lt;p&gt;Things to note here would be:
-- &lt;code&gt;std&lt;/code&gt; namespace is used explicitly.
-- The first &lt;code&gt;::&lt;/code&gt; used may be called the scope operator.
-- &lt;code&gt;&amp;lt;&amp;lt;&lt;/code&gt; and its partner &lt;code&gt;&amp;gt;&amp;gt;&lt;/code&gt; are &lt;em&gt;redirection&lt;/em&gt; operators.
-- &lt;code&gt;{ }&lt;/code&gt; brackets create scopes. You may consider them as &lt;em&gt;units&lt;/em&gt;. The program runs here because there 2 units and they only access the variables within them.
-- &lt;code&gt;return 0&lt;/code&gt;: 0 return value implies the program executed fine. Any other non-zero return value means an &lt;strong&gt;&lt;em&gt;implementation&lt;/em&gt;&lt;/strong&gt; &lt;strong&gt;defined failure&lt;/strong&gt;..&lt;/p&gt;
-
-&lt;h2 id=&#34;makefile&#34;&gt;Makefile&lt;/h2&gt;
-
-&lt;p&gt;To run a program coded in cpp, you need to first compile the cpp code and then execute the resulting executable file.
-It can get quite repetive. To make things simpler it useful to have a script to automate the &lt;em&gt;build&lt;/em&gt; process. Creating a Makefile for the &lt;code&gt;make&lt;/code&gt; tool is one
-way you can achieve such automation. Some call it a &lt;a href=&#34;https://www.cs.umd.edu/class/fall2002/cmsc214/Tutorial/makefile.html&#34;&gt;Macro&lt;/a&gt;.&lt;/p&gt;
-&lt;div class=&#34;highlight&#34; style=&#34;background: #ffffff&#34;&gt;&lt;pre style=&#34;line-height: 125%&#34;&gt;&lt;span&gt;&lt;/span&gt;&lt;span style=&#34;color: #0066BB; font-weight: bold&#34;&gt;run&lt;/span&gt;&lt;span style=&#34;color: #333333&#34;&gt;:&lt;/span&gt; compile
-        ./play
-
-&lt;span style=&#34;color: #0066BB; font-weight: bold&#34;&gt;compile&lt;/span&gt;&lt;span style=&#34;color: #333333&#34;&gt;:&lt;/span&gt;
-        g++ play.cpp -o play
-&lt;/pre&gt;&lt;/div&gt;
-
-&lt;p&gt;By default the tool &lt;code&gt;make&lt;/code&gt; process the first target. By convention, the first target is called &lt;code&gt;all&lt;/code&gt; (we are not following that here to be clear on how make works).
-The questions that arise now are: What is the format of a make file? What is target?&lt;/p&gt;
-
-&lt;p&gt;A makefile has a format like so:&lt;/p&gt;
-&lt;div class=&#34;highlight&#34; style=&#34;background: #ffffff&#34;&gt;&lt;pre style=&#34;line-height: 125%&#34;&gt;&lt;span&gt;&lt;/span&gt;&lt;span style=&#34;color: #0066BB; font-weight: bold&#34;&gt;target&lt;/span&gt;&lt;span style=&#34;color: #333333&#34;&gt;:&lt;/span&gt; dependencies
-&lt;span style=&#34;color: #FF0000; background-color: #FFAAAA&#34;&gt;[tab&lt;/span&gt; &lt;span style=&#34;color: #FF0000; background-color: #FFAAAA&#34;&gt;character]&lt;/span&gt; &lt;span style=&#34;color: #FF0000; background-color: #FFAAAA&#34;&gt;system&lt;/span&gt; &lt;span style=&#34;color: #FF0000; background-color: #FFAAAA&#34;&gt;command&lt;/span&gt;
-&lt;/pre&gt;&lt;/div&gt;
-
-&lt;p&gt;Another way you can specify the default target is &lt;a href=&#34;http://stackoverflow.com/a/30176470&#34;&gt;link&lt;/a&gt;:&lt;/p&gt;
-&lt;div class=&#34;highlight&#34; style=&#34;background: #ffffff&#34;&gt;&lt;pre style=&#34;line-height: 125%&#34;&gt;&lt;span&gt;&lt;/span&gt;&lt;span style=&#34;color: #996633&#34;&gt;.DEFAULT_GOAL&lt;/span&gt; &lt;span style=&#34;color: #333333&#34;&gt;:=&lt;/span&gt; mytarget
-&lt;/pre&gt;&lt;/div&gt;
-
-&lt;p&gt;For a newer make &amp;gt; 3.80:&lt;/p&gt;
-&lt;div class=&#34;highlight&#34; style=&#34;background: #ffffff&#34;&gt;&lt;pre style=&#34;line-height: 125%&#34;&gt;&lt;span&gt;&lt;/span&gt;&lt;span style=&#34;color: #0066BB; font-weight: bold&#34;&gt;.PHONY&lt;/span&gt;&lt;span style=&#34;color: #333333&#34;&gt;:&lt;/span&gt; default
-&lt;span style=&#34;color: #0066BB; font-weight: bold&#34;&gt;default&lt;/span&gt;&lt;span style=&#34;color: #333333&#34;&gt;:&lt;/span&gt; mytarget ;
-&lt;/pre&gt;&lt;/div&gt;
-
-&lt;h2 id=&#34;gcc-vs-g&#34;&gt;gcc vs g++&lt;/h2&gt;
-
-&lt;p&gt;You could just do &lt;code&gt;make&lt;/code&gt; in the same directory as your cpp code. An output file will be created which you can execute like &lt;code&gt;./the_output_file.out&lt;/code&gt;.
-What I &lt;strong&gt;&lt;em&gt;think&lt;/em&gt;&lt;/strong&gt; happens is that &lt;code&gt;make&lt;/code&gt; gets the default compiler for the cpp code. For OSX, in my case, it &lt;em&gt;should&lt;/em&gt; be gcc.&lt;/p&gt;
-
-&lt;p&gt;Anyway, whats important to know here is the difference between g++ and gcc as above we specified g++.&lt;/p&gt;
-
-&lt;p&gt;Quoting a stackoverflow &lt;a href=&#34;http://stackoverflow.com/a/173007&#34;&gt;post&lt;/a&gt;:&lt;/p&gt;
-
-&lt;pre&gt;&lt;code&gt;The main differences:
-
-1. gcc will compile: *.c/*.cpp files as C and C++ respectively.
-2. g++ will compile: *.c/*.cpp files but they will all be treated as C++ files.
-3. Also if you use g++ to link the object files it automatically links in the std C++ libraries (gcc does not do this).
-4. gcc compiling C files has less predefined macros.
-5. gcc compiling *.cpp and g++ compiling *.c/*.cpp files has a few extra macros.
-&lt;/code&gt;&lt;/pre&gt;
-
-&lt;p&gt;Knowing the difference might just help you when you have one of those projects involving sensors or microcontrollers!&lt;/p&gt;
-
-&lt;h2 id=&#34;c-strings&#34;&gt;C++ Strings&lt;/h2&gt;
-
-&lt;p&gt;Frankly, at the moment I still do not understand enough about between strings and string literals. Being pragmatic,
-I will look at some practical use cases.&lt;/p&gt;
-&lt;div class=&#34;highlight&#34; style=&#34;background: #ffffff&#34;&gt;&lt;pre style=&#34;line-height: 125%&#34;&gt;&lt;span&gt;&lt;/span&gt;&lt;span style=&#34;color: #557799&#34;&gt;#include&lt;/span&gt; &lt;span style=&#34;color: #888888&#34;&gt;&amp;lt;string&amp;gt;&lt;/span&gt;&lt;span style=&#34;color: #557799&#34;&gt;&lt;/span&gt;
-&lt;span style=&#34;color: #008800; font-weight: bold&#34;&gt;using&lt;/span&gt; std&lt;span style=&#34;color: #333333&#34;&gt;::&lt;/span&gt;string;
-
-string stringLiteral &lt;span style=&#34;color: #333333&#34;&gt;=&lt;/span&gt; &lt;span style=&#34;background-color: #fff0f0&#34;&gt;&amp;quot;characters enclose in double quotes and cannot span lines&amp;quot;&lt;/span&gt;;
-
-&lt;span style=&#34;color: #888888&#34;&gt;//overloaded constructor to create a string with n of character.&lt;/span&gt;
-string repeatCharacter &lt;span style=&#34;color: #0066BB; font-weight: bold&#34;&gt;z&lt;/span&gt;(&lt;span style=&#34;color: #0000DD; font-weight: bold&#34;&gt;10&lt;/span&gt;, &lt;span style=&#34;color: #0044DD&#34;&gt;&amp;#39;*&amp;#39;&lt;/span&gt;);
-
-&lt;span style=&#34;color: #888888&#34;&gt;//a string&lt;/span&gt;
-string someString &lt;span style=&#34;color: #333333&#34;&gt;=&lt;/span&gt; string(&lt;span style=&#34;background-color: #fff0f0&#34;&gt;&amp;quot;i am a string&amp;quot;&lt;/span&gt;);
-&lt;/pre&gt;&lt;/div&gt;
-
-&lt;p&gt;A &lt;strong&gt;string literal&lt;/strong&gt; is a bunch of characters in doubles and they cannot span lines. Having some prior knowledge in C and C++, I would say that a string literal is &lt;em&gt;a series of characters in memory terminated by a null character &lt;code&gt;\0&lt;/code&gt;&lt;/em&gt;. Maybe it would be better to call them character literal arrays.&lt;/p&gt;
-
-&lt;p&gt;As for a &lt;strong&gt;string&lt;/strong&gt;, you use a contructor &lt;code&gt;string(&amp;quot;some text&amp;quot;)&lt;/code&gt;.&lt;/p&gt;
-
-&lt;p&gt;A common use case with strings is to join them just like creating a sentence where you want to join words or phrases together.
-This is where you can see a difference (&lt;a href=&#34;http://stackoverflow.com/questions/662918/how-do-i-concatenate-multiple-c-strings-on-one-line&#34;&gt;refence link&lt;/a&gt;):&lt;/p&gt;
-&lt;div class=&#34;highlight&#34; style=&#34;background: #ffffff&#34;&gt;&lt;pre style=&#34;line-height: 125%&#34;&gt;&lt;span&gt;&lt;/span&gt;string stringLiteral1 &lt;span style=&#34;color: #333333&#34;&gt;=&lt;/span&gt; &lt;span style=&#34;background-color: #fff0f0&#34;&gt;&amp;quot;hello&amp;quot;&lt;/span&gt;;
-string stringLiteral2 &lt;span style=&#34;color: #333333&#34;&gt;=&lt;/span&gt; &lt;span style=&#34;background-color: #fff0f0&#34;&gt;&amp;quot; world&amp;quot;&lt;/span&gt;;
-
-&lt;span style=&#34;color: #888888&#34;&gt;//you cannot do because they are both string literals.&lt;/span&gt;
-string s &lt;span style=&#34;color: #333333&#34;&gt;=&lt;/span&gt; stringLiteral1 &lt;span style=&#34;color: #333333&#34;&gt;+&lt;/span&gt; stringLiteral2;
-
-&lt;span style=&#34;color: #888888&#34;&gt;//(A)convert them to strings&lt;/span&gt;
-string newstring &lt;span style=&#34;color: #333333&#34;&gt;=&lt;/span&gt; string(stringLiteral1) &lt;span style=&#34;color: #333333&#34;&gt;+&lt;/span&gt; string(stringLiteral2);
-
-&lt;span style=&#34;color: #888888&#34;&gt;//(B)or perhaps&lt;/span&gt;
-std&lt;span style=&#34;color: #333333&#34;&gt;::&lt;/span&gt;stringstream ss;
-ss &lt;span style=&#34;color: #333333&#34;&gt;&amp;lt;&amp;lt;&lt;/span&gt; &lt;span style=&#34;background-color: #fff0f0&#34;&gt;&amp;quot;Hello, world, &amp;quot;&lt;/span&gt; &lt;span style=&#34;color: #333333&#34;&gt;&amp;lt;&amp;lt;&lt;/span&gt; myInt &lt;span style=&#34;color: #333333&#34;&gt;&amp;lt;&amp;lt;&lt;/span&gt; niceToSeeYouString;
-std&lt;span style=&#34;color: #333333&#34;&gt;::&lt;/span&gt;string s &lt;span style=&#34;color: #333333&#34;&gt;=&lt;/span&gt; ss.str();
-
-&lt;span style=&#34;color: #888888&#34;&gt;//(C)or using append; a little verbose?.&lt;/span&gt;
-std&lt;span style=&#34;color: #333333&#34;&gt;::&lt;/span&gt;string s;
-s.append(&lt;span style=&#34;background-color: #fff0f0&#34;&gt;&amp;quot;Hello world, &amp;quot;&lt;/span&gt;);
-s.append(&lt;span style=&#34;background-color: #fff0f0&#34;&gt;&amp;quot;nice to see you, &amp;quot;&lt;/span&gt;);
-s.append(&lt;span style=&#34;background-color: #fff0f0&#34;&gt;&amp;quot;or not.&amp;quot;&lt;/span&gt;);
-&lt;/pre&gt;&lt;/div&gt;
-
-&lt;p&gt;At a glance, I think I would prefer using method (A) or (B) to create dynamic strings. In a game prototype, NPCs could
-have a lengthly paragraph text to say depending on a player&amp;rsquo;s actions. What if there really was a lot to output because the NPC
-is such a great storyteller?&lt;/p&gt;
-
-&lt;p&gt;string::size_type could be useful if you have &amp;gt; 32767 characters. The book says that it is good practice to use size_type for the
-size of strings since it was created for the purpose of &lt;em&gt;sizing&lt;/em&gt; strings.&lt;/p&gt;
-
-&lt;pre&gt;&lt;code&gt;// size_type used intead of int
-const std::string::size_type cols = greeting.size() + pad * 2 + 2;
-&lt;/code&gt;&lt;/pre&gt;
-
-&lt;p&gt;The last point for this post is off-topic from strings but it is relevant to cpp&amp;hellip;
-Quoting the book:&lt;/p&gt;
-
-&lt;pre&gt;&lt;code&gt;One reason to count from 0 is that doing so encourages us to use asymmetric ranges to express intervals. For example, it is natural to use the range [0, rows) to describe the first for statement, as it is to use the range [1, rows] to describe the second one.
-Asymmetric ranges are usually easier to use than symmetric ones because of an important property: A range of the form [m, n) has n - m elements, and a range of the form [m, n] has n - m + 1 elements. So, for example, the number of elements in [0, rows) is obvious (i.e., rows - 0, or rows) but the number in [1, rows] is less so.
-This behavioral difference between asymmetric and symmetric ranges is particularly evident in the case of empty ranges: If we use asymmetric ranges, we can express an empty range as [n, n), in contrast to [n, n-1] for symmetric ranges. The possibility that the end of a range could ever be less than the beginning can cause no end of trouble in designing programs.
-&lt;/code&gt;&lt;/pre&gt;
-</description>
+      <guid>https://robin-lee.github.io/blog/cpp-basics-1/</guid>
+      <description>Algorithms and data structures are a central part of software development. I thought it would be reinforce the knowledge I have in this area. Competitions in this domain seem to favor cpp and knowing a variant of c better will certainly help when doing hardware programming. Hence, we eplore the basics of cpp before we move on to data structures and then algorithms.
+A series in cpp begins. Naturally, it involves more than just language.</description>
     </item>
     
     <item>
       <title>Developing and Deploying Java Servlet Webapp</title>
-      <link>https://robin-lee.github.io/blog/2016/08/developing-and-deploying-java-servlet-webapp/</link>
+      <link>https://robin-lee.github.io/blog/deploying-java-servlet-webapp-to-development-vm/</link>
       <pubDate>Fri, 12 Aug 2016 16:23:07 +0200</pubDate>
       
-      <guid>https://robin-lee.github.io/blog/2016/08/developing-and-deploying-java-servlet-webapp/</guid>
-      <description>
-
-&lt;h2 id=&#34;developing&#34;&gt;Developing&lt;/h2&gt;
-
-&lt;p&gt;You can find a few tutorials on how to create a basic (hello world) webapp with java servlets in eclipse so it will not be included here.
-As always my experience differs from such tutorials. It is never smooth sailing. You always have to configure or troubleshoot something even if your setup is &lt;em&gt;exactly&lt;/em&gt; the same. The last time I did something with Servlets or JSP was in 2013 or 2014. I don&amp;rsquo;t think I have my notes from then.&lt;/p&gt;
-
-&lt;p&gt;This time round I had to do some tweaking to get Eclipse to recognise the tomcat server installed on OSX (not the VM, thats working well). For some reason it didn&amp;rsquo;t recognize tomcat 8.5.*.&lt;/p&gt;
-
-&lt;pre&gt;&lt;code&gt;You have to patch catalina.jar, as this is version number the WTP adapter looks at. It&#39;s a quite useless check, and the adapter should allow you to start the server anyway, but nobody has though of that yet.
-
-For years and with every version of Tomcat this is always a problem.
-
-To patch you can do the following:
-
-cd [tomcat or tomee home]/lib
-mkdir catalina
-cd catalina/
-unzip ../catalina.jar
-vim org/apache/catalina/util/ServerInfo.properties
-Make sure it looks like the following (the version numbers all need to start with 8.0):
-
-server.info=Apache Tomcat/8.0.0
-server.number=8.0.0
-server.built=May 11 2016 21:49:07 UTC
-Then:
-
-jar uf ../catalina.jar org/apache/catalina/util/ServerInfo.properties
-cd ..
-rm -rf catalina
-&lt;/code&gt;&lt;/pre&gt;
-
-&lt;p&gt;&lt;a href=&#34;http://stackoverflow.com/questions/37024876/how-to-use-tomcat-8-5-x-and-tomee-7-x-with-eclipse&#34;&gt;stack link&lt;/a&gt;&lt;/p&gt;
-
-&lt;p&gt;Once this was done, I could develop and test my webapp in Eclipse.&lt;/p&gt;
-
-&lt;h2 id=&#34;deploying&#34;&gt;Deploying&lt;/h2&gt;
-
-&lt;p&gt;To me, running the webapp in the IDE is not deploying. There were a few tutorials with misleading titles.&lt;/p&gt;
-
-&lt;p&gt;I was told that to deploy an webapp is bascially copying a war archive into a directory for tomcat. To have a 2nd opinion, I found this &lt;a href=&#34;http://www.vogella.com/tutorials/EclipseWTP/article.html&#34;&gt;vogella tutorial&lt;/a&gt;. Vogella has been consistent in providing great tutorials to help you get started.&lt;/p&gt;
-
-&lt;p&gt;In Eclipse, you just right click on the root package for your webapp and export as a &lt;code&gt;war archive&lt;/code&gt; and save it somewhere.&lt;/p&gt;
-
-&lt;p&gt;To transfer the file to the VM:&lt;/p&gt;
-
-&lt;pre&gt;&lt;code&gt;scp &amp;lt;filename&amp;gt;.war tomcatuser@192.168.56.101:/home/&amp;lt;vm user&amp;gt;
-&lt;/code&gt;&lt;/pre&gt;
-
-&lt;p&gt;And via ssh in &lt;code&gt;/opt/tomcat&lt;/code&gt; (assuming you set up tomcat here and service is called tomcat8):&lt;/p&gt;
-
-&lt;pre&gt;&lt;code&gt;cp ~/&amp;lt;filename&amp;gt;.war webapps/
-sudo service tomcat8 restart
-&lt;/code&gt;&lt;/pre&gt;
-
-&lt;p&gt;Now going to &lt;code&gt;&amp;lt;url&amp;gt;:8080/&amp;lt;filename&amp;gt;/&amp;lt;classname&amp;gt;&lt;/code&gt; should load your webpage or whatever response you made.
-You could change the URL by specifying configurations in a &lt;code&gt;web.xml&lt;/code&gt; but that will not be covered here&amp;hellip; for now?&lt;/p&gt;
-</description>
+      <guid>https://robin-lee.github.io/blog/deploying-java-servlet-webapp-to-development-vm/</guid>
+      <description>Developing You can find a few tutorials on how to create a basic (hello world) webapp with java servlets in eclipse so it will not be included here. As always my experience differs from such tutorials. It is never smooth sailing. You always have to configure or troubleshoot something even if your setup is exactly the same. The last time I did something with Servlets or JSP was in 2013 or 2014.</description>
     </item>
     
     <item>
       <title>Tomcat Development Server</title>
-      <link>https://robin-lee.github.io/blog/2016/08/tomcat-development-server/</link>
+      <link>https://robin-lee.github.io/blog/tomcat-development-server/</link>
       <pubDate>Thu, 11 Aug 2016 23:13:48 +0200</pubDate>
       
-      <guid>https://robin-lee.github.io/blog/2016/08/tomcat-development-server/</guid>
-      <description>
-
-&lt;p&gt;I always wanted to learn some backend development seriously and finally I have the opportunity to do so. I have played around with server setup in the past but most of the information has been forgotten.&lt;/p&gt;
-
-&lt;p&gt;This time round a development server will be setup in virtualbox using ubuntu server 14.04 LTS (support expires 2019). For 16.04 LTS, I think the &lt;code&gt;apt-get&lt;/code&gt; command is replace with &lt;code&gt;apt&lt;/code&gt; and there are many new changes&amp;hellip; To save some time and focus on learning backend development sticking with 14.04 LTS is the better choice.&lt;/p&gt;
-
-&lt;p&gt;Technologies used are:&lt;/p&gt;
-
-&lt;ul&gt;
-&lt;li&gt;Apache2: Web layer, sits infront of tomcat&lt;/li&gt;
-&lt;li&gt;MySQL: Relational database&lt;/li&gt;
-&lt;li&gt;Tomcat: Java app server&lt;/li&gt;
-&lt;li&gt;Adminer: Web tool to manage MySQL&lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;p&gt;Also,&lt;/p&gt;
-
-&lt;ul&gt;
-&lt;li&gt;VirtualBox&lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;h2 id=&#34;virtualbox&#34;&gt;VirtualBox&lt;/h2&gt;
-
-&lt;p&gt;I installed an image of ubuntu server 14.04 LTS.
-Then I had to configure the network setting so that I would be able to access the web server hosted on the VM.&lt;/p&gt;
-
-&lt;p&gt;The steps were:&lt;/p&gt;
-
-&lt;ol&gt;
-&lt;li&gt;Go to preferences for VirtualBox.&lt;/li&gt;
-&lt;li&gt;Networks &amp;gt; Host-only networks.&lt;/li&gt;
-&lt;li&gt;Ensure there is an entry vboxnet0 (with whatever ip range you want).&lt;/li&gt;
-&lt;li&gt;Add a new adapter under network settings &lt;strong&gt;for VM&lt;/strong&gt;.&lt;/li&gt;
-&lt;li&gt;Set it to host-only.&lt;/li&gt;
-&lt;li&gt;Start up VM and configure &lt;code&gt;/etc/network/interfaces&lt;/code&gt;. (VM and Vbox settings have no relation hence you have to configure the new adapter here too)&lt;/li&gt;
-&lt;/ol&gt;
-
-&lt;p&gt;How to configure &lt;code&gt;/etc/network/interfaces&lt;/code&gt;:&lt;/p&gt;
-
-&lt;pre&gt;&lt;code&gt;# This file describes the network interfaces available on your system
-# and how to activate them. For more information, see interfaces(5).
-
-# The loopback network interface
-auto lo
-iface lo inet loopback
-
-# The primary network interface
-auto eth0
-iface eth0 inet dhcp
-
-auto eth1
-iface eth1 inet dhcp
-&lt;/code&gt;&lt;/pre&gt;
-
-&lt;p&gt;Originally, there was only eth0. You have to add eth1 too. (Special thanks: Vitor)&lt;/p&gt;
-
-&lt;p&gt;After changing the settings, you can reboot the system. Although&amp;hellip; It might be possible to do &lt;code&gt;sudo ifdown eth1&lt;/code&gt; and &lt;code&gt;sudo ifup eth1&lt;/code&gt;.&lt;/p&gt;
-
-&lt;h2 id=&#34;apache2&#34;&gt;Apache2&lt;/h2&gt;
-
-&lt;p&gt;This was easy to setup. It gets complicated if you  want to configure it for a production environment though. (Further reading to be done)&lt;/p&gt;
-
-&lt;pre&gt;&lt;code&gt;sudo apt-get install apache2
-&lt;/code&gt;&lt;/pre&gt;
-
-&lt;h2 id=&#34;mysql&#34;&gt;MySQL&lt;/h2&gt;
-
-&lt;p&gt;You could do &lt;code&gt;sudo apt-get install mysql-server&lt;/code&gt; and it will work fine. However, I wanted a newer version mysql 5.7 so I had to download a newer APT package from the MySQL APT repository and then run the commands below.&lt;/p&gt;
-
-&lt;pre&gt;&lt;code&gt;sudo dpkg -i &amp;lt;mysql-apt-file&amp;gt;.deb
-sudo apt-get update
-sudo apt-get install mysql-server
-&lt;/code&gt;&lt;/pre&gt;
-
-&lt;ul&gt;
-&lt;li&gt;&lt;a href=&#34;http://serverfault.com/questions/752063/how-can-i-install-mysql-5-7-9-to-ubuntu-14-04&#34;&gt;Serverfault mysql reference&lt;/a&gt;&lt;/li&gt;
-&lt;li&gt;&lt;a href=&#34;https://www.digitalocean.com/community/tutorials/how-to-install-mysql-on-ubuntu-14-04&#34;&gt;Digital ocean mysql reference&lt;/a&gt;&lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;h2 id=&#34;adminer&#34;&gt;Adminer&lt;/h2&gt;
-
-&lt;p&gt;phpMyAdmin is a popular tool people use to view MySQL database instances and it is known to have many security flaws. Adminer is an alternative. I had to try a few times to set this up. For some reason I kept getting 404 errors. Eventually, it worked after I tried retarting from a clean slate 2-3 times. There might have been some miscofigured files lying around (not clean slate). Unfortunately, apt-get doesn&amp;rsquo;t give you the latest version.&lt;/p&gt;
-
-&lt;pre&gt;&lt;code&gt;sudo apt-get install adminer
-sudo ln -s /etc/adminer/apache.conf /etc/apache2/conf-available/adminer.conf
-sudo a2enconf adminer.conf
-sudo service apache2 reload
-&lt;/code&gt;&lt;/pre&gt;
-
-&lt;p&gt;&lt;a href=&#34;https://www.leaseweb.com/labs/2014/06/install-adminer-manually-ubuntu-14-04/&#34;&gt;Link for manual installation&lt;/a&gt;&lt;/p&gt;
-
-&lt;h2 id=&#34;tomcat&#34;&gt;Tomcat&lt;/h2&gt;
-
-&lt;p&gt;Tomcat requires java. Hence, install java before installing tomcat. Next, it is good practice to run the server as another user (security) but this can be annoying to get right. If you are not too familiar with the linux system and do not have a large repertoire of commandline commands as well as not a deep/intermediate understanding of the commands it will be a challenge.&lt;/p&gt;
-
-&lt;pre&gt;&lt;code&gt;sudo apt-get update
-sudo apt-get install default-jdk
-
-sudo groupadd tomcat
-sudo useradd -s /bin/false -g tomcat -d /opt/tomcat tomcat
-
-wget &amp;lt;link to tomcat binary&amp;gt;
-sudo mkdir /opt/tomcat
-sudo tar xvf apache-tomcat-8*tar.gz -C /opt/tomcat --strip-components=1
-cd /opt/tomcat
-
-# We put the tomcat user as the owner of the folder of tomcat:
-sudo chown -R tomcat:tomcat /opt/tomcat
-# Users can not modify the configuration of tomcat:
-sudo chmod -R g+r /opt/tomcat/conf
-# Users can modify the other folders:
-sudo chmod -R g+w /opt/tomcat/conf
-sudo chmod -R g+w /opt/tomcat/logs
-sudo chmod -R g+w /opt/tomcat/temp
-sudo chmod -R g+w /opt/tomcat/webapps
-sudo chmod -R g+w /opt/tomcat/work
-# Activate the sticky-bit for new files keep permissions defined:
-sudo chmod -R g+s /opt/tomcat/conf
-sudo chmod -R g+s /opt/tomcat/logs
-sudo chmod -R g+s /opt/tomcat/temp
-sudo chmod -R g+s /opt/tomcat/webapps
-sudo chmod -R g+s /opt/tomcat/work
-&lt;/code&gt;&lt;/pre&gt;
-
-&lt;p&gt;You might get a permission denied message when trying to &lt;code&gt;cd&lt;/code&gt; into logs or one of the folders&amp;hellip;&lt;/p&gt;
-
-&lt;pre&gt;&lt;code&gt;sudo usermod -a -G tomcat &amp;lt;your username&amp;gt;
-exit
-&lt;/code&gt;&lt;/pre&gt;
-
-&lt;p&gt;&lt;code&gt;exit&lt;/code&gt; till you are logged out then relog for permission changes to take place. You need to be in the tomcat group to have access.&lt;/p&gt;
-
-&lt;p&gt;&lt;a href=&#34;http://superuser.com/questions/632618/best-practice-for-access-permission-to-users-for-apache-tomcat&#34;&gt;More on permissions&lt;/a&gt;&lt;/p&gt;
-
-&lt;p&gt;&lt;code&gt;/opt&lt;/code&gt; is for third-party applications that don&amp;rsquo;t rely on any dependencies outside the scope of said package. &lt;code&gt;/usr/local&lt;/code&gt; is for packages installed on this machine outside the scope of the distribution package manager. &lt;a href=&#34;http://askubuntu.com/questions/34880/use-of-opt-and-usr-local-directories-in-the-context-of-a-pc&#34;&gt;link&lt;/a&gt;&lt;/p&gt;
-
-&lt;p&gt;After all that you need to make a script that will run on startup.
-The script will be placed in &lt;code&gt;/etc/init.d/&amp;lt;name&amp;gt;&lt;/code&gt;. &lt;code&gt;update-rc.d&lt;/code&gt; will be of help.
-(So may commands to know)&lt;/p&gt;
-
-&lt;p&gt;&lt;code&gt;tomcat8&lt;/code&gt; script:&lt;/p&gt;
-
-&lt;pre&gt;&lt;code&gt;#!/bin/bash
-
-### References:
-### http://askubuntu.com/questions/223944/how-to-automatically-restart-tomcat7-on-system-reboots/224402
-### http://superuser.com/questions/632618/best-practice-for-access-permission-to-users-for-apache-tomcat
-###
-
-### BEGIN INIT INFO
-# Provides:        tomcat8
-# Required-Start:  $network
-# Required-Stop:   $network
-# Default-Start:   2 3 4 5
-# Default-Stop:    0 1 6
-# Short-Description: Start/Stop Tomcat server
-### END INIT INFO
-
-JAVA_HOME=/usr/lib/jvm/java-7-openjdk-amd64
-PATH=/sbin:/bin:/usr/sbin:/usr/bin
-
-start() {
- sh /opt/tomcat/bin/startup.sh
-}
-
-stop() {
- sh /opt/tomcat/bin/shutdown.sh
-}
-
-case $1 in
-  start|stop) $1;;
-  restart) stop; start;;
-  *) echo &amp;quot;Run as $0 &amp;lt;start|stop|restart&amp;gt;&amp;quot;; exit 1;;
-esac
-&lt;/code&gt;&lt;/pre&gt;
-
-&lt;p&gt;Give the script permissions:&lt;/p&gt;
-
-&lt;pre&gt;&lt;code&gt;sudo chmod 755 /etc/init.d/tomcat8
-sudo update-rc.d tomcat8 defaults
-sudo reboot
-&lt;/code&gt;&lt;/pre&gt;
-
-&lt;p&gt;Use like &lt;code&gt;service tomcat8 &amp;lt;stop|start|restart&amp;gt;&lt;/code&gt;.&lt;/p&gt;
-
-&lt;p&gt;&lt;em&gt;If you wish may use a fancier &lt;a href=&#34;https://gist.github.com/miglen/5590986&#34;&gt;script&lt;/a&gt;.&lt;/em&gt;&lt;/p&gt;
-
-&lt;h2 id=&#34;testing-setup&#34;&gt;Testing setup&lt;/h2&gt;
-
-&lt;p&gt;Default port for tomcat is 8080. Test &lt;code&gt;curl 127.0.0.1:8080&lt;/code&gt;. You should see the default tomcat webpage.&lt;/p&gt;
-
-&lt;pre&gt;&lt;code&gt;ipconfig | grep addr
-&lt;/code&gt;&lt;/pre&gt;
-
-&lt;p&gt;Now get the ip for you virtual machine and see if you can access apache, adminer and tomcat from your host machine&amp;rsquo;s web browser.&lt;/p&gt;
-
-&lt;pre&gt;&lt;code&gt;&amp;lt;ip address&amp;gt;
-&amp;lt;ip address&amp;gt;/adminer
-&amp;lt;ip address&amp;gt;:8080
-&lt;/code&gt;&lt;/pre&gt;
-
-&lt;p&gt;Phew, that is done.&lt;/p&gt;
-</description>
+      <guid>https://robin-lee.github.io/blog/tomcat-development-server/</guid>
+      <description>I always wanted to learn some backend development seriously and finally I have the opportunity to do so. I have played around with server setup in the past but most of the information has been forgotten.
+This time round a development server will be setup in virtualbox using ubuntu server 14.04 LTS (support expires 2019). For 16.04 LTS, I think the apt-get command is replace with apt and there are many new changes&amp;hellip; To save some time and focus on learning backend development sticking with 14.</description>
+    </item>
+    
+    <item>
+      <title>Fundamentals: Sockets</title>
+      <link>https://robin-lee.github.io/blog/sockets/</link>
+      <pubDate>Mon, 01 Aug 2016 11:59:12 +0200</pubDate>
+      
+      <guid>https://robin-lee.github.io/blog/sockets/</guid>
+      <description>What is a socket? A socket is a tool that allows communication between two different processes on the same or different machines. To be more precise, it&amp;rsquo;s a way to talk to other computers using standard Unix file descriptors. In Unix, every I/O action is done by writing or reading a file descriptor. A file descriptor is just an integer associated with an open file and it can be a network connection, a text file, a terminal, or something else.</description>
+    </item>
+    
+    <item>
+      <title>Growing Object Oriented Software, Guided by Tests Part 1</title>
+      <link>https://robin-lee.github.io/blog/goosgbt-1/</link>
+      <pubDate>Wed, 27 Jul 2016 14:31:03 +0200</pubDate>
+      
+      <guid>https://robin-lee.github.io/blog/goosgbt-1/</guid>
+      <description>In this series, I consolidate points from the GOOSGBT book and may comment on some of them. The post may not be coherent as I am extracting fragments I consider useful or enlightening.
+Stackoverflow post to read: link
+Levels of testing  Acceptance: Does the whole system work? Integration: Does our code work against code we can&amp;rsquo;t change? Unit: Do our objects do the right thing, are they convenient to work with?</description>
+    </item>
+    
+    <item>
+      <title>Gradle and gradle init</title>
+      <link>https://robin-lee.github.io/blog/gradle-init/</link>
+      <pubDate>Wed, 27 Jul 2016 10:56:29 +0200</pubDate>
+      
+      <guid>https://robin-lee.github.io/blog/gradle-init/</guid>
+      <description>What is gradle? Gradle is an open source build automation system that builds upon the concepts of Apache Ant and Apache Maven and introduces a Groovy-based domain-specific language (DSL) instead of the XML form used by Apache Maven of declaring the project configuration. (wikipedia)
+Here are more build tools from a stackoverflow post linked later:
+ Apache Ant &amp;amp; Apache Maven - Java sbt (Simple Build Tool) - for Scala A-A-P - Python based build tool Rake (Apache Builder) - Ruby Leiningen for Clojure  There is gulpjs and gruntjs for Javascript too.</description>
+    </item>
+    
+    <item>
+      <title>Uncle Bob Said</title>
+      <link>https://robin-lee.github.io/blog/uncle-bob-inspiration/</link>
+      <pubDate>Sun, 24 Jul 2016 22:10:37 +0200</pubDate>
+      
+      <guid>https://robin-lee.github.io/blog/uncle-bob-inspiration/</guid>
+      <description> Inspirational quotes  &amp;ldquo;You dont go fast by writing crap”
+&amp;ldquo;You want to go fast, you do a good job”
+“Move deliberately, instead of rapidly&amp;rdquo;
+ </description>
+    </item>
+    
+    <item>
+      <title>Agile Software Development</title>
+      <link>https://robin-lee.github.io/blog/agile/</link>
+      <pubDate>Sat, 23 Jul 2016 16:29:59 +0200</pubDate>
+      
+      <guid>https://robin-lee.github.io/blog/agile/</guid>
+      <description>What is Agile Software Development? It refers to adopting a set of practices or principles while developing software.
+ In early 2001, the Agile Alliance met to outine the values and principles that would allow software teams work together and respond to change.
+ Agile Software Development, Principles, Patterns and Practices.
+Things that got my attention 1.
+ Agiles processes promote sustainable development. The sponsors, developers and users should be able to maintain constant pace indefinitely.</description>
+    </item>
+    
+    <item>
+      <title>SOLID Principles</title>
+      <link>https://robin-lee.github.io/blog/solid/</link>
+      <pubDate>Sat, 23 Jul 2016 14:46:47 +0200</pubDate>
+      
+      <guid>https://robin-lee.github.io/blog/solid/</guid>
+      <description>A set of principles to design or write classes.
+Single Responsibility Principle  A class should have one, and only one, reason to change.
+ Open - Closed Principle  You should be able to extend a classes behavior, without modifying it.
+ Liskov Substitution Principle  Derived classes must be substitutable for their base classes.
+ Interface Segregation Principle  Make fine grained interfaces that are client specific.</description>
+    </item>
+    
+    <item>
+      <title>Gson Custom Deserializer</title>
+      <link>https://robin-lee.github.io/blog/gson-custom-deserializer/</link>
+      <pubDate>Tue, 12 Jul 2016 21:51:16 +0200</pubDate>
+      
+      <guid>https://robin-lee.github.io/blog/gson-custom-deserializer/</guid>
+      <description>When you develop an application, usually you will have to consume an API Service which might return some JSON data. You might not need all values from the JSON data.
+The question is how do you process such data the right way?
+Typically, you will retrieve the data using a HTTP client and then pass it on to a Object Relational Mapper. In my experience APIs return data based on models crafted for the database, however, for client side applications the model you design might be different from what the API returns you (due to application needs/ease of development).</description>
+    </item>
+    
+    <item>
+      <title>About</title>
+      <link>https://robin-lee.github.io/about/</link>
+      <pubDate>Sun, 10 Jul 2016 15:04:30 +0200</pubDate>
+      
+      <guid>https://robin-lee.github.io/about/</guid>
+      <description>Robin is an undergraduate at SUTD.
+He likes tinkering with technologies and aims to become a great software engineer building applications that people love to use.
+Here he writes about his adventures with random things as well as shares his thoughts on various topics.</description>
+    </item>
+    
+    <item>
+      <title>Hello World</title>
+      <link>https://robin-lee.github.io/blog/hello-world/</link>
+      <pubDate>Sun, 10 Jul 2016 14:29:34 +0200</pubDate>
+      
+      <guid>https://robin-lee.github.io/blog/hello-world/</guid>
+      <description>Whoopee! Hugo, with the cocoa theme!
+Furthermore, some old posts have been shifted over from pelican!
+Check out how to use hugo here</description>
+    </item>
+    
+    <item>
+      <title>Virtual Box Shared Folder</title>
+      <link>https://robin-lee.github.io/blog/virtual-box-shared-folder/</link>
+      <pubDate>Sat, 06 Feb 2016 21:41:18 +0800</pubDate>
+      
+      <guid>https://robin-lee.github.io/blog/virtual-box-shared-folder/</guid>
+      <description>For some projects I need to share files between my virtual machine and my host machine. VirtualBox allows for shared folders between the VM and the host after install Guest Additions. However, there is always a bit of configuration involved.
+I installed Ubuntu 14.04 LTS and then installed Guest Additions. After I added a shared folder in the settings, I discovered that I did not have permission to access the folder.</description>
+    </item>
+    
+    <item>
+      <title>Forcing Display Edid</title>
+      <link>https://robin-lee.github.io/blog/forcing-display-edid/</link>
+      <pubDate>Fri, 05 Feb 2016 22:02:00 +0800</pubDate>
+      
+      <guid>https://robin-lee.github.io/blog/forcing-display-edid/</guid>
+      <description>I bought a 2 port VGA Switcher off Taobao so that I could switch my main display between my desktop and laptop. However, when I connected my Macbook through the VGA adapter to the VGA Switcher my screen was not appearing correctly. It was shifted off screen to the right.
+This is the 2 port VGA Switcher I bought off Taobao. It is a nice compact device with tacty buttons you can press to switch the the video input.</description>
+    </item>
+    
+    <item>
+      <title>Learning Regex</title>
+      <link>https://robin-lee.github.io/blog/learning-regex/</link>
+      <pubDate>Tue, 15 Sep 2015 23:21:45 +0800</pubDate>
+      
+      <guid>https://robin-lee.github.io/blog/learning-regex/</guid>
+      <description>I think regular expressions are essential when it comes to extracting data from a source.
+For example if you wanted the names of all the files in a folder without the extensio, using a regular expression could make the process easier and code more concise.
+The difficulty is finding the material to practice on even with a cheatsheet for regex.
+I found this site called regexone and I felt the tutorial reflected certain real life situations.</description>
     </item>
     
   </channel>
